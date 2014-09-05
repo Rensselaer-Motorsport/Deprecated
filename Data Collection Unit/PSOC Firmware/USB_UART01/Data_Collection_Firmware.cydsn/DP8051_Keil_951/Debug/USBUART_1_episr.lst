@@ -1,0 +1,1133 @@
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE USBUART_1_EPISR
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Debug\USBUART_1_episr.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -.\Generated_Source\PSoC3\USBUART_1_episr.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051_Keil_951\Debug\USBUART_1_episr.lst) 
+                    -CD DB NOIP OT(2,SIZE) INCDIR(.,.\Generated_Source\PSoC3) OJ(.\DP8051_Keil_951\Debug\USBUART_1_episr.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: USBUART_1_episr.c
+   3          * Version 2.70
+   4          *
+   5          * Description:
+   6          *  Data endpoint Interrupt Service Routines
+   7          *
+   8          * Note:
+   9          *
+  10          ********************************************************************************
+  11          * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  12          * You may use this file only in accordance with the license, terms, conditions,
+  13          * disclaimers, and limitations in the end user license agreement accompanying
+  14          * the software package with which this file was provided.
+  15          *******************************************************************************/
+  16          
+  17          #include "USBUART_1.h"
+  18          #include "USBUART_1_pvt.h"
+  19          #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && (USBUART_1_ENABLE_MIDI_API != 0u))
+                  #include "USBUART_1_midi.h"
+              #endif /* (defined(USBUART_1_ENABLE_MIDI_STREAMING) && (USBUART_1_ENABLE_MIDI_API != 0u)) */
+  22          #if ((USBUART_1_EP_MM == USBUART_1__EP_DMAAUTO) && (USBUART_1_EP_DMA_AUTO_OPT == 0u))
+                  #include "USBUART_1_EP8_DMA_Done_SR.h"
+                  #include "USBUART_1_EP17_DMA_Done_SR.h"
+              #endif /* (USBUART_1_EP_MM == USBUART_1__EP_DMAAUTO) && (USBUART_1_EP_DMA_AUTO_OPT == 0u) */
+  26          
+  27          
+  28          /***************************************
+  29          * Custom Declarations
+  30          ***************************************/
+  31          /* `#START CUSTOM_DECLARATIONS` Place your declaration here */
+  32          
+  33          /* `#END` */
+  34          
+  35          
+  36          #if(USBUART_1_EP1_ISR_REMOVE == 0u)
+  37          
+  38          
+  39              /******************************************************************************
+  40              * Function Name: USBUART_1_EP_1_ISR
+  41              *******************************************************************************
+  42              *
+  43              * Summary:
+  44              *  Endpoint 1 Interrupt Service Routine
+  45              *
+  46              * Parameters:
+  47              *  None.
+  48              *
+  49              * Return:
+  50              *  None.
+  51              *
+  52              ******************************************************************************/
+  53              CY_ISR(USBUART_1_EP_1_ISR)
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 2   
+
+  54              {
+  55   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT)  && \
+  56   1                           USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          uint8 int_en;
+                      #endif /* USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3 */
+  59   1      
+  60   1              /* `#START EP1_USER_CODE` Place your code here */
+  61   1      
+  62   1              /* `#END` */
+  63   1      
+  64   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+  65   1                           USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          int_en = EA;
+                          CyGlobalIntEnable;  /* Make sure nested interrupt is enabled */
+                      #endif /* USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3 */
+  69   1      
+  70   1              CY_GET_REG8(USBUART_1_SIE_EP1_CR0_PTR); /* Must read the mode reg */
+  71   1              /* Do not toggle ISOC endpoint */
+  72   1              if((USBUART_1_EP[USBUART_1_EP1].attrib & USBUART_1_EP_TYPE_MASK) !=
+  73   1                                                                                          USBUART_1_EP_TYPE_ISOC
+             -)
+  74   1              {
+  75   2                  USBUART_1_EP[USBUART_1_EP1].epToggle ^= USBUART_1_EPX_CNT_DATA_TOGGLE;
+  76   2              }
+  77   1              USBUART_1_EP[USBUART_1_EP1].apiEpState = USBUART_1_EVENT_PENDING;
+  78   1              CY_SET_REG8(USBUART_1_SIE_EP_INT_SR_PTR, CY_GET_REG8(USBUART_1_SIE_EP_INT_SR_PTR) &
+  79   1                                                                          (uint8)~USBUART_1_SIE_EP_INT_EP1_MASK)
+             -;
+  80   1      
+  81   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+  82   1                           USBUART_1_ISR_SERVICE_MIDI_OUT)
+                          if(USBUART_1_midi_out_ep == USBUART_1_EP1)
+                          {
+                              USBUART_1_MIDI_OUT_EP_Service();
+                          }
+                      #endif /*  USBUART_1_ISR_SERVICE_MIDI_OUT */
+  88   1      
+  89   1              /* `#START EP1_END_USER_CODE` Place your code here */
+  90   1      
+  91   1              /* `#END` */
+  92   1      
+  93   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+  94   1                           USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          EA = int_en;
+                      #endif /* USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3 */
+  97   1          }
+  98          
+  99          #endif   /*  USBUART_1_EP1_ISR_REMOVE */
+ 100          
+ 101          
+ 102          #if(USBUART_1_EP2_ISR_REMOVE == 0u)
+ 103          
+ 104              /*******************************************************************************
+ 105              * Function Name: USBUART_1_EP_2_ISR
+ 106              ********************************************************************************
+ 107              *
+ 108              * Summary:
+ 109              *  Endpoint 2 Interrupt Service Routine
+ 110              *
+ 111              * Parameters:
+ 112              *  None.
+ 113              *
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 3   
+
+ 114              * Return:
+ 115              *  None.
+ 116              *
+ 117              *******************************************************************************/
+ 118              CY_ISR(USBUART_1_EP_2_ISR)
+ 119              {
+ 120   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+ 121   1                           USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          uint8 int_en;
+                      #endif /* USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3 */
+ 124   1      
+ 125   1              /* `#START EP2_USER_CODE` Place your code here */
+ 126   1      
+ 127   1              /* `#END` */
+ 128   1      
+ 129   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+ 130   1                           USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          int_en = EA;
+                          CyGlobalIntEnable;  /* Make sure nested interrupt is enabled */
+                      #endif /* USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3 */
+ 134   1      
+ 135   1              CY_GET_REG8(USBUART_1_SIE_EP2_CR0_PTR); /* Must read the mode reg */
+ 136   1              /* Do not toggle ISOC endpoint */
+ 137   1              if((USBUART_1_EP[USBUART_1_EP2].attrib & USBUART_1_EP_TYPE_MASK) !=
+ 138   1                                                                                          USBUART_1_EP_TYPE_ISOC
+             -)
+ 139   1              {
+ 140   2                  USBUART_1_EP[USBUART_1_EP2].epToggle ^= USBUART_1_EPX_CNT_DATA_TOGGLE;
+ 141   2              }
+ 142   1              USBUART_1_EP[USBUART_1_EP2].apiEpState = USBUART_1_EVENT_PENDING;
+ 143   1              CY_SET_REG8(USBUART_1_SIE_EP_INT_SR_PTR, CY_GET_REG8(USBUART_1_SIE_EP_INT_SR_PTR)
+ 144   1                                                                              & (uint8)~USBUART_1_SIE_EP_INT_EP2
+             -_MASK);
+ 145   1      
+ 146   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+ 147   1                           USBUART_1_ISR_SERVICE_MIDI_OUT)
+                          if(USBUART_1_midi_out_ep == USBUART_1_EP2)
+                          {
+                              USBUART_1_MIDI_OUT_EP_Service();
+                          }
+                      #endif /*  USBUART_1_ISR_SERVICE_MIDI_OUT */
+ 153   1      
+ 154   1              /* `#START EP2_END_USER_CODE` Place your code here */
+ 155   1      
+ 156   1              /* `#END` */
+ 157   1      
+ 158   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+ 159   1                           USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          EA = int_en;
+                      #endif /* USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3 */
+ 162   1          }
+ 163          
+ 164          #endif   /*  USBUART_1_EP2_ISR_REMOVE */
+ 165          
+ 166          
+ 167          #if(USBUART_1_EP3_ISR_REMOVE == 0u)
+ 168          
+ 169              /*******************************************************************************
+ 170              * Function Name: USBUART_1_EP_3_ISR
+ 171              ********************************************************************************
+ 172              *
+ 173              * Summary:
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 4   
+
+ 174              *  Endpoint 3 Interrupt Service Routine
+ 175              *
+ 176              * Parameters:
+ 177              *  None.
+ 178              *
+ 179              * Return:
+ 180              *  None.
+ 181              *
+ 182              *******************************************************************************/
+ 183              CY_ISR(USBUART_1_EP_3_ISR)
+ 184              {
+ 185   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+ 186   1                           USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          uint8 int_en;
+                      #endif /* USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3 */
+ 189   1      
+ 190   1              /* `#START EP3_USER_CODE` Place your code here */
+ 191   1      
+ 192   1              /* `#END` */
+ 193   1      
+ 194   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+ 195   1                           USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          int_en = EA;
+                          CyGlobalIntEnable;  /* Make sure nested interrupt is enabled */
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+ 199   1      
+ 200   1              CY_GET_REG8(USBUART_1_SIE_EP3_CR0_PTR); /* Must read the mode reg */
+ 201   1              /* Do not toggle ISOC endpoint */
+ 202   1              if((USBUART_1_EP[USBUART_1_EP3].attrib & USBUART_1_EP_TYPE_MASK) !=
+ 203   1                                                                                          USBUART_1_EP_TYPE_ISOC
+             -)
+ 204   1              {
+ 205   2                  USBUART_1_EP[USBUART_1_EP3].epToggle ^= USBUART_1_EPX_CNT_DATA_TOGGLE;
+ 206   2              }
+ 207   1              USBUART_1_EP[USBUART_1_EP3].apiEpState = USBUART_1_EVENT_PENDING;
+ 208   1              CY_SET_REG8(USBUART_1_SIE_EP_INT_SR_PTR, CY_GET_REG8(USBUART_1_SIE_EP_INT_SR_PTR)
+ 209   1                                                                              & (uint8)~USBUART_1_SIE_EP_INT_EP3
+             -_MASK);
+ 210   1      
+ 211   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+ 212   1                           USBUART_1_ISR_SERVICE_MIDI_OUT)
+                          if(USBUART_1_midi_out_ep == USBUART_1_EP3)
+                          {
+                              USBUART_1_MIDI_OUT_EP_Service();
+                          }
+                      #endif /*  USBUART_1_ISR_SERVICE_MIDI_OUT */
+ 218   1      
+ 219   1              /* `#START EP3_END_USER_CODE` Place your code here */
+ 220   1      
+ 221   1              /* `#END` */
+ 222   1      
+ 223   1              #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+ 224   1                           USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          EA = int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+ 227   1          }
+ 228          
+ 229          #endif   /*  USBUART_1_EP3_ISR_REMOVE */
+ 230          
+ 231          
+ 232          #if(USBUART_1_EP4_ISR_REMOVE == 0u)
+              
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 5   
+
+                  /*******************************************************************************
+                  * Function Name: USBUART_1_EP_4_ISR
+                  ********************************************************************************
+                  *
+                  * Summary:
+                  *  Endpoint 4 Interrupt Service Routine
+                  *
+                  * Parameters:
+                  *  None.
+                  *
+                  * Return:
+                  *  None.
+                  *
+                  *******************************************************************************/
+                  CY_ISR(USBUART_1_EP_4_ISR)
+                  {
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          uint8 int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      /* `#START EP4_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          int_en = EA;
+                          CyGlobalIntEnable;  /* Make sure nested interrupt is enabled */
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      CY_GET_REG8(USBUART_1_SIE_EP4_CR0_PTR); /* Must read the mode reg */
+                      /* Do not toggle ISOC endpoint */
+                      if((USBUART_1_EP[USBUART_1_EP4].attrib & USBUART_1_EP_TYPE_MASK) !=
+                                                                                                  USBUART_1_EP_TYPE_ISOC
+             -)
+                      {
+                          USBUART_1_EP[USBUART_1_EP4].epToggle ^= USBUART_1_EPX_CNT_DATA_TOGGLE;
+                      }
+                      USBUART_1_EP[USBUART_1_EP4].apiEpState = USBUART_1_EVENT_PENDING;
+                      CY_SET_REG8(USBUART_1_SIE_EP_INT_SR_PTR, CY_GET_REG8(USBUART_1_SIE_EP_INT_SR_PTR)
+                                                                                      & (uint8)~USBUART_1_SIE_EP_INT_EP4
+             -_MASK);
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT)
+                          if(USBUART_1_midi_out_ep == USBUART_1_EP4)
+                          {
+                              USBUART_1_MIDI_OUT_EP_Service();
+                          }
+                      #endif /*  USBUART_1_ISR_SERVICE_MIDI_OUT */
+              
+                      /* `#START EP4_END_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          EA = int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+                  }
+              
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 6   
+
+              #endif   /*  USBUART_1_EP4_ISR_REMOVE */
+ 295          
+ 296          
+ 297          #if(USBUART_1_EP5_ISR_REMOVE == 0u)
+              
+                  /*******************************************************************************
+                  * Function Name: USBUART_1_EP_5_ISR
+                  ********************************************************************************
+                  *
+                  * Summary:
+                  *  Endpoint 5 Interrupt Service Routine
+                  *
+                  * Parameters:
+                  *  None.
+                  *
+                  * Return:
+                  *  None.
+                  *
+                  *******************************************************************************/
+                  CY_ISR(USBUART_1_EP_5_ISR)
+                  {
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          uint8 int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      /* `#START EP5_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          int_en = EA;
+                          CyGlobalIntEnable;  /* Make sure nested interrupt is enabled */
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      CY_GET_REG8(USBUART_1_SIE_EP5_CR0_PTR); /* Must read the mode reg */
+                      /* Do not toggle ISOC endpoint */
+                      if((USBUART_1_EP[USBUART_1_EP5].attrib & USBUART_1_EP_TYPE_MASK) !=
+                                                                                                  USBUART_1_EP_TYPE_ISOC
+             -)
+                      {
+                          USBUART_1_EP[USBUART_1_EP5].epToggle ^= USBUART_1_EPX_CNT_DATA_TOGGLE;
+                      }
+                      USBUART_1_EP[USBUART_1_EP5].apiEpState = USBUART_1_EVENT_PENDING;
+                      CY_SET_REG8(USBUART_1_SIE_EP_INT_SR_PTR, CY_GET_REG8(USBUART_1_SIE_EP_INT_SR_PTR)
+                                                                                      & (uint8)~USBUART_1_SIE_EP_INT_EP5
+             -_MASK);
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT)
+                          if(USBUART_1_midi_out_ep == USBUART_1_EP5)
+                          {
+                              USBUART_1_MIDI_OUT_EP_Service();
+                          }
+                      #endif /*  USBUART_1_ISR_SERVICE_MIDI_OUT */
+              
+                      /* `#START EP5_END_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 7   
+
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          EA = int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+                  }
+              #endif   /*  USBUART_1_EP5_ISR_REMOVE */
+ 359          
+ 360          
+ 361          #if(USBUART_1_EP6_ISR_REMOVE == 0u)
+              
+                  /*******************************************************************************
+                  * Function Name: USBUART_1_EP_6_ISR
+                  ********************************************************************************
+                  *
+                  * Summary:
+                  *  Endpoint 6 Interrupt Service Routine
+                  *
+                  * Parameters:
+                  *  None.
+                  *
+                  * Return:
+                  *  None.
+                  *
+                  *******************************************************************************/
+                  CY_ISR(USBUART_1_EP_6_ISR)
+                  {
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          uint8 int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      /* `#START EP6_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          int_en = EA;
+                          CyGlobalIntEnable;  /* Make sure nested interrupt is enabled */
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      CY_GET_REG8(USBUART_1_SIE_EP6_CR0_PTR); /* Must read the mode reg */
+                      /* Do not toggle ISOC endpoint */
+                      if((USBUART_1_EP[USBUART_1_EP6].attrib & USBUART_1_EP_TYPE_MASK) !=
+                                                                                                  USBUART_1_EP_TYPE_ISOC
+             -)
+                      {
+                          USBUART_1_EP[USBUART_1_EP6].epToggle ^= USBUART_1_EPX_CNT_DATA_TOGGLE;
+                      }
+                      USBUART_1_EP[USBUART_1_EP6].apiEpState = USBUART_1_EVENT_PENDING;
+                      CY_SET_REG8(USBUART_1_SIE_EP_INT_SR_PTR, CY_GET_REG8(USBUART_1_SIE_EP_INT_SR_PTR)
+                                                                                      & (uint8)~USBUART_1_SIE_EP_INT_EP6
+             -_MASK);
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT)
+                          if(USBUART_1_midi_out_ep == USBUART_1_EP6)
+                          {
+                              USBUART_1_MIDI_OUT_EP_Service();
+                          }
+                      #endif /*  USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      /* `#START EP6_END_USER_CODE` Place your code here */
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 8   
+
+              
+                      /* `#END` */
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          EA = int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+                  }
+              
+              #endif   /*  USBUART_1_EP6_ISR_REMOVE */
+ 424          
+ 425          
+ 426          #if(USBUART_1_EP7_ISR_REMOVE == 0u)
+              
+                  /*******************************************************************************
+                  * Function Name: USBUART_1_EP_7_ISR
+                  ********************************************************************************
+                  *
+                  * Summary:
+                  *  Endpoint 7 Interrupt Service Routine
+                  *
+                  * Parameters:
+                  *  None.
+                  *
+                  * Return:
+                  *  None.
+                  *
+                  *******************************************************************************/
+                  CY_ISR(USBUART_1_EP_7_ISR)
+                  {
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          uint8 int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      /* `#START EP7_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          int_en = EA;
+                          CyGlobalIntEnable;  /* Make sure nested interrupt is enabled */
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      CY_GET_REG8(USBUART_1_SIE_EP7_CR0_PTR); /* Must read the mode reg */
+                      /* Do not toggle ISOC endpoint */
+                      if((USBUART_1_EP[USBUART_1_EP7].attrib & USBUART_1_EP_TYPE_MASK) !=
+                                                                                                  USBUART_1_EP_TYPE_ISOC
+             -)
+                      {
+                          USBUART_1_EP[USBUART_1_EP7].epToggle ^= USBUART_1_EPX_CNT_DATA_TOGGLE;
+                      }
+                      USBUART_1_EP[USBUART_1_EP7].apiEpState = USBUART_1_EVENT_PENDING;
+                      CY_SET_REG8(USBUART_1_SIE_EP_INT_SR_PTR, CY_GET_REG8(USBUART_1_SIE_EP_INT_SR_PTR)
+                                                                                      & (uint8)~USBUART_1_SIE_EP_INT_EP7
+             -_MASK);
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT)
+                          if(USBUART_1_midi_out_ep == USBUART_1_EP7)
+                          {
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 9   
+
+                              USBUART_1_MIDI_OUT_EP_Service();
+                          }
+                      #endif /*  USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      /* `#START EP7_END_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          EA = int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+                  }
+              
+              #endif   /*  USBUART_1_EP7_ISR_REMOVE */
+ 489          
+ 490          
+ 491          #if(USBUART_1_EP8_ISR_REMOVE == 0u)
+              
+                  /*******************************************************************************
+                  * Function Name: USBUART_1_EP_8_ISR
+                  ********************************************************************************
+                  *
+                  * Summary:
+                  *  Endpoint 8 Interrupt Service Routine
+                  *
+                  * Parameters:
+                  *  None.
+                  *
+                  * Return:
+                  *  None.
+                  *
+                  *******************************************************************************/
+                  CY_ISR(USBUART_1_EP_8_ISR)
+                  {
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          uint8 int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      /* `#START EP8_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          int_en = EA;
+                          CyGlobalIntEnable;  /* Make sure nested interrupt is enabled */
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+              
+                      CY_GET_REG8(USBUART_1_SIE_EP8_CR0_PTR); /* Must read the mode reg */
+                      /* Do not toggle ISOC endpoint */
+                      if((USBUART_1_EP[USBUART_1_EP8].attrib & USBUART_1_EP_TYPE_MASK) !=
+                                                                                                  USBUART_1_EP_TYPE_ISOC
+             -)
+                      {
+                          USBUART_1_EP[USBUART_1_EP8].epToggle ^= USBUART_1_EPX_CNT_DATA_TOGGLE;
+                      }
+                      USBUART_1_EP[USBUART_1_EP8].apiEpState = USBUART_1_EVENT_PENDING;
+                      CY_SET_REG8(USBUART_1_SIE_EP_INT_SR_PTR, CY_GET_REG8(USBUART_1_SIE_EP_INT_SR_PTR)
+                                                                                      & (uint8)~USBUART_1_SIE_EP_INT_EP8
+             -_MASK);
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 10  
+
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT)
+                          if(USBUART_1_midi_out_ep == USBUART_1_EP8)
+                          {
+                              USBUART_1_MIDI_OUT_EP_Service();
+                          }
+                      #endif /*  USBUART_1_ISR_SERVICE_MIDI_OUT */
+              
+                      /* `#START EP8_END_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && !defined(USBUART_1_MAIN_SERVICE_MIDI_OUT) && \
+                                   USBUART_1_ISR_SERVICE_MIDI_OUT && CY_PSOC3)
+                          EA = int_en;
+                      #endif /* CY_PSOC3 & USBUART_1_ISR_SERVICE_MIDI_OUT  */
+                  }
+              
+              #endif   /*  USBUART_1_EP8_ISR_REMOVE */
+ 554          
+ 555          
+ 556          /*******************************************************************************
+ 557          * Function Name: USBUART_1_SOF_ISR
+ 558          ********************************************************************************
+ 559          *
+ 560          * Summary:
+ 561          *  Start of Frame Interrupt Service Routine
+ 562          *
+ 563          * Parameters:
+ 564          *  None.
+ 565          *
+ 566          * Return:
+ 567          *  None.
+ 568          *
+ 569          *******************************************************************************/
+ 570          CY_ISR(USBUART_1_SOF_ISR)
+ 571          {
+ 572   1          /* `#START SOF_USER_CODE` Place your code here */
+ 573   1      
+ 574   1          /* `#END` */
+ 575   1      }
+ 576          
+ 577          
+ 578          /*******************************************************************************
+ 579          * Function Name: USBUART_1_BUS_RESET_ISR
+ 580          ********************************************************************************
+ 581          *
+ 582          * Summary:
+ 583          *  USB Bus Reset Interrupt Service Routine.  Calls _Start with the same
+ 584          *  parameters as the last USER call to _Start
+ 585          *
+ 586          * Parameters:
+ 587          *  None.
+ 588          *
+ 589          * Return:
+ 590          *  None.
+ 591          *
+ 592          *******************************************************************************/
+ 593          CY_ISR(USBUART_1_BUS_RESET_ISR)
+ 594          {
+ 595   1          /* `#START BUS_RESET_USER_CODE` Place your code here */
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 11  
+
+ 596   1      
+ 597   1          /* `#END` */
+ 598   1      
+ 599   1          USBUART_1_ReInitComponent();
+ 600   1      }
+ 601          
+ 602          
+ 603          #if((USBUART_1_EP_MM != USBUART_1__EP_MANUAL) && (USBUART_1_ARB_ISR_REMOVE == 0u))
+              
+              
+                  /*******************************************************************************
+                  * Function Name: USBUART_1_ARB_ISR
+                  ********************************************************************************
+                  *
+                  * Summary:
+                  *  Arbiter Interrupt Service Routine
+                  *
+                  * Parameters:
+                  *  None.
+                  *
+                  * Return:
+                  *  None.
+                  *
+                  * Side effect:
+                  *  Search for EP8 int_status will be much slower than search for EP1 int_status.
+                  *
+                  *******************************************************************************/
+                  CY_ISR(USBUART_1_ARB_ISR)
+                  {
+                      uint8 int_status;
+                      uint8 ep_status;
+                      uint8 ep = USBUART_1_EP1;
+                      uint8 ptr = 0u;
+              
+                      /* `#START ARB_BEGIN_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      int_status = USBUART_1_ARB_INT_SR_REG;                   /* read Arbiter Status Register */
+                      USBUART_1_ARB_INT_SR_REG = int_status;                   /* Clear Serviced Interrupts */
+              
+                      while(int_status != 0u)
+                      {
+                          if((int_status & 1u) != 0u)  /* If EpX interrupt present */
+                          {   /* read Endpoint Status Register */
+                              ep_status  = CY_GET_REG8((reg8 *)(USBUART_1_ARB_EP1_SR_IND + ptr));
+                              /* If In Buffer Full */
+                              if((ep_status & USBUART_1_ARB_EPX_SR_IN_BUF_FULL) != 0u)
+                              {
+                                  if((USBUART_1_EP[ep].addr & USBUART_1_DIR_IN) != 0u)
+                                  {
+                                      /* Clear Data ready status */
+                                      *(reg8 *)(USBUART_1_ARB_EP1_CFG_IND + ptr) &=
+                                                                                  (uint8)~USBUART_1_ARB_EPX_CFG_IN_DATA_
+             -RDY;
+                                      #if((USBUART_1_EP_MM == USBUART_1__EP_DMAAUTO) && (USBUART_1_EP_DMA_AUTO_OPT == 0u
+             -))
+                                          /* Setup common area DMA with rest of the data */
+                                          if(USBUART_1_inLength[ep] > USBUART_1_DMA_BYTES_PER_BURST)
+                                          {
+                                              USBUART_1_LoadNextInEP(ep, 0u);
+                                          }
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 12  
+
+                                          else
+                                          {
+                                              USBUART_1_inBufFull[ep] = 1u;
+                                          }
+                                      #endif /* ((USBUART_1_EP_MM == USBUART_1__EP_DMAAUTO) && (USBUART_1_EP_DMA_AUTO_OP
+             -T == 0u)) */
+                                      /* Write the Mode register */
+                                      CY_SET_REG8((reg8 *)(USBUART_1_SIE_EP1_CR0_IND + ptr), USBUART_1_EP[ep].epMode);
+                                      #if (defined(USBUART_1_ENABLE_MIDI_STREAMING) && USBUART_1_ISR_SERVICE_MIDI_IN)
+                                          if(ep == USBUART_1_midi_in_ep)
+                                          {   /* Clear MIDI input pointer */
+                                              USBUART_1_midiInPointer = 0u;
+                                          }
+                                      #endif /*  USBUART_1_ENABLE_MIDI_STREAMING*/
+                                  }
+                              }
+                              /* (re)arm Out EP only for mode2 */
+                              #if(USBUART_1_EP_MM != USBUART_1__EP_DMAAUTO)
+                                  /* If DMA Grant */
+                                  if((ep_status & USBUART_1_ARB_EPX_SR_DMA_GNT) != 0u)
+                                  {
+                                      if((USBUART_1_EP[ep].addr & USBUART_1_DIR_IN) == 0u)
+                                      {
+                                              USBUART_1_EP[ep].apiEpState = USBUART_1_NO_EVENT_PENDING;
+                                              /* Write the Mode register */
+                                              CY_SET_REG8((reg8 *)(USBUART_1_SIE_EP1_CR0_IND + ptr),
+                                                                                                  USBUART_1_EP[ep].epMod
+             -e);
+                                      }
+                                  }
+                              #endif /*  USBUART_1_EP_MM */
+              
+                              /* `#START ARB_USER_CODE` Place your code here for handle Buffer Underflow/Overflow */
+              
+                              /* `#END` */
+              
+                              CY_SET_REG8((reg8 *)(USBUART_1_ARB_EP1_SR_IND + ptr), ep_status);   /* Clear Serviced even
+             -ts */
+                          }
+                          ptr += USBUART_1_EPX_CNTX_ADDR_OFFSET;               /* prepare pointer for next EP */
+                          ep++;
+                          int_status >>= 1u;
+                      }
+              
+                      /* `#START ARB_END_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+                  }
+              
+              #endif /*  USBUART_1_EP_MM */
+ 703          
+ 704          #if ((USBUART_1_EP_MM == USBUART_1__EP_DMAAUTO) && (USBUART_1_EP_DMA_AUTO_OPT == 0u))
+                  /******************************************************************************
+                  * Function Name: USBUART_1_EP_DMA_DONE_ISR
+                  *******************************************************************************
+                  *
+                  * Summary:
+                  *  Endpoint 1 DMA Done Interrupt Service Routine
+                  *
+                  * Parameters:
+                  *  None.
+                  *
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 13  
+
+                  * Return:
+                  *  None.
+                  *
+                  ******************************************************************************/
+                  CY_ISR(USBUART_1_EP_DMA_DONE_ISR)
+                  {
+                      uint8 int8Status;
+                      uint8 int17Status;
+                      uint8 ep_status;
+                      uint8 ep = USBUART_1_EP1;
+                      uint8 ptr = 0u;
+              
+                      /* `#START EP_DMA_DONE_BEGIN_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+              
+                      /* Read clear on read status register with the EP source of interrupt */
+                      int17Status = USBUART_1_EP17_DMA_Done_SR_Read() & USBUART_1_EP17_SR_MASK;
+                      int8Status = USBUART_1_EP8_DMA_Done_SR_Read() & USBUART_1_EP8_SR_MASK;
+              
+                      while(int8Status != 0u)
+                      {
+                          while(int17Status != 0u)
+                          {
+                              if((int17Status & 1u) != 0u)  /* If EpX interrupt present */
+                              {
+                                  /* Read Endpoint Status Register */
+                                  ep_status = CY_GET_REG8((reg8 *)(USBUART_1_ARB_EP1_SR_IND + ptr));
+                                  if( ((ep_status & USBUART_1_ARB_EPX_SR_IN_BUF_FULL) == 0u) &&
+                                      (USBUART_1_inBufFull[ep] == 0u))
+                                  {
+                                      /* `#START EP_DMA_DONE_USER_CODE` Place your code here */
+              
+                                      /* `#END` */
+              
+                                      CY_SET_REG8((reg8 *)(USBUART_1_ARB_RW1_WA_MSB_IND + ptr), 0x00u);
+                                      /* repeat 2 last bytes to prefetch endpoint area */
+                                      CY_SET_REG8((reg8 *)(USBUART_1_ARB_RW1_WA_IND + ptr),
+                                                  USBUART_1_DMA_BYTES_PER_BURST * ep - USBUART_1_DMA_BYTES_REPEAT);
+                                      USBUART_1_LoadNextInEP(ep, 1);
+                                      /* Set Data ready status, This will generate DMA request */
+                                      * (reg8 *)(USBUART_1_ARB_EP1_CFG_IND + ptr) |= USBUART_1_ARB_EPX_CFG_IN_DATA_RDY;
+                                  }
+                              }
+                              ptr += USBUART_1_EPX_CNTX_ADDR_OFFSET;               /* prepare pointer for next EP */
+                              ep++;
+                              int17Status >>= 1u;
+                          }
+                          int8Status >>= 1u;
+                          if(int8Status != 0)
+                          {
+                              /* Prepare pointer for EP8 */
+                              ptr = ((USBUART_1_EP8 - USBUART_1_EP1) << USBUART_1_EPX_CNTX_ADDR_SHIFT);
+                              ep = USBUART_1_EP8;
+                              int17Status = int8Status & 0x01u;
+                          }
+                      }
+              
+                      /* `#START EP_DMA_DONE_END_USER_CODE` Place your code here */
+              
+                      /* `#END` */
+                  }
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 14  
+
+              #endif /* ((USBUART_1_EP_MM == USBUART_1__EP_DMAAUTO) && (USBUART_1_EP_DMA_AUTO_OPT == 0u)) */
+ 778          
+ 779          
+ 780          /* [] END OF FILE */
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 15  
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION USBUART_1_EP_1_ISR (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C083              PUSH    DPH
+0004 C082              PUSH    DPL
+0006 C085              PUSH    DPH1
+0008 C084              PUSH    DPL1
+000A C086              PUSH    DPS
+000C 758600            MOV     DPS,#00H
+000F C000        E     PUSH    ?C?XPAGE1SFR
+0011 750000      E     MOV     ?C?XPAGE1SFR,#?C?XPAGE1RST
+0014 C0D0              PUSH    PSW
+0016 75D000            MOV     PSW,#00H
+0019 C006              PUSH    AR6
+001B C007              PUSH    AR7
+                                           ; SOURCE LINE # 53
+                                           ; SOURCE LINE # 70
+001D 90600E            MOV     DPTR,#0600EH
+0020 E0                MOVX    A,@DPTR
+0021 FF                MOV     R7,A
+                                           ; SOURCE LINE # 72
+0022 900000      E     MOV     DPTR,#USBUART_1_EP+0BH
+0025 E0                MOVX    A,@DPTR
+0026 FF                MOV     R7,A
+0027 EF                MOV     A,R7
+0028 5403              ANL     A,#03H
+002A FF                MOV     R7,A
+002B 7E00              MOV     R6,#00H
+002D EF                MOV     A,R7
+002E 6401              XRL     A,#01H
+0030 4E                ORL     A,R6
+0031 600E              JZ      ?C0001
+                                           ; SOURCE LINE # 74
+                                           ; SOURCE LINE # 75
+0033 900000      E     MOV     DPTR,#USBUART_1_EP+0EH
+0036 E0                MOVX    A,@DPTR
+0037 FF                MOV     R7,A
+0038 EF                MOV     A,R7
+0039 6480              XRL     A,#080H
+003B FF                MOV     R7,A
+003C 900000      E     MOV     DPTR,#USBUART_1_EP+0EH
+003F EF                MOV     A,R7
+0040 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 76
+0041         ?C0001:
+                                           ; SOURCE LINE # 77
+0041 900000      E     MOV     DPTR,#USBUART_1_EP+0CH
+0044 7401              MOV     A,#01H
+0046 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 79
+0047 90600B            MOV     DPTR,#0600BH
+004A E0                MOVX    A,@DPTR
+004B FF                MOV     R7,A
+004C EF                MOV     A,R7
+004D 54FE              ANL     A,#0FEH
+004F FF                MOV     R7,A
+0050 EF                MOV     A,R7
+0051 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 97
+0052 D007              POP     AR7
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 16  
+
+0054 D006              POP     AR6
+0056 D0D0              POP     PSW
+0058 D000        E     POP     ?C?XPAGE1SFR
+005A D086              POP     DPS
+005C D084              POP     DPL1
+005E D085              POP     DPH1
+0060 D082              POP     DPL
+0062 D083              POP     DPH
+0064 D0E0              POP     ACC
+0066 32                RETI    
+             ; FUNCTION USBUART_1_EP_1_ISR (END)
+
+             ; FUNCTION USBUART_1_EP_2_ISR (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C083              PUSH    DPH
+0004 C082              PUSH    DPL
+0006 C085              PUSH    DPH1
+0008 C084              PUSH    DPL1
+000A C086              PUSH    DPS
+000C 758600            MOV     DPS,#00H
+000F C000        E     PUSH    ?C?XPAGE1SFR
+0011 750000      E     MOV     ?C?XPAGE1SFR,#?C?XPAGE1RST
+0014 C0D0              PUSH    PSW
+0016 75D000            MOV     PSW,#00H
+0019 C006              PUSH    AR6
+001B C007              PUSH    AR7
+                                           ; SOURCE LINE # 118
+                                           ; SOURCE LINE # 135
+001D 90601E            MOV     DPTR,#0601EH
+0020 E0                MOVX    A,@DPTR
+0021 FF                MOV     R7,A
+                                           ; SOURCE LINE # 137
+0022 900000      E     MOV     DPTR,#USBUART_1_EP+016H
+0025 E0                MOVX    A,@DPTR
+0026 FF                MOV     R7,A
+0027 EF                MOV     A,R7
+0028 5403              ANL     A,#03H
+002A FF                MOV     R7,A
+002B 7E00              MOV     R6,#00H
+002D EF                MOV     A,R7
+002E 6401              XRL     A,#01H
+0030 4E                ORL     A,R6
+0031 600E              JZ      ?C0003
+                                           ; SOURCE LINE # 139
+                                           ; SOURCE LINE # 140
+0033 900000      E     MOV     DPTR,#USBUART_1_EP+019H
+0036 E0                MOVX    A,@DPTR
+0037 FF                MOV     R7,A
+0038 EF                MOV     A,R7
+0039 6480              XRL     A,#080H
+003B FF                MOV     R7,A
+003C 900000      E     MOV     DPTR,#USBUART_1_EP+019H
+003F EF                MOV     A,R7
+0040 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 141
+0041         ?C0003:
+                                           ; SOURCE LINE # 142
+0041 900000      E     MOV     DPTR,#USBUART_1_EP+017H
+0044 7401              MOV     A,#01H
+0046 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 144
+0047 90600B            MOV     DPTR,#0600BH
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 17  
+
+004A E0                MOVX    A,@DPTR
+004B FF                MOV     R7,A
+004C EF                MOV     A,R7
+004D 54FD              ANL     A,#0FDH
+004F FF                MOV     R7,A
+0050 EF                MOV     A,R7
+0051 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 162
+0052 D007              POP     AR7
+0054 D006              POP     AR6
+0056 D0D0              POP     PSW
+0058 D000        E     POP     ?C?XPAGE1SFR
+005A D086              POP     DPS
+005C D084              POP     DPL1
+005E D085              POP     DPH1
+0060 D082              POP     DPL
+0062 D083              POP     DPH
+0064 D0E0              POP     ACC
+0066 32                RETI    
+             ; FUNCTION USBUART_1_EP_2_ISR (END)
+
+             ; FUNCTION USBUART_1_EP_3_ISR (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C083              PUSH    DPH
+0004 C082              PUSH    DPL
+0006 C085              PUSH    DPH1
+0008 C084              PUSH    DPL1
+000A C086              PUSH    DPS
+000C 758600            MOV     DPS,#00H
+000F C000        E     PUSH    ?C?XPAGE1SFR
+0011 750000      E     MOV     ?C?XPAGE1SFR,#?C?XPAGE1RST
+0014 C0D0              PUSH    PSW
+0016 75D000            MOV     PSW,#00H
+0019 C006              PUSH    AR6
+001B C007              PUSH    AR7
+                                           ; SOURCE LINE # 183
+                                           ; SOURCE LINE # 200
+001D 90602E            MOV     DPTR,#0602EH
+0020 E0                MOVX    A,@DPTR
+0021 FF                MOV     R7,A
+                                           ; SOURCE LINE # 202
+0022 900000      E     MOV     DPTR,#USBUART_1_EP+021H
+0025 E0                MOVX    A,@DPTR
+0026 FF                MOV     R7,A
+0027 EF                MOV     A,R7
+0028 5403              ANL     A,#03H
+002A FF                MOV     R7,A
+002B 7E00              MOV     R6,#00H
+002D EF                MOV     A,R7
+002E 6401              XRL     A,#01H
+0030 4E                ORL     A,R6
+0031 600E              JZ      ?C0005
+                                           ; SOURCE LINE # 204
+                                           ; SOURCE LINE # 205
+0033 900000      E     MOV     DPTR,#USBUART_1_EP+024H
+0036 E0                MOVX    A,@DPTR
+0037 FF                MOV     R7,A
+0038 EF                MOV     A,R7
+0039 6480              XRL     A,#080H
+003B FF                MOV     R7,A
+003C 900000      E     MOV     DPTR,#USBUART_1_EP+024H
+003F EF                MOV     A,R7
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 18  
+
+0040 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 206
+0041         ?C0005:
+                                           ; SOURCE LINE # 207
+0041 900000      E     MOV     DPTR,#USBUART_1_EP+022H
+0044 7401              MOV     A,#01H
+0046 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 209
+0047 90600B            MOV     DPTR,#0600BH
+004A E0                MOVX    A,@DPTR
+004B FF                MOV     R7,A
+004C EF                MOV     A,R7
+004D 54FB              ANL     A,#0FBH
+004F FF                MOV     R7,A
+0050 EF                MOV     A,R7
+0051 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 227
+0052 D007              POP     AR7
+0054 D006              POP     AR6
+0056 D0D0              POP     PSW
+0058 D000        E     POP     ?C?XPAGE1SFR
+005A D086              POP     DPS
+005C D084              POP     DPL1
+005E D085              POP     DPH1
+0060 D082              POP     DPL
+0062 D083              POP     DPH
+0064 D0E0              POP     ACC
+0066 32                RETI    
+             ; FUNCTION USBUART_1_EP_3_ISR (END)
+
+             ; FUNCTION USBUART_1_SOF_ISR (BEGIN)
+                                           ; SOURCE LINE # 570
+                                           ; SOURCE LINE # 575
+0000 32                RETI    
+             ; FUNCTION USBUART_1_SOF_ISR (END)
+
+             ; FUNCTION USBUART_1_BUS_RESET_ISR (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C0F0              PUSH    B
+0004 C083              PUSH    DPH
+0006 C082              PUSH    DPL
+0008 C085              PUSH    DPH1
+000A C084              PUSH    DPL1
+000C C086              PUSH    DPS
+000E 758600            MOV     DPS,#00H
+0011 C000        E     PUSH    ?C?XPAGE1SFR
+0013 750000      E     MOV     ?C?XPAGE1SFR,#?C?XPAGE1RST
+0016 C0D0              PUSH    PSW
+0018 75D000            MOV     PSW,#00H
+001B C000              PUSH    AR0
+001D C001              PUSH    AR1
+001F C002              PUSH    AR2
+0021 C003              PUSH    AR3
+0023 C004              PUSH    AR4
+0025 C005              PUSH    AR5
+0027 C006              PUSH    AR6
+0029 C007              PUSH    AR7
+                                           ; SOURCE LINE # 593
+                                           ; SOURCE LINE # 599
+002B 120000      E     LCALL   USBUART_1_ReInitComponent
+                                           ; SOURCE LINE # 600
+002E D007              POP     AR7
+C51 COMPILER V9.51   USBUART_1_EPISR                                                       09/04/2014 17:45:47 PAGE 19  
+
+0030 D006              POP     AR6
+0032 D005              POP     AR5
+0034 D004              POP     AR4
+0036 D003              POP     AR3
+0038 D002              POP     AR2
+003A D001              POP     AR1
+003C D000              POP     AR0
+003E D0D0              POP     PSW
+0040 D000        E     POP     ?C?XPAGE1SFR
+0042 D086              POP     DPS
+0044 D084              POP     DPL1
+0046 D085              POP     DPH1
+0048 D082              POP     DPL
+004A D083              POP     DPH
+004C D0F0              POP     B
+004E D0E0              POP     ACC
+0050 32                RETI    
+             ; FUNCTION USBUART_1_BUS_RESET_ISR (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    391    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,493 @@
+C51 COMPILER V9.51   MAIN                                                                  09/04/2014 17:48:41 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Debug\main.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -.\main.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051_Keil_951\Debug\main.lst) CD DB NOIP OT(2,SIZE) INCDIR(.,.\Generated_So
+                    -urce\PSoC3) OJ(.\DP8051_Keil_951\Debug\main.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: main.c
+   3          *
+   4          *Adaptable Automotive Data Logger
+   5          *
+   6          * Version: 1.0
+   7          *
+   8          *******************************************************************************/
+   9          
+  10          #include <device.h>
+  11          #include "stdio.h"
+  12          
+  13          #if defined (__GNUC__)
+                  /* Add an explicit reference to the floating point printf library */
+                  /* to allow the usage of floating point conversion specifiers. */
+                  /* This is not linked in by default with the newlib-nano library. */
+                  asm (".global _printf_float");
+              #endif
+  19          
+  20          /* The size of the buffer is equal to maximum packet size of the 
+  21          *  IN and OUT bulk endpoints. 
+  22          */
+  23          #define BUFFER_LEN  64u
+  24          
+  25          char8 *parity[] = { "None", "Odd", "Even", "Mark", "Space" };
+  26          char8 *stop[] = { "1", "1.5", "2" };
+  27          
+  28          void main()
+  29          {
+  30   1          uint16 count;
+  31   1          uint8 buffer[BUFFER_LEN];
+  32   1          char8 lineStr[20];
+  33   1          uint8 state;
+  34   1          
+  35   1          /* Enable Global Interrupts */
+  36   1          CyGlobalIntEnable;                        
+  37   1      
+  38   1          /* Start USBFS Operation with 3V operation */
+  39   1          USBUART_1_Start(0u, USBUART_1_3V_OPERATION);
+  40   1      
+  41   1          /* Start LCD */
+  42   1          LCD_Start();
+  43   1          LCD_PrintString("USB-UART example");
+  44   1          
+  45   1          /* Wait for Device to enumerate */
+  46   1          while(!USBUART_1_GetConfiguration());
+  47   1      
+  48   1          /* Enumeration is done, enable OUT endpoint for receive data from Host */
+  49   1          USBUART_1_CDC_Init();
+  50   1      
+  51   1          /* Main Loop: */
+  52   1          for(;;)
+  53   1          {
+C51 COMPILER V9.51   MAIN                                                                  09/04/2014 17:48:41 PAGE 2   
+
+  54   2              if(USBUART_1_DataIsReady() != 0u)               /* Check for input data from PC */
+  55   2              {   
+  56   3                  count = USBUART_1_GetAll(buffer);           /* Read received data and re-enable OUT endpoint *
+             -/
+  57   3                  if(count != 0u)
+  58   3                  {
+  59   4                      while(USBUART_1_CDCIsReady() == 0u);    /* Wait till component is ready to send more data 
+             -to the PC */ 
+  60   4                      USBUART_1_PutData(buffer, count);       /* Send data back to PC */
+  61   4                      /* If the last sent packet is exactly maximum packet size, 
+  62   4                      *  it shall be followed by a zero-length packet to assure the
+  63   4                      *  end of segment is properly identified by the terminal.
+  64   4                      */
+  65   4                      if(count == BUFFER_LEN)
+  66   4                      {
+  67   5                          while(USBUART_1_CDCIsReady() == 0u); /* Wait till component is ready to send more data
+             - to the PC */ 
+  68   5                          USBUART_1_PutData(NULL, 0u);         /* Send zero-length packet to PC */
+  69   5                      }
+  70   4                  }
+  71   3              }  
+  72   2              
+  73   2              state = USBUART_1_IsLineChanged();              /* Check for Line settings changed */
+  74   2              if(state != 0u)
+  75   2              {  
+  76   3                  if(state & USBUART_1_LINE_CODING_CHANGED)   /* Show new settings */
+  77   3                  {
+  78   4                      sprintf(lineStr,"BR:%4ld,DB:%d",USBUART_1_GetDTERate(),(uint16)USBUART_1_GetDataBits());
+  79   4                      LCD_Position(0u, 0u);
+  80   4                      LCD_PrintString("                    ");
+  81   4                      LCD_Position(0u, 0u);
+  82   4                      LCD_PrintString(lineStr);
+  83   4                      sprintf(lineStr,"SB:%s,Parity:%s", stop[(uint16)USBUART_1_GetCharFormat()], \
+  84   4                                                           parity[(uint16)USBUART_1_GetParityType()]);
+  85   4                      LCD_Position(1u, 0u);
+  86   4                      LCD_PrintString("                    ");
+  87   4                      LCD_Position(1u, 0u);
+  88   4                      LCD_PrintString(lineStr);
+  89   4                  }
+  90   3                  if(state & USBUART_1_LINE_CONTROL_CHANGED)  /* Show new settings */
+  91   3                  {   
+  92   4                      state = USBUART_1_GetLineControl();
+  93   4                      sprintf(lineStr,"DTR:%s,RTS:%s",  (state & USBUART_1_LINE_CONTROL_DTR) ? "ON" : "OFF", \
+  94   4                                                          (state & USBUART_1_LINE_CONTROL_RTS) ? "ON" : "OFF");
+  95   4                      LCD_Position(1u, 0u);
+  96   4                      LCD_PrintString("                    ");
+  97   4                      LCD_Position(1u, 0u);
+  98   4                      LCD_PrintString(lineStr);
+  99   4                  
+ 100   4                  }
+ 101   3              }
+ 102   2          }   
+ 103   1      }
+ 104          
+ 105          /* [] END OF FILE */
+C51 COMPILER V9.51   MAIN                                                                  09/04/2014 17:48:41 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION main (BEGIN)
+                                           ; SOURCE LINE # 28
+                                           ; SOURCE LINE # 29
+                                           ; SOURCE LINE # 30
+                                           ; SOURCE LINE # 36
+0000 D2AF              SETB    EA
+0002 9044F4            MOV     DPTR,#044F4H
+0005 74FD              MOV     A,#0FDH
+0007 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 39
+0008 7D00              MOV     R5,#00H
+000A 7F00              MOV     R7,#00H
+000C 120000      E     LCALL   _USBUART_1_Start
+                                           ; SOURCE LINE # 42
+000F 120000      E     LCALL   LCD_Start
+                                           ; SOURCE LINE # 43
+0012 7BFF              MOV     R3,#0FFH
+0014 7A00        R     MOV     R2,#HIGH ?SC_33
+0016 7900        R     MOV     R1,#LOW ?SC_33
+0018 120000      E     LCALL   _LCD_PrintString
+001B         ?C0001:
+                                           ; SOURCE LINE # 46
+001B 120000      E     LCALL   USBUART_1_GetConfiguration
+001E EF                MOV     A,R7
+001F 60FA              JZ      ?C0001
+0021         ?C0002:
+                                           ; SOURCE LINE # 49
+0021 120000      E     LCALL   USBUART_1_CDC_Init
+                                           ; SOURCE LINE # 52
+0024         ?C0003:
+                                           ; SOURCE LINE # 53
+                                           ; SOURCE LINE # 54
+0024 120000      E     LCALL   USBUART_1_DataIsReady
+0027 EF                MOV     A,R7
+0028 6055              JZ      ?C0005
+                                           ; SOURCE LINE # 55
+                                           ; SOURCE LINE # 56
+002A 7B01              MOV     R3,#01H
+002C 7A00        R     MOV     R2,#HIGH buffer
+002E 7900        R     MOV     R1,#LOW buffer
+0030 120000      E     LCALL   _USBUART_1_GetAll
+0033 900000      R     MOV     DPTR,#count
+0036 EE                MOV     A,R6
+0037 F0                MOVX    @DPTR,A
+0038 A3                INC     DPTR
+0039 EF                MOV     A,R7
+003A F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 57
+003B 900000      R     MOV     DPTR,#count
+003E E0                MOVX    A,@DPTR
+003F FE                MOV     R6,A
+0040 A3                INC     DPTR
+0041 E0                MOVX    A,@DPTR
+0042 FF                MOV     R7,A
+0043 EF                MOV     A,R7
+0044 4E                ORL     A,R6
+0045 6038              JZ      ?C0005
+                                           ; SOURCE LINE # 58
+0047         ?C0007:
+C51 COMPILER V9.51   MAIN                                                                  09/04/2014 17:48:41 PAGE 4   
+
+                                           ; SOURCE LINE # 59
+0047 120000      E     LCALL   USBUART_1_CDCIsReady
+004A EF                MOV     A,R7
+004B 60FA              JZ      ?C0007
+004D         ?C0008:
+                                           ; SOURCE LINE # 60
+004D 7B01              MOV     R3,#01H
+004F 7A00        R     MOV     R2,#HIGH buffer
+0051 7900        R     MOV     R1,#LOW buffer
+0053 900000      R     MOV     DPTR,#count
+0056 E0                MOVX    A,@DPTR
+0057 FC                MOV     R4,A
+0058 A3                INC     DPTR
+0059 E0                MOVX    A,@DPTR
+005A FD                MOV     R5,A
+005B 120000      E     LCALL   _USBUART_1_PutData
+                                           ; SOURCE LINE # 65
+005E 900000      R     MOV     DPTR,#count
+0061 E0                MOVX    A,@DPTR
+0062 FE                MOV     R6,A
+0063 A3                INC     DPTR
+0064 E0                MOVX    A,@DPTR
+0065 FF                MOV     R7,A
+0066 EF                MOV     A,R7
+0067 6440              XRL     A,#040H
+0069 4E                ORL     A,R6
+006A 7013              JNZ     ?C0005
+                                           ; SOURCE LINE # 66
+006C         ?C0010:
+                                           ; SOURCE LINE # 67
+006C 120000      E     LCALL   USBUART_1_CDCIsReady
+006F EF                MOV     A,R7
+0070 60FA              JZ      ?C0010
+0072         ?C0011:
+                                           ; SOURCE LINE # 68
+0072 7B00              MOV     R3,#00H
+0074 7A00              MOV     R2,#00H
+0076 7900              MOV     R1,#00H
+0078 7D00              MOV     R5,#00H
+007A 7C00              MOV     R4,#00H
+007C 120000      E     LCALL   _USBUART_1_PutData
+                                           ; SOURCE LINE # 69
+                                           ; SOURCE LINE # 70
+                                           ; SOURCE LINE # 71
+007F         ?C0005:
+                                           ; SOURCE LINE # 73
+007F 120000      E     LCALL   USBUART_1_IsLineChanged
+0082 900000      R     MOV     DPTR,#state
+0085 EF                MOV     A,R7
+0086 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 74
+0087 900000      R     MOV     DPTR,#state
+008A E0                MOVX    A,@DPTR
+008B FF                MOV     R7,A
+008C EF                MOV     A,R7
+008D 6095              JZ      ?C0003
+                                           ; SOURCE LINE # 75
+                                           ; SOURCE LINE # 76
+008F 900000      R     MOV     DPTR,#state
+0092 E0                MOVX    A,@DPTR
+0093 FF                MOV     R7,A
+0094 EF                MOV     A,R7
+C51 COMPILER V9.51   MAIN                                                                  09/04/2014 17:48:41 PAGE 5   
+
+0095 20E003            JB      ACC.0,$ + 6H
+0098 020000      R     LJMP    ?C0013
+                                           ; SOURCE LINE # 77
+                                           ; SOURCE LINE # 78
+009B 120000      E     LCALL   USBUART_1_GetDTERate
+009E C004              PUSH    AR4
+00A0 C005              PUSH    AR5
+00A2 C006              PUSH    AR6
+00A4 C007              PUSH    AR7
+00A6 120000      E     LCALL   USBUART_1_GetDataBits
+00A9 7E00              MOV     R6,#00H
+00AB 900000      E     MOV     DPTR,#?_sprintf?BYTE+0AH
+00AE EE                MOV     A,R6
+00AF F0                MOVX    @DPTR,A
+00B0 A3                INC     DPTR
+00B1 EF                MOV     A,R7
+00B2 F0                MOVX    @DPTR,A
+00B3 D007              POP     AR7
+00B5 D006              POP     AR6
+00B7 D005              POP     AR5
+00B9 D004              POP     AR4
+00BB 900000      E     MOV     DPTR,#?_sprintf?BYTE+06H
+00BE 120000      E     LCALL   ?C?LSTXDATA
+00C1 7B01              MOV     R3,#01H
+00C3 7A00        R     MOV     R2,#HIGH lineStr
+00C5 7900        R     MOV     R1,#LOW lineStr
+00C7 C003              PUSH    AR3
+00C9 C002              PUSH    AR2
+00CB C001              PUSH    AR1
+00CD 7BFF              MOV     R3,#0FFH
+00CF 7A00        R     MOV     R2,#HIGH ?SC_50
+00D1 7900        R     MOV     R1,#LOW ?SC_50
+00D3 900000      E     MOV     DPTR,#?_sprintf?BYTE+03H
+00D6 120000      E     LCALL   ?C?PSTXDATA
+00D9 D001              POP     AR1
+00DB D002              POP     AR2
+00DD D003              POP     AR3
+00DF 120000      E     LCALL   _sprintf
+                                           ; SOURCE LINE # 79
+00E2 7D00              MOV     R5,#00H
+00E4 7F00              MOV     R7,#00H
+00E6 120000      E     LCALL   _LCD_Position
+                                           ; SOURCE LINE # 80
+00E9 7BFF              MOV     R3,#0FFH
+00EB 7A00        R     MOV     R2,#HIGH ?SC_64
+00ED 7900        R     MOV     R1,#LOW ?SC_64
+00EF 120000      E     LCALL   _LCD_PrintString
+                                           ; SOURCE LINE # 81
+00F2 7D00              MOV     R5,#00H
+00F4 7F00              MOV     R7,#00H
+00F6 120000      E     LCALL   _LCD_Position
+                                           ; SOURCE LINE # 82
+00F9 7B01              MOV     R3,#01H
+00FB 7A00        R     MOV     R2,#HIGH lineStr
+00FD 7900        R     MOV     R1,#LOW lineStr
+00FF 120000      E     LCALL   _LCD_PrintString
+                                           ; SOURCE LINE # 83
+0102 120000      E     LCALL   USBUART_1_GetCharFormat
+0105 EF                MOV     A,R7
+0106 75F003            MOV     B,#03H
+0109 A4                MUL     AB
+010A 2400        R     ADD     A,#LOW stop
+C51 COMPILER V9.51   MAIN                                                                  09/04/2014 17:48:41 PAGE 6   
+
+010C F582              MOV     DPL,A
+010E E4                CLR     A
+010F 3400        R     ADDC    A,#HIGH stop
+0111 F583              MOV     DPH,A
+0113 120000      E     LCALL   ?C?PLDXDATA
+0116 C003              PUSH    AR3
+0118 C002              PUSH    AR2
+011A C001              PUSH    AR1
+011C 120000      E     LCALL   USBUART_1_GetParityType
+011F EF                MOV     A,R7
+0120 75F003            MOV     B,#03H
+0123 A4                MUL     AB
+0124 2400        R     ADD     A,#LOW parity
+0126 F582              MOV     DPL,A
+0128 E4                CLR     A
+0129 3400        R     ADDC    A,#HIGH parity
+012B F583              MOV     DPH,A
+012D 120000      E     LCALL   ?C?PLDXDATA
+0130 900000      E     MOV     DPTR,#?_sprintf?BYTE+09H
+0133 120000      E     LCALL   ?C?PSTXDATA
+0136 D001              POP     AR1
+0138 D002              POP     AR2
+013A D003              POP     AR3
+013C 900000      E     MOV     DPTR,#?_sprintf?BYTE+06H
+013F 120000      E     LCALL   ?C?PSTXDATA
+0142 7B01              MOV     R3,#01H
+0144 7A00        R     MOV     R2,#HIGH lineStr
+0146 7900        R     MOV     R1,#LOW lineStr
+0148 C003              PUSH    AR3
+014A C002              PUSH    AR2
+014C C001              PUSH    AR1
+014E 7BFF              MOV     R3,#0FFH
+0150 7A00        R     MOV     R2,#HIGH ?SC_85
+0152 7900        R     MOV     R1,#LOW ?SC_85
+0154 900000      E     MOV     DPTR,#?_sprintf?BYTE+03H
+0157 120000      E     LCALL   ?C?PSTXDATA
+015A D001              POP     AR1
+015C D002              POP     AR2
+015E D003              POP     AR3
+0160 120000      E     LCALL   _sprintf
+                                           ; SOURCE LINE # 85
+0163 7D00              MOV     R5,#00H
+0165 7F01              MOV     R7,#01H
+0167 120000      E     LCALL   _LCD_Position
+                                           ; SOURCE LINE # 86
+016A 7BFF              MOV     R3,#0FFH
+016C 7A00        R     MOV     R2,#HIGH ?SC_64
+016E 7900        R     MOV     R1,#LOW ?SC_64
+0170 120000      E     LCALL   _LCD_PrintString
+                                           ; SOURCE LINE # 87
+0173 7D00              MOV     R5,#00H
+0175 7F01              MOV     R7,#01H
+0177 120000      E     LCALL   _LCD_Position
+                                           ; SOURCE LINE # 88
+017A 7B01              MOV     R3,#01H
+017C 7A00        R     MOV     R2,#HIGH lineStr
+017E 7900        R     MOV     R1,#LOW lineStr
+0180 120000      E     LCALL   _LCD_PrintString
+                                           ; SOURCE LINE # 89
+0183         ?C0013:
+                                           ; SOURCE LINE # 90
+0183 900000      R     MOV     DPTR,#state
+C51 COMPILER V9.51   MAIN                                                                  09/04/2014 17:48:41 PAGE 7   
+
+0186 E0                MOVX    A,@DPTR
+0187 FF                MOV     R7,A
+0188 EF                MOV     A,R7
+0189 20E103            JB      ACC.1,$ + 6H
+018C 020000      R     LJMP    ?C0003
+                                           ; SOURCE LINE # 91
+                                           ; SOURCE LINE # 92
+018F 120000      E     LCALL   USBUART_1_GetLineControl
+0192 900000      R     MOV     DPTR,#state
+0195 EF                MOV     A,R7
+0196 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 93
+0197 7B01              MOV     R3,#01H
+0199 7A00        R     MOV     R2,#HIGH lineStr
+019B 7900        R     MOV     R1,#LOW lineStr
+019D C003              PUSH    AR3
+019F C002              PUSH    AR2
+01A1 C001              PUSH    AR1
+01A3 7BFF              MOV     R3,#0FFH
+01A5 7A00        R     MOV     R2,#HIGH ?SC_101
+01A7 7900        R     MOV     R1,#LOW ?SC_101
+01A9 900000      E     MOV     DPTR,#?_sprintf?BYTE+03H
+01AC 120000      E     LCALL   ?C?PSTXDATA
+01AF 900000      R     MOV     DPTR,#state
+01B2 E0                MOVX    A,@DPTR
+01B3 FF                MOV     R7,A
+01B4 EF                MOV     A,R7
+01B5 5401              ANL     A,#01H
+01B7 FF                MOV     R7,A
+01B8 7E00              MOV     R6,#00H
+01BA EF                MOV     A,R7
+01BB 4E                ORL     A,R6
+01BC 6008              JZ      ?C0015
+01BE 7BFF              MOV     R3,#0FFH
+01C0 7A00        R     MOV     R2,#HIGH ?SC_115
+01C2 7900        R     MOV     R1,#LOW ?SC_115
+01C4 8006              SJMP    ?C0016
+01C6         ?C0015:
+01C6 7BFF              MOV     R3,#0FFH
+01C8 7A00        R     MOV     R2,#HIGH ?SC_118
+01CA 7900        R     MOV     R1,#LOW ?SC_118
+01CC         ?C0016:
+01CC 900000      E     MOV     DPTR,#?_sprintf?BYTE+06H
+01CF 120000      E     LCALL   ?C?PSTXDATA
+01D2 900000      R     MOV     DPTR,#state
+01D5 E0                MOVX    A,@DPTR
+01D6 FF                MOV     R7,A
+01D7 EF                MOV     A,R7
+01D8 5402              ANL     A,#02H
+01DA FF                MOV     R7,A
+01DB 7E00              MOV     R6,#00H
+01DD EF                MOV     A,R7
+01DE 4E                ORL     A,R6
+01DF 6008              JZ      ?C0017
+01E1 7BFF              MOV     R3,#0FFH
+01E3 7A00        R     MOV     R2,#HIGH ?SC_115
+01E5 7900        R     MOV     R1,#LOW ?SC_115
+01E7 8006              SJMP    ?C0018
+01E9         ?C0017:
+01E9 7BFF              MOV     R3,#0FFH
+01EB 7A00        R     MOV     R2,#HIGH ?SC_118
+01ED 7900        R     MOV     R1,#LOW ?SC_118
+C51 COMPILER V9.51   MAIN                                                                  09/04/2014 17:48:41 PAGE 8   
+
+01EF         ?C0018:
+01EF 900000      E     MOV     DPTR,#?_sprintf?BYTE+09H
+01F2 120000      E     LCALL   ?C?PSTXDATA
+01F5 D001              POP     AR1
+01F7 D002              POP     AR2
+01F9 D003              POP     AR3
+01FB 120000      E     LCALL   _sprintf
+                                           ; SOURCE LINE # 95
+01FE 7D00              MOV     R5,#00H
+0200 7F01              MOV     R7,#01H
+0202 120000      E     LCALL   _LCD_Position
+                                           ; SOURCE LINE # 96
+0205 7BFF              MOV     R3,#0FFH
+0207 7A00        R     MOV     R2,#HIGH ?SC_64
+0209 7900        R     MOV     R1,#LOW ?SC_64
+020B 120000      E     LCALL   _LCD_PrintString
+                                           ; SOURCE LINE # 97
+020E 7D00              MOV     R5,#00H
+0210 7F01              MOV     R7,#01H
+0212 120000      E     LCALL   _LCD_Position
+                                           ; SOURCE LINE # 98
+0215 7B01              MOV     R3,#01H
+0217 7A00        R     MOV     R2,#HIGH lineStr
+0219 7900        R     MOV     R1,#LOW lineStr
+021B 120000      E     LCALL   _LCD_PrintString
+                                           ; SOURCE LINE # 100
+                                           ; SOURCE LINE # 101
+                                           ; SOURCE LINE # 102
+021E 020000      R     LJMP    ?C0003
+0221 22                RET     
+             ; FUNCTION main (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    546    ----
+   CONSTANT SIZE    =    122    ----
+   XDATA SIZE       =     24      87
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,205 @@
+C51 COMPILER V9.51   USBUART_1_VND                                                         09/04/2014 17:45:48 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE USBUART_1_VND
+OBJECT MODULE PLACED IN .\DP8051_Keil_951\Debug\USBUART_1_vnd.obj
+COMPILER INVOKED BY: C:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\import\keil\pk51\9.51\C51\BIN\c51.exe 
+                    -.\Generated_Source\PSoC3\USBUART_1_vnd.c NOIV LARGE MODDP2 OMF2 VB(1) PR(.\DP8051_Keil_951\Debug\USBUART_1_vnd.lst) CD D
+                    -B NOIP OT(2,SIZE) INCDIR(.,.\Generated_Source\PSoC3) OJ(.\DP8051_Keil_951\Debug\USBUART_1_vnd.obj)
+
+line level    source
+
+   1          /*******************************************************************************
+   2          * File Name: USBUART_1_vnd.c
+   3          * Version 2.70
+   4          *
+   5          * Description:
+   6          *  USB vendor request handler.
+   7          *
+   8          * Note:
+   9          *
+  10          ********************************************************************************
+  11          * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  12          * You may use this file only in accordance with the license, terms, conditions,
+  13          * disclaimers, and limitations in the end user license agreement accompanying
+  14          * the software package with which this file was provided.
+  15          *******************************************************************************/
+  16          
+  17          #include "USBUART_1.h"
+  18          #include "USBUART_1_pvt.h"
+  19          
+  20          #if(USBUART_1_EXTERN_VND == USBUART_1_FALSE)
+  21          
+  22          
+  23          /***************************************
+  24          * Vendor Specific Declarations
+  25          ***************************************/
+  26          
+  27          /* `#START VENDOR_SPECIFIC_DECLARATIONS` Place your declaration here */
+  28          
+  29          /* `#END` */
+  30          
+  31          
+  32          /*******************************************************************************
+  33          * Function Name: USBUART_1_HandleVendorRqst
+  34          ********************************************************************************
+  35          *
+  36          * Summary:
+  37          *  This routine provide users with a method to implement vendor specific
+  38          *  requests.
+  39          *
+  40          *  To implement vendor specific requests, add your code in this function to
+  41          *  decode and disposition the request.  If the request is handled, your code
+  42          *  must set the variable "requestHandled" to TRUE, indicating that the
+  43          *  request has been handled.
+  44          *
+  45          * Parameters:
+  46          *  None.
+  47          *
+  48          * Return:
+  49          *  requestHandled.
+  50          *
+  51          * Reentrant:
+  52          *  No.
+  53          *
+C51 COMPILER V9.51   USBUART_1_VND                                                         09/04/2014 17:45:48 PAGE 2   
+
+  54          *******************************************************************************/
+  55          uint8 USBUART_1_HandleVendorRqst(void) 
+  56          {
+  57   1          uint8 requestHandled = USBUART_1_FALSE;
+  58   1      
+  59   1          if ((CY_GET_REG8(USBUART_1_bmRequestType) & USBUART_1_RQST_DIR_MASK) == USBUART_1_RQST_DIR_D2H)
+  60   1          {
+  61   2              /* Control Read */
+  62   2              switch (CY_GET_REG8(USBUART_1_bRequest))
+  63   2              {
+  64   3                  case USBUART_1_GET_EXTENDED_CONFIG_DESCRIPTOR:
+  65   3                      #if defined(USBUART_1_ENABLE_MSOS_STRING)
+  66   3                          USBUART_1_currentTD.pData = (volatile uint8 *)&USBUART_1_MSOS_CONFIGURATION_DESCR[0u];
+  67   3                          USBUART_1_currentTD.count = USBUART_1_MSOS_CONFIGURATION_DESCR[0u];
+  68   3                          requestHandled  = USBUART_1_InitControlRead();
+  69   3                      #endif /*  USBUART_1_ENABLE_MSOS_STRING */
+  70   3                      break;
+  71   3                  default:
+  72   3                      break;
+  73   3              }
+  74   2          }
+  75   1      
+  76   1          /* `#START VENDOR_SPECIFIC_CODE` Place your vendor specific request here */
+  77   1      
+  78   1          /* `#END` */
+  79   1      
+  80   1          return(requestHandled);
+  81   1      }
+  82          
+  83          
+  84          /*******************************************************************************
+  85          * Additional user functions supporting Vendor Specific Requests
+  86          ********************************************************************************/
+  87          
+  88          /* `#START VENDOR_SPECIFIC_FUNCTIONS` Place any additional functions here */
+  89          
+  90          /* `#END` */
+  91          
+  92          
+  93          #endif /* USBUART_1_EXTERN_VND */
+  94          
+  95          
+  96          /* [] END OF FILE */
+C51 COMPILER V9.51   USBUART_1_VND                                                         09/04/2014 17:45:48 PAGE 3   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION USBUART_1_HandleVendorRqst (BEGIN)
+                                           ; SOURCE LINE # 55
+                                           ; SOURCE LINE # 56
+                                           ; SOURCE LINE # 57
+0000 900000      R     MOV     DPTR,#requestHandled
+0003 E4                CLR     A
+0004 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 59
+0005 906000            MOV     DPTR,#06000H
+0008 E0                MOVX    A,@DPTR
+0009 FF                MOV     R7,A
+000A EF                MOV     A,R7
+000B 5480              ANL     A,#080H
+000D FF                MOV     R7,A
+000E 7E00              MOV     R6,#00H
+0010 EF                MOV     A,R7
+0011 6480              XRL     A,#080H
+0013 4E                ORL     A,R6
+0014 7034              JNZ     ?C0001
+                                           ; SOURCE LINE # 60
+                                           ; SOURCE LINE # 62
+0016 906001            MOV     DPTR,#06001H
+0019 E0                MOVX    A,@DPTR
+001A FF                MOV     R7,A
+001B EF                MOV     A,R7
+001C 120000      E     LCALL   ?C?CCASE
+001F 0000        R     DW      ?C0003
+0021 01                DB      01H
+0022 0000              DW      00H
+0024 0000        R     DW      ?C0001
+                                           ; SOURCE LINE # 63
+                                           ; SOURCE LINE # 64
+0026         ?C0003:
+                                           ; SOURCE LINE # 66
+0026 7BFF              MOV     R3,#0FFH
+0028 7A00        E     MOV     R2,#HIGH USBUART_1_MSOS_CONFIGURATION_DESCR
+002A 7900        E     MOV     R1,#LOW USBUART_1_MSOS_CONFIGURATION_DESCR
+002C 900000      E     MOV     DPTR,#USBUART_1_currentTD+02H
+002F 120000      E     LCALL   ?C?PSTXDATA
+                                           ; SOURCE LINE # 67
+0032 900000      E     MOV     DPTR,#USBUART_1_MSOS_CONFIGURATION_DESCR
+0035 E4                CLR     A
+0036 93                MOVC    A,@A+DPTR
+0037 FF                MOV     R7,A
+0038 7E00              MOV     R6,#00H
+003A 900000      E     MOV     DPTR,#USBUART_1_currentTD
+003D EE                MOV     A,R6
+003E F0                MOVX    @DPTR,A
+003F A3                INC     DPTR
+0040 EF                MOV     A,R7
+0041 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 68
+0042 120000      E     LCALL   USBUART_1_InitControlRead
+0045 900000      R     MOV     DPTR,#requestHandled
+0048 EF                MOV     A,R7
+0049 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 70
+                                           ; SOURCE LINE # 71
+                                           ; SOURCE LINE # 72
+C51 COMPILER V9.51   USBUART_1_VND                                                         09/04/2014 17:45:48 PAGE 4   
+
+                                           ; SOURCE LINE # 73
+                                           ; SOURCE LINE # 74
+004A         ?C0001:
+                                           ; SOURCE LINE # 80
+004A 900000      R     MOV     DPTR,#requestHandled
+004D E0                MOVX    A,@DPTR
+004E FF                MOV     R7,A
+                                           ; SOURCE LINE # 81
+004F         ?C0005:
+004F 22                RET     
+             ; FUNCTION USBUART_1_HandleVendorRqst (END)
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     80    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----       1
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
