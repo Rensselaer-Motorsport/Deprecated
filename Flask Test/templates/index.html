@@ -12,17 +12,17 @@
 
 	<script type=text/javascript>
 		$(function() {
-			$('a#calculate').bind('click', function() {
+			setInterval( function() {
 				$.getJSON($SCRIPT_ROOT + '/_random_number', {
 				}, function(data) {
 					$("#result").text(data.result);
 				});
 				return false;
-			});
+			}, 1);
 		});
 	</script>
 	<h1>Dashboard</h1>
 	<p>
 	   <span id=result>?</span>
-	<p><a href=# id=calculate>get random number</a>
+	</p>
 </body>
