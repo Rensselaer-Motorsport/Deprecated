@@ -28,5 +28,5 @@ if __name__ == "__main__":
 	app.debug = True
 	
 	app_thread = threading.Thread( target=app.run, args=() )
-	serial_thread = threading.Thread( target=serial_poll args=() )
+	serial_thread = threading.Thread( target=serial_poll, args=() )
 	app.run()
