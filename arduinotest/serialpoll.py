@@ -1,16 +1,58 @@
 import serial
 
-ser = serial.Serial()
-ser.baudrate = 9600
-ser.port = '/dev/ttyACM0'
-ser.timeout = 10
-ser.open()
+num_sensors = 3
 
-while True:
-	try:
-		a = ser.read()
-		break
-	except:
-		continue
+def poll(s_dict):
+	for i in range(num_sensors):
+		tmp = ser_read()
+		tmp<<8
+		tmp+=ser_read()
+		s_dict.values()[i].append(tmp)
+		ser_read()
 
-print a
+def ser_init():
+	global ser
+	ser = serial.Serial()
+	ser.baudrate = 9600
+	ser.port = '/dev/ttyACM0'
+	ser.timeout = 10
+	ser.open()
+
+def ser_read():
+	while True:
+		try:
+			data = ord(ser.read())
+			break
+		except:
+			continue
+	return data
+
+def wait_for_beginning(lst, start):
+	data = ser_read()
+	if data == start:
+		lst.append(data)
+		if len(lst) == 5:
+			return
+		wait_for_beginning(lst, start+1)
+	else:
+		lst = []
+		start = 0
+		wait_for_beginning(lst, 0)
+
+def main():
+	pad_len = 5
+	sensor_buffer = {'sensor1': [], 'sensor2': [], 'sensor3': []}
+
+	ser_init()
+	wait_for_beginning([], 0)
+	count = 0
+	while count < 10:
+		poll(sensor_buffer)
+		for i in range(pad_len-1):
+			ser_read()
+		count += 1
+	print sensor_buffer
+	#while True: print ser_read()
+
+if __name__ == '__main__':
+	main()
