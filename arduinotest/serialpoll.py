@@ -5,8 +5,7 @@ num_sensors = 3
 def poll(s_dict):
 	for i in range(num_sensors):
 		tmp = ser_read()
-		tmp<<8
-		tmp+=ser_read()
+		tmp+=(ser_read()<<8)
 		s_dict.values()[i].append(tmp)
 		ser_read()
 
@@ -48,11 +47,11 @@ def main():
 	count = 0
 	while count < 10:
 		poll(sensor_buffer)
-		for i in range(pad_len-1):
-			ser_read()
+		last = ser_read()
+		while last != pad_len-1:
+			last = ser_read()
 		count += 1
 	print sensor_buffer
-	#while True: print ser_read()
 
 if __name__ == '__main__':
 	main()
