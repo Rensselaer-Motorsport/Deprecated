@@ -2,12 +2,15 @@ from flask import Flask, jsonify, render_template, request
 from serialpoll import SensorData
 import serial
 import threading
+import time
 app = Flask( __name__ )
 
 @app.route( '/_random_number' )
 def get_random():
-	with open( "/dev/urandom", 'rb' ) as f:
-		return jsonify(  result=ord( f.read( 1 ) ) )
+	#with open( "/dev/urandom", 'rb' ) as f:
+	#	return jsonify(  result=ord( f.read( 1 ) ) )
+	while len( sensor_buffer.values()[0] ) == 0: continue
+	return jsonify( result=sensor_buffer.values()[0].pop(0) )
 
 @app.route( '/' )
 def index():
@@ -21,19 +24,23 @@ def serial_init():
 
 	return ser
 
-def serial_poll(s_dict):
+def serial_poll( s_dict ):
 	dev = serial_init()
-	s = SensorData(dev, s_dict, 0, 5)
+	s = SensorData( dev, s_dict, 0, 5 )
 	while True:
-		s_dict = s.poll()
+		sensor_buffer = s.poll()
 		s.wait_for_end()
-		print s_dict
 
 if __name__ == "__main__":
-	sensor_buffer = {'sensor1': [], 'sensor2': [], 'sensor3': []}
+	global sensor_buffer
+	sensor_buffer = { 'sensor1': [1, 2, 3, 4 ,5], 'sensor2': [], 'sensor3': [] }
 	app.debug = True
 	
-	#app_thread = threading.Thread( target=app.run, args=() )
-	#serial_thread = threading.Thread( target=serial_poll, args=(sensor_buffer, ) )
-	#app.run()
-	serial_poll(sensor_buffer)
+	serial_thread = threading.Thread( target=serial_poll, args=( sensor_buffer, ) )
+	serial_thread.daemon = True
+
+	app.run( threaded=True )
+	serial_thread.start()
+
+	while True:
+		time.sleep(.1)
