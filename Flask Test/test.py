@@ -15,11 +15,13 @@ def index():
 	return render_template( 'index.html' )
 
 def serial_poll( s_dict ):
-	dev = serial_init()
-	s = SensorData( dev, s_dict, 0, 5 )
+	#dev = serial_init()
+	#s = SensorData( dev, s_dict, 0, 5 )
 	while True:
-		sensor_buffer = s.poll()
-		s.wait_for_end()
+		for i in range(100):
+			sensor_buffer.values()[0].append(i)
+		#sensor_buffer = s.poll()
+		#s.wait_for_end()
 
 def serial_init():
 	ser = serial.Serial()
@@ -31,7 +33,7 @@ def serial_init():
 
 if __name__ == "__main__":
 	global sensor_buffer
-	sensor_buffer = { 'sensor1': [], 'sensor2': [], 'sensor3': [] }
+	sensor_buffer = { 'sensor1': [1, 2, 3, 4, 5], 'sensor2': [], 'sensor3': [] }
 	app.debug = True
 
 	serial_thread = threading.Thread( target=serial_poll, args=(sensor_buffer, ) )
