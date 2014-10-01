@@ -28,11 +28,8 @@ void setup()
 
 void loop()
 {
-	//sendData.vars.data1 = random(73);
-	//sendData.vars.data2 = random(73);
-	sendData.vars.data1 = 15;
-	sendData.vars.data2 = 16;
-	//sendData.vars.data3 = (unsigned char)random(73);
-	sendData.vars.data3 = 17;
+	sendData.vars.data1 = random(73);
+	sendData.vars.data2 = random(73);
+	sendData.vars.data3 = (unsigned char)random(73);
 	Serial.write(sendData.buffer, sizeof(sensorData));
 }
