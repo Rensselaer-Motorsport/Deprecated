@@ -23,9 +23,11 @@
         chart.draw(data, options);
 
         setInterval(function() {
-          //data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-					document.write(Number(result));
-          data.setValue(0, 1, parseInt(result));
+					$.getJSON($SCRIPT_ROOT + '/_random_number', {
+					}, function(data) {
+						$("#result").text(data.result);
+					});
+          data.setValue(0, 1, $("#result").text());
           chart.draw(data, options);
         }, 100);
       }
@@ -40,17 +42,6 @@
 		$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 	</script>
 
-	<script type=text/javascript>
-		$(function() {
-			setInterval( function() {
-				$.getJSON($SCRIPT_ROOT + '/_random_number', {
-				}, function(data) {
-					$("#result").text(data.result);
-				});
-				return false;
-			}, 100);
-		});
-	</script>
 	<h1>Dashboard</h1>
 	<div id="chart_div" style="width: 400px; height: 120px;"></div>
 	<p>
