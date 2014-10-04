@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, render_template, request
 from serialpoll import SensorData
+import json
+import random
 import serial
 import threading
 import time
@@ -7,8 +9,11 @@ app = Flask( __name__ )
 
 @app.route( '/_random_number' )
 def get_random():
-	if len( sensor_buffer.values()[0] ) == 0: return
-	else: return jsonify( result=sensor_buffer.values()[0].pop(0) )
+	#if len( sensor_buffer.values()[0] ) == 0: return
+	#else: return jsonify( result=sensor_buffer.values()[0].pop(0) )
+	#a = json.dumps([random.randint(0,100) for i in range(3)])
+	a = [random.randint(0,100) for i in range(3)]
+	return jsonify( result=a )
 
 @app.route( '/' )
 def index():
@@ -36,7 +41,7 @@ if __name__ == "__main__":
 
 	serial_thread = threading.Thread( target=serial_poll, args=(sensor_buffer, ) )
 	serial_thread.daemon = True
-	serial_thread.start()
+	#serial_thread.start()
 	
 	app.run()
 

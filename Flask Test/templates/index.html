@@ -9,6 +9,8 @@
         var data = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
           ['Speed', 80],
+					['More Speed', 90],
+					['Most Speed', 100],
         ]);
 
         var options = {
@@ -19,6 +21,7 @@
         };
 
         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+				var arr;
 
         chart.draw(data, options);
 
@@ -26,8 +29,12 @@
 					$.getJSON($SCRIPT_ROOT + '/_random_number', {
 					}, function(data) {
 						$("#result").text(data.result);
+						arr = data.result;
+						console.log(arr[0]);
 					});
-          data.setValue(0, 1, $("#result").text());
+          data.setValue(0, 1, arr[0]);
+          data.setValue(1, 1, arr[1]);
+          data.setValue(2, 1, arr[2]);
           chart.draw(data, options);
         }, 100);
       }
