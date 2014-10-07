@@ -10,7 +10,7 @@ app = Flask( __name__ )
 @app.route( '/_random_number' )
 def get_data():
 	if len( sensor_buffer.values()[0] ) == 0: return
-	else: return jsonify( result=[ i.pop(0) for i in sensor_buffer.values() ]
+	else: return jsonify( result=[ i.pop(0) for i in sensor_buffer.values() ] )
 
 @app.route( '/' )
 def index():
