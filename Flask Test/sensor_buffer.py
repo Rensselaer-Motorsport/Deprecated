@@ -1,4 +1,4 @@
-class B:
+class sensorBuffer:
 	
 	#initializes the class.
 	#can either take in an already made sensor dictionary
@@ -18,17 +18,3 @@ class B:
 
 	def getSensorValue (self, sensor_name):
 		return self.sensor_dict[sensor_name].pop()
-
-#bufferTest.py
-sensorDict = B()
-
-sensorDict.addSensor("engine_sensor")
-sensorDict.addSensorValue("engine_sensor", 150)
-sensorDict.addSensorValue("engine_sensor", 89)
-sensorDict.addSensor("suspension")
-sensorDict.addSensorValue("suspension", 12)
-
-print "test"
-print sensorDict.getSensorValue("engine_sensor")
-print sensorDict.getSensorValue("engine_sensor")
-print sensorDict.getSensorValue("suspension")

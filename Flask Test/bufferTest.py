@@ -1,14 +1,15 @@
+import sensor_buffer
 #bufferTest.py
 
-sensorDict = Buffer()
+sensorDict = sensor_buffer.sensorBuffer()
 
-sensorDict.addSensor("engine sensor")
-sensorDict.addSensorValue("engine", "temperature", 150)
-sensorDict.addSensorValue("engine", "oil pressure", 89)
+sensorDict.addSensor("engine_sensor")
+sensorDict.addSensorValue("engine_sensor", 150)
+sensorDict.addSensorValue("engine_sensor", 89)
 sensorDict.addSensor("suspension")
-sensorDict.addSensorValue("suspension", "force", 12)
+sensorDict.addSensorValue("suspension", 12)
 
 print("test")
-print(sensorDict.getSensorValue("engine", "temperature"))
-print(sensorDict.getSensorValue("engine", "oil pressure"))
-print(sensorDict.getSensorValue("suspension", "force"))
+print(sensorDict.getSensorValue("engine_sensor"))
+print(sensorDict.getSensorValue("engine_sensor"))
+print(sensorDict.getSensorValue("suspension"))
