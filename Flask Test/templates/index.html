@@ -1,57 +1,53 @@
-<head>
-	<title>Dashboard</title>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["gauge"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  	<head>
+    	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+    	<title>Gauges as FUCK</title>
+		
+		<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+		<script type="text/javascript" src="static/gauge.js"></script>
 
-        var data = google.visualization.arrayToDataTable([
-          ['Label', 'Value'],
-          ['Speed', 80],
-					['More Speed', 90],
-					['Most Speed', 100],
-        ]);
+		<script>
+						
+			var gauges = [];
+			
+			//Strictly for demoing
+			//createGauge(name,label,size,min,max,yellowlevel,redlevel);
+			function createGauges()
+			{
+				createGauge("fuel", "Fuel?",200,0,100);
+				createGauge("science", "Science!!!",500,-100,100,0,35);
+				createGauge("sparky", "Sparky?",200,0,1,0,0);
+			}
+			
 
-        var options = {
-          width: 400, height: 120,
-          redFrom: 90, redTo: 100,
-          yellowFrom:75, yellowTo: 90,
-          minorTicks: 5
-        };
-
-        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-				var arr;
-
-        chart.draw(data, options);
-
-        setInterval(function() {
-					$.getJSON($SCRIPT_ROOT + '/_random_number', {
-					}, function(data) {
-						$("#result").text(data.result);
-						arr = data.result;
-						console.log(arr[0]);
-					});
-          data.setValue(0, 1, arr[0]);
-          data.setValue(1, 1, arr[1]);
-          data.setValue(2, 1, arr[2]);
-          chart.draw(data, options);
-        }, 100);
-      }
-    </script>	
-</head>
-<body>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"</script>
-	<script>window.jQuery || document.write('<script src="{{
-		url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
-
-	<script type=text/javascript>
-		$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-	</script>
-
-	<h1>Dashboard</h1>
-	<div id="chart_div" style="width: 400px; height: 120px;"></div>
-	<p>
-	   <span id=result>?</span>
-	</p>
-</body>
+			setInterval(function() {
+				$.getJSON($SCRIPT_ROOT + '/_random_number', {
+				}, function(data) {
+					$("#result").text(data.result);
+					arr = data.result;
+					console.log(arr[0]);
+				});
+				updateGauge("fuel", arr[0]);
+				updateGauge("science", arr[1]);
+				updateGauge("sparky", arr[2]);
+			}, 100);
+					
+		</script>
+		
+	</head>
+	
+	<body onload="initialize()">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="{{
+			url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+	
+		<script type=text/javascript>
+			$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+		</script>
+		<span id="fuel_gauge"></span>
+		<span id="science_gauge"></span>
+		<span id="sparky_gauge"></span>
+	</body>
+	
+</html>
