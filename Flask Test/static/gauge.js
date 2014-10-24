@@ -10,42 +10,16 @@
 //***                   Update Gauges Realtime!                 ***
 //*****************************************************************
 
-
-function updateGauges() //Right now this just updates every gauge with random. Obviously this should be more intelligent and use ajax to pull data
-{
-	for (var key in gauges)
-	{
-		var value = getRandomValue(gauges[key])
-		gauges[key].redraw(value);
-	}
+function updateGauge(gauge, value) {
+	gauges[gauge].redraw(value);
 }
 			
-//Woooooowwooooohoaoo
-function getRandomValue(gauge)
-{
-	//This is really dumb since it makes floats, so the gauge looks stupid if you put in like a range of 0-1, since it displays only ints.
-	return gauge.config.min + (gauge.config.max - gauge.config.min ) *  Math.random();
-}
-	
 //'creates the gauge objects', and sets a javascript interval to trigger updating values
-function initialize()
-{
+function initialize() {
 	createGauges();
-	setInterval(updateGauges, 250);	
-	
-	
 }
 			
 //*****************************************************************
-		
-			
-			
-			
-			
-			
-			
-			
-			
 			
 //*****************************************************************
 //***              Gauge Visualization Helpers                  ***
