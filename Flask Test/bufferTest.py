@@ -16,6 +16,11 @@ for x in xrange(0, 25):
 print "Print the sensors with data"
 sensorDict.printSensorValues("engine_sensor")
 sensorDict.printSensorValues("suspension")
+sensorDict.printSensorToFile("engine_sensor", "engineTestOutput.txt")
+sensorDict.printSensorToFile("suspension", "suspensionTestOutput.txt")
+sensorDict.printDictionaryToFile("dictionaryOutput.txt")
+sensorDict.printLastSensorValueToFile("suspension", "lastSuspensionValue.txt")
+sensorDict.printAllLastSensorValuesToFile("allLastSensorValues.txt")
 
 #test error cases
 sensorDict.addSensor("engine_sensor")
@@ -28,7 +33,7 @@ print sensorDict.getSensor("shitwentwrong")
 #test other functions
 print
 print "Test other functions"
-print 
+print
 print "Returns the engine_sensor value list"
 print sensorDict.getSensor("engine_sensor")
 print

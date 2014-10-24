@@ -1,5 +1,5 @@
 class sensorBuffer:
-	
+
 	#initializes the class.
 	#can either take in an already made sensor dictionary
 	#or it will make an empty dictionary
@@ -53,7 +53,7 @@ class sensorBuffer:
 				break
 		if not found:
 			print "Sensor does not exist"
-		else:		
+		else:
 			return self.sensor_dict[sensor_name].pop()
 
 	#returns a specified value of a specified sensor
@@ -83,15 +83,63 @@ class sensorBuffer:
 				break
 		if not found:
 			print "Sensor does not exist"
-		else:		
+		else:
 			print sensor_name + ":"
 			value_index = 0;
 			for value in self.sensor_dict[sensor_name]:
-				print "  value " + str(value_index) + " = " + str(value);
-				value_index = value_index + 1;
+				print "  value " + str(value_index) + " = " + str(value)
+				value_index = value_index + 1
 			print
 
 	#prints the entire dictionary
 	def printDictionary (self):
 		for sensor in self.sensor_dict:
 			self.printSensorValues(sensor)
+
+	#prints all the values of a specified sensor to a file
+	#param sensor_name is the name of the sensor to print
+	#param file_name is the name of the file to print to
+	def printSensorToFile (self, sensor_name, file_name):
+		f = open(file_name, 'w')
+		for key in self.sensor_dict.keys():
+			if sensor_name == key:
+				found = True
+				break
+		if not found:
+			f.write("Sensor does not exist")
+		else:
+			f.write(sensor_name + ":")
+			value_index = 0;
+			for value in self.sensor_dict[sensor_name]:
+				f.write("  value " + str(value_index) + " = " + str(value))
+				value_index = value_index + 1;
+				f.write('\n')
+
+	#prints the entire dictionary to a file
+	def printDictionaryToFile (self, file_name):
+		f = open(file_name, 'w')
+		for sensor_name in self.sensor_dict.keys():
+			f.write(sensor_name + ":")
+			value_index = 0;
+			for value in self.sensor_dict[sensor_name]:
+				f.write(" value " + str(value_index) + " = " + str(value))
+				value_index = value_index + 1;
+				f.write('\n')
+
+	#prints and erases the last sensor value to a file
+	def printLastSensorValueToFile (self, sensor_name, file_name):
+		f = open(file_name, 'w')
+		for key in self.sensor_dict.keys():
+			if sensor_name == key:
+				found = True
+				break
+		if not found:
+			f.write("Sensor does not exist")
+		else:
+			f.write(sensor_name + ": " + str(self.getLastSensorValue(sensor_name)))
+		f.write('\n')
+
+	def printAllLastSensorValuesToFile (self, file_name):
+		f = open(file_name, 'w')
+		for sensor_name in self.sensor_dict.keys():
+			f.write(sensor_name + ": " + str(self.getLastSensorValue(sensor_name)) + '\n')
