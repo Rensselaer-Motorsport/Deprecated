@@ -28,9 +28,6 @@ void setup()
 
 void loop()
 {
-	//sendData.vars.data1 = random(73);
-	//sendData.vars.data2 = random(73);
-	//sendData.vars.data3 = (unsigned char)random(73);
 	sendData.vars.data1 = (256);
 	sendData.vars.data2 = (512);
 	sendData.vars.data3 = (1024);
