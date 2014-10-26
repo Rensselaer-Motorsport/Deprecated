@@ -10,7 +10,7 @@ struct sensorData
 	char pad0;
 	int data2;
 	char pad1;
-	char data3;
+	int data3;
 };
 
 union data
@@ -33,8 +33,11 @@ void setup()
 
 void loop()
 {
-	sendData.vars.data1 = random(73);
-	sendData.vars.data2 = random(73);
-	sendData.vars.data3 = (unsigned char)random(73);
+	//sendData.vars.data1 = random(73);
+	//sendData.vars.data2 = random(73);
+	//sendData.vars.data3 = (unsigned char)random(73);
+	sendData.vars.data1 = (256);
+	sendData.vars.data2 = (512);
+	sendData.vars.data3 = (1024);
 	Serial.write(sendData.buffer, sizeof(sensorData));
 }

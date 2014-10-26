@@ -7,12 +7,13 @@ class SensorData:
 		self.num_sensors = len(s_dict)
 		self.pad_start = p_start
 		self.pad_len = p_len
-		self.wait_for_beginning([], p_start)
+		self.wait_for_beginning(p_start)
 
 	def poll(self):
 		for i in range(self.num_sensors):
 			tmp = self.ser_read()
 			tmp+=(self.ser_read()<<8)
+			print tmp
 			self.sensor_buffer.values()[i].append(tmp)
 			self.ser_read()
 		return self.sensor_buffer
@@ -26,17 +27,17 @@ class SensorData:
 				continue
 		return data
 
-	def wait_for_beginning(self, lst, start):
-		data = self.ser_read()
-		if data == start:
-			lst.append(data)
-			if len(lst) == self.pad_len:
-				return
-			self.wait_for_beginning(lst, start+1)
-		else:
-			lst = []
-			start = 0
-			self.wait_for_beginning(lst, 0)
+	def wait_for_beginning(self, start):
+		while True:
+			while(self.ser_read() != 0): continue
+			flag = 0
+			for i in range(1, self.pad_len):
+				if i == self.ser_read(): continue
+				else:
+					flag = 1
+					break
+			if flag: continue
+			else: break
 
 	def wait_for_end(self):
 		last = self.ser_read()

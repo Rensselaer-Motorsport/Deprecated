@@ -22,6 +22,7 @@ def serial_poll( s_dict ):
 	while True:
 		sensor_buffer = s.poll()
 		s.wait_for_end()
+		#print sensor_buffer
 
 def serial_init():
 	ser = serial.Serial()
