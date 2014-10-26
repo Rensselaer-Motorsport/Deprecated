@@ -1,11 +1,11 @@
 struct sensorData
 {
 	char beginPad[5];
-	int data1;
+	int data0;
 	char pad0;
-	int data2;
+	int data1;
 	char pad1;
-	int data3;
+	int data2;
 };
 
 union data
@@ -28,8 +28,8 @@ void setup()
 
 void loop()
 {
-	sendData.vars.data1 = (256);
-	sendData.vars.data2 = (512);
-	sendData.vars.data3 = (1024);
+	sendData.vars.data0 = (256);
+	sendData.vars.data1 = (512);
+	sendData.vars.data2 = (1024);
 	Serial.write(sendData.buffer, sizeof(sensorData));
 }
