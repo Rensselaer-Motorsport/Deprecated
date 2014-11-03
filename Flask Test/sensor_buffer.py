@@ -1,4 +1,6 @@
-class sensorBuffer:
+import datetime
+
+class SensorBuffer:
 
 	#initializes the class.
 	#can either take in an already made sensor dictionary
@@ -139,7 +141,21 @@ class sensorBuffer:
 			f.write(sensor_name + ": " + str(self.getLastSensorValue(sensor_name)))
 		f.write('\n')
 
+	#prints and erases the last value from all sensors to a file
 	def printAllLastSensorValuesToFile (self, file_name):
 		f = open(file_name, 'w')
 		for sensor_name in self.sensor_dict.keys():
 			f.write(sensor_name + ": " + str(self.getLastSensorValue(sensor_name)) + '\n')
+
+	#prints the last value from each sensor to a file with a time stamp, appending the file
+	#does NOT erase the last value from the sensor
+	#the format is...
+	#yyyy-mm-dd hh:mm:ss.ssssss sensorAvalue sensorBvalue sensorCvalue etc.
+	def getValues (self, file_name):
+		f = open(file_name, 'a')
+		f.write (str(datetime.datetime.now()) + " ")
+		for sensor_name in self.sensor_dict.keys():
+			lastIndex = len(self.sensor_dict[sensor_name]) - 1
+			if lastIndex >= 0:
+				f.write(str(self.sensor_dict[sensor_name][lastIndex]) + ' ')
+		f.write('\n')

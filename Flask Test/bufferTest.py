@@ -3,7 +3,7 @@ import sensor_buffer
 
 print
 
-sensorDict = sensor_buffer.sensorBuffer()
+sensorDict = sensor_buffer.SensorBuffer()
 
 #add sensors and values
 sensorDict.addSensor("engine_sensor")
