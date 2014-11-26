@@ -34,7 +34,7 @@ def serial_init():
 
 if __name__ == "__main__":
 	global sensor_buffer
-	sensor_buffer = { 'sensor1': [], 'sensor2': [], 'sensor3': [] }
+	sensor_buffer = { 'sensor1': [] }
 	app.debug = True
 
 	serial_thread = threading.Thread( target=serial_poll, args=(sensor_buffer, ) )

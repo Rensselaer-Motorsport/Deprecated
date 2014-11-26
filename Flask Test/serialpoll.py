@@ -40,6 +40,7 @@ class SensorData:
 			else: break
 
 	def wait_for_end(self):
-		last = self.ser_read()
-		while last != self.pad_len-1:
-			last = self.ser_read()
+		while True:
+			pad = self.ser_read()
+			if pad == self.pad_len-1:
+				break
