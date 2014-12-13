@@ -19,10 +19,13 @@ def index():
 def serial_poll( s_dict ):
 	dev = serial_init()
 	s = SensorData( dev, s_dict, 0, 5 )
+	s.wait_for_beginning(s.pad_start)
 	while True:
 		sensor_buffer = s.poll()
 		s.wait_for_end()
 		#print sensor_buffer
+		#print s.ser_read()
+		#print ord(dev.read())
 
 def serial_init():
 	ser = serial.Serial()
@@ -34,14 +37,14 @@ def serial_init():
 
 if __name__ == "__main__":
 	global sensor_buffer
-	sensor_buffer = { 'sensor1': [], 'sensor2': [], 'sensor3': [] }
+	sensor_buffer = { 'sensor1': [] }
 	app.debug = True
 
 	serial_thread = threading.Thread( target=serial_poll, args=(sensor_buffer, ) )
 	serial_thread.daemon = True
 	serial_thread.start()
 	
-	app.run()
+	app.run(port=5001)
 
 	while True:
 		time.sleep( .1 )
