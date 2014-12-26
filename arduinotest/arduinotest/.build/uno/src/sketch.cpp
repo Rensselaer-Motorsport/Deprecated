@@ -8,9 +8,9 @@ struct sensorData
 	char beginPad[5];
 	int data0;
 	char pad0;
-	int data1;
-	char pad1;
-	int data2;
+	//int data1;
+	//char pad1;
+	//int data2;
 };
 
 union data
@@ -28,13 +28,14 @@ void setup()
 	static char temp[5] = {0, 1, 2, 3, 4};
 	memcpy(sendData.vars.beginPad, temp, 5);
 	sendData.vars.pad0 = 0;
-	sendData.vars.pad1 = 0;
+	//sendData.vars.pad1 = 0;
 }
 
 void loop()
 {
 	sendData.vars.data0 = (256);
-	sendData.vars.data1 = (512);
-	sendData.vars.data2 = (1024);
+	//sendData.vars.data1 = (512);
+	//sendData.vars.data2 = (1024);
 	Serial.write(sendData.buffer, sizeof(sensorData));
+	delay(100);
 }
