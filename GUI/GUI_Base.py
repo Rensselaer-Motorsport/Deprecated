@@ -1,18 +1,21 @@
 # Rensselaer Motorsports 2014
 
 # Author : Mitchell Mellone
-# Version : 0.1.2
+# Version : 0.1.3
 # Most Recent Edits : 12-12-14
 # Description : Base class for a GUI using the pyQt library that will display
 # information from the sensors on the car in a clear and readable way
 
 import sys
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
+import numpy as np
+import pyqtgraph as pg
 
 class GUI_window(QtGui.QMainWindow):
     def __init__(self):
         super(GUI_window, self).__init__()
         self.initUI()
+        # self.initGraphs()
 
     def initUI(self):
         #Exit action initialization
@@ -78,9 +81,49 @@ class GUI_window(QtGui.QMainWindow):
         self.setWindowIcon(QtGui.QIcon('logo.png'))
         self.show()
 
+#This function creates a widget containing 2 plots with random numbers
+def basicPlotWidget(mw):
+    cw = QtGui.QWidget()
+    mw.setCentralWidget(cw)
+    l = QtGui.QVBoxLayout()
+    cw.setLayout(l)
+
+    pw = pg.PlotWidget(name='Plot1')
+    l.addWidget(pw)
+    pw2 = pg.PlotWidget(name='Plot2')
+    l.addWidget(pw2)
+
+    ## Create an empty plot curve to be filled later, set its pen
+    p1 = pw.plot()
+    p1.setPen((200,200,100))
+
+    ## Add in some extra graphics
+    rect = QtGui.QGraphicsRectItem(QtCore.QRectF(0, 0, 1, 5e-11))
+    rect.setPen(QtGui.QPen(QtGui.QColor(100, 200, 100)))
+    pw.addItem(rect)
+
+    pw.setLabel('left', 'Value', units='V')
+    pw.setLabel('bottom', 'Time', units='s')
+    pw.setXRange(0, 2)
+    pw.setYRange(0, 1e-10)
+
+    yd, xd = rand(10000)
+    p1.setData(y=yd, x=xd)
+
+#Creates a set of random numbers for help with testing
+def rand(n):
+    data = np.random.random(n)
+    data[int(n*0.1):int(n*0.13)] += .5
+    data[int(n*0.18)] += 2
+    data[int(n*0.1):int(n*0.13)] *= 5
+    data[int(n*0.18)] *= 20
+    data *= 1e-12
+    return data, np.arange(n, n+len(data)) / float(n)
+
 def main():
     app = QtGui.QApplication(sys.argv)
-    w = GUI_window()
+    mw = GUI_window()
+    basicPlotWidget(mw)
     sys.exit(app.exec_())
 
 if __name__ == '__main__':
