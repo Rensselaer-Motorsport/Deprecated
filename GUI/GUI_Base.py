@@ -110,6 +110,18 @@ def basicPlotWidget(mw):
     yd, xd = rand(10000)
     p1.setData(y=yd, x=xd)
 
+def scatterPlot(mw):
+    cw = QtGui.QWidget()
+    mw.setCentralWidget(cw)
+    l = QtGui.QVBoxLayout()
+    cw.setLayout(l)
+
+    sp = pg.ScatterPlotWidget()
+    l.addWidget(sp)
+
+    x = np.array([(1.0, 2), (3.0, 4)], dtype=[('x', float), ('y', int)])
+    sp.setData(x)
+
 #Creates a set of random numbers for help with testing
 def rand(n):
     data = np.random.random(n)
@@ -123,7 +135,8 @@ def rand(n):
 def main():
     app = QtGui.QApplication(sys.argv)
     mw = GUI_window()
-    basicPlotWidget(mw)
+    #basicPlotWidget(mw)
+    scatterPlot(mw)
     sys.exit(app.exec_())
 
 if __name__ == '__main__':
