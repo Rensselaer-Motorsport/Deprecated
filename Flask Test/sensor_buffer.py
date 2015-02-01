@@ -3,8 +3,6 @@ import datetime
 class SensorBuffer:
 
 	#initializes the class.
-	#can either take in an already made sensor dictionary
-	#or it will make an empty dictionary
 	def __init__(self):
 		#sensor_dict is a dictionary holding other dictionarys of seperate sensors
 		self.sensor_dict = {}
@@ -45,10 +43,11 @@ class SensorBuffer:
 			if lastIndex >= 0:
 				f.write(str(self.sensor_dict[sensor_name][lastIndex]) + ' ')
 		f.write('\n')
+		f.close()
 
 	#prints all of the sensor names in the order they are in the dictionary
 	def getSensors (self, file_name):
 		f = open(file_name, 'a')
 		for sensor_name in self.sensor_dict.keys():
 			f.write(sensor_name + ' ')
-		f.write('\n')
+		f.close()
