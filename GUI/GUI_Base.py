@@ -1,15 +1,20 @@
 # Rensselaer Motorsports 2014
 
 # Author : Mitchell Mellone
-# Version : 0.1.3
-# Most Recent Edits : 12-12-14
+# Version : 0.2.0
+# Most Recent Edits : 2-5-15
 # Description : Base class for a GUI using the pyQt library that will display
 # information from the sensors on the car in a clear and readable way
 
 import sys
 from PyQt4 import QtGui, QtCore
-import numpy as np
 import pyqtgraph as pg
+from pyqtgraph.Qt import QtCore, QtGui
+import pyqtgraph.console
+from pyqtgraph.dockarea import *
+import numpy as np
+
+import database as db
 
 class GUI_window(QtGui.QMainWindow):
     def __init__(self):
@@ -79,36 +84,42 @@ class GUI_window(QtGui.QMainWindow):
         self.setGeometry(300, 300, 500, 300)
         self.setWindowTitle('RM Sensor Logger')
         self.setWindowIcon(QtGui.QIcon('logo.png'))
+        basicPlotWidget(self)
         self.show()
 
 #This function creates a widget containing 2 plots with random numbers
-def basicPlotWidget(mw):
-    cw = QtGui.QWidget()
-    mw.setCentralWidget(cw)
-    l = QtGui.QVBoxLayout()
-    cw.setLayout(l)
+def basicPlotWidget(win):
+    area = DockArea()
+    win.setCentralWidget(area)
+    win.resize(1200,500)
+    win.setWindowTitle('graph_test')
 
-    pw = pg.PlotWidget(name='Plot1')
-    l.addWidget(pw)
-    pw2 = pg.PlotWidget(name='Plot2')
-    l.addWidget(pw2)
+    d1 = Dock("Graph 1", size=(400, 500))
+    d2 = Dock("Graph 2", size=(400, 500))
+    d3 = Dock("Graph 3", size=(400, 500))
+    area.addDock(d1, 'left')
+    area.addDock(d2, 'right')
+    area.addDock(d3, 'right')
 
-    ## Create an empty plot curve to be filled later, set its pen
-    p1 = pw.plot()
-    p1.setPen((200,200,100))
+    data = db.DataBase()
+    data.parse_file('test_buffer.txt')
 
-    ## Add in some extra graphics
-    rect = QtGui.QGraphicsRectItem(QtCore.QRectF(0, 0, 1, 5e-11))
-    rect.setPen(QtGui.QPen(QtGui.QColor(100, 200, 100)))
-    pw.addItem(rect)
+    times = data.get_elapsed_times()
+    values = data.get_sensor_values('temperature')
+    print(times)
+    print(values)
 
-    pw.setLabel('left', 'Value', units='V')
-    pw.setLabel('bottom', 'Time', units='s')
-    pw.setXRange(0, 2)
-    pw.setYRange(0, 1e-10)
+    w1 = pg.PlotWidget(title="Temperature plot")
+    w1.plot(times, values)
+    d1.addWidget(w1)
 
-    yd, xd = rand(10000)
-    p1.setData(y=yd, x=xd)
+    w2 = pg.PlotWidget(title="Oil Pressure plot")
+    w2.plot(data.get_elapsed_times(), data.get_sensor_values('oil_pressure'))
+    d2.addWidget(w2)
+
+    w3 = pg.PlotWidget(title="Accelerometer plot")
+    w3.plot(data.get_elapsed_times(), data.get_sensor_values('accelerometer'))
+    d3.addWidget(w3)
 
 def scatterPlot(mw):
     cw = QtGui.QWidget()
@@ -136,7 +147,7 @@ def main():
     app = QtGui.QApplication(sys.argv)
     mw = GUI_window()
     #basicPlotWidget(mw)
-    scatterPlot(mw)
+    #scatterPlot(mw)
     sys.exit(app.exec_())
 
 if __name__ == '__main__':
