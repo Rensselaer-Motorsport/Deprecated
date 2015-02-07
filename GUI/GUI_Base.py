@@ -121,28 +121,6 @@ def basicPlotWidget(win):
     w3.plot(data.get_elapsed_times(), data.get_sensor_values('accelerometer'))
     d3.addWidget(w3)
 
-def scatterPlot(mw):
-    cw = QtGui.QWidget()
-    mw.setCentralWidget(cw)
-    l = QtGui.QVBoxLayout()
-    cw.setLayout(l)
-
-    sp = pg.ScatterPlotWidget()
-    l.addWidget(sp)
-
-    x = np.array([(1.0, 2), (3.0, 4)], dtype=[('x', float), ('y', int)])
-    sp.setData(x)
-
-#Creates a set of random numbers for help with testing
-def rand(n):
-    data = np.random.random(n)
-    data[int(n*0.1):int(n*0.13)] += .5
-    data[int(n*0.18)] += 2
-    data[int(n*0.1):int(n*0.13)] *= 5
-    data[int(n*0.18)] *= 20
-    data *= 1e-12
-    return data, np.arange(n, n+len(data)) / float(n)
-
 def main():
     app = QtGui.QApplication(sys.argv)
     mw = GUI_window()
