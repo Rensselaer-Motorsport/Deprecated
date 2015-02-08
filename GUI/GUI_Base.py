@@ -85,6 +85,7 @@ class GUI_window(QtGui.QMainWindow):
         self.setWindowTitle('RM Sensor Logger')
         self.setWindowIcon(QtGui.QIcon('logo.png'))
         basicPlotWidget(self)
+        dataSelectDropdown(self)
         self.show()
 
 #This function creates a widget containing 2 plots with random numbers
@@ -106,8 +107,6 @@ def basicPlotWidget(win):
 
     times = data.get_elapsed_times()
     values = data.get_sensor_values('temperature')
-    print(times)
-    print(values)
 
     w1 = pg.PlotWidget(title="Temperature plot")
     w1.plot(times, values)
@@ -121,11 +120,16 @@ def basicPlotWidget(win):
     w3.plot(data.get_elapsed_times(), data.get_sensor_values('accelerometer'))
     d3.addWidget(w3)
 
+def dataSelectDropdown(self):
+    options = ['Temperature', 'Oil Pressure', 'Accelerometer']
+    dropdown_box = QComboBox(self)
+    dropdown_box.addItems(options)
+    dropdown_box.setMinimumWidth(285)
+    dropdown_box.move(110, 5)
+
 def main():
     app = QtGui.QApplication(sys.argv)
     mw = GUI_window()
-    #basicPlotWidget(mw)
-    #scatterPlot(mw)
     sys.exit(app.exec_())
 
 if __name__ == '__main__':
