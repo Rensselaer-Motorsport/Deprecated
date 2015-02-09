@@ -13,7 +13,7 @@ from pyqtgraph.Qt import QtCore, QtGui
 import pyqtgraph.console
 from pyqtgraph.dockarea import *
 import numpy as np
-
+from PyQt4.Qt import *
 import database as db
 
 class GUI_window(QtGui.QMainWindow):
@@ -59,6 +59,11 @@ class GUI_window(QtGui.QMainWindow):
         closeAction.setShortcut('Ctrl+C')
         closeAction.setStatusTip('Close the current file')
 
+        selectDataAction = QtGui.QAction('&Select Data', self)
+        selectDataAction.setShortcut('Ctrl+S')
+        selectDataAction.setStatusTip('Select data to display with a graph')
+        selectDataAction.triggered.connect(self.selectData)
+
         #Status bar initialization
         self.statusBar().showMessage('Ready')
 
@@ -71,6 +76,7 @@ class GUI_window(QtGui.QMainWindow):
         fileMenu = menubar.addMenu('&File')
         fileMenu.addAction(newAction)
         fileMenu.addAction(openAction)
+        fileMenu.addAction(selectDataAction)
         fileMenu.addAction(saveAction)
         fileMenu.addAction(printAction)
         fileMenu.addAction(closeAction)
@@ -85,8 +91,14 @@ class GUI_window(QtGui.QMainWindow):
         self.setWindowTitle('RM Sensor Logger')
         self.setWindowIcon(QtGui.QIcon('logo.png'))
         basicPlotWidget(self)
-        dataSelectDropdown(self)
+        self.popup_win = None
         self.show()
+
+    def selectData(self):
+        print 'selectData'
+        self.popup_win = DataSelect()
+        self.popup_win.setGeometry(QRect(100, 100, 400, 200))
+        self.popup_win.show()
 
 #This function creates a widget containing 2 plots with random numbers
 def basicPlotWidget(win):
@@ -120,12 +132,15 @@ def basicPlotWidget(win):
     w3.plot(data.get_elapsed_times(), data.get_sensor_values('accelerometer'))
     d3.addWidget(w3)
 
-def dataSelectDropdown(self):
-    options = ['Temperature', 'Oil Pressure', 'Accelerometer']
-    dropdown_box = QComboBox(self)
-    dropdown_box.addItems(options)
-    dropdown_box.setMinimumWidth(285)
-    dropdown_box.move(110, 5)
+class DataSelect(QWidget):
+    def __init__(self):
+        QWidget.__init__(self)
+        options = ['Temperature', 'Oil Pressure', 'Accelerometer']
+        dropdown_box = QtGui.QComboBox(self)
+        dropdown_box.addItems(options)
+        dropdown_box.setMinimumWidth(285)
+        dropdown_box.move(110, 5)
+        dropdown_box.show()
 
 def main():
     app = QtGui.QApplication(sys.argv)
