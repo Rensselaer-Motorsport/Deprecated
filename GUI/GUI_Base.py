@@ -1,8 +1,8 @@
 # Rensselaer Motorsports 2014
 
 # Author : Mitchell Mellone
-# Version : 0.2.0
-# Most Recent Edits : 2-5-15
+# Version : 0.3.1
+# Most Recent Edits : 2-9-15
 # Description : Base class for a GUI using the pyQt library that will display
 # information from the sensors on the car in a clear and readable way
 
@@ -21,48 +21,22 @@ class GUI_window(QtGui.QMainWindow):
         super(GUI_window, self).__init__()
         self.initUI()
         # self.initGraphs()
+        self.popup_win = None
+        self.data = db.DataBase()
+        self.data.parse_file('test_buffer.txt')
 
     def initUI(self):
         #Exit action initialization
-        exitAction = QtGui.QAction(QtGui.QIcon('logo.png'), '&Exit', self)
+        exitAction = QtGui.QAction(QtGui.QIcon('exit.png'), '&Exit', self)
         exitAction.setShortcut('Ctrl+Q')
         exitAction.setStatusTip('Exit application')
         exitAction.triggered.connect(QtGui.qApp.quit)
 
-        #Open action initialization
-        #!!NOT FUNCTIONAL!!
-        openAction = QtGui.QAction('&Open File', self)
-        openAction.setShortcut('Ctrl+O')
-        openAction.setStatusTip('Open a new file')
-
-        #Save action initialization
-        #!!NOT FUNCTIONAL!!
-        saveAction = QtGui.QAction('&Save File', self)
-        saveAction.setShortcut('Ctrl+S')
-        saveAction.setStatusTip('Save the current file')
-
-        #New action initialization
-        #!!NOT FUNCTIONAL!!
-        newAction = QtGui.QAction('&New File', self)
-        newAction.setShortcut('Ctrl+N')
-        newAction.setStatusTip('Create a new file')
-
-        #Print action initialization
-        #!!NOT FUNCTIONAL!!
-        printAction = QtGui.QAction('&Print File', self)
-        printAction.setShortcut('Ctrl+P')
-        printAction.setStatusTip('Print the current file')
-
-        #Close action initialization
-        #!!NOT FUNCTIONAL!!
-        closeAction = QtGui.QAction('&Close File', self)
-        closeAction.setShortcut('Ctrl+C')
-        closeAction.setStatusTip('Close the current file')
-
         selectDataAction = QtGui.QAction('&Select Data', self)
+        selectDataAction = QtGui.QAction(QtGui.QIcon('graph.png'), '&Select Data', self)
         selectDataAction.setShortcut('Ctrl+S')
         selectDataAction.setStatusTip('Select data to display with a graph')
-        selectDataAction.triggered.connect(self.selectData)
+        selectDataAction.triggered.connect(self.selectDataPopup)
 
         #Status bar initialization
         self.statusBar().showMessage('Ready')
@@ -70,16 +44,12 @@ class GUI_window(QtGui.QMainWindow):
         #Tool bar initialization
         self.toolbar = self.addToolBar('Exit')
         self.toolbar.addAction(exitAction)
+        self.toolbar.addAction(selectDataAction)
 
         #Menu bar initialization
         menubar = self.menuBar()
         fileMenu = menubar.addMenu('&File')
-        fileMenu.addAction(newAction)
-        fileMenu.addAction(openAction)
         fileMenu.addAction(selectDataAction)
-        fileMenu.addAction(saveAction)
-        fileMenu.addAction(printAction)
-        fileMenu.addAction(closeAction)
         fileMenu.addAction(exitAction)
 
         editMenu = menubar.addMenu('&Edit')
@@ -89,16 +59,36 @@ class GUI_window(QtGui.QMainWindow):
 
         self.setGeometry(300, 300, 500, 300)
         self.setWindowTitle('RM Sensor Logger')
-        self.setWindowIcon(QtGui.QIcon('logo.png'))
-        basicPlotWidget(self)
-        self.popup_win = None
+        self.setWindowIcon(QtGui.QIcon('rmlogo.png'))
+        #basicPlotWidget(self)
         self.show()
 
-    def selectData(self):
-        print 'selectData'
+    def selectDataPopup(self):
         self.popup_win = DataSelect()
-        self.popup_win.setGeometry(QRect(100, 100, 400, 200))
+        self.popup_win.setGeometry(QRect(200, 200, 200, 100))
+        btn = QPushButton('Select Data To Display', self.popup_win)
+        btn.setGeometry(QRect(12, 50, 175, 40))
+        self.connect(btn, SIGNAL("clicked()"), self.selectDataButton)
         self.popup_win.show()
+
+    def selectDataButton(self):
+        self.plot(self, self.popup_win.getState())
+
+    def plot(self, win, graph_title):
+        area = DockArea()
+        win.setCentralWidget(area)
+        win.resize(600,500)
+        win.setWindowTitle(graph_title)
+
+        d1 = Dock(graph_title, size=(600, 500))
+        area.addDock(d1)
+
+        times = self.data.get_elapsed_times()
+        values = self.data.get_sensor_values(str(graph_title))
+
+        w1 = pg.PlotWidget(title=graph_title)
+        w1.plot(times, values)
+        d1.addWidget(w1)
 
 #This function creates a widget containing 2 plots with random numbers
 def basicPlotWidget(win):
@@ -135,12 +125,15 @@ def basicPlotWidget(win):
 class DataSelect(QWidget):
     def __init__(self):
         QWidget.__init__(self)
-        options = ['Temperature', 'Oil Pressure', 'Accelerometer']
-        dropdown_box = QtGui.QComboBox(self)
-        dropdown_box.addItems(options)
-        dropdown_box.setMinimumWidth(285)
-        dropdown_box.move(110, 5)
-        dropdown_box.show()
+        options = ['temperature', 'oil_pressure', 'accelerometer']
+        self.dropdown_box = QtGui.QComboBox(self)
+        self.dropdown_box.addItems(options)
+        self.dropdown_box.setMinimumWidth(150)
+        self.dropdown_box.move(25, 10)
+        self.dropdown_box.show()
+
+    def getState(self):
+        return self.dropdown_box.currentText()
 
 def main():
     app = QtGui.QApplication(sys.argv)
