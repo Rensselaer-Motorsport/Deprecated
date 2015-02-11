@@ -73,22 +73,32 @@ class GUI_window(QtGui.QMainWindow):
 
     def selectDataButton(self):
         self.plot(self, self.popup_win.getState())
+        self.popup_win.close()
 
     def plot(self, win, graph_title):
-        area = DockArea()
-        win.setCentralWidget(area)
-        win.resize(600,500)
-        win.setWindowTitle(graph_title)
+        window = pg.GraphicsWindow(title="Graphics window")
+        window.resize(1000,600)
+        pg.setConfigOptions(antialias=True)
 
-        d1 = Dock(graph_title, size=(600, 500))
-        area.addDock(d1)
-
-        times = self.data.get_elapsed_times()
-        values = self.data.get_sensor_values(str(graph_title))
-
-        w1 = pg.PlotWidget(title=graph_title)
-        w1.plot(times, values)
-        d1.addWidget(w1)
+        x = self.data.get_elapsed_times()
+        y = self.data.get_sensor_values(str(graph_title))
+        p1 = window.addPlot(title="This is a graph", x=x, y=y)
+        updatePlot()
+        
+        # area = DockArea()
+        # win.setCentralWidget(area)
+        # win.resize(600,500)
+        # win.setWindowTitle(graph_title)
+        #
+        # d1 = Dock(graph_title, size=(600, 500))
+        # area.addDock(d1)
+        #
+        # times = self.data.get_elapsed_times()
+        # values = self.data.get_sensor_values(str(graph_title))
+        #
+        # w1 = pg.PlotWidget(title=graph_title)
+        # w1.plot(times, values)
+        # d1.addWidget(w1)
 
 #This function creates a widget containing 2 plots with random numbers
 def basicPlotWidget(win):
