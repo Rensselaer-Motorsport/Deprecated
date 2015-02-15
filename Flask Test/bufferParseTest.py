@@ -42,6 +42,7 @@ sensorDict.addSensorValue("tire_temp3", 132)
 sensorDict.addSensorValue("tire_temp4", 141)
 sensorDict.addSensorValue("tire_temp4", 142)
 
+sensorDict.getSensors("bufferParseTest.txt")
 sensorDict.getValues("bufferParseTest.txt")
 
 sensorDict.addSensorValue("accelerometer1", 1.3)
