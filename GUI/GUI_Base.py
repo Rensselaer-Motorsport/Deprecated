@@ -21,9 +21,12 @@ class GUI_window(QtGui.QMainWindow):
         super(GUI_window, self).__init__()
         self.initUI()
         # self.initGraphs()
+        self.area = DockArea()
+        self.setCentralWidget(self.area)
         self.popup_win = None
         self.data = db.DataBase()
         self.data.parse_file('test_buffer.txt')
+
 
     def initUI(self):
         #Exit action initialization
@@ -76,29 +79,37 @@ class GUI_window(QtGui.QMainWindow):
         self.popup_win.close()
 
     def plot(self, win, graph_title):
-        window = pg.GraphicsWindow(title="Graphics window")
-        window.resize(1000,600)
-        pg.setConfigOptions(antialias=True)
+        win.resize(850,500)
+        win.setWindowTitle(graph_title)
+        d1 = Dock(graph_title, size=(600, 500))
+        self.area.addDock(d1, 'left')
+        times = self.data.get_elapsed_times()
+        values = self.data.get_sensor_values(str(graph_title))
+        w1 = pg.PlotWidget(title=graph_title)
+        w1.plot(times, values)
+        d1.addWidget(w1)
 
-        x = self.data.get_elapsed_times()
-        y = self.data.get_sensor_values(str(graph_title))
-        p1 = window.addPlot(title="This is a graph", x=x, y=y)
-        updatePlot()
-        
-        # area = DockArea()
-        # win.setCentralWidget(area)
-        # win.resize(600,500)
-        # win.setWindowTitle(graph_title)
+        d2 = Dock(graph_title + " table", size=(250, 500))
+        self.area.addDock(d2, 'right')
+        w2 = QtGui.QTableWidget(len(times), 2)
+        for i, (t, v) in enumerate(zip(times, values)):
+            newTimeItem = QTableWidgetItem(str(t))
+            newValueItem = QTableWidgetItem(str(v))
+            w2.setItem(i, 0, newTimeItem)
+            w2.setItem(i, 1, newValueItem)
+        headers = ['Time', graph_title]
+        w2.setHorizontalHeaderLabels(headers)
+        d2.addWidget(w2)
+
+        #Stuff for putting graph in seperate window, appears to work but creates errors...
+        # window = pg.GraphicsWindow(title="Graphics window")
+        # window.resize(1000,600)
+        # pg.setConfigOptions(antialias=True)
         #
-        # d1 = Dock(graph_title, size=(600, 500))
-        # area.addDock(d1)
-        #
-        # times = self.data.get_elapsed_times()
-        # values = self.data.get_sensor_values(str(graph_title))
-        #
-        # w1 = pg.PlotWidget(title=graph_title)
-        # w1.plot(times, values)
-        # d1.addWidget(w1)
+        # x = self.data.get_elapsed_times()
+        # y = self.data.get_sensor_values(str(graph_title))
+        # p1 = window.addPlot(title="This is a graph", x=x, y=y)
+        # updatePlot()
 
 #This function creates a widget containing 2 plots with random numbers
 def basicPlotWidget(win):
