@@ -1,8 +1,8 @@
 # Rensselaer Motorsports 2014
 
 # Author : Mitchell Mellone
-# Version : 0.3.1
-# Most Recent Edits : 2-9-15
+# Version : 0.4.0
+# Most Recent Edits : 2-20-15
 # Description : Base class for a GUI using the pyQt library that will display
 # information from the sensors on the car in a clear and readable way
 
@@ -25,6 +25,8 @@ class GUI_window(QtGui.QMainWindow):
         self.setCentralWidget(self.area)
         self.popup_win = None
         self.data = db.DataBase()
+        self.data_elements = {}
+        self.current_plots = []
         self.data.parse_file('test_buffer.txt')
 
 
@@ -35,7 +37,6 @@ class GUI_window(QtGui.QMainWindow):
         exitAction.setStatusTip('Exit application')
         exitAction.triggered.connect(QtGui.qApp.quit)
 
-        selectDataAction = QtGui.QAction('&Select Data', self)
         selectDataAction = QtGui.QAction(QtGui.QIcon('graph.png'), '&Select Data', self)
         selectDataAction.setShortcut('Ctrl+S')
         selectDataAction.setStatusTip('Select data to display with a graph')
@@ -61,9 +62,8 @@ class GUI_window(QtGui.QMainWindow):
         helpMenu = menubar.addMenu('&Help')
 
         self.setGeometry(300, 300, 500, 300)
-        self.setWindowTitle('RM Sensor Logger')
+        self.setWindowTitle('RM Data Analysis')
         self.setWindowIcon(QtGui.QIcon('rmlogo.png'))
-        #basicPlotWidget(self)
         self.show()
 
     def selectDataPopup(self):
@@ -76,72 +76,64 @@ class GUI_window(QtGui.QMainWindow):
 
     def selectDataButton(self):
         self.plot(self, self.popup_win.getState())
+        self.initPlotTools()
         self.popup_win.close()
 
     def plot(self, win, graph_title):
         win.resize(850,500)
-        win.setWindowTitle(graph_title)
+
         d1 = Dock(graph_title, size=(600, 500))
         self.area.addDock(d1, 'left')
         times = self.data.get_elapsed_times()
         values = self.data.get_sensor_values(str(graph_title))
-        w1 = pg.PlotWidget(title=graph_title)
-        w1.plot(times, values)
-        d1.addWidget(w1)
+        self.data_elements[graph_title + "plot"] = pg.PlotWidget(title=graph_title)
+        self.data_elements[graph_title + "plot"].plot(times, values)
+        ymin = min(values)
+        if ymin > 0:
+            ymin = 0
+        ymax = max(values)
+        if ymax < 0:
+            ymax =0
+        xpadding = times[len(times)-1] * 0.1
+        ypadding = abs(ymax-ymin) * 0.1
+        self.data_elements[graph_title + "plot"].setLimits(xMin=0-xpadding, xMax=times[len(times)-1]+xpadding, yMin=ymin-ypadding, yMax=ymax+ypadding)
+        self.data_elements[graph_title + "plot"].setRange(xRange=(0, times[len(times)-1]), yRange=(ymin, ymax), padding=0.0)
+        self.data_elements[graph_title + "plot"].showGrid(x=True, y=True, alpha = 0.5)
+        self.current_plots.append((str(graph_title), self.data_elements[graph_title + "plot"]))
+        d1.addWidget(self.data_elements[graph_title + "plot"])
 
         d2 = Dock(graph_title + " table", size=(250, 500))
         self.area.addDock(d2, 'right')
-        w2 = QtGui.QTableWidget(len(times), 2)
+        self.data_elements[graph_title + "table"] = QtGui.QTableWidget(len(times), 2)
         for i, (t, v) in enumerate(zip(times, values)):
             newTimeItem = QTableWidgetItem(str(t))
             newValueItem = QTableWidgetItem(str(v))
-            w2.setItem(i, 0, newTimeItem)
-            w2.setItem(i, 1, newValueItem)
+            self.data_elements[graph_title + "table"].setItem(i, 0, newTimeItem)
+            self.data_elements[graph_title + "table"].setItem(i, 1, newValueItem)
         headers = ['Time', graph_title]
-        w2.setHorizontalHeaderLabels(headers)
-        d2.addWidget(w2)
+        self.data_elements[graph_title + "table"].setHorizontalHeaderLabels(headers)
+        d2.addWidget(self.data_elements[graph_title + "table"])
 
-        #Stuff for putting graph in seperate window, appears to work but creates errors...
-        # window = pg.GraphicsWindow(title="Graphics window")
-        # window.resize(1000,600)
-        # pg.setConfigOptions(antialias=True)
-        #
-        # x = self.data.get_elapsed_times()
-        # y = self.data.get_sensor_values(str(graph_title))
-        # p1 = window.addPlot(title="This is a graph", x=x, y=y)
-        # updatePlot()
+    def initPlotTools(self):
+        setRangeAction = QtGui.QAction(QtGui.QIcon('graph.png'), '&Set Range', self)
+        setRangeAction.setStatusTip('Set the range to display in the graph')
+        setRangeAction.triggered.connect(self.initPlotToolsPopup)
+        self.toolbar.addAction(setRangeAction)
 
-#This function creates a widget containing 2 plots with random numbers
-def basicPlotWidget(win):
-    area = DockArea()
-    win.setCentralWidget(area)
-    win.resize(1200,500)
-    win.setWindowTitle('graph_test')
+    def initPlotToolsPopup(self):
+        self.popup_win = RangeSelect(self, self.current_plots)
+        self.popup_win.setGeometry(QRect(200, 200, 350, 200))
+        btn = QPushButton('Select Range', self.popup_win)
+        btn.setGeometry(QRect(87, 150, 175, 40))
+        self.connect(btn, SIGNAL("clicked()"), self.initPlotToolsButton)
+        self.popup_win.show()
 
-    d1 = Dock("Graph 1", size=(400, 500))
-    d2 = Dock("Graph 2", size=(400, 500))
-    d3 = Dock("Graph 3", size=(400, 500))
-    area.addDock(d1, 'left')
-    area.addDock(d2, 'right')
-    area.addDock(d3, 'right')
-
-    data = db.DataBase()
-    data.parse_file('test_buffer.txt')
-
-    times = data.get_elapsed_times()
-    values = data.get_sensor_values('temperature')
-
-    w1 = pg.PlotWidget(title="Temperature plot")
-    w1.plot(times, values)
-    d1.addWidget(w1)
-
-    w2 = pg.PlotWidget(title="Oil Pressure plot")
-    w2.plot(data.get_elapsed_times(), data.get_sensor_values('oil_pressure'))
-    d2.addWidget(w2)
-
-    w3 = pg.PlotWidget(title="Accelerometer plot")
-    w3.plot(data.get_elapsed_times(), data.get_sensor_values('accelerometer'))
-    d3.addWidget(w3)
+    def initPlotToolsButton(self):
+        plotName = self.popup_win.getPlotName()
+        newXRange = (self.popup_win.getXMin(), self.popup_win.getXMax())
+        newYRange = (self.popup_win.getYMin(), self.popup_win.getYMax())
+        self.data_elements[plotName + "plot"].setRange(xRange=newXRange, yRange=newYRange, padding=0.0)
+        self.popup_win.close()
 
 class DataSelect(QWidget):
     def __init__(self):
@@ -155,6 +147,85 @@ class DataSelect(QWidget):
 
     def getState(self):
         return self.dropdown_box.currentText()
+
+class RangeSelect(QWidget):
+    def __init__(self, win, current_plots):
+        QWidget.__init__(self)
+        self.options = []
+        self.plot_items = []
+        for plots in current_plots:
+            self.options.append(plots[0])
+            self.plot_items.append(plots[1])
+
+        self.dropdown_box = QtGui.QComboBox(self)
+        self.dropdown_box.addItems(self.options)
+        self.dropdown_box.setMinimumWidth(150)
+        self.dropdown_box.move(100, 10)
+        self.dropdown_box.show()
+
+        self.xminLabel = QtGui.QLabel("min x", self)
+        self.xminLabel.move(25, 50)
+        self.xmin = QtGui.QLineEdit(self)
+        self.xmin.move(75, 50)
+
+        self.xmaxLabel = QtGui.QLabel("max x", self)
+        self.xmaxLabel.move(200, 50)
+        self.xmax = QtGui.QLineEdit(self)
+        self.xmax.move(250, 50)
+
+        self.yminLabel = QtGui.QLabel("min y", self)
+        self.yminLabel.move(25, 100)
+        self.ymin = QtGui.QLineEdit(self)
+        self.ymin.move(75, 100)
+
+        self.ymaxLabel = QtGui.QLabel("max y", self)
+        self.ymaxLabel.move(200, 100)
+        self.ymax = QtGui.QLineEdit(self)
+        self.ymax.move(250, 100)
+
+        self.xmin.setMaxLength(8)
+        self.xmin.setMaximumWidth(60)
+        self.xmax.setMaxLength(8)
+        self.xmax.setMaximumWidth(60)
+        self.ymin.setMaxLength(8)
+        self.ymin.setMaximumWidth(60)
+        self.ymax.setMaxLength(8)
+        self.ymax.setMaximumWidth(60)
+
+        self.dropdown_box.connect(self.dropdown_box, SIGNAL("currentIndexChanged(int)"), self.updateLineEdits)
+        self.updateLineEdits()
+
+        self.xmin.show()
+        self.xmax.show()
+        self.ymin.show()
+        self.ymax.show()
+        self.xminLabel.show()
+        self.xmaxLabel.show()
+        self.yminLabel.show()
+        self.ymaxLabel.show()
+
+    def updateLineEdits(self):
+        i = self.options.index(self.dropdown_box.currentText())
+        currRange = self.plot_items[i].viewRange() #returns current views visible range in format [[xmin, xmax], [ymin, ymax]]
+        self.xmin.setText(str(currRange[0][0]))
+        self.xmax.setText(str(currRange[0][1]))
+        self.ymin.setText(str(currRange[1][0]))
+        self.ymax.setText(str(currRange[1][1]))
+
+    def getPlotName(self):
+        return self.dropdown_box.currentText()
+
+    def getXMin(self):
+        return float(self.xmin.text())
+
+    def getXMax(self):
+        return float(self.xmax.text())
+
+    def getYMin(self):
+        return float(self.ymin.text())
+
+    def getYMax(self):
+        return float(self.ymax.text())
 
 def main():
     app = QtGui.QApplication(sys.argv)
