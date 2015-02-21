@@ -1,8 +1,8 @@
 # Rensselaer Motorsports 2014
 
 # Author : Mitchell Mellone
-# Version : 0.4.0
-# Most Recent Edits : 2-20-15
+# Version : 0.4.0.5
+# Most Recent Edits : 2-21-15
 # Description : Base class for a GUI using the pyQt library that will display
 # information from the sensors on the car in a clear and readable way
 
@@ -20,27 +20,27 @@ class GUI_window(QtGui.QMainWindow):
     def __init__(self):
         super(GUI_window, self).__init__()
         self.initUI()
-        # self.initGraphs()
         self.area = DockArea()
         self.setCentralWidget(self.area)
         self.popup_win = None
         self.data = db.DataBase()
-        self.data_elements = {}
+        self.figures = {}
         self.current_plots = []
         self.data.parse_file('test_buffer.txt')
-
+        self.plot_docks = []
+        self.table_docks = []
 
     def initUI(self):
         #Exit action initialization
         exitAction = QtGui.QAction(QtGui.QIcon('exit.png'), '&Exit', self)
         exitAction.setShortcut('Ctrl+Q')
-        exitAction.setStatusTip('Exit application')
+        exitAction.setStatusTip('Exit application.')
         exitAction.triggered.connect(QtGui.qApp.quit)
 
-        selectDataAction = QtGui.QAction(QtGui.QIcon('graph.png'), '&Select Data', self)
-        selectDataAction.setShortcut('Ctrl+S')
-        selectDataAction.setStatusTip('Select data to display with a graph')
-        selectDataAction.triggered.connect(self.selectDataPopup)
+        addSensorData = QtGui.QAction(QtGui.QIcon('green+.png'), '&Add Graph', self)
+        addSensorData.setShortcut('Ctrl+A')
+        addSensorData.setStatusTip('Add a plot and table of data from a sensor.')
+        addSensorData.triggered.connect(self.selectDataPopup)
 
         #Status bar initialization
         self.statusBar().showMessage('Ready')
@@ -48,24 +48,30 @@ class GUI_window(QtGui.QMainWindow):
         #Tool bar initialization
         self.toolbar = self.addToolBar('Exit')
         self.toolbar.addAction(exitAction)
-        self.toolbar.addAction(selectDataAction)
+        self.toolbar.addAction(addSensorData)
 
         #Menu bar initialization
         menubar = self.menuBar()
-        fileMenu = menubar.addMenu('&File')
-        fileMenu.addAction(selectDataAction)
-        fileMenu.addAction(exitAction)
+        self.file_menu = menubar.addMenu('&File')
+        self.file_menu.addAction(addSensorData)
+        self.file_menu.addAction(exitAction)
 
-        editMenu = menubar.addMenu('&Edit')
-        toolsMenu = menubar.addMenu('&Tools')
-        viewMenu = menubar.addMenu('&View')
-        helpMenu = menubar.addMenu('&Help')
+        self.edit_menu = menubar.addMenu('&Edit')
+        self.tools_menu = menubar.addMenu('&Tools')
+        self.view_menu = menubar.addMenu('&View')
+        self.help_menu = menubar.addMenu('&Help')
 
         self.setGeometry(300, 300, 500, 300)
         self.setWindowTitle('RM Data Analysis')
         self.setWindowIcon(QtGui.QIcon('rmlogo.png'))
         self.show()
 
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------ADD PLOTS AND TABLES-------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+    '''
+    selectDataPopup creates a pop up that prompts the user on what data to display
+    '''
     def selectDataPopup(self):
         self.popup_win = DataSelect()
         self.popup_win.setGeometry(QRect(200, 200, 200, 100))
@@ -75,66 +81,189 @@ class GUI_window(QtGui.QMainWindow):
         self.popup_win.show()
 
     def selectDataButton(self):
+        if len(self.current_plots) == 0:
+            self.initPlotTools()
         self.plot(self, self.popup_win.getState())
-        self.initPlotTools()
         self.popup_win.close()
 
     def plot(self, win, graph_title):
         win.resize(850,500)
 
-        d1 = Dock(graph_title, size=(600, 500))
-        self.area.addDock(d1, 'left')
+        d1 = Dock(graph_title, size=(600, 500), closable=True)
+        self.area.addDock(d1, 'above')
+        # if len(self.plot_docks) > 0:
+        #     self.area.moveDock(d1, "above", self.plot_docks[0])
         times = self.data.get_elapsed_times()
         values = self.data.get_sensor_values(str(graph_title))
-        self.data_elements[graph_title + "plot"] = pg.PlotWidget(title=graph_title)
-        self.data_elements[graph_title + "plot"].plot(times, values)
-        ymin = min(values)
+        self.figures[graph_title + "plot"] = pg.PlotWidget(title=graph_title)
+        self.figures[graph_title + "plot"].plot(times, values)
+        ymin = self.data.get_min_sensor_value(str(graph_title))
         if ymin > 0:
             ymin = 0
-        ymax = max(values)
+        ymax = self.data.get_max_sensor_value(str(graph_title))
         if ymax < 0:
-            ymax =0
+            ymax = 0
         xpadding = times[len(times)-1] * 0.1
         ypadding = abs(ymax-ymin) * 0.1
-        self.data_elements[graph_title + "plot"].setLimits(xMin=0-xpadding, xMax=times[len(times)-1]+xpadding, yMin=ymin-ypadding, yMax=ymax+ypadding)
-        self.data_elements[graph_title + "plot"].setRange(xRange=(0, times[len(times)-1]), yRange=(ymin, ymax), padding=0.0)
-        self.data_elements[graph_title + "plot"].showGrid(x=True, y=True, alpha = 0.5)
-        self.current_plots.append((str(graph_title), self.data_elements[graph_title + "plot"]))
-        d1.addWidget(self.data_elements[graph_title + "plot"])
+        tmax = self.data.get_max_sensor_value('time')
+        self.figures[graph_title + "plot"].setLimits(xMin=0-xpadding, xMax=times[len(times)-1]+xpadding, yMin=ymin-ypadding, yMax=ymax+ypadding)
+        self.figures[graph_title + "plot"].setRange(xRange=(0, tmax), yRange=(ymin, ymax), padding=0.0)
+        self.figures[graph_title + "plot"].showGrid(x=True, y=True, alpha = 0.5)
+        self.current_plots.append((str(graph_title), self.figures[graph_title + "plot"]))
+        d1.addWidget(self.figures[graph_title + "plot"])
+        self.plot_docks.append(d1)
 
-        d2 = Dock(graph_title + " table", size=(250, 500))
-        self.area.addDock(d2, 'right')
-        self.data_elements[graph_title + "table"] = QtGui.QTableWidget(len(times), 2)
+        d2 = Dock(graph_title + " table", size=(250, 500), closable=True)
+        self.area.addDock(d2, 'above')
+        if len(self.table_docks) > 0:
+            self.area.moveDock(d2, "above", self.table_docks[0])
+        self.figures[graph_title + "table"] = QtGui.QTableWidget(len(times), 2)
         for i, (t, v) in enumerate(zip(times, values)):
             newTimeItem = QTableWidgetItem(str(t))
             newValueItem = QTableWidgetItem(str(v))
-            self.data_elements[graph_title + "table"].setItem(i, 0, newTimeItem)
-            self.data_elements[graph_title + "table"].setItem(i, 1, newValueItem)
+            self.figures[graph_title + "table"].setItem(i, 0, newTimeItem)
+            self.figures[graph_title + "table"].setItem(i, 1, newValueItem)
         headers = ['Time', graph_title]
-        self.data_elements[graph_title + "table"].setHorizontalHeaderLabels(headers)
-        d2.addWidget(self.data_elements[graph_title + "table"])
+        self.figures[graph_title + "table"].setHorizontalHeaderLabels(headers)
+        d2.addWidget(self.figures[graph_title + "table"])
+        self.table_docks.append(d2)
 
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------VIEW FUNCTIONS-------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+    '''
+    initPlotTools will create 5 actions to adust the view range of a graph and set them in the view_menu
+    The 5 actions are:
+        Set View Range:  Allows the user to select the min and max x and y values on the plot window (no padding)
+        Fit Data:        Automatically sets the view range to the min and max x and y points in the data (with padding)
+        Fit Data Height: Automatically sets the min and max y values to the min and max y points in the data (with padding)
+        Fit Data Width:  Automatically sets the min and max x values to the min and max x points in the data (with padding)
+        Default View:    Sets view to see all of the data points as well as the x and y axis'
+    '''
     def initPlotTools(self):
-        setRangeAction = QtGui.QAction(QtGui.QIcon('graph.png'), '&Set Range', self)
-        setRangeAction.setStatusTip('Set the range to display in the graph')
-        setRangeAction.triggered.connect(self.initPlotToolsPopup)
-        self.toolbar.addAction(setRangeAction)
+        #creates and adds setViewRange
+        setViewRangeAction = QtGui.QAction('&Set View Range', self) #initializes action
+        setViewRangeAction.setStatusTip('Set the x and y view range on desired plot.') #sets tip to show in status bar and when hovering
+        setViewRangeAction.triggered.connect(self.setViewRangePopup) #calls function that creates popup when action is selected
+        self.view_menu.addAction(setViewRangeAction) #adds action to the view menu
 
-    def initPlotToolsPopup(self):
-        self.popup_win = RangeSelect(self, self.current_plots)
-        self.popup_win.setGeometry(QRect(200, 200, 350, 200))
-        btn = QPushButton('Select Range', self.popup_win)
-        btn.setGeometry(QRect(87, 150, 175, 40))
-        self.connect(btn, SIGNAL("clicked()"), self.initPlotToolsButton)
+        #creates and adds fitData
+        fitDataAction = QtGui.QAction('&Fit Data', self)
+        fitDataAction.setStatusTip('Zooms to show all the data.')
+        fitDataAction.triggered.connect(self.fitDataPopup)
+        self.view_menu.addAction(fitDataAction)
+
+        #creates and adds fitDataHeight
+        fitDataHeightAction = QtGui.QAction('&Fit Data Height', self)
+        fitDataHeightAction.setStatusTip('Zooms the y-axis to fit the data.')
+        fitDataHeightAction.triggered.connect(self.fitDataHeightPopup)
+        self.view_menu.addAction(fitDataHeightAction)
+
+        #creates and adds fitDataWidth
+        fitDataWidthAction = QtGui.QAction('&Fit Data Width', self)
+        fitDataWidthAction.setStatusTip('Zooms the x-axis to fit the data.')
+        fitDataWidthAction.triggered.connect(self.fitDataWidthPopup)
+        self.view_menu.addAction(fitDataWidthAction)
+
+        #creates and adds defaultView
+        defaultViewAction = QtGui.QAction('&Default View', self)
+        defaultViewAction.setStatusTip('Returns to the default view, shows all data and x- and y-axis.')
+        defaultViewAction.triggered.connect(self.defaultViewPopup)
+        self.view_menu.addAction(defaultViewAction)
+
+    '''
+    setViewRangePopup initializes the popup window that allows the user to set the view range
+    It uses the RangeSelect class (declared and initialized below)
+    The button added takes the data written in the pop-up's text boxes resizes the plot view range accordingly
+    '''
+    def setViewRangePopup(self):
+        self.popup_win = RangeSelect(self, self.current_plots) #initialize the popup window
+        self.popup_win.setGeometry(QRect(200, 200, 350, 200)) #set the popup's position (first 2 parameters), and width/height (second 2 parameters)
+        btn = QPushButton('Select Range', self.popup_win) #declare and initialize the select button
+        btn.setGeometry(QRect(87, 150, 175, 40)) #set the button's position and width/height
+        self.connect(btn, SIGNAL("clicked()"), self.setViewRangeButton) #call setViewRangeButton function when the button is pressed
+        self.popup_win.show() #show the popup window on screen
+
+    #setViewRangeButton is run when button is pressed
+    def setViewRangeButton(self):
+        plotName = self.popup_win.getPlotName() #get the plot we are changing
+        newXRange = (self.popup_win.getXMin(), self.popup_win.getXMax()) #get new x range
+        newYRange = (self.popup_win.getYMin(), self.popup_win.getYMax()) #get new y range
+        self.figures[plotName + "plot"].setRange(xRange=newXRange, yRange=newYRange, padding=0.0) #change the view range in the appropriate plot
+        self.popup_win.close() #close the popup window after changes are made
+
+    '''
+    The following functions perform the other automatic range select features described above
+    They all behave in similar ways to the setViewRange functions
+    '''
+    #controls fit data
+    def fitDataPopup(self):
+        self.popup_win = SelectPlot(self, self.current_plots)
+        self.popup_win.setGeometry(QRect(200, 200, 200, 100))
+        btn = QPushButton('Fit Data', self.popup_win)
+        btn.setGeometry(QRect(25, 40, 150, 40))
+        self.connect(btn, SIGNAL("clicked()"), self.fitDataButton)
         self.popup_win.show()
-
-    def initPlotToolsButton(self):
+    def fitDataButton(self):
         plotName = self.popup_win.getPlotName()
-        newXRange = (self.popup_win.getXMin(), self.popup_win.getXMax())
-        newYRange = (self.popup_win.getYMin(), self.popup_win.getYMax())
-        self.data_elements[plotName + "plot"].setRange(xRange=newXRange, yRange=newYRange, padding=0.0)
+        ymin = self.data.get_min_sensor_value(str(plotName))
+        ymax = self.data.get_max_sensor_value(str(plotName))
+        tmax = self.data.get_max_sensor_value('time')
+        self.figures[plotName + "plot"].setRange(xRange=(0, tmax), yRange=(ymin, ymax))
         self.popup_win.close()
 
+    #controls fit data height
+    def fitDataHeightPopup(self):
+        self.popup_win = SelectPlot(self, self.current_plots)
+        self.popup_win.setGeometry(QRect(200, 200, 200, 100))
+        btn = QPushButton('Fit Data Height', self.popup_win)
+        btn.setGeometry(QRect(25, 40, 150, 40))
+        self.connect(btn, SIGNAL("clicked()"), self.fitDataHeightButton)
+        self.popup_win.show()
+    def fitDataHeightButton(self):
+        plotName = self.popup_win.getPlotName()
+        ymin = self.data.get_min_sensor_value(str(plotName))
+        ymax = self.data.get_max_sensor_value(str(plotName))
+        self.figures[plotName + "plot"].setYRange(min=ymin, max=ymax)
+        self.popup_win.close()
+
+    #controls fit data width
+    def fitDataWidthPopup(self):
+        self.popup_win = SelectPlot(self, self.current_plots)
+        self.popup_win.setGeometry(QRect(200, 200, 200, 100))
+        btn = QPushButton('Fit Data Width', self.popup_win)
+        btn.setGeometry(QRect(25, 40, 150, 40))
+        self.connect(btn, SIGNAL("clicked()"), self.fitDataWidthButton)
+        self.popup_win.show()
+    def fitDataWidthButton(self):
+        plotName = self.popup_win.getPlotName()
+        tmax = self.data.get_max_sensor_value('time')
+        self.figures[plotName + "plot"].setXRange(min=0, max=tmax)
+        self.popup_win.close()
+
+    #controls default view
+    def defaultViewPopup(self):
+        self.popup_win = SelectPlot(self, self.current_plots)
+        self.popup_win.setGeometry(QRect(200, 200, 200, 100))
+        btn = QPushButton('Set to Default View', self.popup_win)
+        btn.setGeometry(QRect(25, 40, 150, 40))
+        self.connect(btn, SIGNAL("clicked()"), self.defaultViewButton)
+        self.popup_win.show()
+    def defaultViewButton(self):
+        plotName = self.popup_win.getPlotName()
+        ymin = self.data.get_min_sensor_value(str(plotName))
+        if ymin > 0:
+            ymin = 0
+        ymax = self.data.get_max_sensor_value(str(plotName))
+        if ymax < 0:
+            ymax = 0
+        tmax = self.data.get_max_sensor_value('time')
+        self.figures[plotName + "plot"].setRange(xRange=(0, tmax), yRange=(ymin, ymax))
+        self.popup_win.close()
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------Classes for Popup Windows--------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------------------------------------
 class DataSelect(QWidget):
     def __init__(self):
         QWidget.__init__(self)
@@ -149,14 +278,16 @@ class DataSelect(QWidget):
         return self.dropdown_box.currentText()
 
 class RangeSelect(QWidget):
+    #win is the main window, current_plots are the plots currently displayed in the main window
     def __init__(self, win, current_plots):
-        QWidget.__init__(self)
-        self.options = []
-        self.plot_items = []
+        QWidget.__init__(self) #calls parent class constructor
+        self.options = [] #list of choices for dropdown box
+        self.plot_items = [] #holds the actual plot_items currently displayed
         for plots in current_plots:
             self.options.append(plots[0])
             self.plot_items.append(plots[1])
 
+        #initialize the dropdown box (QComboBox), add names of current plots (options), set size/position
         self.dropdown_box = QtGui.QComboBox(self)
         self.dropdown_box.addItems(self.options)
         self.dropdown_box.setMinimumWidth(150)
@@ -212,6 +343,7 @@ class RangeSelect(QWidget):
         self.ymin.setText(str(currRange[1][0]))
         self.ymax.setText(str(currRange[1][1]))
 
+    #return what is currently in the dropdown_box
     def getPlotName(self):
         return self.dropdown_box.currentText()
 
@@ -226,6 +358,28 @@ class RangeSelect(QWidget):
 
     def getYMax(self):
         return float(self.ymax.text())
+
+#Uses a dropdown box to prompt user to select a plot that is currently displayed
+class SelectPlot(QWidget):
+    #win is the main window, current_plots are the plots currently displayed in the main window
+    def __init__(self, win, current_plots):
+        QWidget.__init__(self) #calls parent class constructor
+        self.options = [] #list of choices for dropdown box
+        self.plot_items = [] #holds the actual plot_items currently displayed
+        for plots in current_plots:
+            self.options.append(plots[0])
+            self.plot_items.append(plots[1])
+
+        #initialize the dropdown box (QComboBox), add names of current plots (options), set size/position
+        self.dropdown_box = QtGui.QComboBox(self)
+        self.dropdown_box.addItems(self.options)
+        self.dropdown_box.setMinimumWidth(150)
+        self.dropdown_box.move(25, 10)
+        self.dropdown_box.show()
+
+    #return what is currently in the dropdown_box
+    def getPlotName(self):
+        return self.dropdown_box.currentText()
 
 def main():
     app = QtGui.QApplication(sys.argv)
