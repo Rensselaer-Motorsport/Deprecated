@@ -1,7 +1,7 @@
 # Rensselaer Motorsports 2014
 
 # Author : Mitchell Mellone
-# Version : 0.4.0.5
+# Version : 0.4.0.8
 # Most Recent Edits : 2-21-15
 # Description : Base class for a GUI using the pyQt library that will display
 # information from the sensors on the car in a clear and readable way
@@ -24,8 +24,15 @@ class GUI_window(QtGui.QMainWindow):
         self.setCentralWidget(self.area)
         self.popup_win = None
         self.data = db.DataBase()
+
+        '''
+        NOTE: current_plots and figures are basically redundant, but it works and would require substantial effort
+        to eliminate this redundancy so for the time being I will leave as is.
+        However, from this moment on, figures should be the variable that is used.
+        '''
         self.figures = {}
         self.current_plots = []
+
         self.data.parse_file('test_buffer.txt')
         self.plot_docks = []
         self.table_docks = []
@@ -71,62 +78,82 @@ class GUI_window(QtGui.QMainWindow):
 #----------------------------------------------------------------------------------------------------------------------------------------------------
     '''
     selectDataPopup creates a pop up that prompts the user on what data to display
+    it creates a button on that popup that selects the sensor in the dropdown window
+    selectDataButton handles that button click
     '''
     def selectDataPopup(self):
-        self.popup_win = DataSelect()
-        self.popup_win.setGeometry(QRect(200, 200, 200, 100))
-        btn = QPushButton('Select Data To Display', self.popup_win)
-        btn.setGeometry(QRect(12, 50, 175, 40))
-        self.connect(btn, SIGNAL("clicked()"), self.selectDataButton)
+        self.popup_win = DataSelect() #create the popup window
+        self.popup_win.setGeometry(QRect(200, 200, 200, 100)) #set window position (first 2 params) and size (last 2 params)
+        btn = QPushButton('Select Data To Display', self.popup_win) #initialize button
+        btn.setGeometry(QRect(12, 50, 175, 40)) #set button position (first 2 params) and size (last 2 params)
+        self.connect(btn, SIGNAL("clicked()"), self.selectDataButton) #links button click to selectDataButton
         self.popup_win.show()
 
     def selectDataButton(self):
         if len(self.current_plots) == 0:
-            self.initPlotTools()
-        self.plot(self, self.popup_win.getState())
+            self.initPlotTools() #add all of the relevant plot tools the first time a plot is added
+        self.plot(self.popup_win.getState()) #generate the plot and table for the sensor
         self.popup_win.close()
 
-    def plot(self, win, graph_title):
-        win.resize(850,500)
+    '''
+    Plot creates a dock with a plot and corresponding table of values from the sensor
+    it then adds it to the dock area
+    '''
+    def plot(self, win, sensorName):
 
-        d1 = Dock(graph_title, size=(600, 500), closable=True)
-        self.area.addDock(d1, 'above')
-        # if len(self.plot_docks) > 0:
-        #     self.area.moveDock(d1, "above", self.plot_docks[0])
+        #CREATE THE DOCK
+        self.resize(850,500) #resize the window to prepare for the new dock
+        #creates the dock, for now they can't be closed, it's a little tricky getting that to work
+        dock = Dock(sensorName, size=(600, 500), closable=False)
+
+        #CREATE THE PLOT
+        #get data from sensors
         times = self.data.get_elapsed_times()
-        values = self.data.get_sensor_values(str(graph_title))
-        self.figures[graph_title + "plot"] = pg.PlotWidget(title=graph_title)
-        self.figures[graph_title + "plot"].plot(times, values)
-        ymin = self.data.get_min_sensor_value(str(graph_title))
+        values = self.data.get_sensor_values(str(sensorName))
+
+        #construct plot and place data on it
+        plot = pg.PlotWidget(title=sensorName)
+        plot.plot(times, values)
+
+        #find and set the view range limits and initial view
+        #make sure x axis is in view
+        ymin = self.data.get_min_sensor_value(str(sensorName))
         if ymin > 0:
             ymin = 0
-        ymax = self.data.get_max_sensor_value(str(graph_title))
+        ymax = self.data.get_max_sensor_value(str(sensorName))
         if ymax < 0:
             ymax = 0
+        #determine initial padding
         xpadding = times[len(times)-1] * 0.1
         ypadding = abs(ymax-ymin) * 0.1
-        tmax = self.data.get_max_sensor_value('time')
-        self.figures[graph_title + "plot"].setLimits(xMin=0-xpadding, xMax=times[len(times)-1]+xpadding, yMin=ymin-ypadding, yMax=ymax+ypadding)
-        self.figures[graph_title + "plot"].setRange(xRange=(0, tmax), yRange=(ymin, ymax), padding=0.0)
-        self.figures[graph_title + "plot"].showGrid(x=True, y=True, alpha = 0.5)
-        self.current_plots.append((str(graph_title), self.figures[graph_title + "plot"]))
-        d1.addWidget(self.figures[graph_title + "plot"])
-        self.plot_docks.append(d1)
+        tmax = self.data.get_max_sensor_value('time') #find the maximum time
+        #set the view limits, so the user can't scroll or zoom too far away from data
+        plot.setLimits(xMin=0-xpadding, xMax=times[len(times)-1]+xpadding, yMin=ymin-ypadding, yMax=ymax+ypadding)
+        plot.setRange(xRange=(0, tmax), yRange=(ymin, ymax), padding=0.0) #sets the original range of the plot
+        plot.showGrid(x=True, y=True, alpha = 0.5) #makes sure that the grid is shown
+        self.current_plots.append((str(sensorName), plot)) #append the name and plot widget to current_plots
+        self.figures[sensorName + "plot"] = plot #add the plot widget to the list of current figures
+        dock.addWidget(plot) #add the plot to the new dock
 
-        d2 = Dock(graph_title + " table", size=(250, 500), closable=True)
-        self.area.addDock(d2, 'above')
-        if len(self.table_docks) > 0:
-            self.area.moveDock(d2, "above", self.table_docks[0])
-        self.figures[graph_title + "table"] = QtGui.QTableWidget(len(times), 2)
+        #CREATE THE TABLE
+        #initialize the table and set it to a width where each column can be seen
+        table = QtGui.QTableWidget(len(times), 2)
+        table.setMaximumWidth(250)
+        table.setMinimumWidth(250)
+        #add values to the table
         for i, (t, v) in enumerate(zip(times, values)):
             newTimeItem = QTableWidgetItem(str(t))
             newValueItem = QTableWidgetItem(str(v))
-            self.figures[graph_title + "table"].setItem(i, 0, newTimeItem)
-            self.figures[graph_title + "table"].setItem(i, 1, newValueItem)
-        headers = ['Time', graph_title]
-        self.figures[graph_title + "table"].setHorizontalHeaderLabels(headers)
-        d2.addWidget(self.figures[graph_title + "table"])
-        self.table_docks.append(d2)
+            table.setItem(i, 0, newTimeItem)
+            table.setItem(i, 1, newValueItem)
+        #name the table columns
+        headers = ['Time', sensorName]
+        table.setHorizontalHeaderLabels(headers)
+        self.figures[sensorName + "table"] = table
+        dock.addWidget(table, row=0, col=1) #adds the table to the right of the plot in dock
+
+        #ADD THE DOCK TO THE AREA
+        self.area.addDock(dock, 'above')
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #-------------------------------------------------------------------VIEW FUNCTIONS-------------------------------------------------------------------
@@ -381,6 +408,9 @@ class SelectPlot(QWidget):
     def getPlotName(self):
         return self.dropdown_box.currentText()
 
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------Main Functions-------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------------------------------------
 def main():
     app = QtGui.QApplication(sys.argv)
     mw = GUI_window()
