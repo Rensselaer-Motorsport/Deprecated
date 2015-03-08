@@ -1,0 +1,7 @@
+
+
+   ---- Transcoding 'C:\Users\Eric\Documents\GitHub\Adaptable-Automotive-Sensor-Logger\Data Collection Unit\Gerbers\Corner Module\BottomPaste.gbr' ----   Sat Mar 07 20:00:03 2015
+
+D79   --> D100
+D81   --> D101
+-----------------------------------------------------------------
