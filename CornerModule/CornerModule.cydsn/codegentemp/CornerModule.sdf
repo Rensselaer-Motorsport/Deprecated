@@ -1,10 +1,10 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2015-03-25T21:25:46Z")
+ (DATE "2015-03-26T02:25:29Z")
  (DESIGN "CornerModule")
  (VENDOR "Cypress Semiconductor")
- (PROGRAM "cydsfit")
- (VERSION "No Version Information Found")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 3.1 SP1")
  (DIVIDER .)
  (TIMESCALE 1 ns)
  (CELL
@@ -14,9 +14,9 @@
    (ABSOLUTE
     (INTERCONNECT ClockBlock.hfclk \\I2C_1\:SCB_IRQ\\.clock (0.000:0.000:0.000))
     (INTERCONNECT \\I2C_1\:SCB\\.interrupt \\I2C_1\:SCB_IRQ\\.interrupt (1.000:1.000:1.000))
-    (INTERCONNECT ClockBlock.ff_div_2 \\I2C_1\:SCB\\.clock (0.000:0.000:0.000))
     (INTERCONNECT \\I2C_1\:scl\(0\)\\.fb \\I2C_1\:SCB\\.scl (0.000:0.000:0.000))
     (INTERCONNECT \\I2C_1\:sda\(0\)\\.fb \\I2C_1\:SCB\\.sda (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.ff_div_2 \\I2C_1\:SCB\\.clock (0.000:0.000:0.000))
     (INTERCONNECT \\I2C_1\:scl\(0\)_PAD\\ \\I2C_1\:scl\(0\)\\.pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\I2C_1\:sda\(0\)_PAD\\ \\I2C_1\:sda\(0\)\\.pad_in (0.000:0.000:0.000))
    )

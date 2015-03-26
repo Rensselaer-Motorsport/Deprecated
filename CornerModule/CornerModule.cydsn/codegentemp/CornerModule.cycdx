@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
   <block name="I2C_1" BASE="0x0" SIZE="0x0" desc="Serial Communication Block" visible="true">
-    <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="ZeroTerminal_2" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="clock_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
     <block name="rx_wake_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
     <block name="rx_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="ZeroTerminal_3" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="ZeroTerminal_5" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="SCBCLK" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="ZeroTerminal_4" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="select_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="clock_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="or_sclk" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="ZeroTerminal_7" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="SCB" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="SCB_IRQ" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="scl" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="miso_m_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
     <block name="mosi_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
     <block name="sclk_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="select_s_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="ZeroTerminal_5" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="SCBCLK" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="ZeroTerminal_2" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="ZeroTerminal_3" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="ZeroTerminal_4" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="Device_VM5" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="Device_VM1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="ZeroTerminal_6" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="Device_VM4" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="Device_VM3" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="Device_VM2" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="SCB" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="ZeroTerminal_7" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="scl" BASE="0x0" SIZE="0x0" desc="" visible="true" />
     <block name="sda" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <block name="miso_m_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="cts_VM" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="SCB_IRQ" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+    <block name="or_sclk" BASE="0x0" SIZE="0x0" desc="" visible="true" />
     <register name="_CTRL" address="0x40060000" bitWidth="32" desc="Generic control register">
       <field name="OVS" from="3" to="0" access="RW" resetVal="" desc="Serial interface bit period oversampling factor expressed in lP clock cycles. Used for SPI and UART functionality. OVS + 1 IP clock cycles constitute a single serial interface clock/bit cycle." />
       <field name="EC_AM_MODE" from="8" to="8" access="RW" resetVal="" desc="Internally clocked mode ('0') or externally clocked mode ('1') address matching (I2C) or selection (SPI).In internally clocked mode, the serial interface protocols run off the peripheral clock. In externally clocked mode, the serial interface protocols run off the clock as provided by the serial interface." />
@@ -66,7 +73,7 @@
       <field name="SKIP_START" from="13" to="13" access="RW" resetVal="" desc="Only applicable in standard UART submode. When '1', the receiver skips start bit detection for the first received data frame. Instead, it synchronizes on the first received data frame bit, which should be a '1'." />
       <field name="BREAK_WIDTH" from="19" to="16" access="RW" resetVal="" desc="Break width. BREAK_WIDTH + 1 is the minimum width in bit periods of a break." />
     </register>
-    <register name="_I2C_CTRL" address="0x40060060" bitWidth="32" desc="Slave Address Register">
+    <register name="_I2C_CTRL" address="0x40060060" bitWidth="32" desc="Slave address and mask register">
       <field name="HIGH_PHASE_OVS" from="3" to="0" access="RW" resetVal="" desc="Serial I2C interface high phase oversampling factor. HIGH_PHASE_OVS + 1 peripheral clock periods constitute the high phase of a bit period." />
       <field name="LOW_PHASE_OVS" from="7" to="4" access="RW" resetVal="" desc="Serial I2C interface low phase oversampling factor. LOW_PHASE_OVS + 1 peripheral clock periods constitute the low phase of a bit period" />
       <field name="M_READY_DATA_ACK" from="8" to="8" access="RW" resetVal="" desc="When '1', a received data element by the master is immediately ACK'd when the receiver FIFO is not full." />
@@ -80,21 +87,35 @@
       <field name="SLAVE_MODE" from="30" to="30" access="RW" resetVal="" desc="Slave mode enabled ('1') or not ('0')." />
       <field name="MASTER_MODE" from="31" to="31" access="RW" resetVal="" desc="Master mode enabled ('1') or not ('0'). Note that both master and slave modes can be enabled at the same time. This allows the IP to address itself." />
     </register>
-    <register name="_I2C_STATUS" address="0x40060064" bitWidth="32" desc="Slave Address Register">
+    <register name="_I2C_STATUS" address="0x40060064" bitWidth="32" desc="Slave address and mask register">
       <field name="BUS_BUSY" from="0" to="0" access="R" resetVal="" desc="I2C bus is busy. The bus is considered busy ('1')." />
       <field name="S_READ" from="4" to="4" access="R" resetVal="" desc="I2C slave read transfer ('1') or I2C slave write transfer ('0'). When the I2C slave is inactive/idle or receiving START, REPEATED START, STOP or an address, this field is '0'." />
       <field name="M_READ" from="5" to="5" access="R" resetVal="" desc="I2C master read transfer ('1') or I2C master write transfer ('0'). When the I2C master is inactive/idle or transmitting START, REPEATED START, STOP or an address, this field is '0''." />
     </register>
-    <register name="_I2C_M_CMD" address="0x40060068" bitWidth="32" desc="Slave Address Register">
+    <register name="_I2C_M_CMD" address="0x40060068" bitWidth="32" desc="Slave address and mask register">
       <field name="M_START" from="0" to="0" access="RW" resetVal="" desc="When '1', transmit a START or REPEATED START. Whether a START or REPEATED START is transmitted depends on the state of the master state machine. When this action is performed, the hardware sets this field to '0'." />
       <field name="M_IDLE_START" from="1" to="1" access="RW" resetVal="" desc="When '1', transmit a START as soon as the bus is idle (I2C_STATUS.BUS_BUSY is '0', note that BUSY has a default value of '0'). When this action is performed, the hardware sets this field to '0'." />
       <field name="M_ACK" from="2" to="2" access="RW" resetVal="" desc="When '1', attempt to transmit an acknowledgement (ACK). When this action is performed, the hardware sets this field to '0'." />
       <field name="M_NACK" from="3" to="3" access="RW" resetVal="" desc="When '1', attempt to transmit a negative acknowledgement (NACK). When this action is performed, the hardware sets this field to '0'." />
       <field name="M_STOP" from="4" to="4" access="RW" resetVal="" desc="When '1', attempt to transmit a STOP. When this action is performed, the hardware sets this field to '0'. This command has a higher priority than I2C_M_CMD.M_START: in situations where both a STOP and a REPEATED START could be transmitted, M_STOP takes precedence over M_START." />
     </register>
-    <register name="_I2C_S_CMD" address="0x4006006C" bitWidth="32" desc="Slave Address Register: I2C_S_CMD">
+    <register name="_I2C_S_CMD" address="0x4006006C" bitWidth="32" desc="I2C slave command register">
       <field name="S_ACK" from="0" to="0" access="RW" resetVal="" desc="When '1', attempt to transmit an acknowledgement (ACK). When this action is performed, the hardware sets this field to '0'." />
       <field name="S_NACK" from="1" to="1" access="RW" resetVal="" desc="When '1', attempt to transmit a negative acknowledgement (NACK). When this action is performed, the hardware sets this field to '0'" />
+    </register>
+    <register name="_I2C_CFG" address="0x40060070" bitWidth="32" desc="I2C control register">
+      <field name="SDA_FILT_HYS" from="1" to="0" access="RW" resetVal="" desc="" />
+      <field name="SDA_FILT_TRIM" from="3" to="2" access="RW" resetVal="" desc="" />
+      <field name="SCL_FILT_HYS" from="5" to="4" access="RW" resetVal="" desc="" />
+      <field name="SCL_FILT_TRIM" from="7" to="6" access="RW" resetVal="" desc="" />
+      <field name="SDA_FILT_OUT_HYS" from="8" to="8" access="RW" resetVal="" desc="" />
+      <field name="SDA_FILT_OUT_TRIM" from="11" to="10" access="RW" resetVal="" desc="" />
+      <field name="SDA_FILT_HS" from="16" to="16" access="RW" resetVal="" desc="" />
+      <field name="SDA_FILT_ENABLED" from="17" to="17" access="RW" resetVal="" desc="" />
+      <field name="SCL_FILT_HS" from="24" to="24" access="RW" resetVal="" desc="" />
+      <field name="SCL_FILT_ENABLED" from="25" to="25" access="RW" resetVal="" desc="" />
+      <field name="SDA_FILT_OUT_HS" from="26" to="26" access="RW" resetVal="" desc="" />
+      <field name="SDA_FILT_OUT_ENABLED" from="27" to="27" access="RW" resetVal="" desc="" />
     </register>
     <register name="_TX_CTRL" address="0x40060200" bitWidth="32" desc="Transmitter control register">
       <field name="DATA_WIDTH" from="3" to="0" access="RW" resetVal="" desc="Data frame width. DATA_WIDTH + 1 is the amount of bits in a transmitted data frame." />
@@ -132,14 +153,14 @@
       <field name="RD_PTR" from="18" to="16" access="R" resetVal="" desc="FIFO read pointer: FIFO location from which a data frame is read." />
       <field name="WR_PTR" from="26" to="24" access="R" resetVal="" desc="FIFO write pointer: FIFO location at which a new data frame is written by the hardware." />
     </register>
-    <register name="_RX_MATCH" address="0x40060310" bitWidth="32" desc="Slave Address Register">
+    <register name="_RX_MATCH" address="0x40060310" bitWidth="32" desc="Slave address and mask register">
       <field name="ADDR" from="7" to="0" access="RW" resetVal="" desc="Slave device address. For UART multi-processor mode all eight bits a reused. For I2C, bit 0 of the register is not used." />
       <field name="MASK" from="23" to="16" access="RW" resetVal="" desc="Slave device address mask. This field is a 8 bit mask that specifies which of the ADDR field bits in the SCB_RX_MATCH_ADDR register take part in the matching of the slave address." />
     </register>
     <register name="_RX_FIFO_RD" address="0x40060340" bitWidth="32" desc="Receiver FIFO read register">
       <field name="DATA" from="15" to="0" access="R" resetVal="" desc="Data read from the receiver FIFO. Reading a data frame will remove the data frame from the FIFO." />
     </register>
-    <register name="_INTR_CAUSE" address="0x40060E00" bitWidth="32" desc="Interrupt active register">
+    <register name="_INTR_CAUSE" address="0x40060E00" bitWidth="32" desc="Interrupt cause register">
       <field name="MASTER" from="0" to="0" access="R" resetVal="" desc="Master interrupt active." />
       <field name="SLAVE" from="1" to="1" access="R" resetVal="" desc="Slave interrupt active." />
       <field name="TX" from="2" to="2" access="R" resetVal="" desc="Transmitter interrupt active." />
@@ -147,13 +168,13 @@
       <field name="I2C_EC" from="4" to="4" access="R" resetVal="" desc="Externally clock I2C interrupt active." />
       <field name="SPI_EC" from="5" to="5" access="R" resetVal="" desc="Externally clocked SPI interrupt active." />
     </register>
-    <register name="_INTR_I2C_EC" address="0x40060E80" bitWidth="32" desc="Externally clocked I2C interrupt request register: INTR_SPI_EC">
+    <register name="_INTR_I2C_EC" address="0x40060E80" bitWidth="32" desc="Externally clocked I2C interrupt request register">
       <field name="WAKE_UP" from="0" to="0" access="RW" resetVal="" desc="Wake up request. Active on incoming slave request (with address match). Only used when EC_AM is '1'." />
     </register>
-    <register name="_INTR_I2C_EC_MASK" address="0x40060E88" bitWidth="32" desc="Externally clocked I2C interrupt mask register: INTR_SPI_EC_MASK">
+    <register name="_INTR_I2C_EC_MASK" address="0x40060E88" bitWidth="32" desc="Externally clocked I2C interrupt mask register">
       <field name="WAKE_UP" from="0" to="0" access="RW" resetVal="" desc="Mask bit for corresponding bit in interrupt request register." />
     </register>
-    <register name="_INTR_I2C_EC_MASKED" address="0x40060E8C" bitWidth="32" desc="Externally clocked SPI interrupt masked register: INTR_SPI_EC_MASKED">
+    <register name="_INTR_I2C_EC_MASKED" address="0x40060E8C" bitWidth="32" desc="Externally clocked SPI interrupt masked register">
       <field name="WAKE_UP" from="0" to="0" access="RW" resetVal="" desc="Logical and of corresponding request and mask bits." />
     </register>
     <register name="_INTR_INTR_SPI_EC" address="0x40060EC0" bitWidth="32" desc="Externally clocked SPI interrupt request register">

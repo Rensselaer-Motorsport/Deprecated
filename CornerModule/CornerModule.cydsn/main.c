@@ -12,9 +12,7 @@
 #include <project.h>
 #include <stdio.h>
 #define MPU 0x68
-#define MY_BUFFER_SIZE 100
-uint8 bufxh[MY_BUFFER_SIZE];
-uint8 bufxl[MY_BUFFER_SIZE];
+
 
 int16 bytecombine(uint8,uint8); //Combines high and low bytes to form a 16 bit int
 int16 readacc(int16); //Reads from the accelerometer and returns a 16 bit int
@@ -34,12 +32,12 @@ int16 readacc(int16 address) //address is the address of the first register for 
     //address = 3B for X axis
     //        = 3D for Y axis
     //        = 3F for Z axis
-    I2C_1_I2CMasterSendStart(MPU,0); //2nd parameter: 0 for write, 1 for reading
+    I2C_1_I2CMasterSendStart(MPU,I2C_1_I2C_WRITE_XFER_MODE); //2nd parameter: 0 for write, 1 for reading
     I2C_1_I2CMasterWriteByte(address); //Select which register to read from
-    I2C_1_I2CMasterSendRestart(MPU,1);
-    uint8 msb = I2C_1_I2CMasterReadByte(1);
-    I2C_1_I2CMasterSendRestart(MPU,1);
-    uint8 lsb = I2C_1_I2CMasterReadByte(1);
+    I2C_1_I2CMasterSendRestart(MPU,I2C_1_I2C_READ_XFER_MODE);
+    uint8 msb = I2C_1_I2CMasterReadByte(I2C_1_I2C_NAK_DATA);
+    I2C_1_I2CMasterSendRestart(MPU,I2C_1_I2C_READ_XFER_MODE);
+    uint8 lsb = I2C_1_I2CMasterReadByte(I2C_1_I2C_NAK_DATA);
     I2C_1_I2CMasterSendStop();
     return bytecombine(msb,lsb);
 }
@@ -49,22 +47,27 @@ void I2CInit()
     I2C_1_Start(); //Turn on the I2c component first
     //Sets the configuration of the accelerometer
     I2C_1_I2CMasterSendStart(MPU,I2C_1_I2C_WRITE_XFER_MODE);
-    I2C_1_I2CMasterWriteByte(0x1C);
+    I2C_1_I2CMasterWriteByte(0x1C); //Address of ACCEL_CONFIG
+    //I2C_1_I2CMasterSendRestart(MPU,I2C_1_I2C_WRITE_XFER_MODE);
+    I2C_1_I2CMasterWriteByte(0x18); //Set range to +-16G
     I2C_1_I2CMasterSendStop();
 }
 
 int main()
 {
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-    I2CInit();
     CyGlobalIntEnable;
+
+    CyDelay(1);
+    I2CInit();
     /* CyGlobalIntEnable; */ /* Uncomment this line to enable global interrupts. */
     for(;;)
     {
         /* Place your application code here. */
-        uint16 accx = readacc(0x3B); //3B for x axis
+        uint16 accx = readacc(0x1C); //3B for x axis
         char string[15];
         sprintf(string,"%d",accx);
+        CyDelay(10);
     }
 }
 

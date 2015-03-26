@@ -1,6 +1,6 @@
 /*******************************************************************************
 * File Name: I2C_1_I2C_MASTER.c
-* Version 1.20
+* Version 2.0
 *
 * Description:
 *  This file provides the source code to the API for the SCB Component in
@@ -38,6 +38,11 @@ volatile uint8 * I2C_1_mstrWrBufPtr;   /* Pointer to Master Write buffer */
 volatile uint32  I2C_1_mstrWrBufSize;  /* Master Write buffer size       */
 volatile uint32  I2C_1_mstrWrBufIndex; /* Master Write buffer Index      */
 volatile uint32  I2C_1_mstrWrBufIndexTmp; /* Master Write buffer Index Tmp */
+
+#if (!I2C_1_CY_SCBIP_V0 && \
+    I2C_1_I2C_MULTI_MASTER_SLAVE_CONST && I2C_1_I2C_WAKE_ENABLE_CONST)
+    static void I2C_1_I2CMasterDisableEcAm(void);
+#endif /* (!I2C_1_CY_SCBIP_V0) */
 
 
 /*******************************************************************************
@@ -83,7 +88,7 @@ uint32 I2C_1_I2CMasterWriteBuf(uint32 slaveAddress, uint8 * wrData, uint32 cnt, 
         /* Check FSM state and bus before generating Start/ReStart condition */
         if(I2C_1_CHECK_I2C_FSM_IDLE)
         {
-            I2C_1_DisableInt();
+            I2C_1_DisableInt();  /* Lock from interruption */
 
             /* Check bus state */
             errStatus = I2C_1_CHECK_I2C_STATUS(I2C_1_I2C_STATUS_BUS_BUSY) ?
@@ -100,10 +105,14 @@ uint32 I2C_1_I2CMasterWriteBuf(uint32 slaveAddress, uint8 * wrData, uint32 cnt, 
         }
     }
 
-
     /* Check if master is ready to start  */
     if(I2C_1_I2C_MSTR_NO_ERROR == errStatus) /* No error proceed */
     {
+    #if (!I2C_1_CY_SCBIP_V0 && \
+        I2C_1_I2C_MULTI_MASTER_SLAVE_CONST && I2C_1_I2C_WAKE_ENABLE_CONST)
+            I2C_1_I2CMasterDisableEcAm();
+    #endif /* (!I2C_1_CY_SCBIP_V0) */
+
         /* Set up write transaction */
         I2C_1_state = I2C_1_I2C_FSM_MSTR_WR_ADDR;
         I2C_1_mstrWrBufIndexTmp = 0u;
@@ -136,7 +145,7 @@ uint32 I2C_1_I2CMasterWriteBuf(uint32 slaveAddress, uint8 * wrData, uint32 cnt, 
         I2C_1_SetTxInterruptMode(I2C_1_INTR_TX_UNDERFLOW);
     }
 
-    I2C_1_EnableInt();
+    I2C_1_EnableInt();   /* Release lock */
 
     return(errStatus);
 }
@@ -185,7 +194,7 @@ uint32 I2C_1_I2CMasterReadBuf(uint32 slaveAddress, uint8 * rdData, uint32 cnt, u
         /* Check FSM state and bus before generating Start/ReStart condition */
         if(I2C_1_CHECK_I2C_FSM_IDLE)
         {
-            I2C_1_DisableInt();
+            I2C_1_DisableInt();  /* Lock from interruption */
 
             /* Check bus state */
             errStatus = I2C_1_CHECK_I2C_STATUS(I2C_1_I2C_STATUS_BUS_BUSY) ?
@@ -205,6 +214,11 @@ uint32 I2C_1_I2CMasterReadBuf(uint32 slaveAddress, uint8 * rdData, uint32 cnt, u
     /* Check master ready to proceed */
     if(I2C_1_I2C_MSTR_NO_ERROR == errStatus) /* No error proceed */
     {
+        #if (!I2C_1_CY_SCBIP_V0 && \
+        I2C_1_I2C_MULTI_MASTER_SLAVE_CONST && I2C_1_I2C_WAKE_ENABLE_CONST)
+            I2C_1_I2CMasterDisableEcAm();
+        #endif /* (!I2C_1_CY_SCBIP_V0) */
+
         /* Set up read transaction */
         I2C_1_state = I2C_1_I2C_FSM_MSTR_RD_ADDR;
         I2C_1_mstrRdBufIndex = 0u;
@@ -218,7 +232,7 @@ uint32 I2C_1_I2CMasterReadBuf(uint32 slaveAddress, uint8 * rdData, uint32 cnt, u
 
         I2C_1_ClearMasterInterruptSource(I2C_1_INTR_MASTER_ALL);
 
-        /* The TX and RX FIFO have to be EMPTY */
+        /* TX and RX FIFO have to be EMPTY */
 
         /* Generate Start or ReStart */
         if(I2C_1_CHECK_I2C_MODE_RESTART(mode))
@@ -237,14 +251,14 @@ uint32 I2C_1_I2CMasterReadBuf(uint32 slaveAddress, uint8 * rdData, uint32 cnt, u
         {
             I2C_1_SetRxInterruptMode(I2C_1_INTR_RX_NOT_EMPTY);
         }
-        else /* Reading use RX FIFO */
+        else /* Receive RX FIFO chunks */
         {
             I2C_1_ENABLE_MASTER_AUTO_DATA_ACK;
             I2C_1_SetRxInterruptMode(I2C_1_INTR_RX_FULL);
         }
     }
 
-    I2C_1_EnableInt();
+    I2C_1_EnableInt();   /* Release lock */
 
     return(errStatus);
 }
@@ -290,7 +304,12 @@ uint32 I2C_1_I2CMasterSendStart(uint32 slaveAddress, uint32 bitRnW)
         }
         else
         {
-            I2C_1_DisableInt();
+            I2C_1_DisableInt();  /* Lock from interruption */
+
+        #if (!I2C_1_CY_SCBIP_V0 && \
+            I2C_1_I2C_MULTI_MASTER_SLAVE_CONST && I2C_1_I2C_WAKE_ENABLE_CONST)
+            I2C_1_I2CMasterDisableEcAm();
+        #endif /* (!I2C_1_CY_SCBIP_V0) */
 
             slaveAddress = I2C_1_GET_I2C_8BIT_ADDRESS(slaveAddress);
 
@@ -304,7 +323,7 @@ uint32 I2C_1_I2CMasterSendStart(uint32 slaveAddress, uint32 bitRnW)
                          slaveAddress |= I2C_1_I2C_READ_FLAG;
             }
 
-            /* The TX and RX FIFO have to be EMPTY */
+            /* TX and RX FIFO have to be EMPTY */
 
             I2C_1_TX_FIFO_WR_REG = slaveAddress; /* Put address in TX FIFO */
             I2C_1_ClearMasterInterruptSource(I2C_1_INTR_MASTER_ALL);
@@ -407,14 +426,14 @@ uint32 I2C_1_I2CMasterSendRestart(uint32 slaveAddress, uint32 bitRnW)
                       slaveAddress |= I2C_1_I2C_READ_FLAG;
         }
 
-        /* The TX and RX FIFO have to be EMPTY */
+        /* TX and RX FIFO have to be EMPTY */
 
         /* Clean-up interrupt status */
         I2C_1_ClearMasterInterruptSource(I2C_1_INTR_MASTER_ALL);
 
-        /* Proper ReStart sequence is: generate ReStart then put address byte in the TX FIFO.
-        * Otherwise master treats address in the TX FIFO as data byte if previous transfer is write.
-        * The write transfer continue instead of ReStart.
+        /* A proper ReStart sequence is: generate ReStart, then put an address byte in the TX FIFO.
+        * Otherwise the master treats the address in the TX FIFO as a data byte if a previous transfer is write.
+        * The write transfer continues instead of ReStart.
         */
         I2C_1_I2C_MASTER_GENERATE_RESTART;
 
@@ -602,7 +621,7 @@ uint32 I2C_1_I2CMasterWriteByte(uint32 theByte)
             /* Wait until byte has been transferred */
         }
 
-        /* Check the results after byte was sent */
+        /* Check results after byte was sent */
         if(I2C_1_CHECK_INTR_MASTER(I2C_1_INTR_MASTER_I2C_ACK))
         {
             I2C_1_state = I2C_1_I2C_FSM_MSTR_HALT;
@@ -700,7 +719,7 @@ uint32 I2C_1_I2CMasterReadByte(uint32 ackNack)
             }
             else
             {
-                /* NACK is generated by Stop or ReStart command*/
+                /* NACK is generated by Stop or ReStart command */
                 I2C_1_state = I2C_1_I2C_FSM_MSTR_HALT;
             }
         }
@@ -798,8 +817,12 @@ uint32 I2C_1_I2CMasterGetWriteBufSize(void)
 *******************************************************************************/
 void I2C_1_I2CMasterClearReadBuf(void)
 {
+    I2C_1_DisableInt();  /* Lock from interruption */
+
     I2C_1_mstrRdBufIndex = 0u;
     I2C_1_mstrStatus    &= (uint16) ~I2C_1_I2C_MSTAT_RD_CMPLT;
+
+    I2C_1_EnableInt();   /* Release lock */
 }
 
 
@@ -824,8 +847,12 @@ void I2C_1_I2CMasterClearReadBuf(void)
 *******************************************************************************/
 void I2C_1_I2CMasterClearWriteBuf(void)
 {
+    I2C_1_DisableInt();  /* Lock from interruption */
+
     I2C_1_mstrWrBufIndex = 0u;
     I2C_1_mstrStatus    &= (uint16) ~I2C_1_I2C_MSTAT_WR_CMPLT;
+
+    I2C_1_EnableInt();   /* Release lock */
 }
 
 
@@ -850,13 +877,17 @@ uint32 I2C_1_I2CMasterStatus(void)
 {
     uint32 status;
 
+    I2C_1_DisableInt();  /* Lock from interruption */
+
     status = (uint32) I2C_1_mstrStatus;
 
-    if(I2C_1_CHECK_I2C_MASTER_ACTIVE)
+    if (I2C_1_CHECK_I2C_MASTER_ACTIVE)
     {
         /* Add status of master pending transaction: MSTAT_XFER_INP */
         status |= (uint32) I2C_1_I2C_MSTAT_XFER_INP;
     }
+
+    I2C_1_EnableInt();   /* Release lock */
 
     return(status);
 }
@@ -883,9 +914,13 @@ uint32 I2C_1_I2CMasterClearStatus(void)
 {
     uint32 status;
 
+    I2C_1_DisableInt();  /* Lock from interruption */
+
     /* Read and clear master status */
     status = (uint32) I2C_1_mstrStatus;
     I2C_1_mstrStatus = I2C_1_I2C_MSTAT_CLEAR;
+
+    I2C_1_EnableInt();   /* Release lock */
 
     return(status);
 }
@@ -899,16 +934,17 @@ uint32 I2C_1_I2CMasterClearStatus(void)
 *  Generates a ReStart condition:
 *  SCB IP V1 and later: Generates ReStart using the scb IP functionality
 *    Sets the I2C_MASTER_CMD_M_START and I2C_MASTER_CMD_M_NACK (if the previous
-*    transaction was read) bits in the SCB.I2C_MASTER_CMD register. This combination
-*    forces the master to generate ReStart.
+*    transaction was read) bits in the SCB.I2C_MASTER_CMD register.
+*    This combination forces the master to generate ReStart.
 *
 *  SCB IP V0: Generates Restart using the GPIO and scb IP functionality.
-*   After the master completes write or read, the SCL is stretched. The master waits
-*   until SDA line is released by the slave. Then the GPIO function is enabled and
-*   the scb IP disabled as it already does not drive the bus. In case of the previous
-*   transfer was read, the NACK is generated by the GPIO. The delay of tLOW is
-*   added to manage the hold time. Set I2C_M_CMD.START and enable the scb IP.
-*   The ReStart generation is started after the I2C function is enabled for the SCL.
+*   After the master completes write or read, the SCL is stretched.
+*   The master waits until SDA line is released by the slave. Then the GPIO
+*   function is enabled and the scb IP disabled as it already does not drive
+*   the bus. In case of the previous transfer was read, the NACK is generated
+*   by the GPIO. The delay of tLOW is added to manage the hold time.
+*   Set I2C_M_CMD.START and enable the scb IP. The ReStart generation
+*   is started after the I2C function is enabled for the SCL.
 *   Note1: the scb IP due re-enable generates Start but on the I2C bus it
 *          appears as ReStart.
 *   Note2: the I2C_M_CMD.START is queued if scb IP is disabled.
@@ -921,8 +957,8 @@ uint32 I2C_1_I2CMasterClearStatus(void)
 *  None
 *
 * Side Effects:
-*  SCB IP V0: The NACK generation by the GPIO may cause a greater SCL period than
-*  expected for the selected master data rate.
+*  SCB IP V0: The NACK generation by the GPIO may cause a greater SCL period
+*             than expected for the selected master data rate.
 *
 *******************************************************************************/
 void I2C_1_I2CReStartGeneration(void)
@@ -987,8 +1023,39 @@ void I2C_1_I2CReStartGeneration(void)
 #endif /* (I2C_1_CY_SCBIP_V1) */
 }
 
-
 #endif /* (I2C_1_I2C_MASTER_CONST) */
+
+
+#if (!I2C_1_CY_SCBIP_V0 && \
+    I2C_1_I2C_MULTI_MASTER_SLAVE_CONST && I2C_1_I2C_WAKE_ENABLE_CONST)
+    /*******************************************************************************
+    * Function Name: I2C_1_I2CMasterDisableEcAm
+    ********************************************************************************
+    *
+    * Summary:
+    *  Disables externally clocked address match to enable master operation
+    *  in active mode.
+    *
+    * Parameters:
+    *  None
+    *
+    * Return:
+    *  None
+    *
+    *******************************************************************************/
+    static void I2C_1_I2CMasterDisableEcAm(void)
+    {
+        /* Disables externally clocked address match to enable master operation in active mode.
+        * This applicable only for Multi-Master-Slave with wakeup enabled. Ticket ID#192742 */
+        if (0u != (I2C_1_CTRL_REG & I2C_1_CTRL_EC_AM_MODE))
+        {
+            /* Enable external address match logic */
+            I2C_1_Stop();
+            I2C_1_CTRL_REG &= (uint32) ~I2C_1_CTRL_EC_AM_MODE;
+            I2C_1_Enable();
+        }
+    }
+#endif /* (!I2C_1_CY_SCBIP_V0) */
 
 
 /* [] END OF FILE */

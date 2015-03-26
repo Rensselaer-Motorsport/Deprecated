@@ -4,9 +4,9 @@
 
 #Version:            1.1
 
-#Build Date:         Mar 26 2013 14:54:34
+#Build Date:         Oct 23 2014 13:00:08
 
-#File Generated:     Mar 25 2015 17:25:45
+#File Generated:     Mar 25 2015 22:25:28
 
 #Purpose:            
 
@@ -14,16 +14,16 @@
 
 #***************************************************************************
 
-Executing : E:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\bin/sjplacer.exe --proj-name CornerModule --netlist-vh2 CornerModule_p.vh2 --arch-file E:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\dev/psoc4/psoc4a/placer.ark --rrg-file E:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\dev/psoc4/psoc4a/route_arch-rrg.cydata --irq-file E:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\dev/psoc4/psoc4a/irqconn.cydata --dsi-conn-file E:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\dev/psoc4/psoc4a/dsiconn.cydata --pins-file pins_44-TQFP.xml --lib-file CornerModule_p.lib --sdc-file CornerModule.sdc --io-pcf CornerModule.pci --outdir .
+Executing : E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\bin/sjplacer.exe --proj-name CornerModule --netlist-vh2 CornerModule_p.vh2 --arch-file E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/placer.ark --rrg-file E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/route_arch-rrg.cydata --irq-file E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/irqconn.cydata --dsi-conn-file E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/dsiconn.cydata --pins-file pins_44-TQFP.xml --lib-file CornerModule_p.lib --sdc-file CornerModule.sdc --io-pcf CornerModule.pci --outdir .
 
 		Softjin Techologies Placer, Version 1.1
 
-Build Date : Jul 22 2013	11:20:09
+Build Date : Oct 23 2014	13:09:21
 
 D2004: Option and Settings Summary
 =============================================================
 Netlist vh2 file          - CornerModule_p.vh2
-Architecture file         - E:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\dev/psoc4/psoc4a/placer.ark
+Architecture file         - E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/placer.ark
 Package                   - 
 Defparam file             - 
 SDC file                  - CornerModule.sdc
@@ -34,7 +34,7 @@ IO Placement file         - CornerModule.pci
 D2050: Starting reading inputs for placer
 =============================================================
 D2065: Reading netlist file : "CornerModule_p.vh2"
-D2065: Reading arch file : "E:\Program Files (x86)\Cypress\PSoC Creator\3.0\PSoC Creator\dev/psoc4/psoc4a/placer.ark"
+D2065: Reading arch file : "E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/placer.ark"
 D2051: Reading of inputs for placer completed successfully
 
 D2053: Starting placement of the design
@@ -69,5 +69,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 0.4 sec.
+I2076: Total run-time: 0.2 sec.
 
