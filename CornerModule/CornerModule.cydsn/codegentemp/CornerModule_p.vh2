@@ -1,11 +1,11 @@
 -- Project:   CornerModule
--- Generated: 03/25/2015 22:25:28
+-- Generated: 03/26/2015 16:02:20
 -- PSoC Creator  3.1 SP1
 
 ENTITY CornerModule IS
     PORT(
-        \I2C_1:scl(0)_PAD\ : INOUT std_ulogic;
-        \I2C_1:sda(0)_PAD\ : INOUT std_ulogic);
+        \I2C_MPU6050:scl(0)_PAD\ : INOUT std_ulogic;
+        \I2C_MPU6050:sda(0)_PAD\ : INOUT std_ulogic);
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 3.3e0;
     ATTRIBUTE voltage_VDDD OF __DEFAULT__ : ENTITY IS 3.3e0;
 END CornerModule;
@@ -20,23 +20,23 @@ ARCHITECTURE __DEFAULT__ OF CornerModule IS
     SIGNAL ClockBlock_Routed1 : bit;
     SIGNAL ClockBlock_SYSCLK : bit;
     SIGNAL Net_17 : bit;
-    SIGNAL \I2C_1:Net_580\ : bit;
-    SIGNAL \I2C_1:Net_581\ : bit;
-    SIGNAL \I2C_1:Net_656\ : bit;
-    SIGNAL \I2C_1:Net_660\ : bit;
-    SIGNAL \I2C_1:Net_687\ : bit;
-    SIGNAL \I2C_1:Net_703\ : bit;
-    SIGNAL \I2C_1:Net_751\ : bit;
-    SIGNAL \I2C_1:Net_823\ : bit;
-    SIGNAL \I2C_1:Net_824\ : bit;
-    SIGNAL \I2C_1:Net_847_ff2\ : bit;
-    ATTRIBUTE global_signal OF \I2C_1:Net_847_ff2\ : SIGNAL IS true;
-    SIGNAL \\\I2C_1:scl(0)\\__PA\ : bit;
-    SIGNAL \\\I2C_1:sda(0)\\__PA\ : bit;
-    SIGNAL \I2C_1:ss_0\ : bit;
-    SIGNAL \I2C_1:ss_1\ : bit;
-    SIGNAL \I2C_1:ss_2\ : bit;
-    SIGNAL \I2C_1:ss_3\ : bit;
+    SIGNAL \I2C_MPU6050:Net_580\ : bit;
+    SIGNAL \I2C_MPU6050:Net_581\ : bit;
+    SIGNAL \I2C_MPU6050:Net_656\ : bit;
+    SIGNAL \I2C_MPU6050:Net_660\ : bit;
+    SIGNAL \I2C_MPU6050:Net_687\ : bit;
+    SIGNAL \I2C_MPU6050:Net_703\ : bit;
+    SIGNAL \I2C_MPU6050:Net_751\ : bit;
+    SIGNAL \I2C_MPU6050:Net_823\ : bit;
+    SIGNAL \I2C_MPU6050:Net_824\ : bit;
+    SIGNAL \I2C_MPU6050:Net_847_ff2\ : bit;
+    ATTRIBUTE global_signal OF \I2C_MPU6050:Net_847_ff2\ : SIGNAL IS true;
+    SIGNAL \\\I2C_MPU6050:scl(0)\\__PA\ : bit;
+    SIGNAL \\\I2C_MPU6050:sda(0)\\__PA\ : bit;
+    SIGNAL \I2C_MPU6050:ss_0\ : bit;
+    SIGNAL \I2C_MPU6050:ss_1\ : bit;
+    SIGNAL \I2C_MPU6050:ss_2\ : bit;
+    SIGNAL \I2C_MPU6050:ss_3\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
@@ -46,8 +46,8 @@ ARCHITECTURE __DEFAULT__ OF CornerModule IS
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
-    ATTRIBUTE lib_model OF \I2C_1:scl(0)\ : LABEL IS "iocell1";
-    ATTRIBUTE lib_model OF \I2C_1:sda(0)\ : LABEL IS "iocell2";
+    ATTRIBUTE lib_model OF \I2C_MPU6050:scl(0)\ : LABEL IS "iocell1";
+    ATTRIBUTE lib_model OF \I2C_MPU6050:sda(0)\ : LABEL IS "iocell2";
     COMPONENT interrupt
         PORT (
             interrupt : IN std_ulogic;
@@ -194,58 +194,58 @@ BEGIN
             ext => ClockBlock_EXTCLK,
             imo => ClockBlock_IMO,
             hfclk => ClockBlock_HFCLK,
-            ff_div_2 => \I2C_1:Net_847_ff2\);
+            ff_div_2 => \I2C_MPU6050:Net_847_ff2\);
 
     ClockGenBlock:m0s8clockgenblockcell;
 
-    \I2C_1:SCB\:m0s8scbcell
+    \I2C_MPU6050:SCB\:m0s8scbcell
         GENERIC MAP(
             cy_registers => "",
             scb_mode => 0)
         PORT MAP(
-            clock => \I2C_1:Net_847_ff2\,
+            clock => \I2C_MPU6050:Net_847_ff2\,
             interrupt => Net_17,
             rx => open,
-            tx => \I2C_1:Net_656\,
+            tx => \I2C_MPU6050:Net_656\,
             cts => open,
-            rts => \I2C_1:Net_751\,
-            mosi_m => \I2C_1:Net_660\,
+            rts => \I2C_MPU6050:Net_751\,
+            mosi_m => \I2C_MPU6050:Net_660\,
             miso_m => open,
-            select_m_3 => \I2C_1:ss_3\,
-            select_m_2 => \I2C_1:ss_2\,
-            select_m_1 => \I2C_1:ss_1\,
-            select_m_0 => \I2C_1:ss_0\,
-            sclk_m => \I2C_1:Net_687\,
+            select_m_3 => \I2C_MPU6050:ss_3\,
+            select_m_2 => \I2C_MPU6050:ss_2\,
+            select_m_1 => \I2C_MPU6050:ss_1\,
+            select_m_0 => \I2C_MPU6050:ss_0\,
+            sclk_m => \I2C_MPU6050:Net_687\,
             mosi_s => open,
-            miso_s => \I2C_1:Net_703\,
+            miso_s => \I2C_MPU6050:Net_703\,
             select_s => open,
             sclk_s => open,
-            scl => \I2C_1:Net_580\,
-            sda => \I2C_1:Net_581\,
-            tx_req => \I2C_1:Net_823\,
-            rx_req => \I2C_1:Net_824\);
+            scl => \I2C_MPU6050:Net_580\,
+            sda => \I2C_MPU6050:Net_581\,
+            tx_req => \I2C_MPU6050:Net_823\,
+            rx_req => \I2C_MPU6050:Net_824\);
 
-    \I2C_1:SCB_IRQ\:interrupt
+    \I2C_MPU6050:SCB_IRQ\:interrupt
         GENERIC MAP(
             int_type => "10")
         PORT MAP(
             interrupt => Net_17,
             clock => ClockBlock_HFCLK);
 
-    \I2C_1:scl(0)\:iocell
+    \I2C_MPU6050:scl(0)\:iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "\I2C_1:scl\",
+            logicalport => "\I2C_MPU6050:scl\",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000001000000000000000000001")
         PORT MAP(
-            pa_out => \\\I2C_1:scl(0)\\__PA\,
+            pa_out => \\\I2C_MPU6050:scl(0)\\__PA\,
             oe => open,
-            fb => \I2C_1:Net_580\,
+            fb => \I2C_MPU6050:Net_580\,
             pin_input => open,
-            pad_in => \I2C_1:scl(0)_PAD\,
+            pad_in => \I2C_MPU6050:scl(0)_PAD\,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -253,7 +253,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    \I2C_1:scl\:logicalport
+    \I2C_MPU6050:scl\:logicalport
         GENERIC MAP(
             drive_mode => "100",
             ibuf_enabled => "1",
@@ -323,20 +323,20 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    \I2C_1:sda(0)\:iocell
+    \I2C_MPU6050:sda(0)\:iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "\I2C_1:sda\",
+            logicalport => "\I2C_MPU6050:sda\",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000100000000000000000001")
         PORT MAP(
-            pa_out => \\\I2C_1:sda(0)\\__PA\,
+            pa_out => \\\I2C_MPU6050:sda(0)\\__PA\,
             oe => open,
-            fb => \I2C_1:Net_581\,
+            fb => \I2C_MPU6050:Net_581\,
             pin_input => open,
-            pad_in => \I2C_1:sda(0)_PAD\,
+            pad_in => \I2C_MPU6050:sda(0)_PAD\,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -344,7 +344,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    \I2C_1:sda\:logicalport
+    \I2C_MPU6050:sda\:logicalport
         GENERIC MAP(
             drive_mode => "100",
             ibuf_enabled => "1",

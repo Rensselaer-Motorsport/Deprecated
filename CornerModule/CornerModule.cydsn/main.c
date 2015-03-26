@@ -11,64 +11,106 @@
 */
 #include <project.h>
 #include <stdio.h>
-#define MPU 0x68
+#include "mpu6050.h"
 
-
-int16 bytecombine(uint8,uint8); //Combines high and low bytes to form a 16 bit int
-int16 readacc(int16); //Reads from the accelerometer and returns a 16 bit int
-void I2CInit(); //Initializes the accelerometer with the range,etc.
-
-int16 bytecombine(uint8 msb, uint8 lsb) //Used for combining the high and low bytes from the accelerometer
-{
-    //Takes a msbyte and lsbyte, msb 8 bits with sign bit, lsb 4 bits with last 4 zero.
-    int16 temp = msb;
-    temp <<= 8; //shift 8 most significant bits into high byte
-    temp = temp | lsb; //add lower 8 bits 
-    return temp;
+void I2CReadBytes(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint8_t *value) {
+	uint8_t i=0;
+	I2C_MPU6050_I2CMasterSendStart(devAddr, I2C_MPU6050_I2C_WRITE_XFER_MODE);
+	I2C_MPU6050_I2CMasterWriteByte(regAddr);
+	I2C_MPU6050_I2CMasterSendRestart(devAddr, I2C_MPU6050_I2C_READ_XFER_MODE);
+	while (i++ < (length-1)) {
+		*value++ = I2C_MPU6050_I2CMasterReadByte(I2C_MPU6050_I2C_ACK_DATA);
+	}
+	*value = I2C_MPU6050_I2CMasterReadByte(I2C_MPU6050_I2C_NAK_DATA);
+	I2C_MPU6050_I2CMasterSendStop();	
 }
 
-int16 readacc(int16 address) //address is the address of the first register for the axis you want to read from
-{
-    //address = 3B for X axis
-    //        = 3D for Y axis
-    //        = 3F for Z axis
-    I2C_1_I2CMasterSendStart(MPU,I2C_1_I2C_WRITE_XFER_MODE); //2nd parameter: 0 for write, 1 for reading
-    I2C_1_I2CMasterWriteByte(address); //Select which register to read from
-    I2C_1_I2CMasterSendRestart(MPU,I2C_1_I2C_READ_XFER_MODE);
-    uint8 msb = I2C_1_I2CMasterReadByte(I2C_1_I2C_NAK_DATA);
-    I2C_1_I2CMasterSendRestart(MPU,I2C_1_I2C_READ_XFER_MODE);
-    uint8 lsb = I2C_1_I2CMasterReadByte(I2C_1_I2C_NAK_DATA);
-    I2C_1_I2CMasterSendStop();
-    return bytecombine(msb,lsb);
+void I2CReadByte(uint8_t devAddr, uint8_t regAddr, uint8_t *value) {
+	I2CReadBytes(devAddr, regAddr, 1, value);
 }
 
-void I2CInit()
-{
-    I2C_1_Start(); //Turn on the I2c component first
-    //Sets the configuration of the accelerometer
-    I2C_1_I2CMasterSendStart(MPU,I2C_1_I2C_WRITE_XFER_MODE);
-    I2C_1_I2CMasterWriteByte(0x1C); //Address of ACCEL_CONFIG
-    //I2C_1_I2CMasterSendRestart(MPU,I2C_1_I2C_WRITE_XFER_MODE);
-    I2C_1_I2CMasterWriteByte(0x18); //Set range to +-16G
-    I2C_1_I2CMasterSendStop();
+void I2CReadBits(uint8_t devAddr, uint8_t regAddr, uint8_t bitStart, uint8_t length, uint8_t *value) {
+   	uint8_t mask = ((1 << length) - 1) << (bitStart - length + 1);
+    I2CReadByte(devAddr, regAddr, value);
+    *value &= mask;
+    *value >>= (bitStart - length + 1);
+}
+
+void I2CReadBit(uint8_t devAddr, uint8_t regAddr, uint8_t bitNum, uint8_t *value) {
+	I2CReadByte(devAddr, regAddr, value);
+	*value = *value & (1 << bitNum);
+}
+	
+void I2CWriteBytes(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint8_t *value) {
+	uint8_t i=0;
+	I2C_MPU6050_I2CMasterSendStart(devAddr, I2C_MPU6050_I2C_WRITE_XFER_MODE);
+	I2C_MPU6050_I2CMasterWriteByte(regAddr);
+	while (i++ < length) {
+		I2C_MPU6050_I2CMasterWriteByte(*value++);
+	}
+	I2C_MPU6050_I2CMasterSendStop();	
+}
+
+void I2CWriteByte(uint8_t devAddr, uint8_t regAddr, uint8_t value) {
+	I2CWriteBytes(devAddr, regAddr, 1, &value);
+}
+
+void I2CWriteBits(uint8_t devAddr, uint8_t regAddr, uint8_t bitStart, uint8_t length, uint8_t value) {
+	uint8_t b;
+	uint8_t mask = ((1 << length) - 1) << (bitStart - length + 1);
+	I2CReadByte(devAddr, regAddr, &b);
+	value <<= (bitStart - length + 1);
+	value &= mask;
+	b &= ~(mask);
+	b |= value;
+	I2CWriteByte(devAddr, regAddr, b);	
+}
+
+void I2CWriteBit(uint8_t devAddr, uint8_t regAddr, uint8_t bitNum, uint8_t value) {
+	uint8_t b;
+	I2CReadByte(devAddr, regAddr, &b);
+	b = (value != 0) ? (b | (1 << bitNum)) : (b & ~(1 << bitNum));
+	I2CWriteByte(devAddr, regAddr, b);
+}
+
+void I2CWriteWords(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint16_t *value) {
+	uint8_t i=0;
+	I2C_MPU6050_I2CMasterSendStart(devAddr, I2C_MPU6050_I2C_WRITE_XFER_MODE);
+	I2C_MPU6050_I2CMasterWriteByte(regAddr);
+	while (i++ < length) {
+		I2C_MPU6050_I2CMasterWriteByte(((uint8_t)*value) >> 8);
+		I2C_MPU6050_I2CMasterWriteByte((uint8_t)*value++);
+	}
+	I2C_MPU6050_I2CMasterSendStop();		
+}
+
+void I2CWriteWord(uint8_t devAddr, uint8_t regAddr, uint16_t value) {
+	I2CWriteWords(devAddr, regAddr, 1, &value);
 }
 
 int main()
 {
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+int16_t ax, ay, az;
+	int16_t gx, gy, gz;
+	char buf[30];
+
+	I2C_MPU6050_Start();
+	
     CyGlobalIntEnable;
 
-    CyDelay(1);
-    I2CInit();
-    /* CyGlobalIntEnable; */ /* Uncomment this line to enable global interrupts. */
+	MPU6050_init();
+	MPU6050_initialize();
+	
     for(;;)
     {
-        /* Place your application code here. */
-        uint16 accx = readacc(0x1C); //3B for x axis
-        char string[15];
-        sprintf(string,"%d",accx);
-        CyDelay(10);
-    }
+		MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+		sprintf(buf, "%d \t", ax);
+		sprintf(buf, "%d \t", ay);
+		sprintf(buf, "%d \t", az);
+		sprintf(buf, "%d \t", gx);
+		sprintf(buf, "%d \t", gy);
+		sprintf(buf, "%d \t", gz);
+	}
 }
 
 /* [] END OF FILE */

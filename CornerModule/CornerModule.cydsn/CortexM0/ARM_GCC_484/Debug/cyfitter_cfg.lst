@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
   31:.\Generated_Source\PSoC4/cyfitter_cfg.c ****     
   32:.\Generated_Source\PSoC4/cyfitter_cfg.c ****     #if defined(__ARMCC_VERSION)
   33:.\Generated_Source\PSoC4/cyfitter_cfg.c ****         #define CY_CFG_MEMORY_BARRIER() __memory_changed()
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 2
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 2
 
 
   34:.\Generated_Source\PSoC4/cyfitter_cfg.c ****     #else
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
   52 001e C046     		.section	.text.CYCONFIGCPY,"ax",%progbits
   53              		.align	2
   54              		.code	16
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 3
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 3
 
 
   55              		.thumb_func
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
   97 0000 80B5     		push	{r7, lr}
   98              		.cfi_def_cfa_offset 8
   99              		.cfi_offset 7, -8
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 4
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 4
 
 
  100              		.cfi_offset 14, -4
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
   96:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * Return:
   97:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *   void
   98:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 5
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 5
 
 
   99:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *******************************************************************************/
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  142 0008 FB1D     		add	r3, r7, #7
  143 000a 1A70     		strb	r2, [r3]
  142:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	CYPACKED typedef struct {
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 6
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 6
 
 
  143:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		uint8 freq;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  173 003c 0B70     		strb	r3, [r1]
  168:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		setTmpCo = imo_trim_table->entries[imoTrimIndex].tmpco;
  174              		.loc 1 168 0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 7
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 7
 
 
  175 003e 164B     		ldr	r3, .L8+8
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  221 008a BD46     		mov	sp, r7
  222 008c 04B0     		add	sp, sp, #16
  223              		@ sp needed
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 8
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 8
 
 
  224 008e 80BD     		pop	{r7, pc}
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  253 00ac 1268     		ldr	r2, [r2]
  254 00ae 8021     		mov	r1, #128
  255 00b0 C902     		lsl	r1, r1, #11
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 9
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 9
 
 
  256 00b2 0A43     		orr	r2, r1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  217:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
  218:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	/* CYDEV_CLK_IMO_CONFIG Starting address: CYDEV_CLK_IMO_CONFIG */
  219:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	CY_SET_XTND_REG32((void CYFAR *)(CYREG_CLK_IMO_CONFIG), 0x80000000u);
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 10
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 10
 
 
  292              		.loc 1 219 0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  237:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *
  238:.\Generated_Source\PSoC4/cyfitter_cfg.c **** * Parameters:
  239:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *  void
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 11
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 11
 
 
  240:.\Generated_Source\PSoC4/cyfitter_cfg.c **** *
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  271:.\Generated_Source\PSoC4/cyfitter_cfg.c **** {
  352              		.loc 1 271 0
  353              		.cfi_startproc
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 12
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 12
 
 
  354 0130 80B5     		push	{r7, lr}
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  385              		.loc 1 294 0 discriminator 2
  386 0152 3B68     		ldr	r3, [r7]
  387 0154 1A78     		ldrb	r2, [r3]
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 13
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 13
 
 
  388 0156 5978     		ldrb	r1, [r3, #1]
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  432 01a2 1201     		lsl	r2, r2, #4
  433 01a4 1A60     		str	r2, [r3]
  303:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 14
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 14
 
 
  304:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 		/* IOPINS0_4 Starting address: CYDEV_PRT4_DR */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  475 01ec D2B2     		uxtb	r2, r2
  476 01ee 1A70     		strb	r2, [r3]
  477              	.LBE2:
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 15
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 15
 
 
  317:.\Generated_Source\PSoC4/cyfitter_cfg.c **** 	}
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  523              	.Letext0:
  524              		.file 2 "e:\\program files (x86)\\cypress\\psoc creator\\3.1\\psoc creator\\import\\gnu_cs\\arm\\4
  525              		.file 3 ".\\Generated_Source\\PSoC4/cytypes.h"
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 16
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 16
 
 
  526              		.section	.debug_info,"",%progbits
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  580 006b F0010000 		.4byte	.LASF7
  581 006f 04       		.uleb128 0x4
  582 0070 08       		.byte	0x8
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 17
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 17
 
 
  583 0071 07       		.byte	0x7
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  637 00e2 08       		.uleb128 0x8
  638 00e3 02010000 		.4byte	.LASF20
  639 00e7 01       		.byte	0x1
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 18
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 18
 
 
  640 00e8 39       		.byte	0x39
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  694 014b 91       		.byte	0x91
  695 014c 6C       		.sleb128 -20
  696 014d 00       		.byte	0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 19
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 19
 
 
  697 014e 0B       		.uleb128 0xb
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  751 01b5 6F       		.sleb128 -17
  752 01b6 0E       		.uleb128 0xe
  753 01b7 03       		.byte	0x3
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 20
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 20
 
 
  754 01b8 01       		.byte	0x1
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  808 0224 98       		.byte	0x98
  809 0225 2F020000 		.4byte	0x22f
  810 0229 05       		.uleb128 0x5
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 21
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 21
 
 
  811 022a 03       		.byte	0x3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  865 0293 00000000 		.4byte	.LFB5
  866 0297 08000000 		.4byte	.LFE5-.LFB5
  867 029b 01       		.uleb128 0x1
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 22
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 22
 
 
  868 029c 9C       		.byte	0x9c
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  922 0312 01       		.byte	0x1
  923 0313 2001     		.2byte	0x120
  924 0315 86000000 		.4byte	0x86
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 23
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 23
 
 
  925 0319 02       		.uleb128 0x2
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  979 001d 00       		.byte	0
  980 001e 03       		.uleb128 0x3
  981 001f 16       		.uleb128 0x16
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 24
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 24
 
 
  982 0020 00       		.byte	0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  1036 0056 3A       		.uleb128 0x3a
  1037 0057 0B       		.uleb128 0xb
  1038 0058 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 25
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 25
 
 
  1039 0059 0B       		.uleb128 0xb
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  1093 0090 0C       		.uleb128 0xc
  1094 0091 26       		.uleb128 0x26
  1095 0092 00       		.byte	0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 26
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 26
 
 
  1096 0093 00       		.byte	0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  1150 00ca 01       		.uleb128 0x1
  1151 00cb 01       		.byte	0x1
  1152 00cc 49       		.uleb128 0x49
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 27
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 27
 
 
  1153 00cd 13       		.uleb128 0x13
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  1207 0104 19       		.uleb128 0x19
  1208 0105 00       		.byte	0
  1209 0106 00       		.byte	0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 28
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 28
 
 
  1210 0107 15       		.uleb128 0x15
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  1264 013f 13       		.uleb128 0x13
  1265 0140 01       		.byte	0x1
  1266 0141 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 29
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 29
 
 
  1267 0142 0B       		.uleb128 0xb
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  1321 0178 00       		.byte	0
  1322              		.section	.debug_aranges,"",%progbits
  1323 0000 4C000000 		.4byte	0x4c
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 30
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 30
 
 
  1324 0004 0200     		.2byte	0x2
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  1372 000d 416E616C 		.ascii	"AnalogSetDefault\000"
  1372      6F675365 
  1372      74446566 
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 31
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 31
 
 
  1372      61756C74 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  1394              	.LASF22:
  1395 00db 64657374 		.ascii	"dest\000"
  1395      00
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 32
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 32
 
 
  1396              	.LASF40:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  1423      5F636667 
  1423      00
  1424              	.LASF39:
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 33
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 33
 
 
  1425 0179 61646472 		.ascii	"address\000"
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 1
  1449      5F746162 
  1449      6C6500
  1450              	.LASF5:
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccXnJO3z.s 			page 34
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccJ8u4Yp.s 			page 34
 
 
  1451 0226 6C6F6E67 		.ascii	"long int\000"
