@@ -90,11 +90,12 @@ void I2CWriteWord(uint8_t devAddr, uint8_t regAddr, uint16_t value) {
 
 int main()
 {
-int16_t ax, ay, az;
+    int16_t ax, ay, az;
 	int16_t gx, gy, gz;
 	char buf[30];
 
 	I2C_MPU6050_Start();
+    UART_1_Start();
 	
     CyGlobalIntEnable;
 
@@ -105,6 +106,7 @@ int16_t ax, ay, az;
     {
 		MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
 		sprintf(buf, "%d \t", ax);
+        UART_1_PutString(buf);
 		sprintf(buf, "%d \t", ay);
 		sprintf(buf, "%d \t", az);
 		sprintf(buf, "%d \t", gx);

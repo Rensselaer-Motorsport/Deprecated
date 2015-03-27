@@ -24,12 +24,14 @@
 #include <I2C_MPU6050_I2C_PVT.h>
 #include <I2C_MPU6050_PVT.h>
 #include <I2C_MPU6050_BOOT.h>
+#include <UART_1.h>
 #include <I2C_MPU6050_SCBCLK.h>
 #include <I2C_MPU6050_sda.h>
 #include <I2C_MPU6050_sda_aliases.h>
 #include <I2C_MPU6050_scl.h>
 #include <I2C_MPU6050_scl_aliases.h>
 #include <I2C_MPU6050_SCB_IRQ.h>
+#include <UART_1_IntClock.h>
 #include <core_cm0_psoc4.h>
 #include <core_cm0.h>
 #include <CyFlash.h>
