@@ -88,11 +88,37 @@ void I2CWriteWord(uint8_t devAddr, uint8_t regAddr, uint16_t value) {
 	I2CWriteWords(devAddr, regAddr, 1, &value);
 }
 
+
+
+union data
+{
+    struct sensorDataInternals
+    {
+        char beginPad[5];
+        int16_t ax;
+        char pad0;
+        int16_t ay;
+        char pad1;
+        int16_t az;
+        char pad2;
+        int16_t gx;
+        char pad3;
+        int16_t gy;
+        char pad4;
+        int16_t gz;
+    } sensorData;
+    unsigned char* buffer;
+} sendData;
+
 int main()
 {
-    int16_t ax, ay, az;
-	int16_t gx, gy, gz;
-	char buf[30];
+    static char temp[5] = {0, 1, 2, 3, 4};
+    memcpy(sendData.sensorData.beginPad, temp, 5);
+    sendData.sensorData.pad0 = 0;
+    sendData.sensorData.pad1 = 0;
+    sendData.sensorData.pad2 = 0;
+    sendData.sensorData.pad3 = 0;
+    sendData.sensorData.pad4 = 0;
 
 	I2C_MPU6050_Start();
     UART_1_Start();
@@ -104,14 +130,8 @@ int main()
 	
     for(;;)
     {
-		MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-		sprintf(buf, "%d \t", ax);
-        UART_1_PutString(buf);
-		sprintf(buf, "%d \t", ay);
-		sprintf(buf, "%d \t", az);
-		sprintf(buf, "%d \t", gx);
-		sprintf(buf, "%d \t", gy);
-		sprintf(buf, "%d \t", gz);
+		MPU6050_getMotion6(&sendData.sensorData.ax, &sendData.sensorData.ay, &sendData.sensorData.az, &sendData.sensorData.gx, &sendData.sensorData.gy, &sendData.sensorData.gz);
+        UART_1_PutArray(sendData.buffer, sizeof(sendData.buffer));
 	}
 }
 
