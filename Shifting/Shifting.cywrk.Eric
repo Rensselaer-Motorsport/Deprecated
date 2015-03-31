@@ -82,31 +82,6 @@
 <v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
 <v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
 <v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\Cm0Start.c</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\core_cm0.h</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\core_cm0_psoc4.h</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\CyBootAsmRv.s</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\CyFlash.c</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\CyFlash.h</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\CyLib.c</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\CyLib.h</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\cypins.h</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\cyPm.c</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\cyPm.h</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\cytypes.h</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\cyutils.c</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\UART_1</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\UART_1\UART_1.c</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\UART_1\UART_1.h</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\UART_1\UART_1_BOOT.c</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\UART_1\UART_1_INT.c</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\UART_1\UART_1_PM.c</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\UART_1_IntClock</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\UART_1_IntClock\UART_1_IntClock.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -165,18 +140,6 @@
 <v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\CyLib.lst</v>
 <v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\cymetadata.lst</v>
 <v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\cyPm.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\cyutils.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\main.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_1.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_1_BOOT.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_1_INT.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_1_IntClock.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\UART_1_PM.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Shifting.elf</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Shifting.hex</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Shifting.map</v>
-<v>Shifting\Shifting\Shifting.rpt</v>
-<v>Shifting\Shifting\Shifting_timing.html</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

@@ -22,7 +22,8 @@ int main()
     {
         /* Place your application code here. */
         // UART_1_PutChar('a');
-        while (UART_1_GetRxBufferSize()!=0){
+        while (UART_1_GetRxBufferSize() != 0)
+        {
             rxData = UART_1_GetChar();
             CyDelay(1);
         }
