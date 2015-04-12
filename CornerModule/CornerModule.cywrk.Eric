@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CornerModule\CornerModule\Source Files\mpu6050.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="CornerModule\CornerModule\Header Files\mpu6050.h">
 <ExpandedNodeIds>
 <v>CornerModule</v>
 <v>CornerModule\CornerModule</v>
@@ -238,6 +238,9 @@
 <name v=".\CornerModule.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\CornerModule.cydsn\CornerModule.cydwr" />
 <name v=".\CornerModule.cydsn\main.c" />
+<name v=".\CornerModule.cydsn\mpu6050.c" />
+<name v=".\CornerModule.cydsn\mpu6050.h" />
+<name v=".\CornerModule.cydsn\Generated_Source\PSoC4\Cm0Start.c" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />

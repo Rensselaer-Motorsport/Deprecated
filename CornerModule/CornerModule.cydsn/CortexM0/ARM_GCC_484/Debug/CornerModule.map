@@ -1361,23 +1361,23 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x4f13
+.debug_info     0x00000000     0x4f1d
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x56c .\CortexM0\ARM_GCC_484\Debug\main.o
- .debug_info    0x0000056c     0x21aa .\CortexM0\ARM_GCC_484\Debug\mpu6050.o
- .debug_info    0x00002716       0xfd .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
- .debug_info    0x00002813      0x2ff .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
- .debug_info    0x00002b12      0x532 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(cyfitter_cfg.o)
- .debug_info    0x00003044       0x9d .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(CyBootAsmGnu.o)
- .debug_info    0x000030e1      0xc5b .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(CyLib.o)
- .debug_info    0x00003d3c      0x1eb .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050.o)
- .debug_info    0x00003f27      0x119 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C.o)
- .debug_info    0x00004040      0x466 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C_MASTER.o)
- .debug_info    0x000044a6      0x14c .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_sda.o)
- .debug_info    0x000045f2      0x14c .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_scl.o)
- .debug_info    0x0000473e      0x500 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(UART_1.o)
- .debug_info    0x00004c3e      0x14d .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(UART_1_IntClock.o)
- .debug_info    0x00004d8b      0x188 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C_INT.o)
+ .debug_info    0x00000000      0x576 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .debug_info    0x00000576     0x21aa .\CortexM0\ARM_GCC_484\Debug\mpu6050.o
+ .debug_info    0x00002720       0xfd .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .debug_info    0x0000281d      0x2ff .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .debug_info    0x00002b1c      0x532 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(cyfitter_cfg.o)
+ .debug_info    0x0000304e       0x9d .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(CyBootAsmGnu.o)
+ .debug_info    0x000030eb      0xc5b .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(CyLib.o)
+ .debug_info    0x00003d46      0x1eb .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050.o)
+ .debug_info    0x00003f31      0x119 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C.o)
+ .debug_info    0x0000404a      0x466 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C_MASTER.o)
+ .debug_info    0x000044b0      0x14c .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_sda.o)
+ .debug_info    0x000045fc      0x14c .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_scl.o)
+ .debug_info    0x00004748      0x500 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(UART_1.o)
+ .debug_info    0x00004c48      0x14d .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(UART_1_IntClock.o)
+ .debug_info    0x00004d95      0x188 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C_INT.o)
 
 .debug_abbrev   0x00000000      0xfc0
  *(.debug_abbrev)
@@ -1397,23 +1397,23 @@ END GROUP
  .debug_abbrev  0x00000e76       0xb5 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(UART_1_IntClock.o)
  .debug_abbrev  0x00000f2b       0x95 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C_INT.o)
 
-.debug_line     0x00000000     0x2dfb
+.debug_line     0x00000000     0x2dfc
  *(.debug_line)
- .debug_line    0x00000000      0x254 .\CortexM0\ARM_GCC_484\Debug\main.o
- .debug_line    0x00000254     0x1500 .\CortexM0\ARM_GCC_484\Debug\mpu6050.o
- .debug_line    0x00001754       0x53 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
- .debug_line    0x000017a7      0x1bb .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
- .debug_line    0x00001962      0x1da .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(cyfitter_cfg.o)
- .debug_line    0x00001b3c       0x69 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(CyBootAsmGnu.o)
- .debug_line    0x00001ba5      0x703 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(CyLib.o)
- .debug_line    0x000022a8      0x12e .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050.o)
- .debug_line    0x000023d6       0xad .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C.o)
- .debug_line    0x00002483      0x2b4 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C_MASTER.o)
- .debug_line    0x00002737       0xb5 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_sda.o)
- .debug_line    0x000027ec       0xb5 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_scl.o)
- .debug_line    0x000028a1      0x2f1 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(UART_1.o)
- .debug_line    0x00002b92       0xb8 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(UART_1_IntClock.o)
- .debug_line    0x00002c4a      0x1b1 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C_INT.o)
+ .debug_line    0x00000000      0x255 .\CortexM0\ARM_GCC_484\Debug\main.o
+ .debug_line    0x00000255     0x1500 .\CortexM0\ARM_GCC_484\Debug\mpu6050.o
+ .debug_line    0x00001755       0x53 .\CortexM0\ARM_GCC_484\Debug\cymetadata.o
+ .debug_line    0x000017a8      0x1bb .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o
+ .debug_line    0x00001963      0x1da .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(cyfitter_cfg.o)
+ .debug_line    0x00001b3d       0x69 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(CyBootAsmGnu.o)
+ .debug_line    0x00001ba6      0x703 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(CyLib.o)
+ .debug_line    0x000022a9      0x12e .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050.o)
+ .debug_line    0x000023d7       0xad .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C.o)
+ .debug_line    0x00002484      0x2b4 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C_MASTER.o)
+ .debug_line    0x00002738       0xb5 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_sda.o)
+ .debug_line    0x000027ed       0xb5 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_scl.o)
+ .debug_line    0x000028a2      0x2f1 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(UART_1.o)
+ .debug_line    0x00002b93       0xb8 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(UART_1_IntClock.o)
+ .debug_line    0x00002c4b      0x1b1 .\CortexM0\ARM_GCC_484\Debug\CornerModule.a(I2C_MPU6050_I2C_INT.o)
 
 .debug_frame    0x00000000     0x3400
  *(.debug_frame)

@@ -1,4 +1,4 @@
---------------- Build Started: 03/29/2015 04:16:39 Project: CornerModule, Configuration: ARM GCC 4.8.4 Debug ---------------
+--------------- Build Started: 04/12/2015 06:08:34 Project: CornerModule, Configuration: ARM GCC 4.8.4 Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -I.\Generated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_484\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c .\main.c -o .\CortexM0\ARM_GCC_484\Debug\main.o
 arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_484\Debug\CornerModule.a .\CortexM0\ARM_GCC_484\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_484\Debug\CyBootAsmGnu.o .\CortexM0\ARM_GCC_484\Debug\CyFlash.o .\CortexM0\ARM_GCC_484\Debug\CyLib.o .\CortexM0\ARM_GCC_484\Debug\cyPm.o .\CortexM0\ARM_GCC_484\Debug\cyutils.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050_I2C_INT.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050_I2C.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050_I2C_BOOT.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050_I2C_MASTER.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050_PM.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050_BOOT.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050_SCBCLK.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050_sda.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050_scl.o .\CortexM0\ARM_GCC_484\Debug\I2C_MPU6050_SCB_IRQ.o .\CortexM0\ARM_GCC_484\Debug\UART_1.o .\CortexM0\ARM_GCC_484\Debug\UART_1_PM.o .\CortexM0\ARM_GCC_484\Debug\UART_1_INT.o .\CortexM0\ARM_GCC_484\Debug\UART_1_BOOT.o .\CortexM0\ARM_GCC_484\Debug\UART_1_IntClock.o
@@ -8,4 +8,4 @@ cyelftool.exe -C C:\Users\Eric\Documents\GitHub\Corner-Module\CornerModule\Corne
 cyelftool.exe -S C:\Users\Eric\Documents\GitHub\Corner-Module\CornerModule\CornerModule.cydsn\CortexM0\ARM_GCC_484\Debug\CornerModule.elf
 Flash used: 7302 of 32768 bytes (22.3 %).
 SRAM used: 1644 of 4096 bytes (40.1 %). Stack: 1024 bytes. Heap: 256 bytes.
---------------- Build Succeeded: 03/29/2015 04:16:40 ---------------
+--------------- Build Succeeded: 04/12/2015 06:08:35 ---------------

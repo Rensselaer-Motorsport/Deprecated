@@ -107,7 +107,7 @@ union data
         char pad4;
         int16_t gz;
     } sensorData;
-    unsigned char* buffer;
+    unsigned char buffer[sizeof(struct sensorDataInternals)];
 } sendData;
 
 int main()

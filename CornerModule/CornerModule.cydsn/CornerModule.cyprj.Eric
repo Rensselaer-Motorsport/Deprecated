@@ -863,36 +863,37 @@
 <v>Cypress Component Catalog\Communications</v>
 <v>Cypress Component Catalog\Communications\I2C</v>
 <v>Cypress Component Catalog\Digital</v>
+<v>Cypress Component Catalog\Digital\Functions</v>
 <v>Cypress Component Catalog\Digital\Logic</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>Cypress Component Catalog\Analog</v>
+<v>Cypress Component Catalog\CapSense</v>
+<v>Cypress Component Catalog\Communications</v>
+<v>Cypress Component Catalog\Communications\I2C</v>
+<v>Cypress Component Catalog\Communications\I2C\EZI2C Slave (SCB mode) [v2.0]</v>
+<v>Cypress Component Catalog\Communications\I2C\I2C (SCB mode) [v2.0]</v>
+<v>Cypress Component Catalog\Communications\I2S</v>
+<v>Cypress Component Catalog\Communications\Serial Communication Block (SCB) [v2.0]</v>
+<v>Cypress Component Catalog\Communications\SMBus/PMBus Slave</v>
 <v>Cypress Component Catalog\Communications\Software Transmit UART [v1.30]</v>
 <v>Cypress Component Catalog\Communications\SPI</v>
 <v>Cypress Component Catalog\Communications\UART (SCB mode) [v2.0]</v>
 <v>Cypress Component Catalog\Communications\UART [v2.30]</v>
 <v>Cypress Component Catalog\Digital</v>
 <v>Cypress Component Catalog\Digital\Functions</v>
-<v>Cypress Component Catalog\Digital\Logic</v>
-<v>Cypress Component Catalog\Digital\Logic\And [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Bufoe [v1.10]</v>
-<v>Cypress Component Catalog\Digital\Logic\D Flip Flop [v1.30]</v>
-<v>Cypress Component Catalog\Digital\Logic\D Flip Flop w/ Enable [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\De-Multiplexer [v1.10]</v>
-<v>Cypress Component Catalog\Digital\Logic\Digital Constant [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Logic High '1' [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Logic Low '0' [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Lookup Table [v1.50]</v>
-<v>Cypress Component Catalog\Digital\Logic\Multiplexer [v1.10]</v>
-<v>Cypress Component Catalog\Digital\Logic\Nand [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Nor [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Not [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Or [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\SR Flip Flop [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Toggle Flip Flop [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Virtual Mux [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Xnor [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Logic\Xor [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Registers</v>
+<v>Cypress Component Catalog\Digital\Functions\Counter [v2.40]</v>
+<v>Cypress Component Catalog\Digital\Functions\CRC [v2.40]</v>
+<v>Cypress Component Catalog\Digital\Functions\PrISM [v2.20]</v>
+<v>Cypress Component Catalog\Digital\Functions\PRS [v2.40]</v>
+<v>Cypress Component Catalog\Digital\Functions\PWM (TCPWM mode) [v2.0]</v>
+<v>Cypress Component Catalog\Digital\Functions\PWM [v3.10]</v>
+<v>Cypress Component Catalog\Digital\Functions\Quadrature Decoder (TCPWM mode) [v2.0]</v>
+<v>Cypress Component Catalog\Digital\Functions\Quadrature Decoder [v2.40]</v>
+<v>Cypress Component Catalog\Digital\Functions\Shift Register [v2.30]</v>
+<v>Cypress Component Catalog\Digital\Functions\Timer [v2.70]</v>
+<v>Cypress Component Catalog\Digital\Functions\Timer Counter (TCPWM mode) [v2.0]</v>
+<v>Cypress Component Catalog\Digital\Functions\Timer Counter PWM (TCPWM) [v2.0]</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -1421,15 +1422,12 @@
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="130720905999649529" />
+<deps_time v="130733069150103538" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="bf610382-39c6-441f-80b8-b04622ea7845">
 <CyGuid_bf610382-39c6-441f-80b8-b04622ea7845 type_name="CyDesigner.Common.Debugger.CyWatchedVariableList" version="1">
-<debugger_watch_list>
-<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="accx" radix="Default" />
-<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="msb" radix="Default" />
-</debugger_watch_list>
+<debugger_watch_list />
 </CyGuid_bf610382-39c6-441f-80b8-b04622ea7845>
 </dataGuid>
 </userData>
