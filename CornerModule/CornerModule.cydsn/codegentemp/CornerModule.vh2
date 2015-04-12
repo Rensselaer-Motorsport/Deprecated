@@ -2,7 +2,7 @@
 --	Conversion of CornerModule.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Mar 27 15:09:31 2015
+--	Sun Apr 12 06:48:59 2015
 --
 
 USE cypress.cypress.all;

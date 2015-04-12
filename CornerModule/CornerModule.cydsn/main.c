@@ -112,6 +112,7 @@ union data
 
 int main()
 {
+    CyGlobalIntEnable;
     static char temp[5] = {0, 1, 2, 3, 4};
     memcpy(sendData.sensorData.beginPad, temp, 5);
     sendData.sensorData.pad0 = 0;
@@ -119,19 +120,19 @@ int main()
     sendData.sensorData.pad2 = 0;
     sendData.sensorData.pad3 = 0;
     sendData.sensorData.pad4 = 0;
-
+    CyDelay(10);
 	I2C_MPU6050_Start();
     UART_1_Start();
 	
-    CyGlobalIntEnable;
+    
 
 	MPU6050_init();
 	MPU6050_initialize();
 	
     for(;;)
     {
-		MPU6050_getMotion6(&sendData.sensorData.ax, &sendData.sensorData.ay, &sendData.sensorData.az, &sendData.sensorData.gx, &sendData.sensorData.gy, &sendData.sensorData.gz);
-        UART_1_PutArray(sendData.buffer, sizeof(sendData.buffer));
+	  MPU6050_getMotion6(&sendData.sensorData.ax, &sendData.sensorData.ay, &sendData.sensorData.az, &sendData.sensorData.gx, &sendData.sensorData.gy, &sendData.sensorData.gz);
+      UART_1_PutArray(sendData.buffer, sizeof(sendData.buffer));
 	}
 }
 
