@@ -11,13 +11,15 @@
 */
 #include <project.h>
 
-#define SERIAL_BUFFER_SIZE 1
+#define BEGIN_PAD_SIZE 5
+
+int msg_count = 0;
 
 union data
 {
     struct serialDataInternals
     {
-        char beginPad[5];
+        char beginPad[BEGIN_PAD_SIZE];
         char shift;
         char pad0;
         int16_t tach;
@@ -25,25 +27,34 @@ union data
         int16_t wheel_speed;
         char pad2;
     } serialData;
-    char buffer[SERIAL_BUFFER_SIZE];
+    char buffer[sizeof(struct serialDataInternals)];
 } sendData;
+
+void ReadSerial() {
+    char rxData;
+    while (UART_1_GetRxBufferSize() != 0) {
+        rxData = UART_1_GetChar();
+        if (msg_count == sizeof(sendData)) msg_count = 0;
+        if (msg_count < BEGIN_PAD_SIZE && rxData == msg_count) msg_count++;
+        else if (msg_count < BEGIN_PAD_SIZE && rxData != msg_count) msg_count = 0;
+        else {
+            sendData.buffer[msg_count] = rxData;
+            msg_count++;
+        }
+    }
+}
 
 int main()
 {
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-    char rxData;
     UART_1_Start();
+    isr_1_StartEx(*ReadSerial);
 
     CyGlobalIntEnable; /* Uncomment this line to enable global interrupts. */
     for(;;)
     {
         /* Place your application code here. */
         // UART_1_PutChar('a');
-        while (UART_1_GetRxBufferSize() != 0)
-        {
-            rxData = UART_1_GetChar();
-            CyDelay(1);
-        }
     }
 }
 

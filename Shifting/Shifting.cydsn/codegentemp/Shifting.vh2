@@ -2,7 +2,7 @@
 --	Conversion of Shifting.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Mar 27 15:05:18 2015
+--	Tue Apr 14 19:29:57 2015
 --
 
 USE cypress.cypress.all;
@@ -32,7 +32,7 @@ SIGNAL Net_29 : bit;
 SIGNAL \UART_1:BUART:txn\ : bit;
 SIGNAL Net_23 : bit;
 SIGNAL \UART_1:BUART:tx_interrupt_out\ : bit;
-SIGNAL Net_24 : bit;
+SIGNAL Net_32 : bit;
 SIGNAL \UART_1:BUART:rx_interrupt_out\ : bit;
 SIGNAL \UART_1:BUART:tx_state_1\ : bit;
 SIGNAL \UART_1:BUART:tx_state_0\ : bit;
@@ -804,7 +804,7 @@ Net_19D <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_2\)
 		clock=>\UART_1:BUART:clock_op\,
 		status=>(zero, \UART_1:BUART:rx_status_5\, \UART_1:BUART:rx_status_4\, \UART_1:BUART:rx_status_3\,
 			\UART_1:BUART:rx_status_2\, zero, zero),
-		interrupt=>\UART_1:BUART:rx_interrupt_out\);
+		interrupt=>Net_32);
 Tx_1:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"ed092b9b-d398-4703-be89-cebf998501f6",
 		drive_mode=>"110",
@@ -943,6 +943,9 @@ Rx_1:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Rx_1_net_0);
+isr_1:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10")
+	PORT MAP(int_signal=>Net_32);
 \UART_1:BUART:reset_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\UART_1:BUART:clock_op\,

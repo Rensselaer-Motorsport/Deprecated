@@ -1,6 +1,6 @@
 // ======================================================================
 // Shifting.v generated from TopDesign.cysch
-// 03/27/2015 at 15:05
+// 04/14/2015 at 19:29
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -197,7 +197,6 @@ module top ;
           wire  Net_27;
           wire  Net_26;
           wire  Net_25;
-          wire  Net_24;
           wire  Net_23;
           wire  Net_22;
           wire  Net_21;
@@ -205,6 +204,7 @@ module top ;
           wire  Net_19;
           wire  Net_18;
           wire  Net_16;
+          wire  Net_32;
           wire  Net_31;
           wire  Net_29;
 
@@ -217,7 +217,7 @@ module top ;
         .reset(1'b0),
         .rx(Net_22),
         .tx_interrupt(Net_23),
-        .rx_interrupt(Net_24),
+        .rx_interrupt(Net_32),
         .tx_data(Net_25),
         .tx_clk(Net_26),
         .rx_data(Net_27),
@@ -382,6 +382,13 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__Rx_1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
+
+
+	cy_isr_v1_0
+		#(.int_type(2'b10))
+		isr_1
+		 (.int_signal(Net_32));
+
 
 
 

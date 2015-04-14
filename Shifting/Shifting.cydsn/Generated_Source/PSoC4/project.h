@@ -19,6 +19,7 @@
 #include <cyfitter.h>
 #include <cydisabledsheets.h>
 #include <UART_1.h>
+#include <isr_1.h>
 #include <UART_1_IntClock.h>
 #include <core_cm0_psoc4.h>
 #include <core_cm0.h>

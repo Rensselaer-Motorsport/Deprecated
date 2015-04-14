@@ -1,5 +1,5 @@
 -- Project:   Shifting
--- Generated: 03/27/2015 15:05:19
+-- Generated: 04/14/2015 19:30:00
 -- PSoC Creator  3.1 SP1
 
 ENTITY Shifting IS
@@ -21,6 +21,7 @@ ARCHITECTURE __DEFAULT__ OF Shifting IS
     SIGNAL ClockBlock_SYSCLK : bit;
     SIGNAL Net_22 : bit;
     SIGNAL Net_31 : bit;
+    SIGNAL Net_32 : bit;
     SIGNAL Rx_1(0)__PA : bit;
     SIGNAL Tx_1(0)__PA : bit;
     SIGNAL \UART_1:BUART:counter_load_not\ : bit;
@@ -227,6 +228,11 @@ ARCHITECTURE __DEFAULT__ OF Shifting IS
     ATTRIBUTE udb_chain OF datapathcell : COMPONENT IS "ce0i,ce0,cl0i,cl0,z0i,z0,ff0i,ff0,ce1i,ce1,cl1i,cl1,z1i,z1,ff1i,ff1,cap0i,cap0,cap1i,cap1,ci,co_msb,sir,sol_msb,cfbi,cfbo,sil,sor,cmsbi,cmsbo";
     ATTRIBUTE chain_lsb OF datapathcell : COMPONENT IS "ce0i,cl0i,z0i,ff0i,ce1i,cl1i,z1i,ff1i,cap0i,cap1i,ci,sir,cfbi,sor,cmsbo";
     ATTRIBUTE chain_msb OF datapathcell : COMPONENT IS "ce0,cl0,z0,ff0,ce1,cl1,z1,ff1,cap0,cap1,co_msb,sol_msb,cfbo,sil,cmsbi";
+    COMPONENT interrupt
+        PORT (
+            interrupt : IN std_ulogic;
+            clock : IN std_ulogic);
+    END COMPONENT;
     COMPONENT iocell
         PORT (
             pin_input : IN std_ulogic;
@@ -889,7 +895,8 @@ BEGIN
             status_3 => \UART_1:BUART:rx_status_3\,
             status_2 => open,
             status_1 => open,
-            status_0 => open);
+            status_0 => open,
+            interrupt => Net_32);
 
     \UART_1:BUART:sTX:TxShifter:u0\:datapathcell
         GENERIC MAP(
@@ -1051,5 +1058,12 @@ BEGIN
         PORT MAP(
             q => \UART_1:BUART:tx_status_2\,
             main_0 => \UART_1:BUART:tx_fifo_notfull\);
+
+    isr_1:interrupt
+        GENERIC MAP(
+            int_type => "10")
+        PORT MAP(
+            interrupt => Net_32,
+            clock => ClockBlock_HFCLK);
 
 END __DEFAULT__;
