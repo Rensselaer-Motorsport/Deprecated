@@ -68,21 +68,7 @@
 <v>Shifting\Shifting\Generated_Source\PSoC4\cymetadata.c</v>
 <v>Shifting\Shifting\Generated_Source\PSoC4\project.h</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Shifting</v>
-<v>Shifting\Shifting</v>
-<v>Shifting\Shifting\TopDesign</v>
-<v>Shifting\Shifting\Shifting.cydwr</v>
-<v>Shifting\Shifting\Header Files</v>
-<v>Shifting\Shifting\Source Files</v>
-<v>Shifting\Shifting\Source Files\main.c</v>
-<v>Shifting\Shifting\Generated_Source</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
-<v>Shifting\Shifting\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -91,12 +77,7 @@
 <v>Shifting\Shifting\TopDesign</v>
 <v>Shifting\Shifting\TopDesign\TopDesign.cysch</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Shifting</v>
-<v>Shifting\Shifting</v>
-<v>Shifting\Shifting\TopDesign</v>
-<v>Shifting\Shifting\TopDesign\TopDesign.cysch</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
@@ -126,21 +107,7 @@
 <v>Shifting\Shifting\Shifting.rpt</v>
 <v>Shifting\Shifting\Shifting_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Shifting</v>
-<v>Shifting\Shifting</v>
-<v>Shifting\Shifting\CortexM0</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\Cm0Start.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\CyFlash.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\CyLib.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\cymetadata.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\cyPm.lst</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -158,16 +125,7 @@
 <v>Shifting\Shifting\not_v1_0</v>
 <v>Shifting\Shifting\UART_v2_30</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>Shifting</v>
-<v>Shifting\Shifting</v>
-<v>Shifting\Shifting\PSoC 4 Architecture TRM</v>
-<v>Shifting\Shifting\PSoC 4200 Family Datasheet</v>
-<v>Shifting\Shifting\System Reference Guide v4_20</v>
-<v>Shifting\Shifting\cy_pins_v2_10</v>
-<v>Shifting\Shifting\not_v1_0</v>
-<v>Shifting\Shifting\UART_v2_30</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>

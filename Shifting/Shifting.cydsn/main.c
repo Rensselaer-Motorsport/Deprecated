@@ -11,6 +11,23 @@
 */
 #include <project.h>
 
+#define SERIAL_BUFFER_SIZE 1
+
+union data
+{
+    struct serialDataInternals
+    {
+        char beginPad[5];
+        char shift;
+        char pad0;
+        int16_t tach;
+        char pad1;
+        int16_t wheel_speed;
+        char pad2;
+    } serialData;
+    char buffer[SERIAL_BUFFER_SIZE];
+} sendData;
+
 int main()
 {
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
