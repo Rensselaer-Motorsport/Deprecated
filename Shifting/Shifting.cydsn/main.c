@@ -1,19 +1,25 @@
 /* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
+ * Shifting Code v1.0
  * ========================================
 */
 #include <project.h>
+#include <UP_SHIFT_AIR.h>// i bellive i need this (from documentation, but since i don't have the output port connected to anything on the top design it dosen't like it
+#include <ENGAGE_CLUTCH.h>
 
+
+#define CLUTCH_ENGAGE_DELAY 70
+#define CLUTCH_RELEASE_DELAY 20
+#define SHIFT_DELAY 165
+#define NEUTRAL_FIND 32
 #define BEGIN_PAD_SIZE 5
+#define UP_SHIFT_PADDLE 1// ??
+#define DOWN_SHIFT_PADDLE 0// ??
+#define UP_SHIFT_AIR UP_SHIFT_AIR_READ()// is this ok, it didn't throw errors so...
+#define DOWN_SHIFT_AIR 1 // this is a thing and I'm not really sure where it comes from
 
 int msg_count = 0;
+
+void shift(char paddle);
 
 union data
 {
@@ -46,16 +52,39 @@ void ReadSerial() {
 
 int main()
 {
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     UART_1_Start();
     isr_1_StartEx(*ReadSerial);
 
-    CyGlobalIntEnable; /* Uncomment this line to enable global interrupts. */
+    CyGlobalIntEnable; 
     for(;;)
     {
-        /* Place your application code here. */
-        // UART_1_PutChar('a');
+        if(sendData.serialData.shift == UP_SHIFT_PADDLE){
+            shift(UP_SHIFT_AIR);
+            while(sendData.serialData.shift == UP_SHIFT_PADDLE);
+            //gear++;// do you keep track of this or do I
+        }
+        if(sendData.serialData.shift == DOWN_SHIFT_PADDLE){
+            shift(DOWN_SHIFT_AIR);
+            while(sendData.serialData.shift == DOWN_SHIFT_PADDLE){
+                UP_SHIFT_AIR_WRITE(1);
+                CyDelay(NEUTRAL_FIND);
+                while(sendData.serialData.shift == UP_SHIFT_PADDLE);
+            }
+        }
+        CyDelay930);
+        //gear--;
     }
 }
+
+void Shift(char paddle)
+{
+    ENGAGE_CLUTCH_WRITE(1);
+    CyDelay(CLUTCH_ENGAGE_DELAY);
+    paddle_WRITE(1);
+    CyDelay(SHIFT_ENGAGE_DELAY);
+    paddle_WRITE(0);
+    CyDelay(CLUTCH_RELEASE_DELAY);
+    ENGAGE_CLUTCH_WRITE(0);
+
 
 /* [] END OF FILE */
