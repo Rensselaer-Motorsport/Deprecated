@@ -1,20 +1,11 @@
---------------- Build Started: 04/16/2015 22:19:28 Project: Shifting, Configuration: ARM GCC 4.8.4 Debug ---------------
-cydsfit.exe -.appdatapath "C:\Users\Christina\AppData\Local\Cypress Semiconductor\PSoC Creator\3.1" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\Shifting.cyprj -d CY8C4245AXI-483 -s C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
-Elaborating Design...
-ADD: sdb.M0025: error: No input on Instance "ENGAGE_CLUTCH", terminal "y_0".
- * C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\TopDesign\TopDesign.cysch (Signal: Net_34)
- * C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\TopDesign\TopDesign.cysch (Shape_11.2)
-ADD: sdb.M0050: error: Terminal "y_0" requires connection when it is visible.
- * C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\TopDesign\TopDesign.cysch (Signal: Net_34)
- * C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\TopDesign\TopDesign.cysch (Shape_11.2)
-ADD: sdb.M0025: error: No input on Instance "UP_SHIFT_AIR", terminal "y_0".
- * C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\TopDesign\TopDesign.cysch (Signal: Net_36)
- * C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\TopDesign\TopDesign.cysch (Shape_12.2)
-ADD: sdb.M0050: error: Terminal "y_0" requires connection when it is visible.
- * C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\TopDesign\TopDesign.cysch (Signal: Net_36)
- * C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\TopDesign\TopDesign.cysch (Shape_12.2)
-ADD: pft.M0028: warning: Clock Warning: (UART_1_IntClock's accuracy range '461.538 kHz ñ 2.000%, (452.308 kHz - 470.769 kHz)' is not within the specified tolerance range '460.800 kHz ñ 2.000%, (451.584 kHz - 470.016 kHz)'.).
- * C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\UART_v2_30\UART_v2_30.cysch (Instance:IntClock)
- * C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\Shifting.cydwr (UART_1_IntClock)
-Error: cdf.M0005: CyDsFit aborted due to errors, please address all errors and rerun CyDsFit. (App=cydsfit)
---------------- Build Failed: 04/16/2015 22:19:31 ---------------
+--------------- Build Started: 04/19/2015 00:26:06 Project: Shifting, Configuration: ARM GCC 4.8.4 Debug ---------------
+The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -I.\Generated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_484\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -O0 -c .\main.c -o .\CortexM0\ARM_GCC_484\Debug\main.o
+arm-none-eabi-ar.exe -rs .\CortexM0\ARM_GCC_484\Debug\Shifting.a .\CortexM0\ARM_GCC_484\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_484\Debug\UART_1.o .\CortexM0\ARM_GCC_484\Debug\UART_1_PM.o .\CortexM0\ARM_GCC_484\Debug\UART_1_INT.o .\CortexM0\ARM_GCC_484\Debug\UART_1_BOOT.o .\CortexM0\ARM_GCC_484\Debug\UART_1_IntClock.o .\CortexM0\ARM_GCC_484\Debug\CyBootAsmGnu.o .\CortexM0\ARM_GCC_484\Debug\CyFlash.o .\CortexM0\ARM_GCC_484\Debug\CyLib.o .\CortexM0\ARM_GCC_484\Debug\cyPm.o .\CortexM0\ARM_GCC_484\Debug\cyutils.o .\CortexM0\ARM_GCC_484\Debug\isr_1.o .\CortexM0\ARM_GCC_484\Debug\ENGAGE_CLUTCH.o .\CortexM0\ARM_GCC_484\Debug\UP_SHIFT_AIR.o .\CortexM0\ARM_GCC_484\Debug\DOWN_SHIFT_AIR.o
+arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_484\Debug\Shifting.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM0\ARM_GCC_484\Debug\Shifting.elf .\CortexM0\ARM_GCC_484\Debug\main.o .\CortexM0\ARM_GCC_484\Debug\cymetadata.o .\CortexM0\ARM_GCC_484\Debug\Cm0Start.o .\CortexM0\ARM_GCC_484\Debug\Shifting.a "C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_484\Debug\CyComponentLibrary.a" -mthumb -march=armv6-m -Wl,-Map,.\CortexM0\ARM_GCC_484\Debug/Shifting.map -T .\Generated_Source\PSoC4\cm0gcc.ld -g -specs=nano.specs "-u _printf_float" "" -Wl,--gc-sections -Wl,--end-group
+cyelftool.exe -C C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\CortexM0\ARM_GCC_484\Debug\Shifting.elf --flash_size 32768 --flash_row_size 128
+cyelftool.exe -S C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\CortexM0\ARM_GCC_484\Debug\Shifting.elf
+Flash used: 3582 of 32768 bytes (10.9 %).
+SRAM used: 1556 of 4096 bytes (38.0 %). Stack: 1024 bytes. Heap: 256 bytes.
+--------------- Build Succeeded: 04/19/2015 00:26:07 ---------------
