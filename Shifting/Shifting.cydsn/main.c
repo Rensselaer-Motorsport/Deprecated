@@ -11,14 +11,11 @@
 #define SHIFT_ENGAGE_DELAY 1//??
 #define NEUTRAL_FIND 32
 #define BEGIN_PAD_SIZE 5
-#define UP_SHIFT_PADDLE 12// ??
-#define DOWN_SHIFT_PADDLE // ??
-#define UP_SHIFT_AIR UP_SHIFT_AIR_READ()// is this ok, it didn't throw errors so...
-#define DOWN_SHIFT_AIR 1 // this is a thing and I'm not really sure where it comes from
 
 int msg_count = 0;
 const char up = 'u';
 const char down = 'd';
+const char neutral = 'n';
 
 void shift(char paddle);
 
@@ -53,27 +50,33 @@ void ReadSerial() {
 
 int main()
 {
+    char gear=0;
     UART_1_Start();
     isr_1_StartEx(*ReadSerial);
-
     CyGlobalIntEnable; 
+    //CyDelay(1000);
+    
     for(;;)
     {
-        if(sendData.serialData.shift == UP_SHIFT_PADDLE){
+        if(sendData.serialData.shift == up){
             shift(up);
-            while(sendData.serialData.shift == UP_SHIFT_PADDLE);
-            //gear++;// do you keep track of this or do I
+            while(sendData.serialData.shift == up);
+            gear++;// do you keep track of this or do I
         }
-        if(sendData.serialData.shift == DOWN_SHIFT_PADDLE){
+        if(sendData.serialData.shift == down){
             shift(down);
-            while(sendData.serialData.shift == DOWN_SHIFT_PADDLE){
-                UP_SHIFT_AIR_Write(1);
-                CyDelay(NEUTRAL_FIND);
-                while(sendData.serialData.shift == UP_SHIFT_PADDLE);
-            }
+            while(sendData.serialData.shift == down);
+            gear--;
         }
-        CyDelay(930);
-        //gear--;
+        if(sendData.serialData.shift == neutral){
+            UP_SHIFT_AIR_Write(1);
+            CyDelay(NEUTRAL_FIND);
+            UP_SHIFT_AIR_Write(0);
+            while(sendData.serialData.shift == up);
+            CyDelay(30);
+            //gear--;
+        }
+        
     }
 }
 

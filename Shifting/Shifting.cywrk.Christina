@@ -148,17 +148,6 @@
 <VisibleNodeIds>
 <v>Shifting</v>
 <v>Shifting\Shifting</v>
-<v>Shifting\Shifting\CortexM0</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\Cm0Start.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\CyFlash.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\CyLib.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\cymetadata.lst</v>
-<v>Shifting\Shifting\CortexM0\ARM_GCC_484\Debug\Listing Files\cyPm.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
