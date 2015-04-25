@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
-  <block name="Rx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+  <block name="ENGAGE_CLUTCH" BASE="0x0" SIZE="0x0" desc="" visible="true" />
   <block name="isr_1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-  <block name="Tx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+  <block name="DOWN_SHIFT_AIR" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+  <block name="UP_SHIFT_AIR" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+  <block name="not_1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
   <block name="UART_1" BASE="0x0" SIZE="0x0" desc="UART" visible="true">
     <block name="IntClock" BASE="0x0" SIZE="0x0" desc="" visible="true" />
     <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
     <block name="BUART" BASE="0x0" SIZE="0x0" desc="" visible="true" />
-    <register name="RX_UART_1_RX_ADDRESS1" address="0x400F0020" bitWidth="8" desc="RX Address1 Register" />
-    <register name="RX_UART_1_RX_ADDRESS2" address="0x400F0030" bitWidth="8" desc="RX Address2 Register" />
-    <register name="RX_UART_1_RX_DATA" address="0x400F0040" bitWidth="8" desc="RX Data Register" />
+    <register name="RX_UART_1_RX_ADDRESS1" address="0x400F0023" bitWidth="8" desc="RX Address1 Register" />
+    <register name="RX_UART_1_RX_ADDRESS2" address="0x400F0033" bitWidth="8" desc="RX Address2 Register" />
     <register name="TX_UART_1_TX_DATA" address="0x400F0041" bitWidth="8" desc="TX Data Register" />
+    <register name="RX_UART_1_RX_DATA" address="0x400F0043" bitWidth="8" desc="RX Data Register" />
     <register name="TX_UART_1_TX_STATUS" address="0x400F0061" bitWidth="8" desc="TX status register">
       <field name="UART_1_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" />
       <field name="UART_1_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" />
@@ -27,5 +29,6 @@
       <field name="UART_1_RX_STS_ADDR_MATCH" from="6" to="6" access="R" resetVal="" desc="" />
     </register>
   </block>
-  <block name="not_1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+  <block name="Rx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
+  <block name="Tx_1" BASE="0x0" SIZE="0x0" desc="" visible="true" />
 </blockRegMap>

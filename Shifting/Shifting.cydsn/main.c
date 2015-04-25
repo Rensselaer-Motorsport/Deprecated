@@ -1,19 +1,23 @@
 /* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
+ * Shifting Code v1.0
  * ========================================
 */
 #include <project.h>
+#include <cypins.h>
 
+#define CLUTCH_ENGAGE_DELAY 70
+#define CLUTCH_RELEASE_DELAY 20
+#define SHIFT_DELAY 165
+#define SHIFT_ENGAGE_DELAY 1//??
+#define NEUTRAL_FIND 32
 #define BEGIN_PAD_SIZE 5
 
 int msg_count = 0;
+const char up = 'u';
+const char down = 'd';
+const char neutral = 'n';
+
+void shift(char paddle);
 
 union data
 {
@@ -46,15 +50,52 @@ void ReadSerial() {
 
 int main()
 {
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+    char gear=0;
     UART_1_Start();
     isr_1_StartEx(*ReadSerial);
-
-    CyGlobalIntEnable; /* Uncomment this line to enable global interrupts. */
+    CyGlobalIntEnable; 
+    //CyDelay(1000);
+    
     for(;;)
     {
-        /* Place your application code here. */
-        // UART_1_PutChar('a');
+        if(sendData.serialData.shift == up){
+            shift(up);
+            while(sendData.serialData.shift == up);
+            gear++;// do you keep track of this or do I
+        }
+        if(sendData.serialData.shift == down){
+            shift(down);
+            while(sendData.serialData.shift == down);
+            gear--;
+        }
+        if(sendData.serialData.shift == neutral){
+            UP_SHIFT_AIR_Write(1);
+            CyDelay(NEUTRAL_FIND);
+            UP_SHIFT_AIR_Write(0);
+            while(sendData.serialData.shift == up);
+            CyDelay(30);
+            //gear--;
+        }
+        
+    }
+}
+
+void shift(char paddle)
+{
+    ENGAGE_CLUTCH_Write(1);
+    CyDelay(CLUTCH_ENGAGE_DELAY);
+    if (paddle == 'u') {
+        UP_SHIFT_AIR_Write(1);
+        CyDelay(SHIFT_ENGAGE_DELAY);
+        UP_SHIFT_AIR_Write(0);
+        CyDelay(CLUTCH_RELEASE_DELAY);
+        ENGAGE_CLUTCH_Write(0);
+    } else if (paddle == 'd') {
+        DOWN_SHIFT_AIR_Write(1);
+        CyDelay(SHIFT_ENGAGE_DELAY);
+        DOWN_SHIFT_AIR_Write(0);
+        CyDelay(CLUTCH_RELEASE_DELAY);
+        ENGAGE_CLUTCH_Write(0);
     }
 }
 
