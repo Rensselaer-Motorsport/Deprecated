@@ -5,3 +5,10 @@
 D79   --> D100
 D81   --> D101
 -----------------------------------------------------------------
+
+
+   ---- Transcoding 'C:\Users\Eric\Documents\GitHub\Adaptable-Automotive-Sensor-Logger\Data Collection Unit\Gerbers\Corner Module\BottomPaste.gbr' ----   Tue May 05 11:36:18 2015
+
+D85   --> D100
+D87   --> D101
+-----------------------------------------------------------------
