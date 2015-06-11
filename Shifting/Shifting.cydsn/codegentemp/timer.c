@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: isr_1.c  
+* File Name: timer.c  
 * Version 1.70
 *
 *  Description:
@@ -18,14 +18,14 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <isr_1.h>
+#include <timer.h>
 
-#if !defined(isr_1__REMOVED) /* Check for removal by optimization */
+#if !defined(timer__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START isr_1_intc` */
+/* `#START timer_intc` */
 
 /* `#END` */
 
@@ -36,7 +36,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: isr_1_Start
+* Function Name: timer_Start
 ********************************************************************************
 *
 * Summary:
@@ -52,24 +52,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void isr_1_Start(void)
+void timer_Start(void)
 {
     /* For all we know the interrupt is active. */
-    isr_1_Disable();
+    timer_Disable();
 
-    /* Set the ISR to point to the isr_1 Interrupt. */
-    isr_1_SetVector(&isr_1_Interrupt);
+    /* Set the ISR to point to the timer Interrupt. */
+    timer_SetVector(&timer_Interrupt);
 
     /* Set the priority. */
-    isr_1_SetPriority((uint8)isr_1_INTC_PRIOR_NUMBER);
+    timer_SetPriority((uint8)timer_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_1_Enable();
+    timer_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_StartEx
+* Function Name: timer_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -95,24 +95,24 @@ void isr_1_Start(void)
 *   None
 *
 *******************************************************************************/
-void isr_1_StartEx(cyisraddress address)
+void timer_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    isr_1_Disable();
+    timer_Disable();
 
-    /* Set the ISR to point to the isr_1 Interrupt. */
-    isr_1_SetVector(address);
+    /* Set the ISR to point to the timer Interrupt. */
+    timer_SetVector(address);
 
     /* Set the priority. */
-    isr_1_SetPriority((uint8)isr_1_INTC_PRIOR_NUMBER);
+    timer_SetPriority((uint8)timer_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_1_Enable();
+    timer_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_Stop
+* Function Name: timer_Stop
 ********************************************************************************
 *
 * Summary:
@@ -125,22 +125,22 @@ void isr_1_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void isr_1_Stop(void)
+void timer_Stop(void)
 {
     /* Disable this interrupt. */
-    isr_1_Disable();
+    timer_Disable();
 
     /* Set the ISR to point to the passive one. */
-    isr_1_SetVector(&IntDefaultHandler);
+    timer_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_Interrupt
+* Function Name: timer_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for isr_1.
+*   The default Interrupt Service Routine for timer.
 *
 *   Add custom code between the START and END comments to keep the next version
 *   of this file from over-writing your code.
@@ -155,23 +155,23 @@ void isr_1_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(isr_1_Interrupt)
+CY_ISR(timer_Interrupt)
 {
     /*  Place your Interrupt code here. */
-    /* `#START isr_1_Interrupt` */
+    /* `#START timer_Interrupt` */
 
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_SetVector
+* Function Name: timer_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling isr_1_Start
+*   Change the ISR vector for the Interrupt. Note calling timer_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use isr_1_StartEx instead.
+*   before the component has been started use timer_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -191,14 +191,14 @@ CY_ISR(isr_1_Interrupt)
 *   None
 *
 *******************************************************************************/
-void isr_1_SetVector(cyisraddress address)
+void timer_SetVector(cyisraddress address)
 {
-    CyRamVectors[CYINT_IRQ_BASE + isr_1__INTC_NUMBER] = address;
+    CyRamVectors[CYINT_IRQ_BASE + timer__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_GetVector
+* Function Name: timer_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -211,22 +211,22 @@ void isr_1_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress isr_1_GetVector(void)
+cyisraddress timer_GetVector(void)
 {
-    return CyRamVectors[CYINT_IRQ_BASE + isr_1__INTC_NUMBER];
+    return CyRamVectors[CYINT_IRQ_BASE + timer__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_SetPriority
+* Function Name: timer_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling isr_1_Start or isr_1_StartEx will 
+*   Note calling timer_Start or timer_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after isr_1_Start or isr_1_StartEx has been called. 
+*   after timer_Start or timer_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -241,20 +241,20 @@ cyisraddress isr_1_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void isr_1_SetPriority(uint8 priority)
+void timer_SetPriority(uint8 priority)
 {
 	uint8 interruptState;
-    uint32 priorityOffset = ((isr_1__INTC_NUMBER % 4u) * 8u) + 6u;
+    uint32 priorityOffset = ((timer__INTC_NUMBER % 4u) * 8u) + 6u;
     
 	interruptState = CyEnterCriticalSection();
-    *isr_1_INTC_PRIOR = (*isr_1_INTC_PRIOR & (uint32)(~isr_1__INTC_PRIOR_MASK)) |
+    *timer_INTC_PRIOR = (*timer_INTC_PRIOR & (uint32)(~timer__INTC_PRIOR_MASK)) |
                                     ((uint32)priority << priorityOffset);
 	CyExitCriticalSection(interruptState);
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_GetPriority
+* Function Name: timer_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -269,19 +269,19 @@ void isr_1_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 isr_1_GetPriority(void)
+uint8 timer_GetPriority(void)
 {
     uint32 priority;
-	uint32 priorityOffset = ((isr_1__INTC_NUMBER % 4u) * 8u) + 6u;
+	uint32 priorityOffset = ((timer__INTC_NUMBER % 4u) * 8u) + 6u;
 
-    priority = (*isr_1_INTC_PRIOR & isr_1__INTC_PRIOR_MASK) >> priorityOffset;
+    priority = (*timer_INTC_PRIOR & timer__INTC_PRIOR_MASK) >> priorityOffset;
 
     return (uint8)priority;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_Enable
+* Function Name: timer_Enable
 ********************************************************************************
 *
 * Summary:
@@ -296,15 +296,15 @@ uint8 isr_1_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void isr_1_Enable(void)
+void timer_Enable(void)
 {
     /* Enable the general interrupt. */
-    *isr_1_INTC_SET_EN = isr_1__INTC_MASK;
+    *timer_INTC_SET_EN = timer__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_GetState
+* Function Name: timer_GetState
 ********************************************************************************
 *
 * Summary:
@@ -317,15 +317,15 @@ void isr_1_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 isr_1_GetState(void)
+uint8 timer_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*isr_1_INTC_SET_EN & (uint32)isr_1__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*timer_INTC_SET_EN & (uint32)timer__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_Disable
+* Function Name: timer_Disable
 ********************************************************************************
 *
 * Summary:
@@ -338,15 +338,15 @@ uint8 isr_1_GetState(void)
 *   None
 *
 *******************************************************************************/
-void isr_1_Disable(void)
+void timer_Disable(void)
 {
     /* Disable the general interrupt. */
-    *isr_1_INTC_CLR_EN = isr_1__INTC_MASK;
+    *timer_INTC_CLR_EN = timer__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_SetPending
+* Function Name: timer_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -365,14 +365,14 @@ void isr_1_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void isr_1_SetPending(void)
+void timer_SetPending(void)
 {
-    *isr_1_INTC_SET_PD = isr_1__INTC_MASK;
+    *timer_INTC_SET_PD = timer__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_1_ClearPending
+* Function Name: timer_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -390,9 +390,9 @@ void isr_1_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void isr_1_ClearPending(void)
+void timer_ClearPending(void)
 {
-    *isr_1_INTC_CLR_PD = isr_1__INTC_MASK;
+    *timer_INTC_CLR_PD = timer__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */

@@ -1,5 +1,5 @@
-C:\Users\Christina\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\Shifting.cyprj|078f410b-d060-4b9c-a212-abdca8db6251
-C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|4c0919ac-2b62-4693-b135-ecf406b305b5
-C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|7131cd8b-3002-489f-9951-1fb98f6d5575
-C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|8d962fe5-5be2-4d03-8f9a-b41032c83be0
-C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|5ab191f1-2878-4094-9ae7-25f8e67a04a3
+C:\Users\Eric\Documents\GitHub\Shifting\Shifting\Shifting.cydsn\Shifting.cyprj|78d29b2c-48ea-4fba-bd78-d97ebbcf06fd
+E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|1e284681-601a-49f4-9c36-a3fa7bd1f409
+E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|f38ceeb2-15c9-4460-8cac-4c60c60cd172
+E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|2426810b-ffb8-4603-bbd1-4ec21c733c47
+E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|04a31047-ff88-4664-9586-82e500413482
