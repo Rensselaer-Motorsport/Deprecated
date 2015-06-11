@@ -1,0 +1,1461 @@
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"cymetadata.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	cy_meta_configecc
+  19              		.section	.cyconfigecc,"a",%progbits
+  20              		.align	2
+  21              		.type	cy_meta_configecc, %object
+  22              		.size	cy_meta_configecc, 916
+  23              	cy_meta_configecc:
+  24 0000 02       		.byte	2
+  25 0001 52       		.byte	82
+  26 0002 00       		.byte	0
+  27 0003 40       		.byte	64
+  28 0004 03       		.byte	3
+  29 0005 64       		.byte	100
+  30 0006 00       		.byte	0
+  31 0007 40       		.byte	64
+  32 0008 5B       		.byte	91
+  33 0009 00       		.byte	0
+  34 000a 01       		.byte	1
+  35 000b 40       		.byte	64
+  36 000c 35       		.byte	53
+  37 000d 01       		.byte	1
+  38 000e 01       		.byte	1
+  39 000f 40       		.byte	64
+  40 0010 0F       		.byte	15
+  41 0011 02       		.byte	2
+  42 0012 01       		.byte	1
+  43 0013 40       		.byte	64
+  44 0014 35       		.byte	53
+  45 0015 03       		.byte	3
+  46 0016 01       		.byte	1
+  47 0017 40       		.byte	64
+  48 0018 39       		.byte	57
+  49 0019 04       		.byte	4
+  50 001a 01       		.byte	1
+  51 001b 40       		.byte	64
+  52 001c 44       		.byte	68
+  53 001d 05       		.byte	5
+  54 001e 01       		.byte	1
+  55 001f 40       		.byte	64
+  56 0020 04       		.byte	4
+  57 0021 40       		.byte	64
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 2
+
+
+  58 0022 01       		.byte	1
+  59 0023 40       		.byte	64
+  60 0024 06       		.byte	6
+  61 0025 41       		.byte	65
+  62 0026 01       		.byte	1
+  63 0027 40       		.byte	64
+  64 0028 02       		.byte	2
+  65 0029 42       		.byte	66
+  66 002a 01       		.byte	1
+  67 002b 40       		.byte	64
+  68 002c 03       		.byte	3
+  69 002d 50       		.byte	80
+  70 002e 01       		.byte	1
+  71 002f 40       		.byte	64
+  72 0030 01       		.byte	1
+  73 0031 51       		.byte	81
+  74 0032 01       		.byte	1
+  75 0033 40       		.byte	64
+  76 0034 04       		.byte	4
+  77 0035 01       		.byte	1
+  78 0036 20       		.byte	32
+  79 0037 20       		.byte	32
+  80 0038 80       		.byte	-128
+  81 0039 0F       		.byte	15
+  82 003a 82       		.byte	-126
+  83 003b 38       		.byte	56
+  84 003c 85       		.byte	-123
+  85 003d 72       		.byte	114
+  86 003e 00       		.byte	0
+  87 003f 01       		.byte	1
+  88 0040 05       		.byte	5
+  89 0041 12       		.byte	18
+  90 0042 06       		.byte	6
+  91 0043 01       		.byte	1
+  92 0044 0A       		.byte	10
+  93 0045 01       		.byte	1
+  94 0046 11       		.byte	17
+  95 0047 06       		.byte	6
+  96 0048 13       		.byte	19
+  97 0049 18       		.byte	24
+  98 004a 1B       		.byte	27
+  99 004b 1C       		.byte	28
+ 100 004c 1C       		.byte	28
+ 101 004d 01       		.byte	1
+ 102 004e 1D       		.byte	29
+ 103 004f 06       		.byte	6
+ 104 0050 1F       		.byte	31
+ 105 0051 08       		.byte	8
+ 106 0052 20       		.byte	32
+ 107 0053 02       		.byte	2
+ 108 0054 21       		.byte	33
+ 109 0055 01       		.byte	1
+ 110 0056 25       		.byte	37
+ 111 0057 06       		.byte	6
+ 112 0058 26       		.byte	38
+ 113 0059 01       		.byte	1
+ 114 005a 27       		.byte	39
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 3
+
+
+ 115 005b 08       		.byte	8
+ 116 005c 30       		.byte	48
+ 117 005d 01       		.byte	1
+ 118 005e 31       		.byte	49
+ 119 005f 1E       		.byte	30
+ 120 0060 32       		.byte	50
+ 121 0061 02       		.byte	2
+ 122 0062 33       		.byte	51
+ 123 0063 01       		.byte	1
+ 124 0064 3B       		.byte	59
+ 125 0065 02       		.byte	2
+ 126 0066 3E       		.byte	62
+ 127 0067 05       		.byte	5
+ 128 0068 3F       		.byte	63
+ 129 0069 04       		.byte	4
+ 130 006a 40       		.byte	64
+ 131 006b 53       		.byte	83
+ 132 006c 41       		.byte	65
+ 133 006d 01       		.byte	1
+ 134 006e 45       		.byte	69
+ 135 006f EC       		.byte	-20
+ 136 0070 46       		.byte	70
+ 137 0071 B0       		.byte	-80
+ 138 0072 48       		.byte	72
+ 139 0073 0B       		.byte	11
+ 140 0074 49       		.byte	73
+ 141 0075 FF       		.byte	-1
+ 142 0076 4A       		.byte	74
+ 143 0077 FF       		.byte	-1
+ 144 0078 4B       		.byte	75
+ 145 0079 FF       		.byte	-1
+ 146 007a 4E       		.byte	78
+ 147 007b F0       		.byte	-16
+ 148 007c 4F       		.byte	79
+ 149 007d 44       		.byte	68
+ 150 007e 50       		.byte	80
+ 151 007f 0C       		.byte	12
+ 152 0080 54       		.byte	84
+ 153 0081 01       		.byte	1
+ 154 0082 56       		.byte	86
+ 155 0083 04       		.byte	4
+ 156 0084 58       		.byte	88
+ 157 0085 04       		.byte	4
+ 158 0086 59       		.byte	89
+ 159 0087 04       		.byte	4
+ 160 0088 5A       		.byte	90
+ 161 0089 04       		.byte	4
+ 162 008a 5B       		.byte	91
+ 163 008b 04       		.byte	4
+ 164 008c 5F       		.byte	95
+ 165 008d 01       		.byte	1
+ 166 008e 66       		.byte	102
+ 167 008f C0       		.byte	-64
+ 168 0090 6A       		.byte	106
+ 169 0091 40       		.byte	64
+ 170 0092 6B       		.byte	107
+ 171 0093 02       		.byte	2
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 4
+
+
+ 172 0094 80       		.byte	-128
+ 173 0095 63       		.byte	99
+ 174 0096 82       		.byte	-126
+ 175 0097 0C       		.byte	12
+ 176 0098 88       		.byte	-120
+ 177 0099 05       		.byte	5
+ 178 009a 89       		.byte	-119
+ 179 009b 0C       		.byte	12
+ 180 009c 8B       		.byte	-117
+ 181 009d 01       		.byte	1
+ 182 009e 91       		.byte	-111
+ 183 009f 01       		.byte	1
+ 184 00a0 92       		.byte	-110
+ 185 00a1 18       		.byte	24
+ 186 00a2 93       		.byte	-109
+ 187 00a3 0A       		.byte	10
+ 188 00a4 96       		.byte	-106
+ 189 00a5 04       		.byte	4
+ 190 00a6 9B       		.byte	-101
+ 191 00a7 0F       		.byte	15
+ 192 00a8 9D       		.byte	-99
+ 193 00a9 01       		.byte	1
+ 194 00aa 9F       		.byte	-97
+ 195 00ab 06       		.byte	6
+ 196 00ac A0       		.byte	-96
+ 197 00ad 64       		.byte	100
+ 198 00ae A1       		.byte	-95
+ 199 00af 10       		.byte	16
+ 200 00b0 A2       		.byte	-94
+ 201 00b1 03       		.byte	3
+ 202 00b2 A4       		.byte	-92
+ 203 00b3 27       		.byte	39
+ 204 00b4 A5       		.byte	-91
+ 205 00b5 04       		.byte	4
+ 206 00b6 A6       		.byte	-90
+ 207 00b7 10       		.byte	16
+ 208 00b8 A8       		.byte	-88
+ 209 00b9 0A       		.byte	10
+ 210 00ba AA       		.byte	-86
+ 211 00bb 44       		.byte	68
+ 212 00bc B0       		.byte	-80
+ 213 00bd 1F       		.byte	31
+ 214 00be B1       		.byte	-79
+ 215 00bf 0E       		.byte	14
+ 216 00c0 B2       		.byte	-78
+ 217 00c1 60       		.byte	96
+ 218 00c2 B3       		.byte	-77
+ 219 00c3 10       		.byte	16
+ 220 00c4 B5       		.byte	-75
+ 221 00c5 07       		.byte	7
+ 222 00c6 B8       		.byte	-72
+ 223 00c7 08       		.byte	8
+ 224 00c8 BB       		.byte	-69
+ 225 00c9 22       		.byte	34
+ 226 00ca BE       		.byte	-66
+ 227 00cb 04       		.byte	4
+ 228 00cc C0       		.byte	-64
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 5
+
+
+ 229 00cd 03       		.byte	3
+ 230 00ce C5       		.byte	-59
+ 231 00cf 10       		.byte	16
+ 232 00d0 C6       		.byte	-58
+ 233 00d1 50       		.byte	80
+ 234 00d2 C8       		.byte	-56
+ 235 00d3 0A       		.byte	10
+ 236 00d4 C9       		.byte	-55
+ 237 00d5 FF       		.byte	-1
+ 238 00d6 CA       		.byte	-54
+ 239 00d7 07       		.byte	7
+ 240 00d8 CB       		.byte	-53
+ 241 00d9 FF       		.byte	-1
+ 242 00da CC       		.byte	-52
+ 243 00db 40       		.byte	64
+ 244 00dc CD       		.byte	-51
+ 245 00dd 20       		.byte	32
+ 246 00de CE       		.byte	-50
+ 247 00df F0       		.byte	-16
+ 248 00e0 CF       		.byte	-49
+ 249 00e1 05       		.byte	5
+ 250 00e2 D0       		.byte	-48
+ 251 00e3 08       		.byte	8
+ 252 00e4 D8       		.byte	-40
+ 253 00e5 04       		.byte	4
+ 254 00e6 D9       		.byte	-39
+ 255 00e7 04       		.byte	4
+ 256 00e8 DA       		.byte	-38
+ 257 00e9 04       		.byte	4
+ 258 00ea DF       		.byte	-33
+ 259 00eb 01       		.byte	1
+ 260 00ec E0       		.byte	-32
+ 261 00ed 40       		.byte	64
+ 262 00ee E1       		.byte	-31
+ 263 00ef A8       		.byte	-88
+ 264 00f0 E2       		.byte	-30
+ 265 00f1 40       		.byte	64
+ 266 00f2 E3       		.byte	-29
+ 267 00f3 20       		.byte	32
+ 268 00f4 00       		.byte	0
+ 269 00f5 20       		.byte	32
+ 270 00f6 03       		.byte	3
+ 271 00f7 50       		.byte	80
+ 272 00f8 04       		.byte	4
+ 273 00f9 20       		.byte	32
+ 274 00fa 07       		.byte	7
+ 275 00fb 40       		.byte	64
+ 276 00fc 0A       		.byte	10
+ 277 00fd 02       		.byte	2
+ 278 00fe 0E       		.byte	14
+ 279 00ff 80       		.byte	-128
+ 280 0100 0F       		.byte	15
+ 281 0101 20       		.byte	32
+ 282 0102 10       		.byte	16
+ 283 0103 80       		.byte	-128
+ 284 0104 13       		.byte	19
+ 285 0105 08       		.byte	8
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 6
+
+
+ 286 0106 15       		.byte	21
+ 287 0107 02       		.byte	2
+ 288 0108 17       		.byte	23
+ 289 0109 18       		.byte	24
+ 290 010a 18       		.byte	24
+ 291 010b 10       		.byte	16
+ 292 010c 1A       		.byte	26
+ 293 010d 40       		.byte	64
+ 294 010e 1D       		.byte	29
+ 295 010f 08       		.byte	8
+ 296 0110 1E       		.byte	30
+ 297 0111 80       		.byte	-128
+ 298 0112 21       		.byte	33
+ 299 0113 01       		.byte	1
+ 300 0114 22       		.byte	34
+ 301 0115 07       		.byte	7
+ 302 0116 24       		.byte	36
+ 303 0117 04       		.byte	4
+ 304 0118 25       		.byte	37
+ 305 0119 10       		.byte	16
+ 306 011a 27       		.byte	39
+ 307 011b 58       		.byte	88
+ 308 011c 28       		.byte	40
+ 309 011d 10       		.byte	16
+ 310 011e 29       		.byte	41
+ 311 011f 05       		.byte	5
+ 312 0120 2C       		.byte	44
+ 313 0121 A0       		.byte	-96
+ 314 0122 32       		.byte	50
+ 315 0123 01       		.byte	1
+ 316 0124 33       		.byte	51
+ 317 0125 50       		.byte	80
+ 318 0126 36       		.byte	54
+ 319 0127 02       		.byte	2
+ 320 0128 37       		.byte	55
+ 321 0129 50       		.byte	80
+ 322 012a 38       		.byte	56
+ 323 012b 04       		.byte	4
+ 324 012c 3D       		.byte	61
+ 325 012d 20       		.byte	32
+ 326 012e 40       		.byte	64
+ 327 012f 10       		.byte	16
+ 328 0130 43       		.byte	67
+ 329 0131 40       		.byte	64
+ 330 0132 45       		.byte	69
+ 331 0133 08       		.byte	8
+ 332 0134 48       		.byte	72
+ 333 0135 10       		.byte	16
+ 334 0136 49       		.byte	73
+ 335 0137 05       		.byte	5
+ 336 0138 4A       		.byte	74
+ 337 0139 02       		.byte	2
+ 338 013a 4C       		.byte	76
+ 339 013b 80       		.byte	-128
+ 340 013c 50       		.byte	80
+ 341 013d 10       		.byte	16
+ 342 013e 54       		.byte	84
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 7
+
+
+ 343 013f 20       		.byte	32
+ 344 0140 57       		.byte	87
+ 345 0141 10       		.byte	16
+ 346 0142 58       		.byte	88
+ 347 0143 10       		.byte	16
+ 348 0144 59       		.byte	89
+ 349 0145 01       		.byte	1
+ 350 0146 5A       		.byte	90
+ 351 0147 48       		.byte	72
+ 352 0148 62       		.byte	98
+ 353 0149 01       		.byte	1
+ 354 014a C0       		.byte	-64
+ 355 014b 5E       		.byte	94
+ 356 014c C2       		.byte	-62
+ 357 014d 31       		.byte	49
+ 358 014e C4       		.byte	-60
+ 359 014f 7C       		.byte	124
+ 360 0150 CA       		.byte	-54
+ 361 0151 C3       		.byte	-61
+ 362 0152 CC       		.byte	-52
+ 363 0153 BD       		.byte	-67
+ 364 0154 CE       		.byte	-50
+ 365 0155 22       		.byte	34
+ 366 0156 D0       		.byte	-48
+ 367 0157 4A       		.byte	74
+ 368 0158 D2       		.byte	-46
+ 369 0159 08       		.byte	8
+ 370 015a D6       		.byte	-42
+ 371 015b 0F       		.byte	15
+ 372 015c D8       		.byte	-40
+ 373 015d 01       		.byte	1
+ 374 015e 84       		.byte	-124
+ 375 015f 06       		.byte	6
+ 376 0160 94       		.byte	-108
+ 377 0161 01       		.byte	1
+ 378 0162 96       		.byte	-106
+ 379 0163 06       		.byte	6
+ 380 0164 98       		.byte	-104
+ 381 0165 07       		.byte	7
+ 382 0166 9C       		.byte	-100
+ 383 0167 06       		.byte	6
+ 384 0168 9E       		.byte	-98
+ 385 0169 01       		.byte	1
+ 386 016a A0       		.byte	-96
+ 387 016b 04       		.byte	4
+ 388 016c A4       		.byte	-92
+ 389 016d 06       		.byte	6
+ 390 016e A6       		.byte	-90
+ 391 016f 01       		.byte	1
+ 392 0170 A8       		.byte	-88
+ 393 0171 02       		.byte	2
+ 394 0172 AE       		.byte	-82
+ 395 0173 01       		.byte	1
+ 396 0174 B6       		.byte	-74
+ 397 0175 07       		.byte	7
+ 398 0176 BA       		.byte	-70
+ 399 0177 80       		.byte	-128
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 8
+
+
+ 400 0178 D8       		.byte	-40
+ 401 0179 04       		.byte	4
+ 402 017a DF       		.byte	-33
+ 403 017b 01       		.byte	1
+ 404 017c 01       		.byte	1
+ 405 017d 08       		.byte	8
+ 406 017e 04       		.byte	4
+ 407 017f 02       		.byte	2
+ 408 0180 05       		.byte	5
+ 409 0181 48       		.byte	72
+ 410 0182 06       		.byte	6
+ 411 0183 04       		.byte	4
+ 412 0184 09       		.byte	9
+ 413 0185 20       		.byte	32
+ 414 0186 0A       		.byte	10
+ 415 0187 11       		.byte	17
+ 416 0188 0C       		.byte	12
+ 417 0189 80       		.byte	-128
+ 418 018a 0D       		.byte	13
+ 419 018b 20       		.byte	32
+ 420 018c 0E       		.byte	14
+ 421 018d 10       		.byte	16
+ 422 018e 0F       		.byte	15
+ 423 018f 40       		.byte	64
+ 424 0190 10       		.byte	16
+ 425 0191 80       		.byte	-128
+ 426 0192 11       		.byte	17
+ 427 0193 40       		.byte	64
+ 428 0194 12       		.byte	18
+ 429 0195 24       		.byte	36
+ 430 0196 15       		.byte	21
+ 431 0197 20       		.byte	32
+ 432 0198 17       		.byte	23
+ 433 0199 05       		.byte	5
+ 434 019a 19       		.byte	25
+ 435 019b 40       		.byte	64
+ 436 019c 1A       		.byte	26
+ 437 019d 01       		.byte	1
+ 438 019e 1D       		.byte	29
+ 439 019f A1       		.byte	-95
+ 440 01a0 1E       		.byte	30
+ 441 01a1 18       		.byte	24
+ 442 01a2 1F       		.byte	31
+ 443 01a3 04       		.byte	4
+ 444 01a4 25       		.byte	37
+ 445 01a5 08       		.byte	8
+ 446 01a6 27       		.byte	39
+ 447 01a7 05       		.byte	5
+ 448 01a8 2D       		.byte	45
+ 449 01a9 80       		.byte	-128
+ 450 01aa 2E       		.byte	46
+ 451 01ab 04       		.byte	4
+ 452 01ac 2F       		.byte	47
+ 453 01ad 08       		.byte	8
+ 454 01ae 37       		.byte	55
+ 455 01af 05       		.byte	5
+ 456 01b0 3D       		.byte	61
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 9
+
+
+ 457 01b1 04       		.byte	4
+ 458 01b2 3F       		.byte	63
+ 459 01b3 80       		.byte	-128
+ 460 01b4 45       		.byte	69
+ 461 01b5 A8       		.byte	-88
+ 462 01b6 46       		.byte	70
+ 463 01b7 60       		.byte	96
+ 464 01b8 4C       		.byte	76
+ 465 01b9 01       		.byte	1
+ 466 01ba 4D       		.byte	77
+ 467 01bb 40       		.byte	64
+ 468 01bc 4E       		.byte	78
+ 469 01bd 04       		.byte	4
+ 470 01be 4F       		.byte	79
+ 471 01bf 08       		.byte	8
+ 472 01c0 57       		.byte	87
+ 473 01c1 40       		.byte	64
+ 474 01c2 59       		.byte	89
+ 475 01c3 03       		.byte	3
+ 476 01c4 5D       		.byte	93
+ 477 01c5 02       		.byte	2
+ 478 01c6 64       		.byte	100
+ 479 01c7 02       		.byte	2
+ 480 01c8 66       		.byte	102
+ 481 01c9 20       		.byte	32
+ 482 01ca 7E       		.byte	126
+ 483 01cb 04       		.byte	4
+ 484 01cc 7F       		.byte	127
+ 485 01cd 04       		.byte	4
+ 486 01ce AA       		.byte	-86
+ 487 01cf 01       		.byte	1
+ 488 01d0 AE       		.byte	-82
+ 489 01d1 40       		.byte	64
+ 490 01d2 C0       		.byte	-64
+ 491 01d3 F4       		.byte	-12
+ 492 01d4 C2       		.byte	-62
+ 493 01d5 F7       		.byte	-9
+ 494 01d6 C4       		.byte	-60
+ 495 01d7 7F       		.byte	127
+ 496 01d8 CA       		.byte	-54
+ 497 01d9 70       		.byte	112
+ 498 01da CC       		.byte	-52
+ 499 01db C0       		.byte	-64
+ 500 01dc CE       		.byte	-50
+ 501 01dd 50       		.byte	80
+ 502 01de D0       		.byte	-48
+ 503 01df B0       		.byte	-80
+ 504 01e0 D2       		.byte	-46
+ 505 01e1 30       		.byte	48
+ 506 01e2 D6       		.byte	-42
+ 507 01e3 80       		.byte	-128
+ 508 01e4 D8       		.byte	-40
+ 509 01e5 30       		.byte	48
+ 510 01e6 01       		.byte	1
+ 511 01e7 1C       		.byte	28
+ 512 01e8 02       		.byte	2
+ 513 01e9 01       		.byte	1
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 10
+
+
+ 514 01ea 03       		.byte	3
+ 515 01eb 01       		.byte	1
+ 516 01ec 05       		.byte	5
+ 517 01ed 04       		.byte	4
+ 518 01ee 07       		.byte	7
+ 519 01ef 20       		.byte	32
+ 520 01f0 09       		.byte	9
+ 521 01f1 18       		.byte	24
+ 522 01f2 0F       		.byte	15
+ 523 01f3 04       		.byte	4
+ 524 01f4 15       		.byte	21
+ 525 01f5 1F       		.byte	31
+ 526 01f6 18       		.byte	24
+ 527 01f7 01       		.byte	1
+ 528 01f8 19       		.byte	25
+ 529 01f9 08       		.byte	8
+ 530 01fa 1F       		.byte	31
+ 531 01fb 03       		.byte	3
+ 532 01fc 21       		.byte	33
+ 533 01fd 10       		.byte	16
+ 534 01fe 25       		.byte	37
+ 535 01ff 1C       		.byte	28
+ 536 0200 26       		.byte	38
+ 537 0201 01       		.byte	1
+ 538 0202 27       		.byte	39
+ 539 0203 02       		.byte	2
+ 540 0204 28       		.byte	40
+ 541 0205 01       		.byte	1
+ 542 0206 29       		.byte	41
+ 543 0207 07       		.byte	7
+ 544 0208 2B       		.byte	43
+ 545 0209 18       		.byte	24
+ 546 020a 35       		.byte	53
+ 547 020b 1F       		.byte	31
+ 548 020c 36       		.byte	54
+ 549 020d 01       		.byte	1
+ 550 020e 37       		.byte	55
+ 551 020f 20       		.byte	32
+ 552 0210 38       		.byte	56
+ 553 0211 80       		.byte	-128
+ 554 0212 3B       		.byte	59
+ 555 0213 20       		.byte	32
+ 556 0214 58       		.byte	88
+ 557 0215 04       		.byte	4
+ 558 0216 59       		.byte	89
+ 559 0217 04       		.byte	4
+ 560 0218 5F       		.byte	95
+ 561 0219 01       		.byte	1
+ 562 021a 81       		.byte	-127
+ 563 021b 01       		.byte	1
+ 564 021c 82       		.byte	-126
+ 565 021d 08       		.byte	8
+ 566 021e 84       		.byte	-124
+ 567 021f 07       		.byte	7
+ 568 0220 85       		.byte	-123
+ 569 0221 02       		.byte	2
+ 570 0222 88       		.byte	-120
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 11
+
+
+ 571 0223 07       		.byte	7
+ 572 0224 89       		.byte	-119
+ 573 0225 02       		.byte	2
+ 574 0226 8E       		.byte	-114
+ 575 0227 01       		.byte	1
+ 576 0228 94       		.byte	-108
+ 577 0229 01       		.byte	1
+ 578 022a 95       		.byte	-107
+ 579 022b 01       		.byte	1
+ 580 022c 96       		.byte	-106
+ 581 022d 06       		.byte	6
+ 582 022e 99       		.byte	-103
+ 583 022f 01       		.byte	1
+ 584 0230 9A       		.byte	-102
+ 585 0231 08       		.byte	8
+ 586 0232 9C       		.byte	-100
+ 587 0233 04       		.byte	4
+ 588 0234 A0       		.byte	-96
+ 589 0235 06       		.byte	6
+ 590 0236 A2       		.byte	-94
+ 591 0237 01       		.byte	1
+ 592 0238 A4       		.byte	-92
+ 593 0239 02       		.byte	2
+ 594 023a A8       		.byte	-88
+ 595 023b 06       		.byte	6
+ 596 023c A9       		.byte	-87
+ 597 023d 01       		.byte	1
+ 598 023e AD       		.byte	-83
+ 599 023f 02       		.byte	2
+ 600 0240 B2       		.byte	-78
+ 601 0241 08       		.byte	8
+ 602 0242 B3       		.byte	-77
+ 603 0243 01       		.byte	1
+ 604 0244 B6       		.byte	-74
+ 605 0245 07       		.byte	7
+ 606 0246 B7       		.byte	-73
+ 607 0247 02       		.byte	2
+ 608 0248 BE       		.byte	-66
+ 609 0249 04       		.byte	4
+ 610 024a BF       		.byte	-65
+ 611 024b 04       		.byte	4
+ 612 024c D6       		.byte	-42
+ 613 024d 02       		.byte	2
+ 614 024e D7       		.byte	-41
+ 615 024f 11       		.byte	17
+ 616 0250 D8       		.byte	-40
+ 617 0251 04       		.byte	4
+ 618 0252 D9       		.byte	-39
+ 619 0253 04       		.byte	4
+ 620 0254 DB       		.byte	-37
+ 621 0255 04       		.byte	4
+ 622 0256 DF       		.byte	-33
+ 623 0257 01       		.byte	1
+ 624 0258 01       		.byte	1
+ 625 0259 01       		.byte	1
+ 626 025a 04       		.byte	4
+ 627 025b 05       		.byte	5
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 12
+
+
+ 628 025c 06       		.byte	6
+ 629 025d 40       		.byte	64
+ 630 025e 07       		.byte	7
+ 631 025f 05       		.byte	5
+ 632 0260 09       		.byte	9
+ 633 0261 20       		.byte	32
+ 634 0262 0C       		.byte	12
+ 635 0263 80       		.byte	-128
+ 636 0264 0E       		.byte	14
+ 637 0265 10       		.byte	16
+ 638 0266 0F       		.byte	15
+ 639 0267 08       		.byte	8
+ 640 0268 10       		.byte	16
+ 641 0269 04       		.byte	4
+ 642 026a 12       		.byte	18
+ 643 026b 20       		.byte	32
+ 644 026c 15       		.byte	21
+ 645 026d 01       		.byte	1
+ 646 026e 17       		.byte	23
+ 647 026f 18       		.byte	24
+ 648 0270 19       		.byte	25
+ 649 0271 80       		.byte	-128
+ 650 0272 1C       		.byte	28
+ 651 0273 11       		.byte	17
+ 652 0274 20       		.byte	32
+ 653 0275 04       		.byte	4
+ 654 0276 21       		.byte	33
+ 655 0277 50       		.byte	80
+ 656 0278 22       		.byte	34
+ 657 0279 20       		.byte	32
+ 658 027a 24       		.byte	36
+ 659 027b 02       		.byte	2
+ 660 027c 26       		.byte	38
+ 661 027d 80       		.byte	-128
+ 662 027e 27       		.byte	39
+ 663 027f 21       		.byte	33
+ 664 0280 28       		.byte	40
+ 665 0281 14       		.byte	20
+ 666 0282 2A       		.byte	42
+ 667 0283 01       		.byte	1
+ 668 0284 2C       		.byte	44
+ 669 0285 04       		.byte	4
+ 670 0286 2E       		.byte	46
+ 671 0287 10       		.byte	16
+ 672 0288 2F       		.byte	47
+ 673 0289 06       		.byte	6
+ 674 028a 30       		.byte	48
+ 675 028b 20       		.byte	32
+ 676 028c 32       		.byte	50
+ 677 028d 80       		.byte	-128
+ 678 028e 33       		.byte	51
+ 679 028f 04       		.byte	4
+ 680 0290 34       		.byte	52
+ 681 0291 10       		.byte	16
+ 682 0292 36       		.byte	54
+ 683 0293 24       		.byte	36
+ 684 0294 37       		.byte	55
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 13
+
+
+ 685 0295 04       		.byte	4
+ 686 0296 39       		.byte	57
+ 687 0297 85       		.byte	-123
+ 688 0298 3A       		.byte	58
+ 689 0299 10       		.byte	16
+ 690 029a 3D       		.byte	61
+ 691 029b 21       		.byte	33
+ 692 029c 3E       		.byte	62
+ 693 029d 05       		.byte	5
+ 694 029e 5F       		.byte	95
+ 695 029f 20       		.byte	32
+ 696 02a0 6D       		.byte	109
+ 697 02a1 20       		.byte	32
+ 698 02a2 6E       		.byte	110
+ 699 02a3 04       		.byte	4
+ 700 02a4 6F       		.byte	111
+ 701 02a5 0A       		.byte	10
+ 702 02a6 74       		.byte	116
+ 703 02a7 A0       		.byte	-96
+ 704 02a8 75       		.byte	117
+ 705 02a9 08       		.byte	8
+ 706 02aa 76       		.byte	118
+ 707 02ab 15       		.byte	21
+ 708 02ac 77       		.byte	119
+ 709 02ad 18       		.byte	24
+ 710 02ae 80       		.byte	-128
+ 711 02af 12       		.byte	18
+ 712 02b0 91       		.byte	-111
+ 713 02b1 04       		.byte	4
+ 714 02b2 92       		.byte	-110
+ 715 02b3 01       		.byte	1
+ 716 02b4 93       		.byte	-109
+ 717 02b5 08       		.byte	8
+ 718 02b6 94       		.byte	-108
+ 719 02b7 02       		.byte	2
+ 720 02b8 95       		.byte	-107
+ 721 02b9 20       		.byte	32
+ 722 02ba 96       		.byte	-106
+ 723 02bb 04       		.byte	4
+ 724 02bc 9C       		.byte	-100
+ 725 02bd 02       		.byte	2
+ 726 02be 9D       		.byte	-99
+ 727 02bf 88       		.byte	-120
+ 728 02c0 9E       		.byte	-98
+ 729 02c1 44       		.byte	68
+ 730 02c2 A1       		.byte	-95
+ 731 02c3 20       		.byte	32
+ 732 02c4 A2       		.byte	-94
+ 733 02c5 04       		.byte	4
+ 734 02c6 A3       		.byte	-93
+ 735 02c7 04       		.byte	4
+ 736 02c8 A4       		.byte	-92
+ 737 02c9 80       		.byte	-128
+ 738 02ca A6       		.byte	-90
+ 739 02cb 20       		.byte	32
+ 740 02cc A7       		.byte	-89
+ 741 02cd 08       		.byte	8
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 14
+
+
+ 742 02ce AD       		.byte	-83
+ 743 02cf 04       		.byte	4
+ 744 02d0 AF       		.byte	-81
+ 745 02d1 40       		.byte	64
+ 746 02d2 C0       		.byte	-64
+ 747 02d3 F8       		.byte	-8
+ 748 02d4 C2       		.byte	-62
+ 749 02d5 E2       		.byte	-30
+ 750 02d6 C4       		.byte	-60
+ 751 02d7 76       		.byte	118
+ 752 02d8 CA       		.byte	-54
+ 753 02d9 37       		.byte	55
+ 754 02da CC       		.byte	-52
+ 755 02db 6E       		.byte	110
+ 756 02dc CE       		.byte	-50
+ 757 02dd EF       		.byte	-17
+ 758 02de D6       		.byte	-42
+ 759 02df 20       		.byte	32
+ 760 02e0 33       		.byte	51
+ 761 02e1 10       		.byte	16
+ 762 02e2 5C       		.byte	92
+ 763 02e3 02       		.byte	2
+ 764 02e4 CC       		.byte	-52
+ 765 02e5 10       		.byte	16
+ 766 02e6 D6       		.byte	-42
+ 767 02e7 80       		.byte	-128
+ 768 02e8 00       		.byte	0
+ 769 02e9 08       		.byte	8
+ 770 02ea AB       		.byte	-85
+ 771 02eb 10       		.byte	16
+ 772 02ec AC       		.byte	-84
+ 773 02ed 02       		.byte	2
+ 774 02ee C0       		.byte	-64
+ 775 02ef 10       		.byte	16
+ 776 02f0 EA       		.byte	-22
+ 777 02f1 20       		.byte	32
+ 778 02f2 EE       		.byte	-18
+ 779 02f3 40       		.byte	64
+ 780 02f4 AC       		.byte	-84
+ 781 02f5 04       		.byte	4
+ 782 02f6 EC       		.byte	-20
+ 783 02f7 40       		.byte	64
+ 784 02f8 00       		.byte	0
+ 785 02f9 01       		.byte	1
+ 786 02fa 08       		.byte	8
+ 787 02fb 01       		.byte	1
+ 788 02fc 0A       		.byte	10
+ 789 02fd 01       		.byte	1
+ 790 02fe 00       		.byte	0
+ 791 02ff 03       		.byte	3
+ 792 0300 00       		.byte	0
+ 793 0301 00       		.byte	0
+ 794 0302 C3       		.byte	-61
+ 795 0303 00       		.byte	0
+ 796 0304 0C       		.byte	12
+ 797 0305 14       		.byte	20
+ 798 0306 00       		.byte	0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 15
+
+
+ 799 0307 22       		.byte	34
+ 800 0308 04       		.byte	4
+ 801 0309 00       		.byte	0
+ 802 030a 00       		.byte	0
+ 803 030b 00       		.byte	0
+ 804 030c 0F       		.byte	15
+ 805 030d 00       		.byte	0
+ 806 030e C0       		.byte	-64
+ 807 030f 01       		.byte	1
+ 808 0310 41       		.byte	65
+ 809 0311 02       		.byte	2
+ 810 0312 20       		.byte	32
+ 811 0313 0C       		.byte	12
+ 812 0314 C3       		.byte	-61
+ 813 0315 28       		.byte	40
+ 814 0316 0C       		.byte	12
+ 815 0317 12       		.byte	18
+ 816 0318 CF       		.byte	-49
+ 817 0319 00       		.byte	0
+ 818 031a 00       		.byte	0
+ 819 031b 00       		.byte	0
+ 820 031c 08       		.byte	8
+ 821 031d 00       		.byte	0
+ 822 031e 00       		.byte	0
+ 823 031f 00       		.byte	0
+ 824 0320 C3       		.byte	-61
+ 825 0321 00       		.byte	0
+ 826 0322 10       		.byte	16
+ 827 0323 00       		.byte	0
+ 828 0324 82       		.byte	-126
+ 829 0325 3E       		.byte	62
+ 830 0326 20       		.byte	32
+ 831 0327 00       		.byte	0
+ 832 0328 0C       		.byte	12
+ 833 0329 3E       		.byte	62
+ 834 032a C3       		.byte	-61
+ 835 032b 00       		.byte	0
+ 836 032c 00       		.byte	0
+ 837 032d 00       		.byte	0
+ 838 032e 00       		.byte	0
+ 839 032f 01       		.byte	1
+ 840 0330 C0       		.byte	-64
+ 841 0331 00       		.byte	0
+ 842 0332 0F       		.byte	15
+ 843 0333 01       		.byte	1
+ 844 0334 00       		.byte	0
+ 845 0335 30       		.byte	48
+ 846 0336 30       		.byte	48
+ 847 0337 0E       		.byte	14
+ 848 0338 00       		.byte	0
+ 849 0339 00       		.byte	0
+ 850 033a 28       		.byte	40
+ 851 033b 00       		.byte	0
+ 852 033c 00       		.byte	0
+ 853 033d 00       		.byte	0
+ 854 033e 40       		.byte	64
+ 855 033f 04       		.byte	4
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 16
+
+
+ 856 0340 65       		.byte	101
+ 857 0341 02       		.byte	2
+ 858 0342 04       		.byte	4
+ 859 0343 00       		.byte	0
+ 860 0344 01       		.byte	1
+ 861 0345 0C       		.byte	12
+ 862 0346 0E       		.byte	14
+ 863 0347 00       		.byte	0
+ 864 0348 05       		.byte	5
+ 865 0349 FF       		.byte	-1
+ 866 034a FF       		.byte	-1
+ 867 034b FF       		.byte	-1
+ 868 034c 62       		.byte	98
+ 869 034d A0       		.byte	-96
+ 870 034e F0       		.byte	-16
+ 871 034f 41       		.byte	65
+ 872 0350 0C       		.byte	12
+ 873 0351 00       		.byte	0
+ 874 0352 00       		.byte	0
+ 875 0353 00       		.byte	0
+ 876 0354 18       		.byte	24
+ 877 0355 00       		.byte	0
+ 878 0356 00       		.byte	0
+ 879 0357 00       		.byte	0
+ 880 0358 04       		.byte	4
+ 881 0359 04       		.byte	4
+ 882 035a 04       		.byte	4
+ 883 035b 04       		.byte	4
+ 884 035c 00       		.byte	0
+ 885 035d 00       		.byte	0
+ 886 035e 00       		.byte	0
+ 887 035f 01       		.byte	1
+ 888 0360 00       		.byte	0
+ 889 0361 00       		.byte	0
+ 890 0362 00       		.byte	0
+ 891 0363 00       		.byte	0
+ 892 0364 00       		.byte	0
+ 893 0365 00       		.byte	0
+ 894 0366 40       		.byte	64
+ 895 0367 02       		.byte	2
+ 896 0368 00       		.byte	0
+ 897 0369 10       		.byte	16
+ 898 036a 30       		.byte	48
+ 899 036b 10       		.byte	16
+ 900 036c 00       		.byte	0
+ 901 036d 10       		.byte	16
+ 902 036e 10       		.byte	16
+ 903 036f 12       		.byte	18
+ 904 0370 00       		.byte	0
+ 905 0371 00       		.byte	0
+ 906 0372 00       		.byte	0
+ 907 0373 00       		.byte	0
+ 908 0374 00       		.byte	0
+ 909 0375 00       		.byte	0
+ 910 0376 00       		.byte	0
+ 911 0377 00       		.byte	0
+ 912 0378 00       		.byte	0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 17
+
+
+ 913 0379 00       		.byte	0
+ 914 037a 00       		.byte	0
+ 915 037b 00       		.byte	0
+ 916 037c 00       		.byte	0
+ 917 037d 00       		.byte	0
+ 918 037e 00       		.byte	0
+ 919 037f 00       		.byte	0
+ 920 0380 01       		.byte	1
+ 921 0381 00       		.byte	0
+ 922 0382 00       		.byte	0
+ 923 0383 00       		.byte	0
+ 924 0384 00       		.byte	0
+ 925 0385 00       		.byte	0
+ 926 0386 00       		.byte	0
+ 927 0387 00       		.byte	0
+ 928 0388 20       		.byte	32
+ 929 0389 00       		.byte	0
+ 930 038a 00       		.byte	0
+ 931 038b 20       		.byte	32
+ 932 038c 20       		.byte	32
+ 933 038d 00       		.byte	0
+ 934 038e 20       		.byte	32
+ 935 038f 00       		.byte	0
+ 936 0390 00       		.byte	0
+ 937 0391 00       		.byte	0
+ 938 0392 00       		.byte	0
+ 939 0393 00       		.byte	0
+ 940              		.global	cy_meta_custnvl
+ 941              		.section	.cycustnvl,"a",%progbits
+ 942              		.align	2
+ 943              		.type	cy_meta_custnvl, %object
+ 944              		.size	cy_meta_custnvl, 4
+ 945              	cy_meta_custnvl:
+ 946 0000 00       		.byte	0
+ 947 0001 00       		.byte	0
+ 948 0002 40       		.byte	64
+ 949 0003 05       		.byte	5
+ 950              		.global	cy_meta_wonvl
+ 951              		.section	.cywolatch,"a",%progbits
+ 952              		.align	2
+ 953              		.type	cy_meta_wonvl, %object
+ 954              		.size	cy_meta_wonvl, 4
+ 955              	cy_meta_wonvl:
+ 956 0000 BC       		.byte	-68
+ 957 0001 90       		.byte	-112
+ 958 0002 AC       		.byte	-84
+ 959 0003 AF       		.byte	-81
+ 960              		.global	cy_meta_flashprotect
+ 961              		.section	.cyflashprotect,"a",%progbits
+ 962              		.align	2
+ 963              		.type	cy_meta_flashprotect, %object
+ 964              		.size	cy_meta_flashprotect, 256
+ 965              	cy_meta_flashprotect:
+ 966 0000 00000000 		.space	256
+ 966      00000000 
+ 966      00000000 
+ 966      00000000 
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 18
+
+
+ 966      00000000 
+ 967              		.global	cy_metadata
+ 968              		.section	.cymeta,"a",%progbits
+ 969              		.align	2
+ 970              		.type	cy_metadata, %object
+ 971              		.size	cy_metadata, 12
+ 972              	cy_metadata:
+ 973 0000 00       		.byte	0
+ 974 0001 01       		.byte	1
+ 975 0002 2E       		.byte	46
+ 976 0003 12       		.byte	18
+ 977 0004 30       		.byte	48
+ 978 0005 69       		.byte	105
+ 979 0006 00       		.byte	0
+ 980 0007 01       		.byte	1
+ 981 0008 00       		.byte	0
+ 982 0009 00       		.byte	0
+ 983 000a 00       		.byte	0
+ 984 000b 00       		.byte	0
+ 985              		.text
+ 986              	.Letext0:
+ 987              		.file 1 ".\\Generated_Source\\PSoC5\\cymetadata.c"
+ 988              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 989              		.section	.debug_info,"",%progbits
+ 990              	.Ldebug_info0:
+ 991 0000 36010000 		.4byte	0x136
+ 992 0004 0400     		.2byte	0x4
+ 993 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 994 000a 04       		.byte	0x4
+ 995 000b 01       		.uleb128 0x1
+ 996 000c B8000000 		.4byte	.LASF18
+ 997 0010 01       		.byte	0x1
+ 998 0011 00000000 		.4byte	.LASF19
+ 999 0015 98010000 		.4byte	.LASF20
+ 1000 0019 00000000 		.4byte	.Ldebug_line0
+ 1001 001d 02       		.uleb128 0x2
+ 1002 001e 01       		.byte	0x1
+ 1003 001f 06       		.byte	0x6
+ 1004 0020 8C010000 		.4byte	.LASF0
+ 1005 0024 02       		.uleb128 0x2
+ 1006 0025 01       		.byte	0x1
+ 1007 0026 08       		.byte	0x8
+ 1008 0027 38000000 		.4byte	.LASF1
+ 1009 002b 02       		.uleb128 0x2
+ 1010 002c 02       		.byte	0x2
+ 1011 002d 05       		.byte	0x5
+ 1012 002e 73010000 		.4byte	.LASF2
+ 1013 0032 02       		.uleb128 0x2
+ 1014 0033 02       		.byte	0x2
+ 1015 0034 07       		.byte	0x7
+ 1016 0035 58000000 		.4byte	.LASF3
+ 1017 0039 02       		.uleb128 0x2
+ 1018 003a 04       		.byte	0x4
+ 1019 003b 05       		.byte	0x5
+ 1020 003c 83010000 		.4byte	.LASF4
+ 1021 0040 02       		.uleb128 0x2
+ 1022 0041 04       		.byte	0x4
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 19
+
+
+ 1023 0042 07       		.byte	0x7
+ 1024 0043 46000000 		.4byte	.LASF5
+ 1025 0047 02       		.uleb128 0x2
+ 1026 0048 08       		.byte	0x8
+ 1027 0049 05       		.byte	0x5
+ 1028 004a 60010000 		.4byte	.LASF6
+ 1029 004e 02       		.uleb128 0x2
+ 1030 004f 08       		.byte	0x8
+ 1031 0050 07       		.byte	0x7
+ 1032 0051 A1000000 		.4byte	.LASF7
+ 1033 0055 03       		.uleb128 0x3
+ 1034 0056 04       		.byte	0x4
+ 1035 0057 05       		.byte	0x5
+ 1036 0058 696E7400 		.ascii	"int\000"
+ 1037 005c 02       		.uleb128 0x2
+ 1038 005d 04       		.byte	0x4
+ 1039 005e 07       		.byte	0x7
+ 1040 005f 94000000 		.4byte	.LASF8
+ 1041 0063 04       		.uleb128 0x4
+ 1042 0064 7D010000 		.4byte	.LASF21
+ 1043 0068 02       		.byte	0x2
+ 1044 0069 A1       		.byte	0xa1
+ 1045 006a 24000000 		.4byte	0x24
+ 1046 006e 02       		.uleb128 0x2
+ 1047 006f 04       		.byte	0x4
+ 1048 0070 04       		.byte	0x4
+ 1049 0071 32000000 		.4byte	.LASF9
+ 1050 0075 02       		.uleb128 0x2
+ 1051 0076 08       		.byte	0x8
+ 1052 0077 04       		.byte	0x4
+ 1053 0078 6B000000 		.4byte	.LASF10
+ 1054 007c 02       		.uleb128 0x2
+ 1055 007d 01       		.byte	0x1
+ 1056 007e 08       		.byte	0x8
+ 1057 007f 6E010000 		.4byte	.LASF11
+ 1058 0083 05       		.uleb128 0x5
+ 1059 0084 63000000 		.4byte	0x63
+ 1060 0088 94000000 		.4byte	0x94
+ 1061 008c 06       		.uleb128 0x6
+ 1062 008d 94000000 		.4byte	0x94
+ 1063 0091 9303     		.2byte	0x393
+ 1064 0093 00       		.byte	0
+ 1065 0094 02       		.uleb128 0x2
+ 1066 0095 04       		.byte	0x4
+ 1067 0096 07       		.byte	0x7
+ 1068 0097 57010000 		.4byte	.LASF12
+ 1069 009b 07       		.uleb128 0x7
+ 1070 009c 82000000 		.4byte	.LASF13
+ 1071 00a0 01       		.byte	0x1
+ 1072 00a1 1C       		.byte	0x1c
+ 1073 00a2 AC000000 		.4byte	0xac
+ 1074 00a6 05       		.uleb128 0x5
+ 1075 00a7 03       		.byte	0x3
+ 1076 00a8 00000000 		.4byte	cy_meta_configecc
+ 1077 00ac 08       		.uleb128 0x8
+ 1078 00ad 83000000 		.4byte	0x83
+ 1079 00b1 05       		.uleb128 0x5
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 20
+
+
+ 1080 00b2 63000000 		.4byte	0x63
+ 1081 00b6 C1000000 		.4byte	0xc1
+ 1082 00ba 09       		.uleb128 0x9
+ 1083 00bb 94000000 		.4byte	0x94
+ 1084 00bf 03       		.byte	0x3
+ 1085 00c0 00       		.byte	0
+ 1086 00c1 07       		.uleb128 0x7
+ 1087 00c2 72000000 		.4byte	.LASF14
+ 1088 00c6 01       		.byte	0x1
+ 1089 00c7 99       		.byte	0x99
+ 1090 00c8 D2000000 		.4byte	0xd2
+ 1091 00cc 05       		.uleb128 0x5
+ 1092 00cd 03       		.byte	0x3
+ 1093 00ce 00000000 		.4byte	cy_meta_custnvl
+ 1094 00d2 08       		.uleb128 0x8
+ 1095 00d3 B1000000 		.4byte	0xb1
+ 1096 00d7 07       		.uleb128 0x7
+ 1097 00d8 49010000 		.4byte	.LASF15
+ 1098 00dc 01       		.byte	0x1
+ 1099 00dd A4       		.byte	0xa4
+ 1100 00de E8000000 		.4byte	0xe8
+ 1101 00e2 05       		.uleb128 0x5
+ 1102 00e3 03       		.byte	0x3
+ 1103 00e4 00000000 		.4byte	cy_meta_wonvl
+ 1104 00e8 08       		.uleb128 0x8
+ 1105 00e9 B1000000 		.4byte	0xb1
+ 1106 00ed 05       		.uleb128 0x5
+ 1107 00ee 63000000 		.4byte	0x63
+ 1108 00f2 FD000000 		.4byte	0xfd
+ 1109 00f6 09       		.uleb128 0x9
+ 1110 00f7 94000000 		.4byte	0x94
+ 1111 00fb FF       		.byte	0xff
+ 1112 00fc 00       		.byte	0
+ 1113 00fd 07       		.uleb128 0x7
+ 1114 00fe 34010000 		.4byte	.LASF16
+ 1115 0102 01       		.byte	0x1
+ 1116 0103 AF       		.byte	0xaf
+ 1117 0104 0E010000 		.4byte	0x10e
+ 1118 0108 05       		.uleb128 0x5
+ 1119 0109 03       		.byte	0x3
+ 1120 010a 00000000 		.4byte	cy_meta_flashprotect
+ 1121 010e 08       		.uleb128 0x8
+ 1122 010f ED000000 		.4byte	0xed
+ 1123 0113 05       		.uleb128 0x5
+ 1124 0114 63000000 		.4byte	0x63
+ 1125 0118 23010000 		.4byte	0x123
+ 1126 011c 09       		.uleb128 0x9
+ 1127 011d 94000000 		.4byte	0x94
+ 1128 0121 0B       		.byte	0xb
+ 1129 0122 00       		.byte	0
+ 1130 0123 07       		.uleb128 0x7
+ 1131 0124 26000000 		.4byte	.LASF17
+ 1132 0128 01       		.byte	0x1
+ 1133 0129 D9       		.byte	0xd9
+ 1134 012a 34010000 		.4byte	0x134
+ 1135 012e 05       		.uleb128 0x5
+ 1136 012f 03       		.byte	0x3
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 21
+
+
+ 1137 0130 00000000 		.4byte	cy_metadata
+ 1138 0134 08       		.uleb128 0x8
+ 1139 0135 13010000 		.4byte	0x113
+ 1140 0139 00       		.byte	0
+ 1141              		.section	.debug_abbrev,"",%progbits
+ 1142              	.Ldebug_abbrev0:
+ 1143 0000 01       		.uleb128 0x1
+ 1144 0001 11       		.uleb128 0x11
+ 1145 0002 01       		.byte	0x1
+ 1146 0003 25       		.uleb128 0x25
+ 1147 0004 0E       		.uleb128 0xe
+ 1148 0005 13       		.uleb128 0x13
+ 1149 0006 0B       		.uleb128 0xb
+ 1150 0007 03       		.uleb128 0x3
+ 1151 0008 0E       		.uleb128 0xe
+ 1152 0009 1B       		.uleb128 0x1b
+ 1153 000a 0E       		.uleb128 0xe
+ 1154 000b 10       		.uleb128 0x10
+ 1155 000c 17       		.uleb128 0x17
+ 1156 000d 00       		.byte	0
+ 1157 000e 00       		.byte	0
+ 1158 000f 02       		.uleb128 0x2
+ 1159 0010 24       		.uleb128 0x24
+ 1160 0011 00       		.byte	0
+ 1161 0012 0B       		.uleb128 0xb
+ 1162 0013 0B       		.uleb128 0xb
+ 1163 0014 3E       		.uleb128 0x3e
+ 1164 0015 0B       		.uleb128 0xb
+ 1165 0016 03       		.uleb128 0x3
+ 1166 0017 0E       		.uleb128 0xe
+ 1167 0018 00       		.byte	0
+ 1168 0019 00       		.byte	0
+ 1169 001a 03       		.uleb128 0x3
+ 1170 001b 24       		.uleb128 0x24
+ 1171 001c 00       		.byte	0
+ 1172 001d 0B       		.uleb128 0xb
+ 1173 001e 0B       		.uleb128 0xb
+ 1174 001f 3E       		.uleb128 0x3e
+ 1175 0020 0B       		.uleb128 0xb
+ 1176 0021 03       		.uleb128 0x3
+ 1177 0022 08       		.uleb128 0x8
+ 1178 0023 00       		.byte	0
+ 1179 0024 00       		.byte	0
+ 1180 0025 04       		.uleb128 0x4
+ 1181 0026 16       		.uleb128 0x16
+ 1182 0027 00       		.byte	0
+ 1183 0028 03       		.uleb128 0x3
+ 1184 0029 0E       		.uleb128 0xe
+ 1185 002a 3A       		.uleb128 0x3a
+ 1186 002b 0B       		.uleb128 0xb
+ 1187 002c 3B       		.uleb128 0x3b
+ 1188 002d 0B       		.uleb128 0xb
+ 1189 002e 49       		.uleb128 0x49
+ 1190 002f 13       		.uleb128 0x13
+ 1191 0030 00       		.byte	0
+ 1192 0031 00       		.byte	0
+ 1193 0032 05       		.uleb128 0x5
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 22
+
+
+ 1194 0033 01       		.uleb128 0x1
+ 1195 0034 01       		.byte	0x1
+ 1196 0035 49       		.uleb128 0x49
+ 1197 0036 13       		.uleb128 0x13
+ 1198 0037 01       		.uleb128 0x1
+ 1199 0038 13       		.uleb128 0x13
+ 1200 0039 00       		.byte	0
+ 1201 003a 00       		.byte	0
+ 1202 003b 06       		.uleb128 0x6
+ 1203 003c 21       		.uleb128 0x21
+ 1204 003d 00       		.byte	0
+ 1205 003e 49       		.uleb128 0x49
+ 1206 003f 13       		.uleb128 0x13
+ 1207 0040 2F       		.uleb128 0x2f
+ 1208 0041 05       		.uleb128 0x5
+ 1209 0042 00       		.byte	0
+ 1210 0043 00       		.byte	0
+ 1211 0044 07       		.uleb128 0x7
+ 1212 0045 34       		.uleb128 0x34
+ 1213 0046 00       		.byte	0
+ 1214 0047 03       		.uleb128 0x3
+ 1215 0048 0E       		.uleb128 0xe
+ 1216 0049 3A       		.uleb128 0x3a
+ 1217 004a 0B       		.uleb128 0xb
+ 1218 004b 3B       		.uleb128 0x3b
+ 1219 004c 0B       		.uleb128 0xb
+ 1220 004d 49       		.uleb128 0x49
+ 1221 004e 13       		.uleb128 0x13
+ 1222 004f 3F       		.uleb128 0x3f
+ 1223 0050 19       		.uleb128 0x19
+ 1224 0051 02       		.uleb128 0x2
+ 1225 0052 18       		.uleb128 0x18
+ 1226 0053 00       		.byte	0
+ 1227 0054 00       		.byte	0
+ 1228 0055 08       		.uleb128 0x8
+ 1229 0056 26       		.uleb128 0x26
+ 1230 0057 00       		.byte	0
+ 1231 0058 49       		.uleb128 0x49
+ 1232 0059 13       		.uleb128 0x13
+ 1233 005a 00       		.byte	0
+ 1234 005b 00       		.byte	0
+ 1235 005c 09       		.uleb128 0x9
+ 1236 005d 21       		.uleb128 0x21
+ 1237 005e 00       		.byte	0
+ 1238 005f 49       		.uleb128 0x49
+ 1239 0060 13       		.uleb128 0x13
+ 1240 0061 2F       		.uleb128 0x2f
+ 1241 0062 0B       		.uleb128 0xb
+ 1242 0063 00       		.byte	0
+ 1243 0064 00       		.byte	0
+ 1244 0065 00       		.byte	0
+ 1245              		.section	.debug_aranges,"",%progbits
+ 1246 0000 14000000 		.4byte	0x14
+ 1247 0004 0200     		.2byte	0x2
+ 1248 0006 00000000 		.4byte	.Ldebug_info0
+ 1249 000a 04       		.byte	0x4
+ 1250 000b 00       		.byte	0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 23
+
+
+ 1251 000c 0000     		.2byte	0
+ 1252 000e 0000     		.2byte	0
+ 1253 0010 00000000 		.4byte	0
+ 1254 0014 00000000 		.4byte	0
+ 1255              		.section	.debug_line,"",%progbits
+ 1256              	.Ldebug_line0:
+ 1257 0000 4F000000 		.section	.debug_str,"MS",%progbits,1
+ 1257      02004900 
+ 1257      00000201 
+ 1257      FB0E0D00 
+ 1257      01010101 
+ 1258              	.LASF19:
+ 1259 0000 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1259      6E657261 
+ 1259      7465645F 
+ 1259      536F7572 
+ 1259      63655C50 
+ 1260              	.LASF17:
+ 1261 0026 63795F6D 		.ascii	"cy_metadata\000"
+ 1261      65746164 
+ 1261      61746100 
+ 1262              	.LASF9:
+ 1263 0032 666C6F61 		.ascii	"float\000"
+ 1263      7400
+ 1264              	.LASF1:
+ 1265 0038 756E7369 		.ascii	"unsigned char\000"
+ 1265      676E6564 
+ 1265      20636861 
+ 1265      7200
+ 1266              	.LASF5:
+ 1267 0046 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1267      20756E73 
+ 1267      69676E65 
+ 1267      6420696E 
+ 1267      7400
+ 1268              	.LASF3:
+ 1269 0058 73686F72 		.ascii	"short unsigned int\000"
+ 1269      7420756E 
+ 1269      7369676E 
+ 1269      65642069 
+ 1269      6E7400
+ 1270              	.LASF10:
+ 1271 006b 646F7562 		.ascii	"double\000"
+ 1271      6C6500
+ 1272              	.LASF14:
+ 1273 0072 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1273      6574615F 
+ 1273      63757374 
+ 1273      6E766C00 
+ 1274              	.LASF13:
+ 1275 0082 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1275      6574615F 
+ 1275      636F6E66 
+ 1275      69676563 
+ 1275      6300
+ 1276              	.LASF8:
+ 1277 0094 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 24
+
+
+ 1277      676E6564 
+ 1277      20696E74 
+ 1277      00
+ 1278              	.LASF7:
+ 1279 00a1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1279      206C6F6E 
+ 1279      6720756E 
+ 1279      7369676E 
+ 1279      65642069 
+ 1280              	.LASF18:
+ 1281 00b8 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 1281      4320342E 
+ 1281      382E3420 
+ 1281      32303134 
+ 1281      30353236 
+ 1282 00eb 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m3 -mthumb -g -O"
+ 1282      20726576 
+ 1282      6973696F 
+ 1282      6E203231 
+ 1282      31333538 
+ 1283 011e 30202D66 		.ascii	"0 -ffunction-sections\000"
+ 1283      66756E63 
+ 1283      74696F6E 
+ 1283      2D736563 
+ 1283      74696F6E 
+ 1284              	.LASF16:
+ 1285 0134 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1285      6574615F 
+ 1285      666C6173 
+ 1285      6870726F 
+ 1285      74656374 
+ 1286              	.LASF15:
+ 1287 0149 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1287      6574615F 
+ 1287      776F6E76 
+ 1287      6C00
+ 1288              	.LASF12:
+ 1289 0157 73697A65 		.ascii	"sizetype\000"
+ 1289      74797065 
+ 1289      00
+ 1290              	.LASF6:
+ 1291 0160 6C6F6E67 		.ascii	"long long int\000"
+ 1291      206C6F6E 
+ 1291      6720696E 
+ 1291      7400
+ 1292              	.LASF11:
+ 1293 016e 63686172 		.ascii	"char\000"
+ 1293      00
+ 1294              	.LASF2:
+ 1295 0173 73686F72 		.ascii	"short int\000"
+ 1295      7420696E 
+ 1295      7400
+ 1296              	.LASF21:
+ 1297 017d 75696E74 		.ascii	"uint8\000"
+ 1297      3800
+ 1298              	.LASF4:
+ 1299 0183 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc9Dtsno.s 			page 25
+
+
+ 1299      20696E74 
+ 1299      00
+ 1300              	.LASF0:
+ 1301 018c 7369676E 		.ascii	"signed char\000"
+ 1301      65642063 
+ 1301      68617200 
+ 1302              	.LASF20:
+ 1303 0198 433A5C55 		.ascii	"C:\\Users\\Eric\\Documents\\GitHub\\Mainboard\\Main"
+ 1303      73657273 
+ 1303      5C457269 
+ 1303      635C446F 
+ 1303      63756D65 
+ 1304 01c5 626F6172 		.ascii	"board\\Mainboard.cydsn\000"
+ 1304      645C4D61 
+ 1304      696E626F 
+ 1304      6172642E 
+ 1304      63796473 
+ 1305              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br
