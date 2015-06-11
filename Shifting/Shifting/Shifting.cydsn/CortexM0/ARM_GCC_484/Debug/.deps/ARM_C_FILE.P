@@ -1,0 +1,14 @@
+C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/CortexM0/ARM_GCC_484/Debug/cyfitter_cfg.o : C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/cyfitter_cfg.c 
+
+C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/CyLib.h : 
+
+C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/cydevice_trm.h : 
+
+C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/cyfitter.h : 
+
+C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h : 
+
+C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/cytypes.h : 
+
+C:/Users/Eric/Documents/GitHub/Shifting/Shifting/Shifting.cydsn/Generated_Source/PSoC4/cyfitter_cfg.c : 
+
