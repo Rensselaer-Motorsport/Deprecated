@@ -1,0 +1,1008 @@
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Shift_Solenoids.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.Shift_Solenoids_Write,"ax",%progbits
+  18              		.align	2
+  19              		.global	Shift_Solenoids_Write
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	Shift_Solenoids_Write, %function
+  23              	Shift_Solenoids_Write:
+  24              	.LFB0:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\Shift_Solenoids.c"
+   1:.\Generated_Source\PSoC4/Shift_Solenoids.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * File Name: Shift_Solenoids.c  
+   3:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Version 2.10
+   4:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+   5:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Description:
+   6:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+   8:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Note:
+   9:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  10:.\Generated_Source\PSoC4/Shift_Solenoids.c **** ********************************************************************************
+  11:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  12:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * the software package with which this file was provided.
+  15:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *******************************************************************************/
+  16:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+  17:.\Generated_Source\PSoC4/Shift_Solenoids.c **** #include "cytypes.h"
+  18:.\Generated_Source\PSoC4/Shift_Solenoids.c **** #include "Shift_Solenoids.h"
+  19:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+  20:.\Generated_Source\PSoC4/Shift_Solenoids.c **** #define SetP4PinDriveMode(shift, mode)  \
+  21:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     do { \
+  22:.\Generated_Source\PSoC4/Shift_Solenoids.c ****         Shift_Solenoids_PC =   (Shift_Solenoids_PC & \
+  23:.\Generated_Source\PSoC4/Shift_Solenoids.c ****                                 (uint32)(~(uint32)(Shift_Solenoids_DRIVE_MODE_IND_MASK << (Shift_So
+  24:.\Generated_Source\PSoC4/Shift_Solenoids.c ****                                 (uint32)((uint32)(mode) << (Shift_Solenoids_DRIVE_MODE_BITS * (shif
+  25:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     } while (0)
+  26:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+  27:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+  28:.\Generated_Source\PSoC4/Shift_Solenoids.c **** /*******************************************************************************
+  29:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Function Name: Shift_Solenoids_Write
+  30:.\Generated_Source\PSoC4/Shift_Solenoids.c **** ********************************************************************************
+  31:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  32:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Summary:
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Assign a new value to the digital port's data output register.  
+  34:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  35:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Parameters:  
+  36:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  prtValue:  The value to be assigned to the Digital Port. 
+  37:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  38:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Return: 
+  39:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  None 
+  40:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  
+  41:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *******************************************************************************/
+  42:.\Generated_Source\PSoC4/Shift_Solenoids.c **** void Shift_Solenoids_Write(uint8 value) 
+  43:.\Generated_Source\PSoC4/Shift_Solenoids.c **** {
+  26              		.loc 1 43 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 84B0     		sub	sp, sp, #16
+  33              		.cfi_def_cfa_offset 24
+  34 0004 00AF     		add	r7, sp, #0
+  35              		.cfi_def_cfa_register 7
+  36 0006 021C     		mov	r2, r0
+  37 0008 FB1D     		add	r3, r7, #7
+  38 000a 1A70     		strb	r2, [r3]
+  44:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     uint8 drVal = (uint8)(Shift_Solenoids_DR & (uint8)(~Shift_Solenoids_MASK));
+  39              		.loc 1 44 0
+  40 000c 0D4B     		ldr	r3, .L2
+  41 000e 1B68     		ldr	r3, [r3]
+  42 0010 DAB2     		uxtb	r2, r3
+  43 0012 3B1C     		mov	r3, r7
+  44 0014 0F33     		add	r3, r3, #15
+  45 0016 0F21     		mov	r1, #15
+  46 0018 8A43     		bic	r2, r1
+  47 001a 1A70     		strb	r2, [r3]
+  45:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     drVal = (drVal | ((uint8)(value << Shift_Solenoids_SHIFT) & Shift_Solenoids_MASK));
+  48              		.loc 1 45 0
+  49 001c FB1D     		add	r3, r7, #7
+  50 001e 1A78     		ldrb	r2, [r3]
+  51 0020 0F23     		mov	r3, #15
+  52 0022 1340     		and	r3, r2
+  53 0024 D9B2     		uxtb	r1, r3
+  54 0026 3B1C     		mov	r3, r7
+  55 0028 0F33     		add	r3, r3, #15
+  56 002a 3A1C     		mov	r2, r7
+  57 002c 0F32     		add	r2, r2, #15
+  58 002e 1278     		ldrb	r2, [r2]
+  59 0030 0A43     		orr	r2, r1
+  60 0032 1A70     		strb	r2, [r3]
+  46:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     Shift_Solenoids_DR = (uint32)drVal;
+  61              		.loc 1 46 0
+  62 0034 034B     		ldr	r3, .L2
+  63 0036 3A1C     		mov	r2, r7
+  64 0038 0F32     		add	r2, r2, #15
+  65 003a 1278     		ldrb	r2, [r2]
+  66 003c 1A60     		str	r2, [r3]
+  47:.\Generated_Source\PSoC4/Shift_Solenoids.c **** }
+  67              		.loc 1 47 0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 3
+
+
+  68 003e BD46     		mov	sp, r7
+  69 0040 04B0     		add	sp, sp, #16
+  70              		@ sp needed
+  71 0042 80BD     		pop	{r7, pc}
+  72              	.L3:
+  73              		.align	2
+  74              	.L2:
+  75 0044 00040440 		.word	1074004992
+  76              		.cfi_endproc
+  77              	.LFE0:
+  78              		.size	Shift_Solenoids_Write, .-Shift_Solenoids_Write
+  79              		.section	.text.Shift_Solenoids_SetDriveMode,"ax",%progbits
+  80              		.align	2
+  81              		.global	Shift_Solenoids_SetDriveMode
+  82              		.code	16
+  83              		.thumb_func
+  84              		.type	Shift_Solenoids_SetDriveMode, %function
+  85              	Shift_Solenoids_SetDriveMode:
+  86              	.LFB1:
+  48:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+  49:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+  50:.\Generated_Source\PSoC4/Shift_Solenoids.c **** /*******************************************************************************
+  51:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Function Name: Shift_Solenoids_SetDriveMode
+  52:.\Generated_Source\PSoC4/Shift_Solenoids.c **** ********************************************************************************
+  53:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  54:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Summary:
+  55:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Change the drive mode on the pins of the port.
+  56:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * 
+  57:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Parameters:  
+  58:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  mode:  Change the pins to one of the following drive modes.
+  59:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  60:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Shift_Solenoids_DM_STRONG     Strong Drive 
+  61:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Shift_Solenoids_DM_OD_HI      Open Drain, Drives High 
+  62:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Shift_Solenoids_DM_OD_LO      Open Drain, Drives Low 
+  63:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Shift_Solenoids_DM_RES_UP     Resistive Pull Up 
+  64:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Shift_Solenoids_DM_RES_DWN    Resistive Pull Down 
+  65:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Shift_Solenoids_DM_RES_UPDWN  Resistive Pull Up/Down 
+  66:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Shift_Solenoids_DM_DIG_HIZ    High Impedance Digital 
+  67:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Shift_Solenoids_DM_ALG_HIZ    High Impedance Analog 
+  68:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  69:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Return: 
+  70:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  None
+  71:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  72:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *******************************************************************************/
+  73:.\Generated_Source\PSoC4/Shift_Solenoids.c **** void Shift_Solenoids_SetDriveMode(uint8 mode) 
+  74:.\Generated_Source\PSoC4/Shift_Solenoids.c **** {
+  87              		.loc 1 74 0
+  88              		.cfi_startproc
+  89 0000 80B5     		push	{r7, lr}
+  90              		.cfi_def_cfa_offset 8
+  91              		.cfi_offset 7, -8
+  92              		.cfi_offset 14, -4
+  93 0002 82B0     		sub	sp, sp, #8
+  94              		.cfi_def_cfa_offset 16
+  95 0004 00AF     		add	r7, sp, #0
+  96              		.cfi_def_cfa_register 7
+  97 0006 021C     		mov	r2, r0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 4
+
+
+  98 0008 FB1D     		add	r3, r7, #7
+  99 000a 1A70     		strb	r2, [r3]
+  75:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 	SetP4PinDriveMode(Shift_Solenoids__0__SHIFT, mode);
+ 100              		.loc 1 75 0
+ 101 000c 164B     		ldr	r3, .L5
+ 102 000e 164A     		ldr	r2, .L5
+ 103 0010 1268     		ldr	r2, [r2]
+ 104 0012 0721     		mov	r1, #7
+ 105 0014 101C     		mov	r0, r2
+ 106 0016 8843     		bic	r0, r1
+ 107 0018 011C     		mov	r1, r0
+ 108 001a FA1D     		add	r2, r7, #7
+ 109 001c 1278     		ldrb	r2, [r2]
+ 110 001e 0A43     		orr	r2, r1
+ 111 0020 1A60     		str	r2, [r3]
+  76:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 	SetP4PinDriveMode(Shift_Solenoids__1__SHIFT, mode);
+ 112              		.loc 1 76 0
+ 113 0022 114B     		ldr	r3, .L5
+ 114 0024 104A     		ldr	r2, .L5
+ 115 0026 1268     		ldr	r2, [r2]
+ 116 0028 3821     		mov	r1, #56
+ 117 002a 101C     		mov	r0, r2
+ 118 002c 8843     		bic	r0, r1
+ 119 002e 011C     		mov	r1, r0
+ 120 0030 FA1D     		add	r2, r7, #7
+ 121 0032 1278     		ldrb	r2, [r2]
+ 122 0034 D200     		lsl	r2, r2, #3
+ 123 0036 0A43     		orr	r2, r1
+ 124 0038 1A60     		str	r2, [r3]
+  77:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 	SetP4PinDriveMode(Shift_Solenoids__2__SHIFT, mode);
+ 125              		.loc 1 77 0
+ 126 003a 0B4B     		ldr	r3, .L5
+ 127 003c 0A4A     		ldr	r2, .L5
+ 128 003e 1168     		ldr	r1, [r2]
+ 129 0040 0A4A     		ldr	r2, .L5+4
+ 130 0042 1140     		and	r1, r2
+ 131 0044 FA1D     		add	r2, r7, #7
+ 132 0046 1278     		ldrb	r2, [r2]
+ 133 0048 9201     		lsl	r2, r2, #6
+ 134 004a 0A43     		orr	r2, r1
+ 135 004c 1A60     		str	r2, [r3]
+  78:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 	SetP4PinDriveMode(Shift_Solenoids__3__SHIFT, mode);
+ 136              		.loc 1 78 0
+ 137 004e 064B     		ldr	r3, .L5
+ 138 0050 054A     		ldr	r2, .L5
+ 139 0052 1168     		ldr	r1, [r2]
+ 140 0054 064A     		ldr	r2, .L5+8
+ 141 0056 1140     		and	r1, r2
+ 142 0058 FA1D     		add	r2, r7, #7
+ 143 005a 1278     		ldrb	r2, [r2]
+ 144 005c 5202     		lsl	r2, r2, #9
+ 145 005e 0A43     		orr	r2, r1
+ 146 0060 1A60     		str	r2, [r3]
+  79:.\Generated_Source\PSoC4/Shift_Solenoids.c **** }
+ 147              		.loc 1 79 0
+ 148 0062 BD46     		mov	sp, r7
+ 149 0064 02B0     		add	sp, sp, #8
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 5
+
+
+ 150              		@ sp needed
+ 151 0066 80BD     		pop	{r7, pc}
+ 152              	.L6:
+ 153              		.align	2
+ 154              	.L5:
+ 155 0068 08040440 		.word	1074005000
+ 156 006c 3FFEFFFF 		.word	-449
+ 157 0070 FFF1FFFF 		.word	-3585
+ 158              		.cfi_endproc
+ 159              	.LFE1:
+ 160              		.size	Shift_Solenoids_SetDriveMode, .-Shift_Solenoids_SetDriveMode
+ 161              		.section	.text.Shift_Solenoids_Read,"ax",%progbits
+ 162              		.align	2
+ 163              		.global	Shift_Solenoids_Read
+ 164              		.code	16
+ 165              		.thumb_func
+ 166              		.type	Shift_Solenoids_Read, %function
+ 167              	Shift_Solenoids_Read:
+ 168              	.LFB2:
+  80:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+  81:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+  82:.\Generated_Source\PSoC4/Shift_Solenoids.c **** /*******************************************************************************
+  83:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Function Name: Shift_Solenoids_Read
+  84:.\Generated_Source\PSoC4/Shift_Solenoids.c **** ********************************************************************************
+  85:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  86:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Summary:
+  87:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Read the current value on the pins of the Digital Port in right justified 
+  88:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  form.
+  89:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  90:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Parameters:  
+  91:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  None 
+  92:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+  93:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Return: 
+  94:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Returns the current value of the Digital Port as a right justified number
+  95:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  
+  96:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Note:
+  97:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Macro Shift_Solenoids_ReadPS calls this function. 
+  98:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  
+  99:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *******************************************************************************/
+ 100:.\Generated_Source\PSoC4/Shift_Solenoids.c **** uint8 Shift_Solenoids_Read(void) 
+ 101:.\Generated_Source\PSoC4/Shift_Solenoids.c **** {
+ 169              		.loc 1 101 0
+ 170              		.cfi_startproc
+ 171 0000 80B5     		push	{r7, lr}
+ 172              		.cfi_def_cfa_offset 8
+ 173              		.cfi_offset 7, -8
+ 174              		.cfi_offset 14, -4
+ 175 0002 00AF     		add	r7, sp, #0
+ 176              		.cfi_def_cfa_register 7
+ 102:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     return (uint8)((Shift_Solenoids_PS & Shift_Solenoids_MASK) >> Shift_Solenoids_SHIFT);
+ 177              		.loc 1 102 0
+ 178 0004 044B     		ldr	r3, .L9
+ 179 0006 1B68     		ldr	r3, [r3]
+ 180 0008 DAB2     		uxtb	r2, r3
+ 181 000a 0F23     		mov	r3, #15
+ 182 000c 1340     		and	r3, r2
+ 183 000e DBB2     		uxtb	r3, r3
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 6
+
+
+ 103:.\Generated_Source\PSoC4/Shift_Solenoids.c **** }
+ 184              		.loc 1 103 0
+ 185 0010 181C     		mov	r0, r3
+ 186 0012 BD46     		mov	sp, r7
+ 187              		@ sp needed
+ 188 0014 80BD     		pop	{r7, pc}
+ 189              	.L10:
+ 190 0016 C046     		.align	2
+ 191              	.L9:
+ 192 0018 04040440 		.word	1074004996
+ 193              		.cfi_endproc
+ 194              	.LFE2:
+ 195              		.size	Shift_Solenoids_Read, .-Shift_Solenoids_Read
+ 196              		.section	.text.Shift_Solenoids_ReadDataReg,"ax",%progbits
+ 197              		.align	2
+ 198              		.global	Shift_Solenoids_ReadDataReg
+ 199              		.code	16
+ 200              		.thumb_func
+ 201              		.type	Shift_Solenoids_ReadDataReg, %function
+ 202              	Shift_Solenoids_ReadDataReg:
+ 203              	.LFB3:
+ 104:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+ 105:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+ 106:.\Generated_Source\PSoC4/Shift_Solenoids.c **** /*******************************************************************************
+ 107:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Function Name: Shift_Solenoids_ReadDataReg
+ 108:.\Generated_Source\PSoC4/Shift_Solenoids.c **** ********************************************************************************
+ 109:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+ 110:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Summary:
+ 111:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Read the current value assigned to a Digital Port's data output register
+ 112:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+ 113:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Parameters:  
+ 114:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  None 
+ 115:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *
+ 116:.\Generated_Source\PSoC4/Shift_Solenoids.c **** * Return: 
+ 117:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  Returns the current value assigned to the Digital Port's data output register
+ 118:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *  
+ 119:.\Generated_Source\PSoC4/Shift_Solenoids.c **** *******************************************************************************/
+ 120:.\Generated_Source\PSoC4/Shift_Solenoids.c **** uint8 Shift_Solenoids_ReadDataReg(void) 
+ 121:.\Generated_Source\PSoC4/Shift_Solenoids.c **** {
+ 204              		.loc 1 121 0
+ 205              		.cfi_startproc
+ 206 0000 80B5     		push	{r7, lr}
+ 207              		.cfi_def_cfa_offset 8
+ 208              		.cfi_offset 7, -8
+ 209              		.cfi_offset 14, -4
+ 210 0002 00AF     		add	r7, sp, #0
+ 211              		.cfi_def_cfa_register 7
+ 122:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     return (uint8)((Shift_Solenoids_DR & Shift_Solenoids_MASK) >> Shift_Solenoids_SHIFT);
+ 212              		.loc 1 122 0
+ 213 0004 044B     		ldr	r3, .L13
+ 214 0006 1B68     		ldr	r3, [r3]
+ 215 0008 DAB2     		uxtb	r2, r3
+ 216 000a 0F23     		mov	r3, #15
+ 217 000c 1340     		and	r3, r2
+ 218 000e DBB2     		uxtb	r3, r3
+ 123:.\Generated_Source\PSoC4/Shift_Solenoids.c **** }
+ 219              		.loc 1 123 0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 7
+
+
+ 220 0010 181C     		mov	r0, r3
+ 221 0012 BD46     		mov	sp, r7
+ 222              		@ sp needed
+ 223 0014 80BD     		pop	{r7, pc}
+ 224              	.L14:
+ 225 0016 C046     		.align	2
+ 226              	.L13:
+ 227 0018 00040440 		.word	1074004992
+ 228              		.cfi_endproc
+ 229              	.LFE3:
+ 230              		.size	Shift_Solenoids_ReadDataReg, .-Shift_Solenoids_ReadDataReg
+ 231              		.section	.text.Shift_Solenoids_ClearInterrupt,"ax",%progbits
+ 232              		.align	2
+ 233              		.global	Shift_Solenoids_ClearInterrupt
+ 234              		.code	16
+ 235              		.thumb_func
+ 236              		.type	Shift_Solenoids_ClearInterrupt, %function
+ 237              	Shift_Solenoids_ClearInterrupt:
+ 238              	.LFB4:
+ 124:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+ 125:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+ 126:.\Generated_Source\PSoC4/Shift_Solenoids.c **** /* If Interrupts Are Enabled for this Pins component */ 
+ 127:.\Generated_Source\PSoC4/Shift_Solenoids.c **** #if defined(Shift_Solenoids_INTSTAT) 
+ 128:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 
+ 129:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     /*******************************************************************************
+ 130:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     * Function Name: Shift_Solenoids_ClearInterrupt
+ 131:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     ********************************************************************************
+ 132:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     *
+ 133:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     * Summary:
+ 134:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     *  Clears any active interrupts attached to port and returns the value of the 
+ 135:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     *  interrupt status register.
+ 136:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     *
+ 137:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     * Parameters:  
+ 138:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     *  None 
+ 139:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     *
+ 140:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     * Return: 
+ 141:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     *  Returns the value of the interrupt status register
+ 142:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     *  
+ 143:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     *******************************************************************************/
+ 144:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     uint8 Shift_Solenoids_ClearInterrupt(void) 
+ 145:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     {
+ 239              		.loc 1 145 0
+ 240              		.cfi_startproc
+ 241 0000 80B5     		push	{r7, lr}
+ 242              		.cfi_def_cfa_offset 8
+ 243              		.cfi_offset 7, -8
+ 244              		.cfi_offset 14, -4
+ 245 0002 82B0     		sub	sp, sp, #8
+ 246              		.cfi_def_cfa_offset 16
+ 247 0004 00AF     		add	r7, sp, #0
+ 248              		.cfi_def_cfa_register 7
+ 146:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 		uint8 maskedStatus = (uint8)(Shift_Solenoids_INTSTAT & Shift_Solenoids_MASK);
+ 249              		.loc 1 146 0
+ 250 0006 084B     		ldr	r3, .L17
+ 251 0008 1B68     		ldr	r3, [r3]
+ 252 000a D9B2     		uxtb	r1, r3
+ 253 000c FB1D     		add	r3, r7, #7
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 8
+
+
+ 254 000e 0F22     		mov	r2, #15
+ 255 0010 0A40     		and	r2, r1
+ 256 0012 1A70     		strb	r2, [r3]
+ 147:.\Generated_Source\PSoC4/Shift_Solenoids.c **** 		Shift_Solenoids_INTSTAT = maskedStatus;
+ 257              		.loc 1 147 0
+ 258 0014 044B     		ldr	r3, .L17
+ 259 0016 FA1D     		add	r2, r7, #7
+ 260 0018 1278     		ldrb	r2, [r2]
+ 261 001a 1A60     		str	r2, [r3]
+ 148:.\Generated_Source\PSoC4/Shift_Solenoids.c ****         return maskedStatus >> Shift_Solenoids_SHIFT;
+ 262              		.loc 1 148 0
+ 263 001c FB1D     		add	r3, r7, #7
+ 264 001e 1B78     		ldrb	r3, [r3]
+ 149:.\Generated_Source\PSoC4/Shift_Solenoids.c ****     }
+ 265              		.loc 1 149 0
+ 266 0020 181C     		mov	r0, r3
+ 267 0022 BD46     		mov	sp, r7
+ 268 0024 02B0     		add	sp, sp, #8
+ 269              		@ sp needed
+ 270 0026 80BD     		pop	{r7, pc}
+ 271              	.L18:
+ 272              		.align	2
+ 273              	.L17:
+ 274 0028 10040440 		.word	1074005008
+ 275              		.cfi_endproc
+ 276              	.LFE4:
+ 277              		.size	Shift_Solenoids_ClearInterrupt, .-Shift_Solenoids_ClearInterrupt
+ 278              		.text
+ 279              	.Letext0:
+ 280              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 281              		.section	.debug_info,"",%progbits
+ 282              	.Ldebug_info0:
+ 283 0000 48010000 		.4byte	0x148
+ 284 0004 0400     		.2byte	0x4
+ 285 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 286 000a 04       		.byte	0x4
+ 287 000b 01       		.uleb128 0x1
+ 288 000c 36010000 		.4byte	.LASF24
+ 289 0010 01       		.byte	0x1
+ 290 0011 28000000 		.4byte	.LASF25
+ 291 0015 C6000000 		.4byte	.LASF26
+ 292 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 293 001d 00000000 		.4byte	0
+ 294 0021 00000000 		.4byte	.Ldebug_line0
+ 295 0025 02       		.uleb128 0x2
+ 296 0026 01       		.byte	0x1
+ 297 0027 06       		.byte	0x6
+ 298 0028 3A020000 		.4byte	.LASF0
+ 299 002c 02       		.uleb128 0x2
+ 300 002d 01       		.byte	0x1
+ 301 002e 08       		.byte	0x8
+ 302 002f 8D000000 		.4byte	.LASF1
+ 303 0033 02       		.uleb128 0x2
+ 304 0034 02       		.byte	0x2
+ 305 0035 05       		.byte	0x5
+ 306 0036 EC010000 		.4byte	.LASF2
+ 307 003a 02       		.uleb128 0x2
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 9
+
+
+ 308 003b 02       		.byte	0x2
+ 309 003c 07       		.byte	0x7
+ 310 003d B3000000 		.4byte	.LASF3
+ 311 0041 02       		.uleb128 0x2
+ 312 0042 04       		.byte	0x4
+ 313 0043 05       		.byte	0x5
+ 314 0044 31020000 		.4byte	.LASF4
+ 315 0048 02       		.uleb128 0x2
+ 316 0049 04       		.byte	0x4
+ 317 004a 07       		.byte	0x7
+ 318 004b A1000000 		.4byte	.LASF5
+ 319 004f 02       		.uleb128 0x2
+ 320 0050 08       		.byte	0x8
+ 321 0051 05       		.byte	0x5
+ 322 0052 CC010000 		.4byte	.LASF6
+ 323 0056 02       		.uleb128 0x2
+ 324 0057 08       		.byte	0x8
+ 325 0058 07       		.byte	0x7
+ 326 0059 76000000 		.4byte	.LASF7
+ 327 005d 03       		.uleb128 0x3
+ 328 005e 04       		.byte	0x4
+ 329 005f 05       		.byte	0x5
+ 330 0060 696E7400 		.ascii	"int\000"
+ 331 0064 02       		.uleb128 0x2
+ 332 0065 04       		.byte	0x4
+ 333 0066 07       		.byte	0x7
+ 334 0067 29010000 		.4byte	.LASF8
+ 335 006b 04       		.uleb128 0x4
+ 336 006c F6010000 		.4byte	.LASF9
+ 337 0070 02       		.byte	0x2
+ 338 0071 A1       		.byte	0xa1
+ 339 0072 2C000000 		.4byte	0x2c
+ 340 0076 04       		.uleb128 0x4
+ 341 0077 22010000 		.4byte	.LASF10
+ 342 007b 02       		.byte	0x2
+ 343 007c A3       		.byte	0xa3
+ 344 007d 48000000 		.4byte	0x48
+ 345 0081 02       		.uleb128 0x2
+ 346 0082 04       		.byte	0x4
+ 347 0083 04       		.byte	0x4
+ 348 0084 70000000 		.4byte	.LASF11
+ 349 0088 02       		.uleb128 0x2
+ 350 0089 08       		.byte	0x8
+ 351 008a 04       		.byte	0x4
+ 352 008b 1B010000 		.4byte	.LASF12
+ 353 008f 02       		.uleb128 0x2
+ 354 0090 01       		.byte	0x1
+ 355 0091 08       		.byte	0x8
+ 356 0092 E7010000 		.4byte	.LASF13
+ 357 0096 05       		.uleb128 0x5
+ 358 0097 00000000 		.4byte	.LASF14
+ 359 009b 02       		.byte	0x2
+ 360 009c 4D01     		.2byte	0x14d
+ 361 009e A2000000 		.4byte	0xa2
+ 362 00a2 06       		.uleb128 0x6
+ 363 00a3 76000000 		.4byte	0x76
+ 364 00a7 07       		.uleb128 0x7
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 10
+
+
+ 365 00a8 FC010000 		.4byte	.LASF15
+ 366 00ac 01       		.byte	0x1
+ 367 00ad 2A       		.byte	0x2a
+ 368 00ae 00000000 		.4byte	.LFB0
+ 369 00b2 48000000 		.4byte	.LFE0-.LFB0
+ 370 00b6 01       		.uleb128 0x1
+ 371 00b7 9C       		.byte	0x9c
+ 372 00b8 D9000000 		.4byte	0xd9
+ 373 00bc 08       		.uleb128 0x8
+ 374 00bd 06000000 		.4byte	.LASF17
+ 375 00c1 01       		.byte	0x1
+ 376 00c2 2A       		.byte	0x2a
+ 377 00c3 6B000000 		.4byte	0x6b
+ 378 00c7 02       		.uleb128 0x2
+ 379 00c8 91       		.byte	0x91
+ 380 00c9 6F       		.sleb128 -17
+ 381 00ca 09       		.uleb128 0x9
+ 382 00cb 9B000000 		.4byte	.LASF22
+ 383 00cf 01       		.byte	0x1
+ 384 00d0 2C       		.byte	0x2c
+ 385 00d1 6B000000 		.4byte	0x6b
+ 386 00d5 02       		.uleb128 0x2
+ 387 00d6 91       		.byte	0x91
+ 388 00d7 77       		.sleb128 -9
+ 389 00d8 00       		.byte	0
+ 390 00d9 07       		.uleb128 0x7
+ 391 00da 53000000 		.4byte	.LASF16
+ 392 00de 01       		.byte	0x1
+ 393 00df 49       		.byte	0x49
+ 394 00e0 00000000 		.4byte	.LFB1
+ 395 00e4 74000000 		.4byte	.LFE1-.LFB1
+ 396 00e8 01       		.uleb128 0x1
+ 397 00e9 9C       		.byte	0x9c
+ 398 00ea FD000000 		.4byte	0xfd
+ 399 00ee 08       		.uleb128 0x8
+ 400 00ef B2010000 		.4byte	.LASF18
+ 401 00f3 01       		.byte	0x1
+ 402 00f4 49       		.byte	0x49
+ 403 00f5 6B000000 		.4byte	0x6b
+ 404 00f9 02       		.uleb128 0x2
+ 405 00fa 91       		.byte	0x91
+ 406 00fb 77       		.sleb128 -9
+ 407 00fc 00       		.byte	0
+ 408 00fd 0A       		.uleb128 0xa
+ 409 00fe B7010000 		.4byte	.LASF19
+ 410 0102 01       		.byte	0x1
+ 411 0103 64       		.byte	0x64
+ 412 0104 6B000000 		.4byte	0x6b
+ 413 0108 00000000 		.4byte	.LFB2
+ 414 010c 1C000000 		.4byte	.LFE2-.LFB2
+ 415 0110 01       		.uleb128 0x1
+ 416 0111 9C       		.byte	0x9c
+ 417 0112 0A       		.uleb128 0xa
+ 418 0113 0C000000 		.4byte	.LASF20
+ 419 0117 01       		.byte	0x1
+ 420 0118 78       		.byte	0x78
+ 421 0119 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 11
+
+
+ 422 011d 00000000 		.4byte	.LFB3
+ 423 0121 1C000000 		.4byte	.LFE3-.LFB3
+ 424 0125 01       		.uleb128 0x1
+ 425 0126 9C       		.byte	0x9c
+ 426 0127 0B       		.uleb128 0xb
+ 427 0128 12020000 		.4byte	.LASF21
+ 428 012c 01       		.byte	0x1
+ 429 012d 90       		.byte	0x90
+ 430 012e 6B000000 		.4byte	0x6b
+ 431 0132 00000000 		.4byte	.LFB4
+ 432 0136 2C000000 		.4byte	.LFE4-.LFB4
+ 433 013a 01       		.uleb128 0x1
+ 434 013b 9C       		.byte	0x9c
+ 435 013c 09       		.uleb128 0x9
+ 436 013d DA010000 		.4byte	.LASF23
+ 437 0141 01       		.byte	0x1
+ 438 0142 92       		.byte	0x92
+ 439 0143 6B000000 		.4byte	0x6b
+ 440 0147 02       		.uleb128 0x2
+ 441 0148 91       		.byte	0x91
+ 442 0149 77       		.sleb128 -9
+ 443 014a 00       		.byte	0
+ 444 014b 00       		.byte	0
+ 445              		.section	.debug_abbrev,"",%progbits
+ 446              	.Ldebug_abbrev0:
+ 447 0000 01       		.uleb128 0x1
+ 448 0001 11       		.uleb128 0x11
+ 449 0002 01       		.byte	0x1
+ 450 0003 25       		.uleb128 0x25
+ 451 0004 0E       		.uleb128 0xe
+ 452 0005 13       		.uleb128 0x13
+ 453 0006 0B       		.uleb128 0xb
+ 454 0007 03       		.uleb128 0x3
+ 455 0008 0E       		.uleb128 0xe
+ 456 0009 1B       		.uleb128 0x1b
+ 457 000a 0E       		.uleb128 0xe
+ 458 000b 55       		.uleb128 0x55
+ 459 000c 17       		.uleb128 0x17
+ 460 000d 11       		.uleb128 0x11
+ 461 000e 01       		.uleb128 0x1
+ 462 000f 10       		.uleb128 0x10
+ 463 0010 17       		.uleb128 0x17
+ 464 0011 00       		.byte	0
+ 465 0012 00       		.byte	0
+ 466 0013 02       		.uleb128 0x2
+ 467 0014 24       		.uleb128 0x24
+ 468 0015 00       		.byte	0
+ 469 0016 0B       		.uleb128 0xb
+ 470 0017 0B       		.uleb128 0xb
+ 471 0018 3E       		.uleb128 0x3e
+ 472 0019 0B       		.uleb128 0xb
+ 473 001a 03       		.uleb128 0x3
+ 474 001b 0E       		.uleb128 0xe
+ 475 001c 00       		.byte	0
+ 476 001d 00       		.byte	0
+ 477 001e 03       		.uleb128 0x3
+ 478 001f 24       		.uleb128 0x24
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 12
+
+
+ 479 0020 00       		.byte	0
+ 480 0021 0B       		.uleb128 0xb
+ 481 0022 0B       		.uleb128 0xb
+ 482 0023 3E       		.uleb128 0x3e
+ 483 0024 0B       		.uleb128 0xb
+ 484 0025 03       		.uleb128 0x3
+ 485 0026 08       		.uleb128 0x8
+ 486 0027 00       		.byte	0
+ 487 0028 00       		.byte	0
+ 488 0029 04       		.uleb128 0x4
+ 489 002a 16       		.uleb128 0x16
+ 490 002b 00       		.byte	0
+ 491 002c 03       		.uleb128 0x3
+ 492 002d 0E       		.uleb128 0xe
+ 493 002e 3A       		.uleb128 0x3a
+ 494 002f 0B       		.uleb128 0xb
+ 495 0030 3B       		.uleb128 0x3b
+ 496 0031 0B       		.uleb128 0xb
+ 497 0032 49       		.uleb128 0x49
+ 498 0033 13       		.uleb128 0x13
+ 499 0034 00       		.byte	0
+ 500 0035 00       		.byte	0
+ 501 0036 05       		.uleb128 0x5
+ 502 0037 16       		.uleb128 0x16
+ 503 0038 00       		.byte	0
+ 504 0039 03       		.uleb128 0x3
+ 505 003a 0E       		.uleb128 0xe
+ 506 003b 3A       		.uleb128 0x3a
+ 507 003c 0B       		.uleb128 0xb
+ 508 003d 3B       		.uleb128 0x3b
+ 509 003e 05       		.uleb128 0x5
+ 510 003f 49       		.uleb128 0x49
+ 511 0040 13       		.uleb128 0x13
+ 512 0041 00       		.byte	0
+ 513 0042 00       		.byte	0
+ 514 0043 06       		.uleb128 0x6
+ 515 0044 35       		.uleb128 0x35
+ 516 0045 00       		.byte	0
+ 517 0046 49       		.uleb128 0x49
+ 518 0047 13       		.uleb128 0x13
+ 519 0048 00       		.byte	0
+ 520 0049 00       		.byte	0
+ 521 004a 07       		.uleb128 0x7
+ 522 004b 2E       		.uleb128 0x2e
+ 523 004c 01       		.byte	0x1
+ 524 004d 3F       		.uleb128 0x3f
+ 525 004e 19       		.uleb128 0x19
+ 526 004f 03       		.uleb128 0x3
+ 527 0050 0E       		.uleb128 0xe
+ 528 0051 3A       		.uleb128 0x3a
+ 529 0052 0B       		.uleb128 0xb
+ 530 0053 3B       		.uleb128 0x3b
+ 531 0054 0B       		.uleb128 0xb
+ 532 0055 27       		.uleb128 0x27
+ 533 0056 19       		.uleb128 0x19
+ 534 0057 11       		.uleb128 0x11
+ 535 0058 01       		.uleb128 0x1
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 13
+
+
+ 536 0059 12       		.uleb128 0x12
+ 537 005a 06       		.uleb128 0x6
+ 538 005b 40       		.uleb128 0x40
+ 539 005c 18       		.uleb128 0x18
+ 540 005d 9742     		.uleb128 0x2117
+ 541 005f 19       		.uleb128 0x19
+ 542 0060 01       		.uleb128 0x1
+ 543 0061 13       		.uleb128 0x13
+ 544 0062 00       		.byte	0
+ 545 0063 00       		.byte	0
+ 546 0064 08       		.uleb128 0x8
+ 547 0065 05       		.uleb128 0x5
+ 548 0066 00       		.byte	0
+ 549 0067 03       		.uleb128 0x3
+ 550 0068 0E       		.uleb128 0xe
+ 551 0069 3A       		.uleb128 0x3a
+ 552 006a 0B       		.uleb128 0xb
+ 553 006b 3B       		.uleb128 0x3b
+ 554 006c 0B       		.uleb128 0xb
+ 555 006d 49       		.uleb128 0x49
+ 556 006e 13       		.uleb128 0x13
+ 557 006f 02       		.uleb128 0x2
+ 558 0070 18       		.uleb128 0x18
+ 559 0071 00       		.byte	0
+ 560 0072 00       		.byte	0
+ 561 0073 09       		.uleb128 0x9
+ 562 0074 34       		.uleb128 0x34
+ 563 0075 00       		.byte	0
+ 564 0076 03       		.uleb128 0x3
+ 565 0077 0E       		.uleb128 0xe
+ 566 0078 3A       		.uleb128 0x3a
+ 567 0079 0B       		.uleb128 0xb
+ 568 007a 3B       		.uleb128 0x3b
+ 569 007b 0B       		.uleb128 0xb
+ 570 007c 49       		.uleb128 0x49
+ 571 007d 13       		.uleb128 0x13
+ 572 007e 02       		.uleb128 0x2
+ 573 007f 18       		.uleb128 0x18
+ 574 0080 00       		.byte	0
+ 575 0081 00       		.byte	0
+ 576 0082 0A       		.uleb128 0xa
+ 577 0083 2E       		.uleb128 0x2e
+ 578 0084 00       		.byte	0
+ 579 0085 3F       		.uleb128 0x3f
+ 580 0086 19       		.uleb128 0x19
+ 581 0087 03       		.uleb128 0x3
+ 582 0088 0E       		.uleb128 0xe
+ 583 0089 3A       		.uleb128 0x3a
+ 584 008a 0B       		.uleb128 0xb
+ 585 008b 3B       		.uleb128 0x3b
+ 586 008c 0B       		.uleb128 0xb
+ 587 008d 27       		.uleb128 0x27
+ 588 008e 19       		.uleb128 0x19
+ 589 008f 49       		.uleb128 0x49
+ 590 0090 13       		.uleb128 0x13
+ 591 0091 11       		.uleb128 0x11
+ 592 0092 01       		.uleb128 0x1
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 14
+
+
+ 593 0093 12       		.uleb128 0x12
+ 594 0094 06       		.uleb128 0x6
+ 595 0095 40       		.uleb128 0x40
+ 596 0096 18       		.uleb128 0x18
+ 597 0097 9742     		.uleb128 0x2117
+ 598 0099 19       		.uleb128 0x19
+ 599 009a 00       		.byte	0
+ 600 009b 00       		.byte	0
+ 601 009c 0B       		.uleb128 0xb
+ 602 009d 2E       		.uleb128 0x2e
+ 603 009e 01       		.byte	0x1
+ 604 009f 3F       		.uleb128 0x3f
+ 605 00a0 19       		.uleb128 0x19
+ 606 00a1 03       		.uleb128 0x3
+ 607 00a2 0E       		.uleb128 0xe
+ 608 00a3 3A       		.uleb128 0x3a
+ 609 00a4 0B       		.uleb128 0xb
+ 610 00a5 3B       		.uleb128 0x3b
+ 611 00a6 0B       		.uleb128 0xb
+ 612 00a7 27       		.uleb128 0x27
+ 613 00a8 19       		.uleb128 0x19
+ 614 00a9 49       		.uleb128 0x49
+ 615 00aa 13       		.uleb128 0x13
+ 616 00ab 11       		.uleb128 0x11
+ 617 00ac 01       		.uleb128 0x1
+ 618 00ad 12       		.uleb128 0x12
+ 619 00ae 06       		.uleb128 0x6
+ 620 00af 40       		.uleb128 0x40
+ 621 00b0 18       		.uleb128 0x18
+ 622 00b1 9742     		.uleb128 0x2117
+ 623 00b3 19       		.uleb128 0x19
+ 624 00b4 00       		.byte	0
+ 625 00b5 00       		.byte	0
+ 626 00b6 00       		.byte	0
+ 627              		.section	.debug_aranges,"",%progbits
+ 628 0000 3C000000 		.4byte	0x3c
+ 629 0004 0200     		.2byte	0x2
+ 630 0006 00000000 		.4byte	.Ldebug_info0
+ 631 000a 04       		.byte	0x4
+ 632 000b 00       		.byte	0
+ 633 000c 0000     		.2byte	0
+ 634 000e 0000     		.2byte	0
+ 635 0010 00000000 		.4byte	.LFB0
+ 636 0014 48000000 		.4byte	.LFE0-.LFB0
+ 637 0018 00000000 		.4byte	.LFB1
+ 638 001c 74000000 		.4byte	.LFE1-.LFB1
+ 639 0020 00000000 		.4byte	.LFB2
+ 640 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 641 0028 00000000 		.4byte	.LFB3
+ 642 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 643 0030 00000000 		.4byte	.LFB4
+ 644 0034 2C000000 		.4byte	.LFE4-.LFB4
+ 645 0038 00000000 		.4byte	0
+ 646 003c 00000000 		.4byte	0
+ 647              		.section	.debug_ranges,"",%progbits
+ 648              	.Ldebug_ranges0:
+ 649 0000 00000000 		.4byte	.LFB0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 15
+
+
+ 650 0004 48000000 		.4byte	.LFE0
+ 651 0008 00000000 		.4byte	.LFB1
+ 652 000c 74000000 		.4byte	.LFE1
+ 653 0010 00000000 		.4byte	.LFB2
+ 654 0014 1C000000 		.4byte	.LFE2
+ 655 0018 00000000 		.4byte	.LFB3
+ 656 001c 1C000000 		.4byte	.LFE3
+ 657 0020 00000000 		.4byte	.LFB4
+ 658 0024 2C000000 		.4byte	.LFE4
+ 659 0028 00000000 		.4byte	0
+ 660 002c 00000000 		.4byte	0
+ 661              		.section	.debug_line,"",%progbits
+ 662              	.Ldebug_line0:
+ 663 0000 B4000000 		.section	.debug_str,"MS",%progbits,1
+ 663      02004E00 
+ 663      00000201 
+ 663      FB0E0D00 
+ 663      01010101 
+ 664              	.LASF14:
+ 665 0000 72656733 		.ascii	"reg32\000"
+ 665      3200
+ 666              	.LASF17:
+ 667 0006 76616C75 		.ascii	"value\000"
+ 667      6500
+ 668              	.LASF20:
+ 669 000c 53686966 		.ascii	"Shift_Solenoids_ReadDataReg\000"
+ 669      745F536F 
+ 669      6C656E6F 
+ 669      6964735F 
+ 669      52656164 
+ 670              	.LASF25:
+ 671 0028 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Shift_Solenoids.c\000"
+ 671      6E657261 
+ 671      7465645F 
+ 671      536F7572 
+ 671      63655C50 
+ 672              	.LASF16:
+ 673 0053 53686966 		.ascii	"Shift_Solenoids_SetDriveMode\000"
+ 673      745F536F 
+ 673      6C656E6F 
+ 673      6964735F 
+ 673      53657444 
+ 674              	.LASF11:
+ 675 0070 666C6F61 		.ascii	"float\000"
+ 675      7400
+ 676              	.LASF7:
+ 677 0076 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 677      206C6F6E 
+ 677      6720756E 
+ 677      7369676E 
+ 677      65642069 
+ 678              	.LASF1:
+ 679 008d 756E7369 		.ascii	"unsigned char\000"
+ 679      676E6564 
+ 679      20636861 
+ 679      7200
+ 680              	.LASF22:
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 16
+
+
+ 681 009b 64725661 		.ascii	"drVal\000"
+ 681      6C00
+ 682              	.LASF5:
+ 683 00a1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 683      20756E73 
+ 683      69676E65 
+ 683      6420696E 
+ 683      7400
+ 684              	.LASF3:
+ 685 00b3 73686F72 		.ascii	"short unsigned int\000"
+ 685      7420756E 
+ 685      7369676E 
+ 685      65642069 
+ 685      6E7400
+ 686              	.LASF26:
+ 687 00c6 433A5C55 		.ascii	"C:\\Users\\Eric\\Development\\PSoC\\ShiftingStandal"
+ 687      73657273 
+ 687      5C457269 
+ 687      635C4465 
+ 687      76656C6F 
+ 688 00f4 6F6E654E 		.ascii	"oneNoise\\ShiftingStandaloneNoise.cydsn\000"
+ 688      6F697365 
+ 688      5C536869 
+ 688      6674696E 
+ 688      67537461 
+ 689              	.LASF12:
+ 690 011b 646F7562 		.ascii	"double\000"
+ 690      6C6500
+ 691              	.LASF10:
+ 692 0122 75696E74 		.ascii	"uint32\000"
+ 692      333200
+ 693              	.LASF8:
+ 694 0129 756E7369 		.ascii	"unsigned int\000"
+ 694      676E6564 
+ 694      20696E74 
+ 694      00
+ 695              	.LASF24:
+ 696 0136 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 696      4320342E 
+ 696      382E3420 
+ 696      32303134 
+ 696      30353236 
+ 697 0169 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 697      20726576 
+ 697      6973696F 
+ 697      6E203231 
+ 697      31333538 
+ 698 019c 30202D66 		.ascii	"0 -ffunction-sections\000"
+ 698      66756E63 
+ 698      74696F6E 
+ 698      2D736563 
+ 698      74696F6E 
+ 699              	.LASF18:
+ 700 01b2 6D6F6465 		.ascii	"mode\000"
+ 700      00
+ 701              	.LASF19:
+ 702 01b7 53686966 		.ascii	"Shift_Solenoids_Read\000"
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccv2Jp5V.s 			page 17
+
+
+ 702      745F536F 
+ 702      6C656E6F 
+ 702      6964735F 
+ 702      52656164 
+ 703              	.LASF6:
+ 704 01cc 6C6F6E67 		.ascii	"long long int\000"
+ 704      206C6F6E 
+ 704      6720696E 
+ 704      7400
+ 705              	.LASF23:
+ 706 01da 6D61736B 		.ascii	"maskedStatus\000"
+ 706      65645374 
+ 706      61747573 
+ 706      00
+ 707              	.LASF13:
+ 708 01e7 63686172 		.ascii	"char\000"
+ 708      00
+ 709              	.LASF2:
+ 710 01ec 73686F72 		.ascii	"short int\000"
+ 710      7420696E 
+ 710      7400
+ 711              	.LASF9:
+ 712 01f6 75696E74 		.ascii	"uint8\000"
+ 712      3800
+ 713              	.LASF15:
+ 714 01fc 53686966 		.ascii	"Shift_Solenoids_Write\000"
+ 714      745F536F 
+ 714      6C656E6F 
+ 714      6964735F 
+ 714      57726974 
+ 715              	.LASF21:
+ 716 0212 53686966 		.ascii	"Shift_Solenoids_ClearInterrupt\000"
+ 716      745F536F 
+ 716      6C656E6F 
+ 716      6964735F 
+ 716      436C6561 
+ 717              	.LASF4:
+ 718 0231 6C6F6E67 		.ascii	"long int\000"
+ 718      20696E74 
+ 718      00
+ 719              	.LASF0:
+ 720 023a 7369676E 		.ascii	"signed char\000"
+ 720      65642063 
+ 720      68617200 
+ 721              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

@@ -1,0 +1,5 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|a7452f14-2906-465c-ae33-224db769fced
+C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|f8326c29-09a9-46b9-8a77-9aee2d762de4
+C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|e2afb7ac-e38e-4342-b8df-62cd0cbeee0e
+C:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|7d67ec8d-88d5-4959-bd29-a8de576a11eb
+C:\Users\Eric\Development\PSoC\ShiftingStandaloneNoise\ShiftingStandaloneNoise.cydsn\ShiftingStandaloneNoise.cyprj|fdf0a875-eaa0-40b2-9ee6-d1f52e7100a5

@@ -1,0 +1,693 @@
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.comm	paddle,4,4
+  18              		.global	shifts
+  19              		.bss
+  20              		.align	2
+  21              		.type	shifts, %object
+  22              		.size	shifts, 4
+  23              	shifts:
+  24 0000 00000000 		.space	4
+  25              		.section	.text.main,"ax",%progbits
+  26              		.align	2
+  27              		.global	main
+  28              		.code	16
+  29              		.thumb_func
+  30              		.type	main, %function
+  31              	main:
+  32              	.LFB33:
+  33              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <project.h>
+  13:.\main.c      **** 
+  14:.\main.c      **** #define DEBOUNCE_DELAY 13
+  15:.\main.c      **** #define CLUTCH_ENGAGE_DELAY_UP 70
+  16:.\main.c      **** #define CLUTCH_ENGAGE_DELAY_DOWN 150
+  17:.\main.c      **** #define CLUTCH_RELEASE_DELAY 20
+  18:.\main.c      **** #define SHIFT_ENGAGE_DELAY 165
+  19:.\main.c      **** #define NEUTRAL_FIND 50
+  20:.\main.c      **** 
+  21:.\main.c      **** #define UP_SHIFT_PADDLE 0x5   // 101
+  22:.\main.c      **** #define DOWN_SHIFT_PADDLE 0x6 // 110
+  23:.\main.c      **** #define NEUTRAL_BUTTON 0x3    // 011
+  24:.\main.c      **** 
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 2
+
+
+  25:.\main.c      **** int paddle;
+  26:.\main.c      **** int shifts = 0;
+  27:.\main.c      **** 
+  28:.\main.c      **** void Shift(int paddle);
+  29:.\main.c      **** 
+  30:.\main.c      **** int main()
+  31:.\main.c      **** {
+  34              		.loc 1 31 0
+  35              		.cfi_startproc
+  36 0000 80B5     		push	{r7, lr}
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 7, -8
+  39              		.cfi_offset 14, -4
+  40 0002 00AF     		add	r7, sp, #0
+  41              		.cfi_def_cfa_register 7
+  32:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  33:.\main.c      **** 
+  34:.\main.c      ****     CyGlobalIntEnable; //*/ /* Uncomment this line to enable global interrupts. */
+  42              		.loc 1 34 0
+  43              	@ 34 ".\main.c" 1
+  44 0004 62B6     		CPSIE   i
+  45              	@ 0 "" 2
+  46              		.code	16
+  47              	.L5:
+  35:.\main.c      ****     for(;;)
+  36:.\main.c      ****     {
+  37:.\main.c      ****         /* Place your application code here. */
+  38:.\main.c      ****         
+  39:.\main.c      ****         paddle = Steering_Wheel_Read();
+  48              		.loc 1 39 0
+  49 0006 FFF7FEFF 		bl	Steering_Wheel_Read
+  50 000a 031C     		mov	r3, r0
+  51 000c 1A1C     		mov	r2, r3
+  52 000e 124B     		ldr	r3, .L7
+  53 0010 1A60     		str	r2, [r3]
+  40:.\main.c      ****         
+  41:.\main.c      ****         if (paddle != 0x7) {
+  54              		.loc 1 41 0
+  55 0012 114B     		ldr	r3, .L7
+  56 0014 1B68     		ldr	r3, [r3]
+  57 0016 072B     		cmp	r3, #7
+  58 0018 19D0     		beq	.L2
+  42:.\main.c      ****             CyDelay(DEBOUNCE_DELAY);
+  59              		.loc 1 42 0
+  60 001a 0D20     		mov	r0, #13
+  61 001c FFF7FEFF 		bl	CyDelay
+  43:.\main.c      ****             if (paddle == Steering_Wheel_Read()) Shift(paddle);
+  62              		.loc 1 43 0
+  63 0020 FFF7FEFF 		bl	Steering_Wheel_Read
+  64 0024 031C     		mov	r3, r0
+  65 0026 1A1C     		mov	r2, r3
+  66 0028 0B4B     		ldr	r3, .L7
+  67 002a 1B68     		ldr	r3, [r3]
+  68 002c 9A42     		cmp	r2, r3
+  69 002e 05D1     		bne	.L3
+  70              		.loc 1 43 0 is_stmt 0 discriminator 1
+  71 0030 094B     		ldr	r3, .L7
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 3
+
+
+  72 0032 1B68     		ldr	r3, [r3]
+  73 0034 181C     		mov	r0, r3
+  74 0036 FFF7FEFF 		bl	Shift
+  44:.\main.c      ****             while (paddle == Steering_Wheel_Read());
+  75              		.loc 1 44 0 is_stmt 1 discriminator 1
+  76 003a FFE7     		b	.L6
+  77              	.L3:
+  78              	.L6:
+  79              		.loc 1 44 0 is_stmt 0
+  80 003c C046     		mov	r8, r8
+  81              	.L4:
+  82              		.loc 1 44 0 discriminator 1
+  83 003e FFF7FEFF 		bl	Steering_Wheel_Read
+  84 0042 031C     		mov	r3, r0
+  85 0044 1A1C     		mov	r2, r3
+  86 0046 044B     		ldr	r3, .L7
+  87 0048 1B68     		ldr	r3, [r3]
+  88 004a 9A42     		cmp	r2, r3
+  89 004c F7D0     		beq	.L4
+  90              	.L2:
+  45:.\main.c      ****         }
+  46:.\main.c      ****         
+  47:.\main.c      ****         CyDelayUs(200);
+  91              		.loc 1 47 0 is_stmt 1
+  92 004e C820     		mov	r0, #200
+  93 0050 FFF7FEFF 		bl	CyDelayUs
+  48:.\main.c      ****     }
+  94              		.loc 1 48 0
+  95 0054 D7E7     		b	.L5
+  96              	.L8:
+  97 0056 C046     		.align	2
+  98              	.L7:
+  99 0058 00000000 		.word	paddle
+ 100              		.cfi_endproc
+ 101              	.LFE33:
+ 102              		.size	main, .-main
+ 103              		.section	.text.Shift,"ax",%progbits
+ 104              		.align	2
+ 105              		.global	Shift
+ 106              		.code	16
+ 107              		.thumb_func
+ 108              		.type	Shift, %function
+ 109              	Shift:
+ 110              	.LFB34:
+  49:.\main.c      **** }
+  50:.\main.c      **** 
+  51:.\main.c      **** void Shift(int paddle) {
+ 111              		.loc 1 51 0
+ 112              		.cfi_startproc
+ 113 0000 80B5     		push	{r7, lr}
+ 114              		.cfi_def_cfa_offset 8
+ 115              		.cfi_offset 7, -8
+ 116              		.cfi_offset 14, -4
+ 117 0002 82B0     		sub	sp, sp, #8
+ 118              		.cfi_def_cfa_offset 16
+ 119 0004 00AF     		add	r7, sp, #0
+ 120              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 4
+
+
+ 121 0006 7860     		str	r0, [r7, #4]
+  52:.\main.c      ****     shifts++;
+ 122              		.loc 1 52 0
+ 123 0008 214B     		ldr	r3, .L13
+ 124 000a 1B68     		ldr	r3, [r3]
+ 125 000c 5A1C     		add	r2, r3, #1
+ 126 000e 204B     		ldr	r3, .L13
+ 127 0010 1A60     		str	r2, [r3]
+  53:.\main.c      ****     if (paddle == NEUTRAL_BUTTON) {
+ 128              		.loc 1 53 0
+ 129 0012 7B68     		ldr	r3, [r7, #4]
+ 130 0014 032B     		cmp	r3, #3
+ 131 0016 09D1     		bne	.L10
+  54:.\main.c      ****         Up_Shift_Air_Write(1);
+ 132              		.loc 1 54 0
+ 133 0018 0120     		mov	r0, #1
+ 134 001a FFF7FEFF 		bl	Up_Shift_Air_Write
+  55:.\main.c      ****         CyDelay(NEUTRAL_FIND);
+ 135              		.loc 1 55 0
+ 136 001e 3220     		mov	r0, #50
+ 137 0020 FFF7FEFF 		bl	CyDelay
+  56:.\main.c      ****         Up_Shift_Air_Write(0);
+ 138              		.loc 1 56 0
+ 139 0024 0020     		mov	r0, #0
+ 140 0026 FFF7FEFF 		bl	Up_Shift_Air_Write
+  57:.\main.c      ****         return;
+ 141              		.loc 1 57 0
+ 142 002a 2EE0     		b	.L9
+ 143              	.L10:
+  58:.\main.c      ****     }
+  59:.\main.c      ****     Engage_Clutch_Write(1);
+ 144              		.loc 1 59 0
+ 145 002c 0120     		mov	r0, #1
+ 146 002e FFF7FEFF 		bl	Engage_Clutch_Write
+  60:.\main.c      ****     if (paddle == UP_SHIFT_PADDLE) {
+ 147              		.loc 1 60 0
+ 148 0032 7B68     		ldr	r3, [r7, #4]
+ 149 0034 052B     		cmp	r3, #5
+ 150 0036 12D1     		bne	.L12
+  61:.\main.c      ****         CyDelay(CLUTCH_ENGAGE_DELAY_UP);
+ 151              		.loc 1 61 0
+ 152 0038 4620     		mov	r0, #70
+ 153 003a FFF7FEFF 		bl	CyDelay
+  62:.\main.c      ****         Up_Shift_Air_Write(1);
+ 154              		.loc 1 62 0
+ 155 003e 0120     		mov	r0, #1
+ 156 0040 FFF7FEFF 		bl	Up_Shift_Air_Write
+  63:.\main.c      ****         CyDelay(SHIFT_ENGAGE_DELAY);
+ 157              		.loc 1 63 0
+ 158 0044 A520     		mov	r0, #165
+ 159 0046 FFF7FEFF 		bl	CyDelay
+  64:.\main.c      ****         Up_Shift_Air_Write(0);
+ 160              		.loc 1 64 0
+ 161 004a 0020     		mov	r0, #0
+ 162 004c FFF7FEFF 		bl	Up_Shift_Air_Write
+  65:.\main.c      ****         CyDelay(CLUTCH_RELEASE_DELAY);
+ 163              		.loc 1 65 0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 5
+
+
+ 164 0050 1420     		mov	r0, #20
+ 165 0052 FFF7FEFF 		bl	CyDelay
+  66:.\main.c      ****         Engage_Clutch_Write(0);
+ 166              		.loc 1 66 0
+ 167 0056 0020     		mov	r0, #0
+ 168 0058 FFF7FEFF 		bl	Engage_Clutch_Write
+  67:.\main.c      ****         return;
+ 169              		.loc 1 67 0
+ 170 005c 15E0     		b	.L9
+ 171              	.L12:
+  68:.\main.c      ****     }
+  69:.\main.c      ****     if (paddle == DOWN_SHIFT_PADDLE) {
+ 172              		.loc 1 69 0
+ 173 005e 7B68     		ldr	r3, [r7, #4]
+ 174 0060 062B     		cmp	r3, #6
+ 175 0062 12D1     		bne	.L9
+  70:.\main.c      ****         CyDelay(CLUTCH_ENGAGE_DELAY_DOWN);
+ 176              		.loc 1 70 0
+ 177 0064 9620     		mov	r0, #150
+ 178 0066 FFF7FEFF 		bl	CyDelay
+  71:.\main.c      ****         Down_Shift_Air_Write(1);
+ 179              		.loc 1 71 0
+ 180 006a 0120     		mov	r0, #1
+ 181 006c FFF7FEFF 		bl	Down_Shift_Air_Write
+  72:.\main.c      ****         CyDelay(SHIFT_ENGAGE_DELAY);
+ 182              		.loc 1 72 0
+ 183 0070 A520     		mov	r0, #165
+ 184 0072 FFF7FEFF 		bl	CyDelay
+  73:.\main.c      ****         Down_Shift_Air_Write(0);
+ 185              		.loc 1 73 0
+ 186 0076 0020     		mov	r0, #0
+ 187 0078 FFF7FEFF 		bl	Down_Shift_Air_Write
+  74:.\main.c      ****         CyDelay(CLUTCH_RELEASE_DELAY);
+ 188              		.loc 1 74 0
+ 189 007c 1420     		mov	r0, #20
+ 190 007e FFF7FEFF 		bl	CyDelay
+  75:.\main.c      ****         Engage_Clutch_Write(0);
+ 191              		.loc 1 75 0
+ 192 0082 0020     		mov	r0, #0
+ 193 0084 FFF7FEFF 		bl	Engage_Clutch_Write
+  76:.\main.c      ****         return;
+ 194              		.loc 1 76 0
+ 195 0088 C046     		mov	r8, r8
+ 196              	.L9:
+  77:.\main.c      ****     }
+  78:.\main.c      **** }
+ 197              		.loc 1 78 0
+ 198 008a BD46     		mov	sp, r7
+ 199 008c 02B0     		add	sp, sp, #8
+ 200              		@ sp needed
+ 201 008e 80BD     		pop	{r7, pc}
+ 202              	.L14:
+ 203              		.align	2
+ 204              	.L13:
+ 205 0090 00000000 		.word	shifts
+ 206              		.cfi_endproc
+ 207              	.LFE34:
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 6
+
+
+ 208              		.size	Shift, .-Shift
+ 209              		.text
+ 210              	.Letext0:
+ 211              		.section	.debug_info,"",%progbits
+ 212              	.Ldebug_info0:
+ 213 0000 DF000000 		.4byte	0xdf
+ 214 0004 0400     		.2byte	0x4
+ 215 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 216 000a 04       		.byte	0x4
+ 217 000b 01       		.uleb128 0x1
+ 218 000c 57000000 		.4byte	.LASF15
+ 219 0010 01       		.byte	0x1
+ 220 0011 7A010000 		.4byte	.LASF16
+ 221 0015 25010000 		.4byte	.LASF17
+ 222 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 223 001d 00000000 		.4byte	0
+ 224 0021 00000000 		.4byte	.Ldebug_line0
+ 225 0025 02       		.uleb128 0x2
+ 226 0026 01       		.byte	0x1
+ 227 0027 06       		.byte	0x6
+ 228 0028 13010000 		.4byte	.LASF0
+ 229 002c 02       		.uleb128 0x2
+ 230 002d 01       		.byte	0x1
+ 231 002e 08       		.byte	0x8
+ 232 002f D3000000 		.4byte	.LASF1
+ 233 0033 02       		.uleb128 0x2
+ 234 0034 02       		.byte	0x2
+ 235 0035 05       		.byte	0x5
+ 236 0036 EF000000 		.4byte	.LASF2
+ 237 003a 02       		.uleb128 0x2
+ 238 003b 02       		.byte	0x2
+ 239 003c 07       		.byte	0x7
+ 240 003d 00010000 		.4byte	.LASF3
+ 241 0041 02       		.uleb128 0x2
+ 242 0042 04       		.byte	0x4
+ 243 0043 05       		.byte	0x5
+ 244 0044 E6000000 		.4byte	.LASF4
+ 245 0048 02       		.uleb128 0x2
+ 246 0049 04       		.byte	0x4
+ 247 004a 07       		.byte	0x7
+ 248 004b 2E000000 		.4byte	.LASF5
+ 249 004f 02       		.uleb128 0x2
+ 250 0050 08       		.byte	0x8
+ 251 0051 05       		.byte	0x5
+ 252 0052 00000000 		.4byte	.LASF6
+ 253 0056 02       		.uleb128 0x2
+ 254 0057 08       		.byte	0x8
+ 255 0058 07       		.byte	0x7
+ 256 0059 40000000 		.4byte	.LASF7
+ 257 005d 03       		.uleb128 0x3
+ 258 005e 04       		.byte	0x4
+ 259 005f 05       		.byte	0x5
+ 260 0060 696E7400 		.ascii	"int\000"
+ 261 0064 02       		.uleb128 0x2
+ 262 0065 04       		.byte	0x4
+ 263 0066 07       		.byte	0x7
+ 264 0067 0E000000 		.4byte	.LASF8
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 7
+
+
+ 265 006b 02       		.uleb128 0x2
+ 266 006c 04       		.byte	0x4
+ 267 006d 04       		.byte	0x4
+ 268 006e 1F010000 		.4byte	.LASF9
+ 269 0072 02       		.uleb128 0x2
+ 270 0073 08       		.byte	0x8
+ 271 0074 04       		.byte	0x4
+ 272 0075 F9000000 		.4byte	.LASF10
+ 273 0079 02       		.uleb128 0x2
+ 274 007a 01       		.byte	0x1
+ 275 007b 08       		.byte	0x8
+ 276 007c E1000000 		.4byte	.LASF11
+ 277 0080 02       		.uleb128 0x2
+ 278 0081 04       		.byte	0x4
+ 279 0082 07       		.byte	0x7
+ 280 0083 89010000 		.4byte	.LASF12
+ 281 0087 04       		.uleb128 0x4
+ 282 0088 22000000 		.4byte	.LASF18
+ 283 008c 01       		.byte	0x1
+ 284 008d 1E       		.byte	0x1e
+ 285 008e 5D000000 		.4byte	0x5d
+ 286 0092 00000000 		.4byte	.LFB33
+ 287 0096 5C000000 		.4byte	.LFE33-.LFB33
+ 288 009a 01       		.uleb128 0x1
+ 289 009b 9C       		.byte	0x9c
+ 290 009c 05       		.uleb128 0x5
+ 291 009d 83010000 		.4byte	.LASF19
+ 292 00a1 01       		.byte	0x1
+ 293 00a2 33       		.byte	0x33
+ 294 00a3 00000000 		.4byte	.LFB34
+ 295 00a7 94000000 		.4byte	.LFE34-.LFB34
+ 296 00ab 01       		.uleb128 0x1
+ 297 00ac 9C       		.byte	0x9c
+ 298 00ad C0000000 		.4byte	0xc0
+ 299 00b1 06       		.uleb128 0x6
+ 300 00b2 1B000000 		.4byte	.LASF13
+ 301 00b6 01       		.byte	0x1
+ 302 00b7 33       		.byte	0x33
+ 303 00b8 5D000000 		.4byte	0x5d
+ 304 00bc 02       		.uleb128 0x2
+ 305 00bd 91       		.byte	0x91
+ 306 00be 74       		.sleb128 -12
+ 307 00bf 00       		.byte	0
+ 308 00c0 07       		.uleb128 0x7
+ 309 00c1 1B000000 		.4byte	.LASF13
+ 310 00c5 01       		.byte	0x1
+ 311 00c6 19       		.byte	0x19
+ 312 00c7 5D000000 		.4byte	0x5d
+ 313 00cb 05       		.uleb128 0x5
+ 314 00cc 03       		.byte	0x3
+ 315 00cd 00000000 		.4byte	paddle
+ 316 00d1 07       		.uleb128 0x7
+ 317 00d2 27000000 		.4byte	.LASF14
+ 318 00d6 01       		.byte	0x1
+ 319 00d7 1A       		.byte	0x1a
+ 320 00d8 5D000000 		.4byte	0x5d
+ 321 00dc 05       		.uleb128 0x5
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 8
+
+
+ 322 00dd 03       		.byte	0x3
+ 323 00de 00000000 		.4byte	shifts
+ 324 00e2 00       		.byte	0
+ 325              		.section	.debug_abbrev,"",%progbits
+ 326              	.Ldebug_abbrev0:
+ 327 0000 01       		.uleb128 0x1
+ 328 0001 11       		.uleb128 0x11
+ 329 0002 01       		.byte	0x1
+ 330 0003 25       		.uleb128 0x25
+ 331 0004 0E       		.uleb128 0xe
+ 332 0005 13       		.uleb128 0x13
+ 333 0006 0B       		.uleb128 0xb
+ 334 0007 03       		.uleb128 0x3
+ 335 0008 0E       		.uleb128 0xe
+ 336 0009 1B       		.uleb128 0x1b
+ 337 000a 0E       		.uleb128 0xe
+ 338 000b 55       		.uleb128 0x55
+ 339 000c 17       		.uleb128 0x17
+ 340 000d 11       		.uleb128 0x11
+ 341 000e 01       		.uleb128 0x1
+ 342 000f 10       		.uleb128 0x10
+ 343 0010 17       		.uleb128 0x17
+ 344 0011 00       		.byte	0
+ 345 0012 00       		.byte	0
+ 346 0013 02       		.uleb128 0x2
+ 347 0014 24       		.uleb128 0x24
+ 348 0015 00       		.byte	0
+ 349 0016 0B       		.uleb128 0xb
+ 350 0017 0B       		.uleb128 0xb
+ 351 0018 3E       		.uleb128 0x3e
+ 352 0019 0B       		.uleb128 0xb
+ 353 001a 03       		.uleb128 0x3
+ 354 001b 0E       		.uleb128 0xe
+ 355 001c 00       		.byte	0
+ 356 001d 00       		.byte	0
+ 357 001e 03       		.uleb128 0x3
+ 358 001f 24       		.uleb128 0x24
+ 359 0020 00       		.byte	0
+ 360 0021 0B       		.uleb128 0xb
+ 361 0022 0B       		.uleb128 0xb
+ 362 0023 3E       		.uleb128 0x3e
+ 363 0024 0B       		.uleb128 0xb
+ 364 0025 03       		.uleb128 0x3
+ 365 0026 08       		.uleb128 0x8
+ 366 0027 00       		.byte	0
+ 367 0028 00       		.byte	0
+ 368 0029 04       		.uleb128 0x4
+ 369 002a 2E       		.uleb128 0x2e
+ 370 002b 00       		.byte	0
+ 371 002c 3F       		.uleb128 0x3f
+ 372 002d 19       		.uleb128 0x19
+ 373 002e 03       		.uleb128 0x3
+ 374 002f 0E       		.uleb128 0xe
+ 375 0030 3A       		.uleb128 0x3a
+ 376 0031 0B       		.uleb128 0xb
+ 377 0032 3B       		.uleb128 0x3b
+ 378 0033 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 9
+
+
+ 379 0034 49       		.uleb128 0x49
+ 380 0035 13       		.uleb128 0x13
+ 381 0036 11       		.uleb128 0x11
+ 382 0037 01       		.uleb128 0x1
+ 383 0038 12       		.uleb128 0x12
+ 384 0039 06       		.uleb128 0x6
+ 385 003a 40       		.uleb128 0x40
+ 386 003b 18       		.uleb128 0x18
+ 387 003c 9642     		.uleb128 0x2116
+ 388 003e 19       		.uleb128 0x19
+ 389 003f 00       		.byte	0
+ 390 0040 00       		.byte	0
+ 391 0041 05       		.uleb128 0x5
+ 392 0042 2E       		.uleb128 0x2e
+ 393 0043 01       		.byte	0x1
+ 394 0044 3F       		.uleb128 0x3f
+ 395 0045 19       		.uleb128 0x19
+ 396 0046 03       		.uleb128 0x3
+ 397 0047 0E       		.uleb128 0xe
+ 398 0048 3A       		.uleb128 0x3a
+ 399 0049 0B       		.uleb128 0xb
+ 400 004a 3B       		.uleb128 0x3b
+ 401 004b 0B       		.uleb128 0xb
+ 402 004c 27       		.uleb128 0x27
+ 403 004d 19       		.uleb128 0x19
+ 404 004e 11       		.uleb128 0x11
+ 405 004f 01       		.uleb128 0x1
+ 406 0050 12       		.uleb128 0x12
+ 407 0051 06       		.uleb128 0x6
+ 408 0052 40       		.uleb128 0x40
+ 409 0053 18       		.uleb128 0x18
+ 410 0054 9642     		.uleb128 0x2116
+ 411 0056 19       		.uleb128 0x19
+ 412 0057 01       		.uleb128 0x1
+ 413 0058 13       		.uleb128 0x13
+ 414 0059 00       		.byte	0
+ 415 005a 00       		.byte	0
+ 416 005b 06       		.uleb128 0x6
+ 417 005c 05       		.uleb128 0x5
+ 418 005d 00       		.byte	0
+ 419 005e 03       		.uleb128 0x3
+ 420 005f 0E       		.uleb128 0xe
+ 421 0060 3A       		.uleb128 0x3a
+ 422 0061 0B       		.uleb128 0xb
+ 423 0062 3B       		.uleb128 0x3b
+ 424 0063 0B       		.uleb128 0xb
+ 425 0064 49       		.uleb128 0x49
+ 426 0065 13       		.uleb128 0x13
+ 427 0066 02       		.uleb128 0x2
+ 428 0067 18       		.uleb128 0x18
+ 429 0068 00       		.byte	0
+ 430 0069 00       		.byte	0
+ 431 006a 07       		.uleb128 0x7
+ 432 006b 34       		.uleb128 0x34
+ 433 006c 00       		.byte	0
+ 434 006d 03       		.uleb128 0x3
+ 435 006e 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 10
+
+
+ 436 006f 3A       		.uleb128 0x3a
+ 437 0070 0B       		.uleb128 0xb
+ 438 0071 3B       		.uleb128 0x3b
+ 439 0072 0B       		.uleb128 0xb
+ 440 0073 49       		.uleb128 0x49
+ 441 0074 13       		.uleb128 0x13
+ 442 0075 3F       		.uleb128 0x3f
+ 443 0076 19       		.uleb128 0x19
+ 444 0077 02       		.uleb128 0x2
+ 445 0078 18       		.uleb128 0x18
+ 446 0079 00       		.byte	0
+ 447 007a 00       		.byte	0
+ 448 007b 00       		.byte	0
+ 449              		.section	.debug_aranges,"",%progbits
+ 450 0000 24000000 		.4byte	0x24
+ 451 0004 0200     		.2byte	0x2
+ 452 0006 00000000 		.4byte	.Ldebug_info0
+ 453 000a 04       		.byte	0x4
+ 454 000b 00       		.byte	0
+ 455 000c 0000     		.2byte	0
+ 456 000e 0000     		.2byte	0
+ 457 0010 00000000 		.4byte	.LFB33
+ 458 0014 5C000000 		.4byte	.LFE33-.LFB33
+ 459 0018 00000000 		.4byte	.LFB34
+ 460 001c 94000000 		.4byte	.LFE34-.LFB34
+ 461 0020 00000000 		.4byte	0
+ 462 0024 00000000 		.4byte	0
+ 463              		.section	.debug_ranges,"",%progbits
+ 464              	.Ldebug_ranges0:
+ 465 0000 00000000 		.4byte	.LFB33
+ 466 0004 5C000000 		.4byte	.LFE33
+ 467 0008 00000000 		.4byte	.LFB34
+ 468 000c 94000000 		.4byte	.LFE34
+ 469 0010 00000000 		.4byte	0
+ 470 0014 00000000 		.4byte	0
+ 471              		.section	.debug_line,"",%progbits
+ 472              	.Ldebug_line0:
+ 473 0000 76000000 		.section	.debug_str,"MS",%progbits,1
+ 473      02001F00 
+ 473      00000201 
+ 473      FB0E0D00 
+ 473      01010101 
+ 474              	.LASF6:
+ 475 0000 6C6F6E67 		.ascii	"long long int\000"
+ 475      206C6F6E 
+ 475      6720696E 
+ 475      7400
+ 476              	.LASF8:
+ 477 000e 756E7369 		.ascii	"unsigned int\000"
+ 477      676E6564 
+ 477      20696E74 
+ 477      00
+ 478              	.LASF13:
+ 479 001b 70616464 		.ascii	"paddle\000"
+ 479      6C6500
+ 480              	.LASF18:
+ 481 0022 6D61696E 		.ascii	"main\000"
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 11
+
+
+ 481      00
+ 482              	.LASF14:
+ 483 0027 73686966 		.ascii	"shifts\000"
+ 483      747300
+ 484              	.LASF5:
+ 485 002e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 485      20756E73 
+ 485      69676E65 
+ 485      6420696E 
+ 485      7400
+ 486              	.LASF7:
+ 487 0040 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 487      206C6F6E 
+ 487      6720756E 
+ 487      7369676E 
+ 487      65642069 
+ 488              	.LASF15:
+ 489 0057 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 489      4320342E 
+ 489      382E3420 
+ 489      32303134 
+ 489      30353236 
+ 490 008a 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 490      20726576 
+ 490      6973696F 
+ 490      6E203231 
+ 490      31333538 
+ 491 00bd 30202D66 		.ascii	"0 -ffunction-sections\000"
+ 491      66756E63 
+ 491      74696F6E 
+ 491      2D736563 
+ 491      74696F6E 
+ 492              	.LASF1:
+ 493 00d3 756E7369 		.ascii	"unsigned char\000"
+ 493      676E6564 
+ 493      20636861 
+ 493      7200
+ 494              	.LASF11:
+ 495 00e1 63686172 		.ascii	"char\000"
+ 495      00
+ 496              	.LASF4:
+ 497 00e6 6C6F6E67 		.ascii	"long int\000"
+ 497      20696E74 
+ 497      00
+ 498              	.LASF2:
+ 499 00ef 73686F72 		.ascii	"short int\000"
+ 499      7420696E 
+ 499      7400
+ 500              	.LASF10:
+ 501 00f9 646F7562 		.ascii	"double\000"
+ 501      6C6500
+ 502              	.LASF3:
+ 503 0100 73686F72 		.ascii	"short unsigned int\000"
+ 503      7420756E 
+ 503      7369676E 
+ 503      65642069 
+ 503      6E7400
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccFOWhig.s 			page 12
+
+
+ 504              	.LASF0:
+ 505 0113 7369676E 		.ascii	"signed char\000"
+ 505      65642063 
+ 505      68617200 
+ 506              	.LASF9:
+ 507 011f 666C6F61 		.ascii	"float\000"
+ 507      7400
+ 508              	.LASF17:
+ 509 0125 433A5C55 		.ascii	"C:\\Users\\Eric\\Development\\PSoC\\ShiftingStandal"
+ 509      73657273 
+ 509      5C457269 
+ 509      635C4465 
+ 509      76656C6F 
+ 510 0153 6F6E654E 		.ascii	"oneNoise\\ShiftingStandaloneNoise.cydsn\000"
+ 510      6F697365 
+ 510      5C536869 
+ 510      6674696E 
+ 510      67537461 
+ 511              	.LASF16:
+ 512 017a 2E5C6D61 		.ascii	".\\main.c\000"
+ 512      696E2E63 
+ 512      00
+ 513              	.LASF19:
+ 514 0183 53686966 		.ascii	"Shift\000"
+ 514      7400
+ 515              	.LASF12:
+ 516 0189 73697A65 		.ascii	"sizetype\000"
+ 516      74797065 
+ 516      00
+ 517              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br
