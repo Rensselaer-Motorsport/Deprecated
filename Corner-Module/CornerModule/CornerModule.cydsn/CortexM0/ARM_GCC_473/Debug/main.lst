@@ -1,0 +1,1034 @@
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.bytecombine,"ax",%progbits
+  18              		.align	2
+  19              		.global	bytecombine
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	bytecombine, %function
+  23              	bytecombine:
+  24              	.LFB33:
+  25              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <project.h>
+  13:.\main.c      **** //#include <stdio.h>
+  14:.\main.c      **** #define MPU 0b1101000
+  15:.\main.c      **** 
+  16:.\main.c      **** 
+  17:.\main.c      **** int16 bytecombine(uint8,uint8); //Combines high and low bytes to form a 16 bit int
+  18:.\main.c      **** int16 readacc(int16); //Reads from the accelerometer and returns a 16 bit int
+  19:.\main.c      **** void I2CInit(); //Initializes the accelerometer with the range,etc.
+  20:.\main.c      **** 
+  21:.\main.c      **** int16 bytecombine(uint8 msb, uint8 lsb) //Used for combining the high and low bytes from the accele
+  22:.\main.c      **** {
+  26              		.loc 1 22 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 7, -8
+  32              		.cfi_offset 14, -4
+  33 0002 84B0     		sub	sp, sp, #16
+  34              	.LCFI1:
+  35              		.cfi_def_cfa_offset 24
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 2
+
+
+  36 0004 00AF     		add	r7, sp, #0
+  37              	.LCFI2:
+  38              		.cfi_def_cfa_register 7
+  39 0006 0A1C     		mov	r2, r1
+  40 0008 FB1D     		add	r3, r7, #7
+  41 000a 011C     		add	r1, r0, #0
+  42 000c 1970     		strb	r1, [r3]
+  43 000e BB1D     		add	r3, r7, #6
+  44 0010 1A70     		strb	r2, [r3]
+  23:.\main.c      ****     //Takes a msbyte and lsbyte, msb 8 bits with sign bit, lsb 4 bits with last 4 zero.
+  24:.\main.c      ****     int16 temp = msb;
+  45              		.loc 1 24 0
+  46 0012 3B1C     		mov	r3, r7
+  47 0014 0E33     		add	r3, r3, #14
+  48 0016 FA1D     		add	r2, r7, #7
+  49 0018 1278     		ldrb	r2, [r2]
+  50 001a 1A80     		strh	r2, [r3]
+  25:.\main.c      ****     temp <<= 8; //shift 8 most significant bits into high byte
+  51              		.loc 1 25 0
+  52 001c 3B1C     		mov	r3, r7
+  53 001e 0E33     		add	r3, r3, #14
+  54 0020 0022     		mov	r2, #0
+  55 0022 9B5E     		ldrsh	r3, [r3, r2]
+  56 0024 1A02     		lsl	r2, r3, #8
+  57 0026 3B1C     		mov	r3, r7
+  58 0028 0E33     		add	r3, r3, #14
+  59 002a 1A80     		strh	r2, [r3]
+  26:.\main.c      ****     temp = temp | lsb; //add lower 8 bits 
+  60              		.loc 1 26 0
+  61 002c BB1D     		add	r3, r7, #6
+  62 002e 1B78     		ldrb	r3, [r3]
+  63 0030 99B2     		uxth	r1, r3
+  64 0032 3B1C     		mov	r3, r7
+  65 0034 0E33     		add	r3, r3, #14
+  66 0036 3A1C     		mov	r2, r7
+  67 0038 0E32     		add	r2, r2, #14
+  68 003a 1288     		ldrh	r2, [r2]
+  69 003c 0A43     		orr	r2, r1
+  70 003e 1A80     		strh	r2, [r3]
+  27:.\main.c      ****     return temp;
+  71              		.loc 1 27 0
+  72 0040 3B1C     		mov	r3, r7
+  73 0042 0E33     		add	r3, r3, #14
+  74 0044 1B88     		ldrh	r3, [r3]
+  75 0046 1BB2     		sxth	r3, r3
+  28:.\main.c      **** }
+  76              		.loc 1 28 0
+  77 0048 181C     		mov	r0, r3
+  78 004a BD46     		mov	sp, r7
+  79 004c 04B0     		add	sp, sp, #16
+  80              		@ sp needed for prologue
+  81 004e 80BD     		pop	{r7, pc}
+  82              		.cfi_endproc
+  83              	.LFE33:
+  84              		.size	bytecombine, .-bytecombine
+  85              		.section	.text.readacc,"ax",%progbits
+  86              		.align	2
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 3
+
+
+  87              		.global	readacc
+  88              		.code	16
+  89              		.thumb_func
+  90              		.type	readacc, %function
+  91              	readacc:
+  92              	.LFB34:
+  29:.\main.c      **** 
+  30:.\main.c      **** int16 readacc(int16 address) //address is the address of the first register for the axis you want t
+  31:.\main.c      **** {
+  93              		.loc 1 31 0
+  94              		.cfi_startproc
+  95 0000 80B5     		push	{r7, lr}
+  96              	.LCFI3:
+  97              		.cfi_def_cfa_offset 8
+  98              		.cfi_offset 7, -8
+  99              		.cfi_offset 14, -4
+ 100 0002 84B0     		sub	sp, sp, #16
+ 101              	.LCFI4:
+ 102              		.cfi_def_cfa_offset 24
+ 103 0004 00AF     		add	r7, sp, #0
+ 104              	.LCFI5:
+ 105              		.cfi_def_cfa_register 7
+ 106 0006 021C     		mov	r2, r0
+ 107 0008 BB1D     		add	r3, r7, #6
+ 108 000a 1A80     		strh	r2, [r3]
+  32:.\main.c      ****     //address = 3B for X axis
+  33:.\main.c      ****     //        = 3D for Y axis
+  34:.\main.c      ****     //        = 3F for Z axis
+  35:.\main.c      ****     I2C_1_I2CMasterSendStart(MPU,0); //2nd parameter: 0 for write, 1 for reading
+ 109              		.loc 1 35 0
+ 110 000c 6820     		mov	r0, #104
+ 111 000e 0021     		mov	r1, #0
+ 112 0010 FFF7FEFF 		bl	I2C_1_I2CMasterSendStart
+  36:.\main.c      ****     I2C_1_I2CMasterWriteByte(address); //Select which register to read from
+ 113              		.loc 1 36 0
+ 114 0014 BB1D     		add	r3, r7, #6
+ 115 0016 0022     		mov	r2, #0
+ 116 0018 9B5E     		ldrsh	r3, [r3, r2]
+ 117 001a 181C     		mov	r0, r3
+ 118 001c FFF7FEFF 		bl	I2C_1_I2CMasterWriteByte
+  37:.\main.c      ****     I2C_1_I2CMasterSendRestart(MPU,1);
+ 119              		.loc 1 37 0
+ 120 0020 6820     		mov	r0, #104
+ 121 0022 0121     		mov	r1, #1
+ 122 0024 FFF7FEFF 		bl	I2C_1_I2CMasterSendRestart
+  38:.\main.c      ****     uint8 msb = I2C_1_I2CMasterReadByte(1);
+ 123              		.loc 1 38 0
+ 124 0028 0120     		mov	r0, #1
+ 125 002a FFF7FEFF 		bl	I2C_1_I2CMasterReadByte
+ 126 002e 021C     		mov	r2, r0
+ 127 0030 3B1C     		mov	r3, r7
+ 128 0032 0F33     		add	r3, r3, #15
+ 129 0034 1A70     		strb	r2, [r3]
+  39:.\main.c      ****     I2C_1_I2CMasterSendRestart(MPU,1);
+ 130              		.loc 1 39 0
+ 131 0036 6820     		mov	r0, #104
+ 132 0038 0121     		mov	r1, #1
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 4
+
+
+ 133 003a FFF7FEFF 		bl	I2C_1_I2CMasterSendRestart
+  40:.\main.c      ****     uint8 lsb = I2C_1_I2CMasterReadByte(1);
+ 134              		.loc 1 40 0
+ 135 003e 0120     		mov	r0, #1
+ 136 0040 FFF7FEFF 		bl	I2C_1_I2CMasterReadByte
+ 137 0044 021C     		mov	r2, r0
+ 138 0046 3B1C     		mov	r3, r7
+ 139 0048 0E33     		add	r3, r3, #14
+ 140 004a 1A70     		strb	r2, [r3]
+  41:.\main.c      ****     I2C_1_I2CMasterSendStop();
+ 141              		.loc 1 41 0
+ 142 004c FFF7FEFF 		bl	I2C_1_I2CMasterSendStop
+  42:.\main.c      ****     return bytecombine(msb,lsb);
+ 143              		.loc 1 42 0
+ 144 0050 3B1C     		mov	r3, r7
+ 145 0052 0F33     		add	r3, r3, #15
+ 146 0054 1A78     		ldrb	r2, [r3]
+ 147 0056 3B1C     		mov	r3, r7
+ 148 0058 0E33     		add	r3, r3, #14
+ 149 005a 1B78     		ldrb	r3, [r3]
+ 150 005c 101C     		mov	r0, r2
+ 151 005e 191C     		mov	r1, r3
+ 152 0060 FFF7FEFF 		bl	bytecombine
+ 153 0064 031C     		mov	r3, r0
+  43:.\main.c      **** }
+ 154              		.loc 1 43 0
+ 155 0066 181C     		mov	r0, r3
+ 156 0068 BD46     		mov	sp, r7
+ 157 006a 04B0     		add	sp, sp, #16
+ 158              		@ sp needed for prologue
+ 159 006c 80BD     		pop	{r7, pc}
+ 160              		.cfi_endproc
+ 161              	.LFE34:
+ 162              		.size	readacc, .-readacc
+ 163 006e C046     		.section	.text.I2CInit,"ax",%progbits
+ 164              		.align	2
+ 165              		.global	I2CInit
+ 166              		.code	16
+ 167              		.thumb_func
+ 168              		.type	I2CInit, %function
+ 169              	I2CInit:
+ 170              	.LFB35:
+  44:.\main.c      **** 
+  45:.\main.c      **** void I2CInit()
+  46:.\main.c      **** {
+ 171              		.loc 1 46 0
+ 172              		.cfi_startproc
+ 173 0000 80B5     		push	{r7, lr}
+ 174              	.LCFI6:
+ 175              		.cfi_def_cfa_offset 8
+ 176              		.cfi_offset 7, -8
+ 177              		.cfi_offset 14, -4
+ 178 0002 00AF     		add	r7, sp, #0
+ 179              	.LCFI7:
+ 180              		.cfi_def_cfa_register 7
+  47:.\main.c      ****     I2C_1_Start(); //Turn on the I2c component first
+ 181              		.loc 1 47 0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 5
+
+
+ 182 0004 FFF7FEFF 		bl	I2C_1_Start
+  48:.\main.c      ****     //Sets the configuration of the accelerometer
+  49:.\main.c      ****     I2C_1_I2CMasterSendStart(MPU,I2C_1_I2C_WRITE_XFER_MODE);
+ 183              		.loc 1 49 0
+ 184 0008 6820     		mov	r0, #104
+ 185 000a 0021     		mov	r1, #0
+ 186 000c FFF7FEFF 		bl	I2C_1_I2CMasterSendStart
+  50:.\main.c      ****     I2C_1_I2CMasterWriteByte(0x1C);
+ 187              		.loc 1 50 0
+ 188 0010 1C20     		mov	r0, #28
+ 189 0012 FFF7FEFF 		bl	I2C_1_I2CMasterWriteByte
+  51:.\main.c      ****     I2C_1_I2CMasterSendStop();
+ 190              		.loc 1 51 0
+ 191 0016 FFF7FEFF 		bl	I2C_1_I2CMasterSendStop
+  52:.\main.c      **** }
+ 192              		.loc 1 52 0
+ 193 001a BD46     		mov	sp, r7
+ 194              		@ sp needed for prologue
+ 195 001c 80BD     		pop	{r7, pc}
+ 196              		.cfi_endproc
+ 197              	.LFE35:
+ 198              		.size	I2CInit, .-I2CInit
+ 199 001e C046     		.section	.text.main,"ax",%progbits
+ 200              		.align	2
+ 201              		.global	main
+ 202              		.code	16
+ 203              		.thumb_func
+ 204              		.type	main, %function
+ 205              	main:
+ 206              	.LFB36:
+  53:.\main.c      **** 
+  54:.\main.c      **** int main()
+  55:.\main.c      **** {
+ 207              		.loc 1 55 0
+ 208              		.cfi_startproc
+ 209 0000 80B5     		push	{r7, lr}
+ 210              	.LCFI8:
+ 211              		.cfi_def_cfa_offset 8
+ 212              		.cfi_offset 7, -8
+ 213              		.cfi_offset 14, -4
+ 214 0002 82B0     		sub	sp, sp, #8
+ 215              	.LCFI9:
+ 216              		.cfi_def_cfa_offset 16
+ 217 0004 00AF     		add	r7, sp, #0
+ 218              	.LCFI10:
+ 219              		.cfi_def_cfa_register 7
+  56:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  57:.\main.c      ****     CyGlobalIntEnable;
+ 220              		.loc 1 57 0
+ 221              	@ 57 ".\main.c" 1
+ 222 0006 62B6     		CPSIE   i
+ 223              	@ 0 "" 2
+  58:.\main.c      **** 
+  59:.\main.c      ****     CyDelay(1);
+ 224              		.loc 1 59 0
+ 225              		.code	16
+ 226 0008 0120     		mov	r0, #1
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 6
+
+
+ 227 000a FFF7FEFF 		bl	CyDelay
+  60:.\main.c      ****     I2CInit();
+ 228              		.loc 1 60 0
+ 229 000e FFF7FEFF 		bl	I2CInit
+ 230              	.L7:
+ 231              	.LBB2:
+  61:.\main.c      ****     /* CyGlobalIntEnable; */ /* Uncomment this line to enable global interrupts. */
+  62:.\main.c      ****     for(;;)
+  63:.\main.c      ****     {
+  64:.\main.c      ****         /* Place your application code here. */
+  65:.\main.c      ****         uint16 accx = readacc(0x3B); //3B for x axis
+ 232              		.loc 1 65 0 discriminator 1
+ 233 0012 3B20     		mov	r0, #59
+ 234 0014 FFF7FEFF 		bl	readacc
+ 235 0018 031C     		mov	r3, r0
+ 236 001a 1A1C     		mov	r2, r3
+ 237 001c BB1D     		add	r3, r7, #6
+ 238 001e 1A80     		strh	r2, [r3]
+  66:.\main.c      ****        // char string[15];
+  67:.\main.c      ****        // sprintf(string,"%d",accx);
+  68:.\main.c      ****         CyDelay(10);
+ 239              		.loc 1 68 0 discriminator 1
+ 240 0020 0A20     		mov	r0, #10
+ 241 0022 FFF7FEFF 		bl	CyDelay
+ 242              	.LBE2:
+  69:.\main.c      ****     }
+ 243              		.loc 1 69 0 discriminator 1
+ 244 0026 F4E7     		b	.L7
+ 245              		.cfi_endproc
+ 246              	.LFE36:
+ 247              		.size	main, .-main
+ 248              		.text
+ 249              	.Letext0:
+ 250              		.file 2 "./Generated_Source/PSoC4/cytypes.h"
+ 251              		.section	.debug_info,"",%progbits
+ 252              	.Ldebug_info0:
+ 253 0000 82010000 		.4byte	0x182
+ 254 0004 0200     		.2byte	0x2
+ 255 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 256 000a 04       		.byte	0x4
+ 257 000b 01       		.uleb128 0x1
+ 258 000c 25000000 		.4byte	.LASF21
+ 259 0010 01       		.byte	0x1
+ 260 0011 63010000 		.4byte	.LASF22
+ 261 0015 9D000000 		.4byte	.LASF23
+ 262 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 263 001d 00000000 		.4byte	0
+ 264 0021 00000000 		.4byte	0
+ 265 0025 00000000 		.4byte	.Ldebug_line0
+ 266 0029 02       		.uleb128 0x2
+ 267 002a 01       		.byte	0x1
+ 268 002b 06       		.byte	0x6
+ 269 002c 3A010000 		.4byte	.LASF0
+ 270 0030 02       		.uleb128 0x2
+ 271 0031 01       		.byte	0x1
+ 272 0032 08       		.byte	0x8
+ 273 0033 F2000000 		.4byte	.LASF1
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 7
+
+
+ 274 0037 02       		.uleb128 0x2
+ 275 0038 02       		.byte	0x2
+ 276 0039 05       		.byte	0x5
+ 277 003a 0E010000 		.4byte	.LASF2
+ 278 003e 02       		.uleb128 0x2
+ 279 003f 02       		.byte	0x2
+ 280 0040 07       		.byte	0x7
+ 281 0041 27010000 		.4byte	.LASF3
+ 282 0045 02       		.uleb128 0x2
+ 283 0046 04       		.byte	0x4
+ 284 0047 05       		.byte	0x5
+ 285 0048 05010000 		.4byte	.LASF4
+ 286 004c 02       		.uleb128 0x2
+ 287 004d 04       		.byte	0x4
+ 288 004e 07       		.byte	0x7
+ 289 004f 74000000 		.4byte	.LASF5
+ 290 0053 02       		.uleb128 0x2
+ 291 0054 08       		.byte	0x8
+ 292 0055 05       		.byte	0x5
+ 293 0056 00000000 		.4byte	.LASF6
+ 294 005a 02       		.uleb128 0x2
+ 295 005b 08       		.byte	0x8
+ 296 005c 07       		.byte	0x7
+ 297 005d 86000000 		.4byte	.LASF7
+ 298 0061 03       		.uleb128 0x3
+ 299 0062 04       		.byte	0x4
+ 300 0063 05       		.byte	0x5
+ 301 0064 696E7400 		.ascii	"int\000"
+ 302 0068 02       		.uleb128 0x2
+ 303 0069 04       		.byte	0x4
+ 304 006a 07       		.byte	0x7
+ 305 006b 0E000000 		.4byte	.LASF8
+ 306 006f 04       		.uleb128 0x4
+ 307 0070 6E000000 		.4byte	.LASF9
+ 308 0074 02       		.byte	0x2
+ 309 0075 5B       		.byte	0x5b
+ 310 0076 30000000 		.4byte	0x30
+ 311 007a 04       		.uleb128 0x4
+ 312 007b 6C010000 		.4byte	.LASF10
+ 313 007f 02       		.byte	0x2
+ 314 0080 5C       		.byte	0x5c
+ 315 0081 3E000000 		.4byte	0x3e
+ 316 0085 04       		.uleb128 0x4
+ 317 0086 5D010000 		.4byte	.LASF11
+ 318 008a 02       		.byte	0x2
+ 319 008b 5F       		.byte	0x5f
+ 320 008c 37000000 		.4byte	0x37
+ 321 0090 02       		.uleb128 0x2
+ 322 0091 04       		.byte	0x4
+ 323 0092 04       		.byte	0x4
+ 324 0093 57010000 		.4byte	.LASF12
+ 325 0097 02       		.uleb128 0x2
+ 326 0098 08       		.byte	0x8
+ 327 0099 04       		.byte	0x4
+ 328 009a 18010000 		.4byte	.LASF13
+ 329 009e 02       		.uleb128 0x2
+ 330 009f 01       		.byte	0x1
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 8
+
+
+ 331 00a0 08       		.byte	0x8
+ 332 00a1 00010000 		.4byte	.LASF14
+ 333 00a5 02       		.uleb128 0x2
+ 334 00a6 04       		.byte	0x4
+ 335 00a7 07       		.byte	0x7
+ 336 00a8 7B010000 		.4byte	.LASF15
+ 337 00ac 05       		.uleb128 0x5
+ 338 00ad 01       		.byte	0x1
+ 339 00ae 4B010000 		.4byte	.LASF16
+ 340 00b2 01       		.byte	0x1
+ 341 00b3 15       		.byte	0x15
+ 342 00b4 01       		.byte	0x1
+ 343 00b5 85000000 		.4byte	0x85
+ 344 00b9 00000000 		.4byte	.LFB33
+ 345 00bd 50000000 		.4byte	.LFE33
+ 346 00c1 00000000 		.4byte	.LLST0
+ 347 00c5 01       		.byte	0x1
+ 348 00c6 F5000000 		.4byte	0xf5
+ 349 00ca 06       		.uleb128 0x6
+ 350 00cb 6D736200 		.ascii	"msb\000"
+ 351 00cf 01       		.byte	0x1
+ 352 00d0 15       		.byte	0x15
+ 353 00d1 6F000000 		.4byte	0x6f
+ 354 00d5 02       		.byte	0x2
+ 355 00d6 91       		.byte	0x91
+ 356 00d7 6F       		.sleb128 -17
+ 357 00d8 06       		.uleb128 0x6
+ 358 00d9 6C736200 		.ascii	"lsb\000"
+ 359 00dd 01       		.byte	0x1
+ 360 00de 15       		.byte	0x15
+ 361 00df 6F000000 		.4byte	0x6f
+ 362 00e3 02       		.byte	0x2
+ 363 00e4 91       		.byte	0x91
+ 364 00e5 6E       		.sleb128 -18
+ 365 00e6 07       		.uleb128 0x7
+ 366 00e7 1B000000 		.4byte	.LASF19
+ 367 00eb 01       		.byte	0x1
+ 368 00ec 18       		.byte	0x18
+ 369 00ed 85000000 		.4byte	0x85
+ 370 00f1 02       		.byte	0x2
+ 371 00f2 91       		.byte	0x91
+ 372 00f3 76       		.sleb128 -10
+ 373 00f4 00       		.byte	0
+ 374 00f5 08       		.uleb128 0x8
+ 375 00f6 01       		.byte	0x1
+ 376 00f7 73010000 		.4byte	.LASF17
+ 377 00fb 01       		.byte	0x1
+ 378 00fc 1E       		.byte	0x1e
+ 379 00fd 01       		.byte	0x1
+ 380 00fe 85000000 		.4byte	0x85
+ 381 0102 00000000 		.4byte	.LFB34
+ 382 0106 6E000000 		.4byte	.LFE34
+ 383 010a 38000000 		.4byte	.LLST1
+ 384 010e 01       		.byte	0x1
+ 385 010f 3E010000 		.4byte	0x13e
+ 386 0113 09       		.uleb128 0x9
+ 387 0114 EA000000 		.4byte	.LASF18
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 9
+
+
+ 388 0118 01       		.byte	0x1
+ 389 0119 1E       		.byte	0x1e
+ 390 011a 85000000 		.4byte	0x85
+ 391 011e 02       		.byte	0x2
+ 392 011f 91       		.byte	0x91
+ 393 0120 6E       		.sleb128 -18
+ 394 0121 0A       		.uleb128 0xa
+ 395 0122 6D736200 		.ascii	"msb\000"
+ 396 0126 01       		.byte	0x1
+ 397 0127 26       		.byte	0x26
+ 398 0128 6F000000 		.4byte	0x6f
+ 399 012c 02       		.byte	0x2
+ 400 012d 91       		.byte	0x91
+ 401 012e 77       		.sleb128 -9
+ 402 012f 0A       		.uleb128 0xa
+ 403 0130 6C736200 		.ascii	"lsb\000"
+ 404 0134 01       		.byte	0x1
+ 405 0135 28       		.byte	0x28
+ 406 0136 6F000000 		.4byte	0x6f
+ 407 013a 02       		.byte	0x2
+ 408 013b 91       		.byte	0x91
+ 409 013c 76       		.sleb128 -10
+ 410 013d 00       		.byte	0
+ 411 013e 0B       		.uleb128 0xb
+ 412 013f 01       		.byte	0x1
+ 413 0140 1F010000 		.4byte	.LASF24
+ 414 0144 01       		.byte	0x1
+ 415 0145 2D       		.byte	0x2d
+ 416 0146 00000000 		.4byte	.LFB35
+ 417 014a 1E000000 		.4byte	.LFE35
+ 418 014e 70000000 		.4byte	.LLST2
+ 419 0152 01       		.byte	0x1
+ 420 0153 0C       		.uleb128 0xc
+ 421 0154 01       		.byte	0x1
+ 422 0155 20000000 		.4byte	.LASF25
+ 423 0159 01       		.byte	0x1
+ 424 015a 36       		.byte	0x36
+ 425 015b 61000000 		.4byte	0x61
+ 426 015f 00000000 		.4byte	.LFB36
+ 427 0163 28000000 		.4byte	.LFE36
+ 428 0167 9C000000 		.4byte	.LLST3
+ 429 016b 01       		.byte	0x1
+ 430 016c 0D       		.uleb128 0xd
+ 431 016d 12000000 		.4byte	.LBB2
+ 432 0171 26000000 		.4byte	.LBE2
+ 433 0175 07       		.uleb128 0x7
+ 434 0176 46010000 		.4byte	.LASF20
+ 435 017a 01       		.byte	0x1
+ 436 017b 41       		.byte	0x41
+ 437 017c 7A000000 		.4byte	0x7a
+ 438 0180 02       		.byte	0x2
+ 439 0181 91       		.byte	0x91
+ 440 0182 76       		.sleb128 -10
+ 441 0183 00       		.byte	0
+ 442 0184 00       		.byte	0
+ 443 0185 00       		.byte	0
+ 444              		.section	.debug_abbrev,"",%progbits
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 10
+
+
+ 445              	.Ldebug_abbrev0:
+ 446 0000 01       		.uleb128 0x1
+ 447 0001 11       		.uleb128 0x11
+ 448 0002 01       		.byte	0x1
+ 449 0003 25       		.uleb128 0x25
+ 450 0004 0E       		.uleb128 0xe
+ 451 0005 13       		.uleb128 0x13
+ 452 0006 0B       		.uleb128 0xb
+ 453 0007 03       		.uleb128 0x3
+ 454 0008 0E       		.uleb128 0xe
+ 455 0009 1B       		.uleb128 0x1b
+ 456 000a 0E       		.uleb128 0xe
+ 457 000b 55       		.uleb128 0x55
+ 458 000c 06       		.uleb128 0x6
+ 459 000d 11       		.uleb128 0x11
+ 460 000e 01       		.uleb128 0x1
+ 461 000f 52       		.uleb128 0x52
+ 462 0010 01       		.uleb128 0x1
+ 463 0011 10       		.uleb128 0x10
+ 464 0012 06       		.uleb128 0x6
+ 465 0013 00       		.byte	0
+ 466 0014 00       		.byte	0
+ 467 0015 02       		.uleb128 0x2
+ 468 0016 24       		.uleb128 0x24
+ 469 0017 00       		.byte	0
+ 470 0018 0B       		.uleb128 0xb
+ 471 0019 0B       		.uleb128 0xb
+ 472 001a 3E       		.uleb128 0x3e
+ 473 001b 0B       		.uleb128 0xb
+ 474 001c 03       		.uleb128 0x3
+ 475 001d 0E       		.uleb128 0xe
+ 476 001e 00       		.byte	0
+ 477 001f 00       		.byte	0
+ 478 0020 03       		.uleb128 0x3
+ 479 0021 24       		.uleb128 0x24
+ 480 0022 00       		.byte	0
+ 481 0023 0B       		.uleb128 0xb
+ 482 0024 0B       		.uleb128 0xb
+ 483 0025 3E       		.uleb128 0x3e
+ 484 0026 0B       		.uleb128 0xb
+ 485 0027 03       		.uleb128 0x3
+ 486 0028 08       		.uleb128 0x8
+ 487 0029 00       		.byte	0
+ 488 002a 00       		.byte	0
+ 489 002b 04       		.uleb128 0x4
+ 490 002c 16       		.uleb128 0x16
+ 491 002d 00       		.byte	0
+ 492 002e 03       		.uleb128 0x3
+ 493 002f 0E       		.uleb128 0xe
+ 494 0030 3A       		.uleb128 0x3a
+ 495 0031 0B       		.uleb128 0xb
+ 496 0032 3B       		.uleb128 0x3b
+ 497 0033 0B       		.uleb128 0xb
+ 498 0034 49       		.uleb128 0x49
+ 499 0035 13       		.uleb128 0x13
+ 500 0036 00       		.byte	0
+ 501 0037 00       		.byte	0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 11
+
+
+ 502 0038 05       		.uleb128 0x5
+ 503 0039 2E       		.uleb128 0x2e
+ 504 003a 01       		.byte	0x1
+ 505 003b 3F       		.uleb128 0x3f
+ 506 003c 0C       		.uleb128 0xc
+ 507 003d 03       		.uleb128 0x3
+ 508 003e 0E       		.uleb128 0xe
+ 509 003f 3A       		.uleb128 0x3a
+ 510 0040 0B       		.uleb128 0xb
+ 511 0041 3B       		.uleb128 0x3b
+ 512 0042 0B       		.uleb128 0xb
+ 513 0043 27       		.uleb128 0x27
+ 514 0044 0C       		.uleb128 0xc
+ 515 0045 49       		.uleb128 0x49
+ 516 0046 13       		.uleb128 0x13
+ 517 0047 11       		.uleb128 0x11
+ 518 0048 01       		.uleb128 0x1
+ 519 0049 12       		.uleb128 0x12
+ 520 004a 01       		.uleb128 0x1
+ 521 004b 40       		.uleb128 0x40
+ 522 004c 06       		.uleb128 0x6
+ 523 004d 9742     		.uleb128 0x2117
+ 524 004f 0C       		.uleb128 0xc
+ 525 0050 01       		.uleb128 0x1
+ 526 0051 13       		.uleb128 0x13
+ 527 0052 00       		.byte	0
+ 528 0053 00       		.byte	0
+ 529 0054 06       		.uleb128 0x6
+ 530 0055 05       		.uleb128 0x5
+ 531 0056 00       		.byte	0
+ 532 0057 03       		.uleb128 0x3
+ 533 0058 08       		.uleb128 0x8
+ 534 0059 3A       		.uleb128 0x3a
+ 535 005a 0B       		.uleb128 0xb
+ 536 005b 3B       		.uleb128 0x3b
+ 537 005c 0B       		.uleb128 0xb
+ 538 005d 49       		.uleb128 0x49
+ 539 005e 13       		.uleb128 0x13
+ 540 005f 02       		.uleb128 0x2
+ 541 0060 0A       		.uleb128 0xa
+ 542 0061 00       		.byte	0
+ 543 0062 00       		.byte	0
+ 544 0063 07       		.uleb128 0x7
+ 545 0064 34       		.uleb128 0x34
+ 546 0065 00       		.byte	0
+ 547 0066 03       		.uleb128 0x3
+ 548 0067 0E       		.uleb128 0xe
+ 549 0068 3A       		.uleb128 0x3a
+ 550 0069 0B       		.uleb128 0xb
+ 551 006a 3B       		.uleb128 0x3b
+ 552 006b 0B       		.uleb128 0xb
+ 553 006c 49       		.uleb128 0x49
+ 554 006d 13       		.uleb128 0x13
+ 555 006e 02       		.uleb128 0x2
+ 556 006f 0A       		.uleb128 0xa
+ 557 0070 00       		.byte	0
+ 558 0071 00       		.byte	0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 12
+
+
+ 559 0072 08       		.uleb128 0x8
+ 560 0073 2E       		.uleb128 0x2e
+ 561 0074 01       		.byte	0x1
+ 562 0075 3F       		.uleb128 0x3f
+ 563 0076 0C       		.uleb128 0xc
+ 564 0077 03       		.uleb128 0x3
+ 565 0078 0E       		.uleb128 0xe
+ 566 0079 3A       		.uleb128 0x3a
+ 567 007a 0B       		.uleb128 0xb
+ 568 007b 3B       		.uleb128 0x3b
+ 569 007c 0B       		.uleb128 0xb
+ 570 007d 27       		.uleb128 0x27
+ 571 007e 0C       		.uleb128 0xc
+ 572 007f 49       		.uleb128 0x49
+ 573 0080 13       		.uleb128 0x13
+ 574 0081 11       		.uleb128 0x11
+ 575 0082 01       		.uleb128 0x1
+ 576 0083 12       		.uleb128 0x12
+ 577 0084 01       		.uleb128 0x1
+ 578 0085 40       		.uleb128 0x40
+ 579 0086 06       		.uleb128 0x6
+ 580 0087 9642     		.uleb128 0x2116
+ 581 0089 0C       		.uleb128 0xc
+ 582 008a 01       		.uleb128 0x1
+ 583 008b 13       		.uleb128 0x13
+ 584 008c 00       		.byte	0
+ 585 008d 00       		.byte	0
+ 586 008e 09       		.uleb128 0x9
+ 587 008f 05       		.uleb128 0x5
+ 588 0090 00       		.byte	0
+ 589 0091 03       		.uleb128 0x3
+ 590 0092 0E       		.uleb128 0xe
+ 591 0093 3A       		.uleb128 0x3a
+ 592 0094 0B       		.uleb128 0xb
+ 593 0095 3B       		.uleb128 0x3b
+ 594 0096 0B       		.uleb128 0xb
+ 595 0097 49       		.uleb128 0x49
+ 596 0098 13       		.uleb128 0x13
+ 597 0099 02       		.uleb128 0x2
+ 598 009a 0A       		.uleb128 0xa
+ 599 009b 00       		.byte	0
+ 600 009c 00       		.byte	0
+ 601 009d 0A       		.uleb128 0xa
+ 602 009e 34       		.uleb128 0x34
+ 603 009f 00       		.byte	0
+ 604 00a0 03       		.uleb128 0x3
+ 605 00a1 08       		.uleb128 0x8
+ 606 00a2 3A       		.uleb128 0x3a
+ 607 00a3 0B       		.uleb128 0xb
+ 608 00a4 3B       		.uleb128 0x3b
+ 609 00a5 0B       		.uleb128 0xb
+ 610 00a6 49       		.uleb128 0x49
+ 611 00a7 13       		.uleb128 0x13
+ 612 00a8 02       		.uleb128 0x2
+ 613 00a9 0A       		.uleb128 0xa
+ 614 00aa 00       		.byte	0
+ 615 00ab 00       		.byte	0
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 13
+
+
+ 616 00ac 0B       		.uleb128 0xb
+ 617 00ad 2E       		.uleb128 0x2e
+ 618 00ae 00       		.byte	0
+ 619 00af 3F       		.uleb128 0x3f
+ 620 00b0 0C       		.uleb128 0xc
+ 621 00b1 03       		.uleb128 0x3
+ 622 00b2 0E       		.uleb128 0xe
+ 623 00b3 3A       		.uleb128 0x3a
+ 624 00b4 0B       		.uleb128 0xb
+ 625 00b5 3B       		.uleb128 0x3b
+ 626 00b6 0B       		.uleb128 0xb
+ 627 00b7 11       		.uleb128 0x11
+ 628 00b8 01       		.uleb128 0x1
+ 629 00b9 12       		.uleb128 0x12
+ 630 00ba 01       		.uleb128 0x1
+ 631 00bb 40       		.uleb128 0x40
+ 632 00bc 06       		.uleb128 0x6
+ 633 00bd 9642     		.uleb128 0x2116
+ 634 00bf 0C       		.uleb128 0xc
+ 635 00c0 00       		.byte	0
+ 636 00c1 00       		.byte	0
+ 637 00c2 0C       		.uleb128 0xc
+ 638 00c3 2E       		.uleb128 0x2e
+ 639 00c4 01       		.byte	0x1
+ 640 00c5 3F       		.uleb128 0x3f
+ 641 00c6 0C       		.uleb128 0xc
+ 642 00c7 03       		.uleb128 0x3
+ 643 00c8 0E       		.uleb128 0xe
+ 644 00c9 3A       		.uleb128 0x3a
+ 645 00ca 0B       		.uleb128 0xb
+ 646 00cb 3B       		.uleb128 0x3b
+ 647 00cc 0B       		.uleb128 0xb
+ 648 00cd 49       		.uleb128 0x49
+ 649 00ce 13       		.uleb128 0x13
+ 650 00cf 11       		.uleb128 0x11
+ 651 00d0 01       		.uleb128 0x1
+ 652 00d1 12       		.uleb128 0x12
+ 653 00d2 01       		.uleb128 0x1
+ 654 00d3 40       		.uleb128 0x40
+ 655 00d4 06       		.uleb128 0x6
+ 656 00d5 9642     		.uleb128 0x2116
+ 657 00d7 0C       		.uleb128 0xc
+ 658 00d8 00       		.byte	0
+ 659 00d9 00       		.byte	0
+ 660 00da 0D       		.uleb128 0xd
+ 661 00db 0B       		.uleb128 0xb
+ 662 00dc 01       		.byte	0x1
+ 663 00dd 11       		.uleb128 0x11
+ 664 00de 01       		.uleb128 0x1
+ 665 00df 12       		.uleb128 0x12
+ 666 00e0 01       		.uleb128 0x1
+ 667 00e1 00       		.byte	0
+ 668 00e2 00       		.byte	0
+ 669 00e3 00       		.byte	0
+ 670              		.section	.debug_loc,"",%progbits
+ 671              	.Ldebug_loc0:
+ 672              	.LLST0:
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 14
+
+
+ 673 0000 00000000 		.4byte	.LFB33
+ 674 0004 02000000 		.4byte	.LCFI0
+ 675 0008 0200     		.2byte	0x2
+ 676 000a 7D       		.byte	0x7d
+ 677 000b 00       		.sleb128 0
+ 678 000c 02000000 		.4byte	.LCFI0
+ 679 0010 04000000 		.4byte	.LCFI1
+ 680 0014 0200     		.2byte	0x2
+ 681 0016 7D       		.byte	0x7d
+ 682 0017 08       		.sleb128 8
+ 683 0018 04000000 		.4byte	.LCFI1
+ 684 001c 06000000 		.4byte	.LCFI2
+ 685 0020 0200     		.2byte	0x2
+ 686 0022 7D       		.byte	0x7d
+ 687 0023 18       		.sleb128 24
+ 688 0024 06000000 		.4byte	.LCFI2
+ 689 0028 50000000 		.4byte	.LFE33
+ 690 002c 0200     		.2byte	0x2
+ 691 002e 77       		.byte	0x77
+ 692 002f 18       		.sleb128 24
+ 693 0030 00000000 		.4byte	0
+ 694 0034 00000000 		.4byte	0
+ 695              	.LLST1:
+ 696 0038 00000000 		.4byte	.LFB34
+ 697 003c 02000000 		.4byte	.LCFI3
+ 698 0040 0200     		.2byte	0x2
+ 699 0042 7D       		.byte	0x7d
+ 700 0043 00       		.sleb128 0
+ 701 0044 02000000 		.4byte	.LCFI3
+ 702 0048 04000000 		.4byte	.LCFI4
+ 703 004c 0200     		.2byte	0x2
+ 704 004e 7D       		.byte	0x7d
+ 705 004f 08       		.sleb128 8
+ 706 0050 04000000 		.4byte	.LCFI4
+ 707 0054 06000000 		.4byte	.LCFI5
+ 708 0058 0200     		.2byte	0x2
+ 709 005a 7D       		.byte	0x7d
+ 710 005b 18       		.sleb128 24
+ 711 005c 06000000 		.4byte	.LCFI5
+ 712 0060 6E000000 		.4byte	.LFE34
+ 713 0064 0200     		.2byte	0x2
+ 714 0066 77       		.byte	0x77
+ 715 0067 18       		.sleb128 24
+ 716 0068 00000000 		.4byte	0
+ 717 006c 00000000 		.4byte	0
+ 718              	.LLST2:
+ 719 0070 00000000 		.4byte	.LFB35
+ 720 0074 02000000 		.4byte	.LCFI6
+ 721 0078 0200     		.2byte	0x2
+ 722 007a 7D       		.byte	0x7d
+ 723 007b 00       		.sleb128 0
+ 724 007c 02000000 		.4byte	.LCFI6
+ 725 0080 04000000 		.4byte	.LCFI7
+ 726 0084 0200     		.2byte	0x2
+ 727 0086 7D       		.byte	0x7d
+ 728 0087 08       		.sleb128 8
+ 729 0088 04000000 		.4byte	.LCFI7
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 15
+
+
+ 730 008c 1E000000 		.4byte	.LFE35
+ 731 0090 0200     		.2byte	0x2
+ 732 0092 77       		.byte	0x77
+ 733 0093 08       		.sleb128 8
+ 734 0094 00000000 		.4byte	0
+ 735 0098 00000000 		.4byte	0
+ 736              	.LLST3:
+ 737 009c 00000000 		.4byte	.LFB36
+ 738 00a0 02000000 		.4byte	.LCFI8
+ 739 00a4 0200     		.2byte	0x2
+ 740 00a6 7D       		.byte	0x7d
+ 741 00a7 00       		.sleb128 0
+ 742 00a8 02000000 		.4byte	.LCFI8
+ 743 00ac 04000000 		.4byte	.LCFI9
+ 744 00b0 0200     		.2byte	0x2
+ 745 00b2 7D       		.byte	0x7d
+ 746 00b3 08       		.sleb128 8
+ 747 00b4 04000000 		.4byte	.LCFI9
+ 748 00b8 06000000 		.4byte	.LCFI10
+ 749 00bc 0200     		.2byte	0x2
+ 750 00be 7D       		.byte	0x7d
+ 751 00bf 10       		.sleb128 16
+ 752 00c0 06000000 		.4byte	.LCFI10
+ 753 00c4 28000000 		.4byte	.LFE36
+ 754 00c8 0200     		.2byte	0x2
+ 755 00ca 77       		.byte	0x77
+ 756 00cb 10       		.sleb128 16
+ 757 00cc 00000000 		.4byte	0
+ 758 00d0 00000000 		.4byte	0
+ 759              		.section	.debug_aranges,"",%progbits
+ 760 0000 34000000 		.4byte	0x34
+ 761 0004 0200     		.2byte	0x2
+ 762 0006 00000000 		.4byte	.Ldebug_info0
+ 763 000a 04       		.byte	0x4
+ 764 000b 00       		.byte	0
+ 765 000c 0000     		.2byte	0
+ 766 000e 0000     		.2byte	0
+ 767 0010 00000000 		.4byte	.LFB33
+ 768 0014 50000000 		.4byte	.LFE33-.LFB33
+ 769 0018 00000000 		.4byte	.LFB34
+ 770 001c 6E000000 		.4byte	.LFE34-.LFB34
+ 771 0020 00000000 		.4byte	.LFB35
+ 772 0024 1E000000 		.4byte	.LFE35-.LFB35
+ 773 0028 00000000 		.4byte	.LFB36
+ 774 002c 28000000 		.4byte	.LFE36-.LFB36
+ 775 0030 00000000 		.4byte	0
+ 776 0034 00000000 		.4byte	0
+ 777              		.section	.debug_ranges,"",%progbits
+ 778              	.Ldebug_ranges0:
+ 779 0000 00000000 		.4byte	.LFB33
+ 780 0004 50000000 		.4byte	.LFE33
+ 781 0008 00000000 		.4byte	.LFB34
+ 782 000c 6E000000 		.4byte	.LFE34
+ 783 0010 00000000 		.4byte	.LFB35
+ 784 0014 1E000000 		.4byte	.LFE35
+ 785 0018 00000000 		.4byte	.LFB36
+ 786 001c 28000000 		.4byte	.LFE36
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 16
+
+
+ 787 0020 00000000 		.4byte	0
+ 788 0024 00000000 		.4byte	0
+ 789              		.section	.debug_line,"",%progbits
+ 790              	.Ldebug_line0:
+ 791 0000 AC000000 		.section	.debug_str,"MS",%progbits,1
+ 791      02004500 
+ 791      00000201 
+ 791      FB0E0D00 
+ 791      01010101 
+ 792              	.LASF6:
+ 793 0000 6C6F6E67 		.ascii	"long long int\000"
+ 793      206C6F6E 
+ 793      6720696E 
+ 793      7400
+ 794              	.LASF8:
+ 795 000e 756E7369 		.ascii	"unsigned int\000"
+ 795      676E6564 
+ 795      20696E74 
+ 795      00
+ 796              	.LASF19:
+ 797 001b 74656D70 		.ascii	"temp\000"
+ 797      00
+ 798              	.LASF25:
+ 799 0020 6D61696E 		.ascii	"main\000"
+ 799      00
+ 800              	.LASF21:
+ 801 0025 474E5520 		.ascii	"GNU C 4.7.3 20130312 (release) [ARM/embedded-4_7-br"
+ 801      4320342E 
+ 801      372E3320 
+ 801      32303133 
+ 801      30333132 
+ 802 0058 616E6368 		.ascii	"anch revision 196615]\000"
+ 802      20726576 
+ 802      6973696F 
+ 802      6E203139 
+ 802      36363135 
+ 803              	.LASF9:
+ 804 006e 75696E74 		.ascii	"uint8\000"
+ 804      3800
+ 805              	.LASF5:
+ 806 0074 6C6F6E67 		.ascii	"long unsigned int\000"
+ 806      20756E73 
+ 806      69676E65 
+ 806      6420696E 
+ 806      7400
+ 807              	.LASF7:
+ 808 0086 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 808      206C6F6E 
+ 808      6720756E 
+ 808      7369676E 
+ 808      65642069 
+ 809              	.LASF23:
+ 810 009d 433A5C55 		.ascii	"C:\\Users\\Eric\\Documents\\GitHub\\Corner-Module\\"
+ 810      73657273 
+ 810      5C457269 
+ 810      635C446F 
+ 810      63756D65 
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 17
+
+
+ 811 00ca 436F726E 		.ascii	"CornerModule\\CornerModule.cydsn\000"
+ 811      65724D6F 
+ 811      64756C65 
+ 811      5C436F72 
+ 811      6E65724D 
+ 812              	.LASF18:
+ 813 00ea 61646472 		.ascii	"address\000"
+ 813      65737300 
+ 814              	.LASF1:
+ 815 00f2 756E7369 		.ascii	"unsigned char\000"
+ 815      676E6564 
+ 815      20636861 
+ 815      7200
+ 816              	.LASF14:
+ 817 0100 63686172 		.ascii	"char\000"
+ 817      00
+ 818              	.LASF4:
+ 819 0105 6C6F6E67 		.ascii	"long int\000"
+ 819      20696E74 
+ 819      00
+ 820              	.LASF2:
+ 821 010e 73686F72 		.ascii	"short int\000"
+ 821      7420696E 
+ 821      7400
+ 822              	.LASF13:
+ 823 0118 646F7562 		.ascii	"double\000"
+ 823      6C6500
+ 824              	.LASF24:
+ 825 011f 49324349 		.ascii	"I2CInit\000"
+ 825      6E697400 
+ 826              	.LASF3:
+ 827 0127 73686F72 		.ascii	"short unsigned int\000"
+ 827      7420756E 
+ 827      7369676E 
+ 827      65642069 
+ 827      6E7400
+ 828              	.LASF0:
+ 829 013a 7369676E 		.ascii	"signed char\000"
+ 829      65642063 
+ 829      68617200 
+ 830              	.LASF20:
+ 831 0146 61636378 		.ascii	"accx\000"
+ 831      00
+ 832              	.LASF16:
+ 833 014b 62797465 		.ascii	"bytecombine\000"
+ 833      636F6D62 
+ 833      696E6500 
+ 834              	.LASF12:
+ 835 0157 666C6F61 		.ascii	"float\000"
+ 835      7400
+ 836              	.LASF11:
+ 837 015d 696E7431 		.ascii	"int16\000"
+ 837      3600
+ 838              	.LASF22:
+ 839 0163 2E5C6D61 		.ascii	".\\main.c\000"
+ 839      696E2E63 
+ 839      00
+ARM GAS  C:\Users\Eric\AppData\Local\Temp\ccKoOTIj.s 			page 18
+
+
+ 840              	.LASF10:
+ 841 016c 75696E74 		.ascii	"uint16\000"
+ 841      313600
+ 842              	.LASF17:
+ 843 0173 72656164 		.ascii	"readacc\000"
+ 843      61636300 
+ 844              	.LASF15:
+ 845 017b 73697A65 		.ascii	"sizetype\000"
+ 845      74797065 
+ 845      00
+ 846              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.7.3 20130312 (release) [ARM/embedded-4_7-br
