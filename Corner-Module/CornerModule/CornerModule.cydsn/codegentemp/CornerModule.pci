@@ -1,12 +1,16 @@
 # CornerModule
-# 2015-04-12 10:49:00Z
+# 2015-11-30 04:21:56Z
 
-# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
-dont_use_io iocell 3 2
-# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
-dont_use_io iocell 3 3
+# IO_6@[IOP=(0)][IoId=(6)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 6
+# IO_7@[IOP=(0)][IoId=(7)] is reserved: SWDDebugEnabled
+dont_use_io iocell 0 7
+# IO_0@[IOP=(6)][IoId=(0)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 0
+# IO_1@[IOP=(6)][IoId=(1)] is reserved: KhzXtalEnabled
+dont_use_io iocell 6 1
 set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
-set_io "Rx_1(0)" iocell 0 0
-set_io "Tx_1(0)" iocell 0 1
-set_io "\I2C_MPU6050:scl(0)\" iocell 4 0
-set_io "\I2C_MPU6050:sda(0)\" iocell 4 1
+set_io "\I2C_MPU6050:sda(0)\" iocell 0 0
+set_io "\I2C_MPU6050:scl(0)\" iocell 0 1
+set_io "Rx_1(0)" iocell 1 4
+set_io "Tx_1(0)" iocell 1 5

@@ -1,0 +1,1580 @@
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"I2C_MPU6050.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	I2C_MPU6050_initVar
+  18              		.bss
+  19              		.type	I2C_MPU6050_initVar, %object
+  20              		.size	I2C_MPU6050_initVar, 1
+  21              	I2C_MPU6050_initVar:
+  22 0000 00       		.space	1
+  23              		.global	I2C_MPU6050_customIntrHandler
+  24 0001 000000   		.align	2
+  25              		.type	I2C_MPU6050_customIntrHandler, %object
+  26              		.size	I2C_MPU6050_customIntrHandler, 4
+  27              	I2C_MPU6050_customIntrHandler:
+  28 0004 00000000 		.space	4
+  29              		.section	.text.I2C_MPU6050_Init,"ax",%progbits
+  30              		.align	2
+  31              		.global	I2C_MPU6050_Init
+  32              		.code	16
+  33              		.thumb_func
+  34              		.type	I2C_MPU6050_Init, %function
+  35              	I2C_MPU6050_Init:
+  36              	.LFB2:
+  37              		.file 1 ".\\Generated_Source\\PSoC4\\I2C_MPU6050.c"
+   1:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * File Name: I2C_MPU6050.c
+   3:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Version 2.0
+   4:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+   5:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Description:
+   6:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  This file provides the source code to the API for the SCB Component.
+   7:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+   8:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Note:
+   9:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+  10:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************
+  11:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Copyright 2013-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  12:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * the software package with which this file was provided.
+  15:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************/
+  16:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  17:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #include "I2C_MPU6050_PVT.h"
+  18:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  19:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if(I2C_MPU6050_SCB_MODE_I2C_INC)
+  20:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     #include "I2C_MPU6050_I2C_PVT.h"
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 2
+
+
+  21:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (I2C_MPU6050_SCB_MODE_I2C_INC) */
+  22:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  23:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if(I2C_MPU6050_SCB_MODE_EZI2C_INC)
+  24:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     #include "I2C_MPU6050_EZI2C_PVT.h"
+  25:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (I2C_MPU6050_SCB_MODE_EZI2C_INC) */
+  26:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  27:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if(I2C_MPU6050_SCB_MODE_SPI_INC || I2C_MPU6050_SCB_MODE_UART_INC)
+  28:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     #include "I2C_MPU6050_SPI_UART_PVT.h"
+  29:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (I2C_MPU6050_SCB_MODE_SPI_INC || I2C_MPU6050_SCB_MODE_UART_INC) */
+  30:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  31:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  32:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /***************************************
+  33:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *    Run Time Configuration Vars
+  34:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ***************************************/
+  35:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  36:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /* Stores internal component configuration for Unconfigured mode */
+  37:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if(I2C_MPU6050_SCB_MODE_UNCONFIG_CONST_CFG)
+  38:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     /* Common configuration variables */
+  39:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint8 I2C_MPU6050_scbMode = I2C_MPU6050_SCB_MODE_UNCONFIG;
+  40:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint8 I2C_MPU6050_scbEnableWake;
+  41:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint8 I2C_MPU6050_scbEnableIntr;
+  42:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  43:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     /* I2C configuration variables */
+  44:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint8 I2C_MPU6050_mode;
+  45:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint8 I2C_MPU6050_acceptAddr;
+  46:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  47:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     /* SPI/UART configuration variables */
+  48:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     volatile uint8 * I2C_MPU6050_rxBuffer;
+  49:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint8  I2C_MPU6050_rxDataBits;
+  50:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint32 I2C_MPU6050_rxBufferSize;
+  51:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  52:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     volatile uint8 * I2C_MPU6050_txBuffer;
+  53:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint8  I2C_MPU6050_txDataBits;
+  54:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint32 I2C_MPU6050_txBufferSize;
+  55:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  56:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     /* EZI2C configuration variables */
+  57:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint8 I2C_MPU6050_numberOfAddr;
+  58:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint8 I2C_MPU6050_subAddrSize;
+  59:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (I2C_MPU6050_SCB_MODE_UNCONFIG_CONST_CFG) */
+  60:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  61:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  62:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /***************************************
+  63:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *     Common SCB Vars
+  64:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ***************************************/
+  65:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  66:.\Generated_Source\PSoC4/I2C_MPU6050.c **** uint8 I2C_MPU6050_initVar = 0u;
+  67:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  68:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if !defined (CY_REMOVE_I2C_MPU6050_CUSTOM_INTR_HANDLER)
+  69:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     cyisraddress I2C_MPU6050_customIntrHandler = NULL;
+  70:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* !defined (CY_REMOVE_I2C_MPU6050_CUSTOM_INTR_HANDLER) */
+  71:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  72:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  73:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /***************************************
+  74:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *    Private Function Prototypes
+  75:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ***************************************/
+  76:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  77:.\Generated_Source\PSoC4/I2C_MPU6050.c **** static void I2C_MPU6050_ScbEnableIntr(void);
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 3
+
+
+  78:.\Generated_Source\PSoC4/I2C_MPU6050.c **** static void I2C_MPU6050_ScbModeStop(void);
+  79:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  80:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+  81:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /*******************************************************************************
+  82:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Function Name: I2C_MPU6050_Init
+  83:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ********************************************************************************
+  84:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+  85:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Summary:
+  86:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  Initializes the SCB component to operate in one of the selected
+  87:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  configurations: I2C, SPI, UART or EZI2C.
+  88:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  When the configuration is set to "Unconfigured SCB", this function does
+  89:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  not do any initialization. Use mode-specific initialization APIs instead:
+  90:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  SCB_I2CInit, SCB_SpiInit, SCB_UartInit or SCB_EzI2CInit.
+  91:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+  92:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Parameters:
+  93:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+  94:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+  95:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Return:
+  96:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+  97:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+  98:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************/
+  99:.\Generated_Source\PSoC4/I2C_MPU6050.c **** void I2C_MPU6050_Init(void)
+ 100:.\Generated_Source\PSoC4/I2C_MPU6050.c **** {
+  38              		.loc 1 100 0
+  39              		.cfi_startproc
+  40 0000 80B5     		push	{r7, lr}
+  41              		.cfi_def_cfa_offset 8
+  42              		.cfi_offset 7, -8
+  43              		.cfi_offset 14, -4
+  44 0002 00AF     		add	r7, sp, #0
+  45              		.cfi_def_cfa_register 7
+ 101:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if(I2C_MPU6050_SCB_MODE_UNCONFIG_CONST_CFG)
+ 102:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     if(I2C_MPU6050_SCB_MODE_UNCONFIG_RUNTM_CFG)
+ 103:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     {
+ 104:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         I2C_MPU6050_initVar = 0u;
+ 105:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     }
+ 106:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     else
+ 107:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     {
+ 108:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         /* Initialization was done before this function call */
+ 109:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     }
+ 110:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 111:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #elif(I2C_MPU6050_SCB_MODE_I2C_CONST_CFG)
+ 112:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_I2CInit();
+  46              		.loc 1 112 0
+  47 0004 FFF7FEFF 		bl	I2C_MPU6050_I2CInit
+ 113:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 114:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #elif(I2C_MPU6050_SCB_MODE_SPI_CONST_CFG)
+ 115:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_SpiInit();
+ 116:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 117:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #elif(I2C_MPU6050_SCB_MODE_UART_CONST_CFG)
+ 118:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_UartInit();
+ 119:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 120:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #elif(I2C_MPU6050_SCB_MODE_EZI2C_CONST_CFG)
+ 121:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_EzI2CInit();
+ 122:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 123:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (I2C_MPU6050_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 124:.\Generated_Source\PSoC4/I2C_MPU6050.c **** }
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 4
+
+
+  48              		.loc 1 124 0
+  49 0008 BD46     		mov	sp, r7
+  50              		@ sp needed
+  51 000a 80BD     		pop	{r7, pc}
+  52              		.cfi_endproc
+  53              	.LFE2:
+  54              		.size	I2C_MPU6050_Init, .-I2C_MPU6050_Init
+  55              		.section	.text.I2C_MPU6050_Enable,"ax",%progbits
+  56              		.align	2
+  57              		.global	I2C_MPU6050_Enable
+  58              		.code	16
+  59              		.thumb_func
+  60              		.type	I2C_MPU6050_Enable, %function
+  61              	I2C_MPU6050_Enable:
+  62              	.LFB3:
+ 125:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 126:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 127:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /*******************************************************************************
+ 128:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Function Name: I2C_MPU6050_Enable
+ 129:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ********************************************************************************
+ 130:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 131:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Summary:
+ 132:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  Enables the SCB component operation.
+ 133:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  The SCB configuration should be not changed when the component is enabled.
+ 134:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  Any configuration changes should be made after disabling the component.
+ 135:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 136:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Parameters:
+ 137:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 138:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 139:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Return:
+ 140:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 141:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 142:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************/
+ 143:.\Generated_Source\PSoC4/I2C_MPU6050.c **** void I2C_MPU6050_Enable(void)
+ 144:.\Generated_Source\PSoC4/I2C_MPU6050.c **** {
+  63              		.loc 1 144 0
+  64              		.cfi_startproc
+  65 0000 80B5     		push	{r7, lr}
+  66              		.cfi_def_cfa_offset 8
+  67              		.cfi_offset 7, -8
+  68              		.cfi_offset 14, -4
+  69 0002 00AF     		add	r7, sp, #0
+  70              		.cfi_def_cfa_register 7
+ 145:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if(I2C_MPU6050_SCB_MODE_UNCONFIG_CONST_CFG)
+ 146:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     /* Enable SCB block, only if it is already configured */
+ 147:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     if(!I2C_MPU6050_SCB_MODE_UNCONFIG_RUNTM_CFG)
+ 148:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     {
+ 149:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         I2C_MPU6050_CTRL_REG |= I2C_MPU6050_CTRL_ENABLED;
+ 150:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 151:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         I2C_MPU6050_ScbEnableIntr();
+ 152:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     }
+ 153:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #else
+ 154:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_CTRL_REG |= I2C_MPU6050_CTRL_ENABLED;
+  71              		.loc 1 154 0
+  72 0004 054B     		ldr	r3, .L3
+  73 0006 054A     		ldr	r2, .L3
+  74 0008 1268     		ldr	r2, [r2]
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 5
+
+
+  75 000a 8021     		mov	r1, #128
+  76 000c 0906     		lsl	r1, r1, #24
+  77 000e 0A43     		orr	r2, r1
+  78 0010 1A60     		str	r2, [r3]
+ 155:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 156:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_ScbEnableIntr();
+  79              		.loc 1 156 0
+  80 0012 FFF7FEFF 		bl	I2C_MPU6050_ScbEnableIntr
+ 157:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (I2C_MPU6050_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 158:.\Generated_Source\PSoC4/I2C_MPU6050.c **** }
+  81              		.loc 1 158 0
+  82 0016 BD46     		mov	sp, r7
+  83              		@ sp needed
+  84 0018 80BD     		pop	{r7, pc}
+  85              	.L4:
+  86 001a C046     		.align	2
+  87              	.L3:
+  88 001c 00002540 		.word	1076166656
+  89              		.cfi_endproc
+  90              	.LFE3:
+  91              		.size	I2C_MPU6050_Enable, .-I2C_MPU6050_Enable
+  92              		.section	.text.I2C_MPU6050_Start,"ax",%progbits
+  93              		.align	2
+  94              		.global	I2C_MPU6050_Start
+  95              		.code	16
+  96              		.thumb_func
+  97              		.type	I2C_MPU6050_Start, %function
+  98              	I2C_MPU6050_Start:
+  99              	.LFB4:
+ 159:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 160:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 161:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /*******************************************************************************
+ 162:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Function Name: I2C_MPU6050_Start
+ 163:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ********************************************************************************
+ 164:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 165:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Summary:
+ 166:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  Invokes SCB_Init() and SCB_Enable().
+ 167:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  After this function call, the component is enabled and ready for operation.
+ 168:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  When configuration is set to "Unconfigured SCB", the component must first be
+ 169:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  initialized to operate in one of the following configurations: I2C, SPI, UART
+ 170:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  or EZ I2C. Otherwise this function does not enable the component.
+ 171:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 172:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Parameters:
+ 173:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 174:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 175:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Return:
+ 176:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 177:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 178:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Global variables:
+ 179:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  I2C_MPU6050_initVar - used to check initial configuration, modified
+ 180:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  on first function call.
+ 181:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 182:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************/
+ 183:.\Generated_Source\PSoC4/I2C_MPU6050.c **** void I2C_MPU6050_Start(void)
+ 184:.\Generated_Source\PSoC4/I2C_MPU6050.c **** {
+ 100              		.loc 1 184 0
+ 101              		.cfi_startproc
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 6
+
+
+ 102 0000 80B5     		push	{r7, lr}
+ 103              		.cfi_def_cfa_offset 8
+ 104              		.cfi_offset 7, -8
+ 105              		.cfi_offset 14, -4
+ 106 0002 00AF     		add	r7, sp, #0
+ 107              		.cfi_def_cfa_register 7
+ 185:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     if(0u == I2C_MPU6050_initVar)
+ 108              		.loc 1 185 0
+ 109 0004 064B     		ldr	r3, .L7
+ 110 0006 1B78     		ldrb	r3, [r3]
+ 111 0008 002B     		cmp	r3, #0
+ 112 000a 04D1     		bne	.L6
+ 186:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     {
+ 187:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         I2C_MPU6050_Init();
+ 113              		.loc 1 187 0
+ 114 000c FFF7FEFF 		bl	I2C_MPU6050_Init
+ 188:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         I2C_MPU6050_initVar = 1u; /* Component was initialized */
+ 115              		.loc 1 188 0
+ 116 0010 034B     		ldr	r3, .L7
+ 117 0012 0122     		mov	r2, #1
+ 118 0014 1A70     		strb	r2, [r3]
+ 119              	.L6:
+ 189:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     }
+ 190:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 191:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_Enable();
+ 120              		.loc 1 191 0
+ 121 0016 FFF7FEFF 		bl	I2C_MPU6050_Enable
+ 192:.\Generated_Source\PSoC4/I2C_MPU6050.c **** }
+ 122              		.loc 1 192 0
+ 123 001a BD46     		mov	sp, r7
+ 124              		@ sp needed
+ 125 001c 80BD     		pop	{r7, pc}
+ 126              	.L8:
+ 127 001e C046     		.align	2
+ 128              	.L7:
+ 129 0020 00000000 		.word	I2C_MPU6050_initVar
+ 130              		.cfi_endproc
+ 131              	.LFE4:
+ 132              		.size	I2C_MPU6050_Start, .-I2C_MPU6050_Start
+ 133              		.section	.text.I2C_MPU6050_Stop,"ax",%progbits
+ 134              		.align	2
+ 135              		.global	I2C_MPU6050_Stop
+ 136              		.code	16
+ 137              		.thumb_func
+ 138              		.type	I2C_MPU6050_Stop, %function
+ 139              	I2C_MPU6050_Stop:
+ 140              	.LFB5:
+ 193:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 194:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 195:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /*******************************************************************************
+ 196:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Function Name: I2C_MPU6050_Stop
+ 197:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ********************************************************************************
+ 198:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 199:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Summary:
+ 200:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  Disables the SCB component and its interrupt.
+ 201:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 202:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Parameters:
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 7
+
+
+ 203:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 204:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 205:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Return:
+ 206:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 207:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 208:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************/
+ 209:.\Generated_Source\PSoC4/I2C_MPU6050.c **** void I2C_MPU6050_Stop(void)
+ 210:.\Generated_Source\PSoC4/I2C_MPU6050.c **** {
+ 141              		.loc 1 210 0
+ 142              		.cfi_startproc
+ 143 0000 80B5     		push	{r7, lr}
+ 144              		.cfi_def_cfa_offset 8
+ 145              		.cfi_offset 7, -8
+ 146              		.cfi_offset 14, -4
+ 147 0002 00AF     		add	r7, sp, #0
+ 148              		.cfi_def_cfa_register 7
+ 211:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if(I2C_MPU6050_SCB_IRQ_INTERNAL)
+ 212:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_DisableInt();
+ 149              		.loc 1 212 0
+ 150 0004 0A20     		mov	r0, #10
+ 151 0006 FFF7FEFF 		bl	CyIntDisable
+ 213:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (I2C_MPU6050_SCB_IRQ_INTERNAL) */
+ 214:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 215:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_CTRL_REG &= (uint32) ~I2C_MPU6050_CTRL_ENABLED;  /* Disable scb IP */
+ 152              		.loc 1 215 0
+ 153 000a 064B     		ldr	r3, .L10
+ 154 000c 054A     		ldr	r2, .L10
+ 155 000e 1268     		ldr	r2, [r2]
+ 156 0010 5200     		lsl	r2, r2, #1
+ 157 0012 5208     		lsr	r2, r2, #1
+ 158 0014 1A60     		str	r2, [r3]
+ 216:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 217:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if(I2C_MPU6050_SCB_IRQ_INTERNAL)
+ 218:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_ClearPendingInt();
+ 159              		.loc 1 218 0
+ 160 0016 0A20     		mov	r0, #10
+ 161 0018 FFF7FEFF 		bl	CyIntClearPending
+ 219:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (I2C_MPU6050_SCB_IRQ_INTERNAL) */
+ 220:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 221:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_ScbModeStop(); /* Calls scbMode specific Stop function */
+ 162              		.loc 1 221 0
+ 163 001c FFF7FEFF 		bl	I2C_MPU6050_ScbModeStop
+ 222:.\Generated_Source\PSoC4/I2C_MPU6050.c **** }
+ 164              		.loc 1 222 0
+ 165 0020 BD46     		mov	sp, r7
+ 166              		@ sp needed
+ 167 0022 80BD     		pop	{r7, pc}
+ 168              	.L11:
+ 169              		.align	2
+ 170              	.L10:
+ 171 0024 00002540 		.word	1076166656
+ 172              		.cfi_endproc
+ 173              	.LFE5:
+ 174              		.size	I2C_MPU6050_Stop, .-I2C_MPU6050_Stop
+ 175              		.section	.text.I2C_MPU6050_SetRxFifoLevel,"ax",%progbits
+ 176              		.align	2
+ 177              		.global	I2C_MPU6050_SetRxFifoLevel
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 8
+
+
+ 178              		.code	16
+ 179              		.thumb_func
+ 180              		.type	I2C_MPU6050_SetRxFifoLevel, %function
+ 181              	I2C_MPU6050_SetRxFifoLevel:
+ 182              	.LFB6:
+ 223:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 224:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 225:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /*******************************************************************************
+ 226:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Function Name: I2C_MPU6050_SetRxFifoLevel
+ 227:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ********************************************************************************
+ 228:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 229:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Summary:
+ 230:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  Sets level in the RX FIFO to generate a RX level interrupt.
+ 231:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  When the RX FIFO has more entries than the RX FIFO level an RX level
+ 232:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  interrupt request is generated.
+ 233:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 234:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Parameters:
+ 235:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  level: Level in the RX FIFO to generate RX level interrupt.
+ 236:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *         The range of valid level values is between 0 and RX FIFO depth - 1.
+ 237:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 238:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Return:
+ 239:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 240:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 241:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************/
+ 242:.\Generated_Source\PSoC4/I2C_MPU6050.c **** void I2C_MPU6050_SetRxFifoLevel(uint32 level)
+ 243:.\Generated_Source\PSoC4/I2C_MPU6050.c **** {
+ 183              		.loc 1 243 0
+ 184              		.cfi_startproc
+ 185 0000 80B5     		push	{r7, lr}
+ 186              		.cfi_def_cfa_offset 8
+ 187              		.cfi_offset 7, -8
+ 188              		.cfi_offset 14, -4
+ 189 0002 84B0     		sub	sp, sp, #16
+ 190              		.cfi_def_cfa_offset 24
+ 191 0004 00AF     		add	r7, sp, #0
+ 192              		.cfi_def_cfa_register 7
+ 193 0006 7860     		str	r0, [r7, #4]
+ 244:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint32 rxFifoCtrl;
+ 245:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 246:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     rxFifoCtrl = I2C_MPU6050_RX_FIFO_CTRL_REG;
+ 194              		.loc 1 246 0
+ 195 0008 094B     		ldr	r3, .L13
+ 196 000a 1B68     		ldr	r3, [r3]
+ 197 000c FB60     		str	r3, [r7, #12]
+ 247:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 248:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     rxFifoCtrl &= ((uint32) ~I2C_MPU6050_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK); /* Clear level mask bits
+ 198              		.loc 1 248 0
+ 199 000e FB68     		ldr	r3, [r7, #12]
+ 200 0010 0F22     		mov	r2, #15
+ 201 0012 9343     		bic	r3, r2
+ 202 0014 FB60     		str	r3, [r7, #12]
+ 249:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     rxFifoCtrl |= ((uint32) (I2C_MPU6050_RX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
+ 203              		.loc 1 249 0
+ 204 0016 7B68     		ldr	r3, [r7, #4]
+ 205 0018 0F22     		mov	r2, #15
+ 206 001a 1340     		and	r3, r2
+ 207 001c FA68     		ldr	r2, [r7, #12]
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 9
+
+
+ 208 001e 1343     		orr	r3, r2
+ 209 0020 FB60     		str	r3, [r7, #12]
+ 250:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 251:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_RX_FIFO_CTRL_REG = rxFifoCtrl;
+ 210              		.loc 1 251 0
+ 211 0022 034B     		ldr	r3, .L13
+ 212 0024 FA68     		ldr	r2, [r7, #12]
+ 213 0026 1A60     		str	r2, [r3]
+ 252:.\Generated_Source\PSoC4/I2C_MPU6050.c **** }
+ 214              		.loc 1 252 0
+ 215 0028 BD46     		mov	sp, r7
+ 216 002a 04B0     		add	sp, sp, #16
+ 217              		@ sp needed
+ 218 002c 80BD     		pop	{r7, pc}
+ 219              	.L14:
+ 220 002e C046     		.align	2
+ 221              	.L13:
+ 222 0030 04032540 		.word	1076167428
+ 223              		.cfi_endproc
+ 224              	.LFE6:
+ 225              		.size	I2C_MPU6050_SetRxFifoLevel, .-I2C_MPU6050_SetRxFifoLevel
+ 226              		.section	.text.I2C_MPU6050_SetTxFifoLevel,"ax",%progbits
+ 227              		.align	2
+ 228              		.global	I2C_MPU6050_SetTxFifoLevel
+ 229              		.code	16
+ 230              		.thumb_func
+ 231              		.type	I2C_MPU6050_SetTxFifoLevel, %function
+ 232              	I2C_MPU6050_SetTxFifoLevel:
+ 233              	.LFB7:
+ 253:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 254:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 255:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /*******************************************************************************
+ 256:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Function Name: I2C_MPU6050_SetTxFifoLevel
+ 257:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ********************************************************************************
+ 258:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 259:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Summary:
+ 260:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  Sets level in the TX FIFO to generate a TX level interrupt.
+ 261:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  When the TX FIFO has more entries than the TX FIFO level an TX level
+ 262:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  interrupt request is generated.
+ 263:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 264:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Parameters:
+ 265:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  level: Level in the TX FIFO to generate TX level interrupt.
+ 266:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *         The range of valid level values is between 0 and TX FIFO depth - 1.
+ 267:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 268:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Return:
+ 269:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 270:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 271:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************/
+ 272:.\Generated_Source\PSoC4/I2C_MPU6050.c **** void I2C_MPU6050_SetTxFifoLevel(uint32 level)
+ 273:.\Generated_Source\PSoC4/I2C_MPU6050.c **** {
+ 234              		.loc 1 273 0
+ 235              		.cfi_startproc
+ 236 0000 80B5     		push	{r7, lr}
+ 237              		.cfi_def_cfa_offset 8
+ 238              		.cfi_offset 7, -8
+ 239              		.cfi_offset 14, -4
+ 240 0002 84B0     		sub	sp, sp, #16
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 10
+
+
+ 241              		.cfi_def_cfa_offset 24
+ 242 0004 00AF     		add	r7, sp, #0
+ 243              		.cfi_def_cfa_register 7
+ 244 0006 7860     		str	r0, [r7, #4]
+ 274:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     uint32 txFifoCtrl;
+ 275:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 276:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     txFifoCtrl = I2C_MPU6050_TX_FIFO_CTRL_REG;
+ 245              		.loc 1 276 0
+ 246 0008 094B     		ldr	r3, .L16
+ 247 000a 1B68     		ldr	r3, [r3]
+ 248 000c FB60     		str	r3, [r7, #12]
+ 277:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 278:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     txFifoCtrl &= ((uint32) ~I2C_MPU6050_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK); /* Clear level mask bits
+ 249              		.loc 1 278 0
+ 250 000e FB68     		ldr	r3, [r7, #12]
+ 251 0010 0F22     		mov	r2, #15
+ 252 0012 9343     		bic	r3, r2
+ 253 0014 FB60     		str	r3, [r7, #12]
+ 279:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     txFifoCtrl |= ((uint32) (I2C_MPU6050_TX_FIFO_CTRL_TRIGGER_LEVEL_MASK & level));
+ 254              		.loc 1 279 0
+ 255 0016 7B68     		ldr	r3, [r7, #4]
+ 256 0018 0F22     		mov	r2, #15
+ 257 001a 1340     		and	r3, r2
+ 258 001c FA68     		ldr	r2, [r7, #12]
+ 259 001e 1343     		orr	r3, r2
+ 260 0020 FB60     		str	r3, [r7, #12]
+ 280:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 281:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_TX_FIFO_CTRL_REG = txFifoCtrl;
+ 261              		.loc 1 281 0
+ 262 0022 034B     		ldr	r3, .L16
+ 263 0024 FA68     		ldr	r2, [r7, #12]
+ 264 0026 1A60     		str	r2, [r3]
+ 282:.\Generated_Source\PSoC4/I2C_MPU6050.c **** }
+ 265              		.loc 1 282 0
+ 266 0028 BD46     		mov	sp, r7
+ 267 002a 04B0     		add	sp, sp, #16
+ 268              		@ sp needed
+ 269 002c 80BD     		pop	{r7, pc}
+ 270              	.L17:
+ 271 002e C046     		.align	2
+ 272              	.L16:
+ 273 0030 04022540 		.word	1076167172
+ 274              		.cfi_endproc
+ 275              	.LFE7:
+ 276              		.size	I2C_MPU6050_SetTxFifoLevel, .-I2C_MPU6050_SetTxFifoLevel
+ 277              		.section	.text.I2C_MPU6050_SetCustomInterruptHandler,"ax",%progbits
+ 278              		.align	2
+ 279              		.global	I2C_MPU6050_SetCustomInterruptHandler
+ 280              		.code	16
+ 281              		.thumb_func
+ 282              		.type	I2C_MPU6050_SetCustomInterruptHandler, %function
+ 283              	I2C_MPU6050_SetCustomInterruptHandler:
+ 284              	.LFB8:
+ 283:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 284:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 285:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /*******************************************************************************
+ 286:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Function Name: I2C_MPU6050_SetCustomInterruptHandler
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 11
+
+
+ 287:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ********************************************************************************
+ 288:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 289:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Summary:
+ 290:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  Registers a function to be called by the internal interrupt handler.
+ 291:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  First the function that is registered is called, then the internal interrupt
+ 292:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  handler performs any operation such as software buffer management functions
+ 293:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  before the interrupt returns.  It is the user's responsibility not to break
+ 294:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  the software buffer operations. Only one custom handler is supported, which
+ 295:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  is the function provided by the most recent call.
+ 296:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  At the initialization time no custom handler is registered.
+ 297:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 298:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Parameters:
+ 299:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  func: Pointer to the function to register.
+ 300:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *        The value NULL indicates to remove the current custom interrupt
+ 301:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *        handler.
+ 302:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 303:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Return:
+ 304:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 305:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 306:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************/
+ 307:.\Generated_Source\PSoC4/I2C_MPU6050.c **** void I2C_MPU6050_SetCustomInterruptHandler(cyisraddress func)
+ 308:.\Generated_Source\PSoC4/I2C_MPU6050.c **** {
+ 285              		.loc 1 308 0
+ 286              		.cfi_startproc
+ 287 0000 80B5     		push	{r7, lr}
+ 288              		.cfi_def_cfa_offset 8
+ 289              		.cfi_offset 7, -8
+ 290              		.cfi_offset 14, -4
+ 291 0002 82B0     		sub	sp, sp, #8
+ 292              		.cfi_def_cfa_offset 16
+ 293 0004 00AF     		add	r7, sp, #0
+ 294              		.cfi_def_cfa_register 7
+ 295 0006 7860     		str	r0, [r7, #4]
+ 309:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if !defined (CY_REMOVE_I2C_MPU6050_CUSTOM_INTR_HANDLER)
+ 310:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_customIntrHandler = func; /* Register interrupt handler */
+ 296              		.loc 1 310 0
+ 297 0008 024B     		ldr	r3, .L19
+ 298 000a 7A68     		ldr	r2, [r7, #4]
+ 299 000c 1A60     		str	r2, [r3]
+ 311:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #else
+ 312:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     if(NULL != func)
+ 313:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     {
+ 314:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         /* Suppress compiler warning */
+ 315:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     }
+ 316:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* !defined (CY_REMOVE_I2C_MPU6050_CUSTOM_INTR_HANDLER) */
+ 317:.\Generated_Source\PSoC4/I2C_MPU6050.c **** }
+ 300              		.loc 1 317 0
+ 301 000e BD46     		mov	sp, r7
+ 302 0010 02B0     		add	sp, sp, #8
+ 303              		@ sp needed
+ 304 0012 80BD     		pop	{r7, pc}
+ 305              	.L20:
+ 306              		.align	2
+ 307              	.L19:
+ 308 0014 00000000 		.word	I2C_MPU6050_customIntrHandler
+ 309              		.cfi_endproc
+ 310              	.LFE8:
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 12
+
+
+ 311              		.size	I2C_MPU6050_SetCustomInterruptHandler, .-I2C_MPU6050_SetCustomInterruptHandler
+ 312              		.section	.text.I2C_MPU6050_ScbEnableIntr,"ax",%progbits
+ 313              		.align	2
+ 314              		.code	16
+ 315              		.thumb_func
+ 316              		.type	I2C_MPU6050_ScbEnableIntr, %function
+ 317              	I2C_MPU6050_ScbEnableIntr:
+ 318              	.LFB9:
+ 318:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 319:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 320:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /*******************************************************************************
+ 321:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Function Name: I2C_MPU6050_ScbModeEnableIntr
+ 322:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ********************************************************************************
+ 323:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 324:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Summary:
+ 325:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  Enables an interrupt for a specific mode.
+ 326:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 327:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Parameters:
+ 328:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 329:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 330:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Return:
+ 331:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 332:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 333:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************/
+ 334:.\Generated_Source\PSoC4/I2C_MPU6050.c **** static void I2C_MPU6050_ScbEnableIntr(void)
+ 335:.\Generated_Source\PSoC4/I2C_MPU6050.c **** {
+ 319              		.loc 1 335 0
+ 320              		.cfi_startproc
+ 321 0000 80B5     		push	{r7, lr}
+ 322              		.cfi_def_cfa_offset 8
+ 323              		.cfi_offset 7, -8
+ 324              		.cfi_offset 14, -4
+ 325 0002 00AF     		add	r7, sp, #0
+ 326              		.cfi_def_cfa_register 7
+ 336:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if(I2C_MPU6050_SCB_IRQ_INTERNAL)
+ 337:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     #if(I2C_MPU6050_SCB_MODE_UNCONFIG_CONST_CFG)
+ 338:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         /* Enable interrupt in NVIC */
+ 339:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         if(0u != I2C_MPU6050_scbEnableIntr)
+ 340:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         {
+ 341:.\Generated_Source\PSoC4/I2C_MPU6050.c ****             I2C_MPU6050_EnableInt();
+ 342:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         }
+ 343:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     #else
+ 344:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         I2C_MPU6050_EnableInt();
+ 327              		.loc 1 344 0
+ 328 0004 0A20     		mov	r0, #10
+ 329 0006 FFF7FEFF 		bl	CyIntEnable
+ 345:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 346:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     #endif /* (I2C_MPU6050_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 347:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (I2C_MPU6050_SCB_IRQ_INTERNAL) */
+ 348:.\Generated_Source\PSoC4/I2C_MPU6050.c **** }
+ 330              		.loc 1 348 0
+ 331 000a BD46     		mov	sp, r7
+ 332              		@ sp needed
+ 333 000c 80BD     		pop	{r7, pc}
+ 334              		.cfi_endproc
+ 335              	.LFE9:
+ 336              		.size	I2C_MPU6050_ScbEnableIntr, .-I2C_MPU6050_ScbEnableIntr
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 13
+
+
+ 337              		.section	.text.I2C_MPU6050_ScbModeStop,"ax",%progbits
+ 338              		.align	2
+ 339              		.code	16
+ 340              		.thumb_func
+ 341              		.type	I2C_MPU6050_ScbModeStop, %function
+ 342              	I2C_MPU6050_ScbModeStop:
+ 343              	.LFB10:
+ 349:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 350:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 351:.\Generated_Source\PSoC4/I2C_MPU6050.c **** /*******************************************************************************
+ 352:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Function Name: I2C_MPU6050_ScbModeStop
+ 353:.\Generated_Source\PSoC4/I2C_MPU6050.c **** ********************************************************************************
+ 354:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 355:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Summary:
+ 356:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  Calls the Stop function for a specific operation mode.
+ 357:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 358:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Parameters:
+ 359:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 360:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 361:.\Generated_Source\PSoC4/I2C_MPU6050.c **** * Return:
+ 362:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *  None
+ 363:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *
+ 364:.\Generated_Source\PSoC4/I2C_MPU6050.c **** *******************************************************************************/
+ 365:.\Generated_Source\PSoC4/I2C_MPU6050.c **** static void I2C_MPU6050_ScbModeStop(void)
+ 366:.\Generated_Source\PSoC4/I2C_MPU6050.c **** {
+ 344              		.loc 1 366 0
+ 345              		.cfi_startproc
+ 346 0000 80B5     		push	{r7, lr}
+ 347              		.cfi_def_cfa_offset 8
+ 348              		.cfi_offset 7, -8
+ 349              		.cfi_offset 14, -4
+ 350 0002 00AF     		add	r7, sp, #0
+ 351              		.cfi_def_cfa_register 7
+ 367:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if(I2C_MPU6050_SCB_MODE_UNCONFIG_CONST_CFG)
+ 368:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     if(I2C_MPU6050_SCB_MODE_I2C_RUNTM_CFG)
+ 369:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     {
+ 370:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         I2C_MPU6050_I2CStop();
+ 371:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     }
+ 372:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     else if (I2C_MPU6050_SCB_MODE_EZI2C_RUNTM_CFG)
+ 373:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     {
+ 374:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         I2C_MPU6050_EzI2CStop();
+ 375:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     }
+ 376:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #if (!I2C_MPU6050_CY_SCBIP_V1)
+ 377:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     else if (I2C_MPU6050_SCB_MODE_UART_RUNTM_CFG)
+ 378:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     {
+ 379:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         I2C_MPU6050_UartStop();
+ 380:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     }
+ 381:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (!I2C_MPU6050_CY_SCBIP_V1) */
+ 382:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     else
+ 383:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     {
+ 384:.\Generated_Source\PSoC4/I2C_MPU6050.c ****         /* Do nothing for other modes */
+ 385:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     }
+ 386:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #elif(I2C_MPU6050_SCB_MODE_I2C_CONST_CFG)
+ 387:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_I2CStop();
+ 352              		.loc 1 387 0
+ 353 0004 FFF7FEFF 		bl	I2C_MPU6050_I2CStop
+ 388:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 14
+
+
+ 389:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #elif(I2C_MPU6050_SCB_MODE_EZI2C_CONST_CFG)
+ 390:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_EzI2CStop();
+ 391:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 392:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #elif(I2C_MPU6050_SCB_MODE_UART_CONST_CFG)
+ 393:.\Generated_Source\PSoC4/I2C_MPU6050.c ****     I2C_MPU6050_UartStop();
+ 394:.\Generated_Source\PSoC4/I2C_MPU6050.c **** 
+ 395:.\Generated_Source\PSoC4/I2C_MPU6050.c **** #endif /* (I2C_MPU6050_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 396:.\Generated_Source\PSoC4/I2C_MPU6050.c **** }
+ 354              		.loc 1 396 0
+ 355 0008 BD46     		mov	sp, r7
+ 356              		@ sp needed
+ 357 000a 80BD     		pop	{r7, pc}
+ 358              		.cfi_endproc
+ 359              	.LFE10:
+ 360              		.size	I2C_MPU6050_ScbModeStop, .-I2C_MPU6050_ScbModeStop
+ 361              		.text
+ 362              	.Letext0:
+ 363              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 364              		.section	.debug_info,"",%progbits
+ 365              	.Ldebug_info0:
+ 366 0000 D5010000 		.4byte	0x1d5
+ 367 0004 0400     		.2byte	0x4
+ 368 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 369 000a 04       		.byte	0x4
+ 370 000b 01       		.uleb128 0x1
+ 371 000c 25010000 		.4byte	.LASF32
+ 372 0010 01       		.byte	0x1
+ 373 0011 2B020000 		.4byte	.LASF33
+ 374 0015 BB000000 		.4byte	.LASF34
+ 375 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 376 001d 00000000 		.4byte	0
+ 377 0021 00000000 		.4byte	.Ldebug_line0
+ 378 0025 02       		.uleb128 0x2
+ 379 0026 01       		.byte	0x1
+ 380 0027 06       		.byte	0x6
+ 381 0028 E3020000 		.4byte	.LASF0
+ 382 002c 02       		.uleb128 0x2
+ 383 002d 01       		.byte	0x1
+ 384 002e 08       		.byte	0x8
+ 385 002f 73000000 		.4byte	.LASF1
+ 386 0033 02       		.uleb128 0x2
+ 387 0034 02       		.byte	0x2
+ 388 0035 05       		.byte	0x5
+ 389 0036 92020000 		.4byte	.LASF2
+ 390 003a 02       		.uleb128 0x2
+ 391 003b 02       		.byte	0x2
+ 392 003c 07       		.byte	0x7
+ 393 003d 2B000000 		.4byte	.LASF3
+ 394 0041 02       		.uleb128 0x2
+ 395 0042 04       		.byte	0x4
+ 396 0043 05       		.byte	0x5
+ 397 0044 DA020000 		.4byte	.LASF4
+ 398 0048 02       		.uleb128 0x2
+ 399 0049 04       		.byte	0x4
+ 400 004a 07       		.byte	0x7
+ 401 004b 81000000 		.4byte	.LASF5
+ 402 004f 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 15
+
+
+ 403 0050 08       		.byte	0x8
+ 404 0051 05       		.byte	0x5
+ 405 0052 52020000 		.4byte	.LASF6
+ 406 0056 02       		.uleb128 0x2
+ 407 0057 08       		.byte	0x8
+ 408 0058 07       		.byte	0x7
+ 409 0059 ED010000 		.4byte	.LASF7
+ 410 005d 03       		.uleb128 0x3
+ 411 005e 04       		.byte	0x4
+ 412 005f 05       		.byte	0x5
+ 413 0060 696E7400 		.ascii	"int\000"
+ 414 0064 02       		.uleb128 0x2
+ 415 0065 04       		.byte	0x4
+ 416 0066 07       		.byte	0x7
+ 417 0067 E0010000 		.4byte	.LASF8
+ 418 006b 04       		.uleb128 0x4
+ 419 006c AE000000 		.4byte	.LASF9
+ 420 0070 02       		.byte	0x2
+ 421 0071 A1       		.byte	0xa1
+ 422 0072 2C000000 		.4byte	0x2c
+ 423 0076 04       		.uleb128 0x4
+ 424 0077 D9010000 		.4byte	.LASF10
+ 425 007b 02       		.byte	0x2
+ 426 007c A3       		.byte	0xa3
+ 427 007d 48000000 		.4byte	0x48
+ 428 0081 02       		.uleb128 0x2
+ 429 0082 04       		.byte	0x4
+ 430 0083 04       		.byte	0x4
+ 431 0084 3E000000 		.4byte	.LASF11
+ 432 0088 02       		.uleb128 0x2
+ 433 0089 08       		.byte	0x8
+ 434 008a 04       		.byte	0x4
+ 435 008b B4000000 		.4byte	.LASF12
+ 436 008f 02       		.uleb128 0x2
+ 437 0090 01       		.byte	0x1
+ 438 0091 08       		.byte	0x8
+ 439 0092 73020000 		.4byte	.LASF13
+ 440 0096 05       		.uleb128 0x5
+ 441 0097 00000000 		.4byte	.LASF14
+ 442 009b 02       		.byte	0x2
+ 443 009c 4D01     		.2byte	0x14d
+ 444 009e A2000000 		.4byte	0xa2
+ 445 00a2 06       		.uleb128 0x6
+ 446 00a3 76000000 		.4byte	0x76
+ 447 00a7 05       		.uleb128 0x5
+ 448 00a8 15020000 		.4byte	.LASF15
+ 449 00ac 02       		.byte	0x2
+ 450 00ad 5D01     		.2byte	0x15d
+ 451 00af B3000000 		.4byte	0xb3
+ 452 00b3 07       		.uleb128 0x7
+ 453 00b4 04       		.byte	0x4
+ 454 00b5 B9000000 		.4byte	0xb9
+ 455 00b9 08       		.uleb128 0x8
+ 456 00ba 02       		.uleb128 0x2
+ 457 00bb 04       		.byte	0x4
+ 458 00bc 07       		.byte	0x7
+ 459 00bd 22020000 		.4byte	.LASF16
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 16
+
+
+ 460 00c1 09       		.uleb128 0x9
+ 461 00c2 44000000 		.4byte	.LASF17
+ 462 00c6 01       		.byte	0x1
+ 463 00c7 63       		.byte	0x63
+ 464 00c8 00000000 		.4byte	.LFB2
+ 465 00cc 0C000000 		.4byte	.LFE2-.LFB2
+ 466 00d0 01       		.uleb128 0x1
+ 467 00d1 9C       		.byte	0x9c
+ 468 00d2 09       		.uleb128 0x9
+ 469 00d3 60020000 		.4byte	.LASF18
+ 470 00d7 01       		.byte	0x1
+ 471 00d8 8F       		.byte	0x8f
+ 472 00d9 00000000 		.4byte	.LFB3
+ 473 00dd 20000000 		.4byte	.LFE3-.LFB3
+ 474 00e1 01       		.uleb128 0x1
+ 475 00e2 9C       		.byte	0x9c
+ 476 00e3 09       		.uleb128 0x9
+ 477 00e4 EF020000 		.4byte	.LASF19
+ 478 00e8 01       		.byte	0x1
+ 479 00e9 B7       		.byte	0xb7
+ 480 00ea 00000000 		.4byte	.LFB4
+ 481 00ee 24000000 		.4byte	.LFE4-.LFB4
+ 482 00f2 01       		.uleb128 0x1
+ 483 00f3 9C       		.byte	0x9c
+ 484 00f4 09       		.uleb128 0x9
+ 485 00f5 04020000 		.4byte	.LASF20
+ 486 00f9 01       		.byte	0x1
+ 487 00fa D1       		.byte	0xd1
+ 488 00fb 00000000 		.4byte	.LFB5
+ 489 00ff 28000000 		.4byte	.LFE5-.LFB5
+ 490 0103 01       		.uleb128 0x1
+ 491 0104 9C       		.byte	0x9c
+ 492 0105 0A       		.uleb128 0xa
+ 493 0106 9C020000 		.4byte	.LASF21
+ 494 010a 01       		.byte	0x1
+ 495 010b F2       		.byte	0xf2
+ 496 010c 00000000 		.4byte	.LFB6
+ 497 0110 34000000 		.4byte	.LFE6-.LFB6
+ 498 0114 01       		.uleb128 0x1
+ 499 0115 9C       		.byte	0x9c
+ 500 0116 37010000 		.4byte	0x137
+ 501 011a 0B       		.uleb128 0xb
+ 502 011b 25000000 		.4byte	.LASF23
+ 503 011f 01       		.byte	0x1
+ 504 0120 F2       		.byte	0xf2
+ 505 0121 76000000 		.4byte	0x76
+ 506 0125 02       		.uleb128 0x2
+ 507 0126 91       		.byte	0x91
+ 508 0127 6C       		.sleb128 -20
+ 509 0128 0C       		.uleb128 0xc
+ 510 0129 CF020000 		.4byte	.LASF24
+ 511 012d 01       		.byte	0x1
+ 512 012e F4       		.byte	0xf4
+ 513 012f 76000000 		.4byte	0x76
+ 514 0133 02       		.uleb128 0x2
+ 515 0134 91       		.byte	0x91
+ 516 0135 74       		.sleb128 -12
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 17
+
+
+ 517 0136 00       		.byte	0
+ 518 0137 0D       		.uleb128 0xd
+ 519 0138 93000000 		.4byte	.LASF22
+ 520 013c 01       		.byte	0x1
+ 521 013d 1001     		.2byte	0x110
+ 522 013f 00000000 		.4byte	.LFB7
+ 523 0143 34000000 		.4byte	.LFE7-.LFB7
+ 524 0147 01       		.uleb128 0x1
+ 525 0148 9C       		.byte	0x9c
+ 526 0149 6C010000 		.4byte	0x16c
+ 527 014d 0E       		.uleb128 0xe
+ 528 014e 25000000 		.4byte	.LASF23
+ 529 0152 01       		.byte	0x1
+ 530 0153 1001     		.2byte	0x110
+ 531 0155 76000000 		.4byte	0x76
+ 532 0159 02       		.uleb128 0x2
+ 533 015a 91       		.byte	0x91
+ 534 015b 6C       		.sleb128 -20
+ 535 015c 0F       		.uleb128 0xf
+ 536 015d 06000000 		.4byte	.LASF25
+ 537 0161 01       		.byte	0x1
+ 538 0162 1201     		.2byte	0x112
+ 539 0164 76000000 		.4byte	0x76
+ 540 0168 02       		.uleb128 0x2
+ 541 0169 91       		.byte	0x91
+ 542 016a 74       		.sleb128 -12
+ 543 016b 00       		.byte	0
+ 544 016c 0D       		.uleb128 0xd
+ 545 016d B3010000 		.4byte	.LASF26
+ 546 0171 01       		.byte	0x1
+ 547 0172 3301     		.2byte	0x133
+ 548 0174 00000000 		.4byte	.LFB8
+ 549 0178 18000000 		.4byte	.LFE8-.LFB8
+ 550 017c 01       		.uleb128 0x1
+ 551 017d 9C       		.byte	0x9c
+ 552 017e 92010000 		.4byte	0x192
+ 553 0182 0E       		.uleb128 0xe
+ 554 0183 20010000 		.4byte	.LASF27
+ 555 0187 01       		.byte	0x1
+ 556 0188 3301     		.2byte	0x133
+ 557 018a A7000000 		.4byte	0xa7
+ 558 018e 02       		.uleb128 0x2
+ 559 018f 91       		.byte	0x91
+ 560 0190 74       		.sleb128 -12
+ 561 0191 00       		.byte	0
+ 562 0192 10       		.uleb128 0x10
+ 563 0193 78020000 		.4byte	.LASF28
+ 564 0197 01       		.byte	0x1
+ 565 0198 4E01     		.2byte	0x14e
+ 566 019a 00000000 		.4byte	.LFB9
+ 567 019e 0E000000 		.4byte	.LFE9-.LFB9
+ 568 01a2 01       		.uleb128 0x1
+ 569 01a3 9C       		.byte	0x9c
+ 570 01a4 10       		.uleb128 0x10
+ 571 01a5 B7020000 		.4byte	.LASF29
+ 572 01a9 01       		.byte	0x1
+ 573 01aa 6D01     		.2byte	0x16d
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 18
+
+
+ 574 01ac 00000000 		.4byte	.LFB10
+ 575 01b0 0C000000 		.4byte	.LFE10-.LFB10
+ 576 01b4 01       		.uleb128 0x1
+ 577 01b5 9C       		.byte	0x9c
+ 578 01b6 11       		.uleb128 0x11
+ 579 01b7 11000000 		.4byte	.LASF30
+ 580 01bb 01       		.byte	0x1
+ 581 01bc 42       		.byte	0x42
+ 582 01bd 6B000000 		.4byte	0x6b
+ 583 01c1 05       		.uleb128 0x5
+ 584 01c2 03       		.byte	0x3
+ 585 01c3 00000000 		.4byte	I2C_MPU6050_initVar
+ 586 01c7 11       		.uleb128 0x11
+ 587 01c8 55000000 		.4byte	.LASF31
+ 588 01cc 01       		.byte	0x1
+ 589 01cd 45       		.byte	0x45
+ 590 01ce A7000000 		.4byte	0xa7
+ 591 01d2 05       		.uleb128 0x5
+ 592 01d3 03       		.byte	0x3
+ 593 01d4 00000000 		.4byte	I2C_MPU6050_customIntrHandler
+ 594 01d8 00       		.byte	0
+ 595              		.section	.debug_abbrev,"",%progbits
+ 596              	.Ldebug_abbrev0:
+ 597 0000 01       		.uleb128 0x1
+ 598 0001 11       		.uleb128 0x11
+ 599 0002 01       		.byte	0x1
+ 600 0003 25       		.uleb128 0x25
+ 601 0004 0E       		.uleb128 0xe
+ 602 0005 13       		.uleb128 0x13
+ 603 0006 0B       		.uleb128 0xb
+ 604 0007 03       		.uleb128 0x3
+ 605 0008 0E       		.uleb128 0xe
+ 606 0009 1B       		.uleb128 0x1b
+ 607 000a 0E       		.uleb128 0xe
+ 608 000b 55       		.uleb128 0x55
+ 609 000c 17       		.uleb128 0x17
+ 610 000d 11       		.uleb128 0x11
+ 611 000e 01       		.uleb128 0x1
+ 612 000f 10       		.uleb128 0x10
+ 613 0010 17       		.uleb128 0x17
+ 614 0011 00       		.byte	0
+ 615 0012 00       		.byte	0
+ 616 0013 02       		.uleb128 0x2
+ 617 0014 24       		.uleb128 0x24
+ 618 0015 00       		.byte	0
+ 619 0016 0B       		.uleb128 0xb
+ 620 0017 0B       		.uleb128 0xb
+ 621 0018 3E       		.uleb128 0x3e
+ 622 0019 0B       		.uleb128 0xb
+ 623 001a 03       		.uleb128 0x3
+ 624 001b 0E       		.uleb128 0xe
+ 625 001c 00       		.byte	0
+ 626 001d 00       		.byte	0
+ 627 001e 03       		.uleb128 0x3
+ 628 001f 24       		.uleb128 0x24
+ 629 0020 00       		.byte	0
+ 630 0021 0B       		.uleb128 0xb
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 19
+
+
+ 631 0022 0B       		.uleb128 0xb
+ 632 0023 3E       		.uleb128 0x3e
+ 633 0024 0B       		.uleb128 0xb
+ 634 0025 03       		.uleb128 0x3
+ 635 0026 08       		.uleb128 0x8
+ 636 0027 00       		.byte	0
+ 637 0028 00       		.byte	0
+ 638 0029 04       		.uleb128 0x4
+ 639 002a 16       		.uleb128 0x16
+ 640 002b 00       		.byte	0
+ 641 002c 03       		.uleb128 0x3
+ 642 002d 0E       		.uleb128 0xe
+ 643 002e 3A       		.uleb128 0x3a
+ 644 002f 0B       		.uleb128 0xb
+ 645 0030 3B       		.uleb128 0x3b
+ 646 0031 0B       		.uleb128 0xb
+ 647 0032 49       		.uleb128 0x49
+ 648 0033 13       		.uleb128 0x13
+ 649 0034 00       		.byte	0
+ 650 0035 00       		.byte	0
+ 651 0036 05       		.uleb128 0x5
+ 652 0037 16       		.uleb128 0x16
+ 653 0038 00       		.byte	0
+ 654 0039 03       		.uleb128 0x3
+ 655 003a 0E       		.uleb128 0xe
+ 656 003b 3A       		.uleb128 0x3a
+ 657 003c 0B       		.uleb128 0xb
+ 658 003d 3B       		.uleb128 0x3b
+ 659 003e 05       		.uleb128 0x5
+ 660 003f 49       		.uleb128 0x49
+ 661 0040 13       		.uleb128 0x13
+ 662 0041 00       		.byte	0
+ 663 0042 00       		.byte	0
+ 664 0043 06       		.uleb128 0x6
+ 665 0044 35       		.uleb128 0x35
+ 666 0045 00       		.byte	0
+ 667 0046 49       		.uleb128 0x49
+ 668 0047 13       		.uleb128 0x13
+ 669 0048 00       		.byte	0
+ 670 0049 00       		.byte	0
+ 671 004a 07       		.uleb128 0x7
+ 672 004b 0F       		.uleb128 0xf
+ 673 004c 00       		.byte	0
+ 674 004d 0B       		.uleb128 0xb
+ 675 004e 0B       		.uleb128 0xb
+ 676 004f 49       		.uleb128 0x49
+ 677 0050 13       		.uleb128 0x13
+ 678 0051 00       		.byte	0
+ 679 0052 00       		.byte	0
+ 680 0053 08       		.uleb128 0x8
+ 681 0054 15       		.uleb128 0x15
+ 682 0055 00       		.byte	0
+ 683 0056 27       		.uleb128 0x27
+ 684 0057 19       		.uleb128 0x19
+ 685 0058 00       		.byte	0
+ 686 0059 00       		.byte	0
+ 687 005a 09       		.uleb128 0x9
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 20
+
+
+ 688 005b 2E       		.uleb128 0x2e
+ 689 005c 00       		.byte	0
+ 690 005d 3F       		.uleb128 0x3f
+ 691 005e 19       		.uleb128 0x19
+ 692 005f 03       		.uleb128 0x3
+ 693 0060 0E       		.uleb128 0xe
+ 694 0061 3A       		.uleb128 0x3a
+ 695 0062 0B       		.uleb128 0xb
+ 696 0063 3B       		.uleb128 0x3b
+ 697 0064 0B       		.uleb128 0xb
+ 698 0065 27       		.uleb128 0x27
+ 699 0066 19       		.uleb128 0x19
+ 700 0067 11       		.uleb128 0x11
+ 701 0068 01       		.uleb128 0x1
+ 702 0069 12       		.uleb128 0x12
+ 703 006a 06       		.uleb128 0x6
+ 704 006b 40       		.uleb128 0x40
+ 705 006c 18       		.uleb128 0x18
+ 706 006d 9642     		.uleb128 0x2116
+ 707 006f 19       		.uleb128 0x19
+ 708 0070 00       		.byte	0
+ 709 0071 00       		.byte	0
+ 710 0072 0A       		.uleb128 0xa
+ 711 0073 2E       		.uleb128 0x2e
+ 712 0074 01       		.byte	0x1
+ 713 0075 3F       		.uleb128 0x3f
+ 714 0076 19       		.uleb128 0x19
+ 715 0077 03       		.uleb128 0x3
+ 716 0078 0E       		.uleb128 0xe
+ 717 0079 3A       		.uleb128 0x3a
+ 718 007a 0B       		.uleb128 0xb
+ 719 007b 3B       		.uleb128 0x3b
+ 720 007c 0B       		.uleb128 0xb
+ 721 007d 27       		.uleb128 0x27
+ 722 007e 19       		.uleb128 0x19
+ 723 007f 11       		.uleb128 0x11
+ 724 0080 01       		.uleb128 0x1
+ 725 0081 12       		.uleb128 0x12
+ 726 0082 06       		.uleb128 0x6
+ 727 0083 40       		.uleb128 0x40
+ 728 0084 18       		.uleb128 0x18
+ 729 0085 9742     		.uleb128 0x2117
+ 730 0087 19       		.uleb128 0x19
+ 731 0088 01       		.uleb128 0x1
+ 732 0089 13       		.uleb128 0x13
+ 733 008a 00       		.byte	0
+ 734 008b 00       		.byte	0
+ 735 008c 0B       		.uleb128 0xb
+ 736 008d 05       		.uleb128 0x5
+ 737 008e 00       		.byte	0
+ 738 008f 03       		.uleb128 0x3
+ 739 0090 0E       		.uleb128 0xe
+ 740 0091 3A       		.uleb128 0x3a
+ 741 0092 0B       		.uleb128 0xb
+ 742 0093 3B       		.uleb128 0x3b
+ 743 0094 0B       		.uleb128 0xb
+ 744 0095 49       		.uleb128 0x49
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 21
+
+
+ 745 0096 13       		.uleb128 0x13
+ 746 0097 02       		.uleb128 0x2
+ 747 0098 18       		.uleb128 0x18
+ 748 0099 00       		.byte	0
+ 749 009a 00       		.byte	0
+ 750 009b 0C       		.uleb128 0xc
+ 751 009c 34       		.uleb128 0x34
+ 752 009d 00       		.byte	0
+ 753 009e 03       		.uleb128 0x3
+ 754 009f 0E       		.uleb128 0xe
+ 755 00a0 3A       		.uleb128 0x3a
+ 756 00a1 0B       		.uleb128 0xb
+ 757 00a2 3B       		.uleb128 0x3b
+ 758 00a3 0B       		.uleb128 0xb
+ 759 00a4 49       		.uleb128 0x49
+ 760 00a5 13       		.uleb128 0x13
+ 761 00a6 02       		.uleb128 0x2
+ 762 00a7 18       		.uleb128 0x18
+ 763 00a8 00       		.byte	0
+ 764 00a9 00       		.byte	0
+ 765 00aa 0D       		.uleb128 0xd
+ 766 00ab 2E       		.uleb128 0x2e
+ 767 00ac 01       		.byte	0x1
+ 768 00ad 3F       		.uleb128 0x3f
+ 769 00ae 19       		.uleb128 0x19
+ 770 00af 03       		.uleb128 0x3
+ 771 00b0 0E       		.uleb128 0xe
+ 772 00b1 3A       		.uleb128 0x3a
+ 773 00b2 0B       		.uleb128 0xb
+ 774 00b3 3B       		.uleb128 0x3b
+ 775 00b4 05       		.uleb128 0x5
+ 776 00b5 27       		.uleb128 0x27
+ 777 00b6 19       		.uleb128 0x19
+ 778 00b7 11       		.uleb128 0x11
+ 779 00b8 01       		.uleb128 0x1
+ 780 00b9 12       		.uleb128 0x12
+ 781 00ba 06       		.uleb128 0x6
+ 782 00bb 40       		.uleb128 0x40
+ 783 00bc 18       		.uleb128 0x18
+ 784 00bd 9742     		.uleb128 0x2117
+ 785 00bf 19       		.uleb128 0x19
+ 786 00c0 01       		.uleb128 0x1
+ 787 00c1 13       		.uleb128 0x13
+ 788 00c2 00       		.byte	0
+ 789 00c3 00       		.byte	0
+ 790 00c4 0E       		.uleb128 0xe
+ 791 00c5 05       		.uleb128 0x5
+ 792 00c6 00       		.byte	0
+ 793 00c7 03       		.uleb128 0x3
+ 794 00c8 0E       		.uleb128 0xe
+ 795 00c9 3A       		.uleb128 0x3a
+ 796 00ca 0B       		.uleb128 0xb
+ 797 00cb 3B       		.uleb128 0x3b
+ 798 00cc 05       		.uleb128 0x5
+ 799 00cd 49       		.uleb128 0x49
+ 800 00ce 13       		.uleb128 0x13
+ 801 00cf 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 22
+
+
+ 802 00d0 18       		.uleb128 0x18
+ 803 00d1 00       		.byte	0
+ 804 00d2 00       		.byte	0
+ 805 00d3 0F       		.uleb128 0xf
+ 806 00d4 34       		.uleb128 0x34
+ 807 00d5 00       		.byte	0
+ 808 00d6 03       		.uleb128 0x3
+ 809 00d7 0E       		.uleb128 0xe
+ 810 00d8 3A       		.uleb128 0x3a
+ 811 00d9 0B       		.uleb128 0xb
+ 812 00da 3B       		.uleb128 0x3b
+ 813 00db 05       		.uleb128 0x5
+ 814 00dc 49       		.uleb128 0x49
+ 815 00dd 13       		.uleb128 0x13
+ 816 00de 02       		.uleb128 0x2
+ 817 00df 18       		.uleb128 0x18
+ 818 00e0 00       		.byte	0
+ 819 00e1 00       		.byte	0
+ 820 00e2 10       		.uleb128 0x10
+ 821 00e3 2E       		.uleb128 0x2e
+ 822 00e4 00       		.byte	0
+ 823 00e5 03       		.uleb128 0x3
+ 824 00e6 0E       		.uleb128 0xe
+ 825 00e7 3A       		.uleb128 0x3a
+ 826 00e8 0B       		.uleb128 0xb
+ 827 00e9 3B       		.uleb128 0x3b
+ 828 00ea 05       		.uleb128 0x5
+ 829 00eb 27       		.uleb128 0x27
+ 830 00ec 19       		.uleb128 0x19
+ 831 00ed 11       		.uleb128 0x11
+ 832 00ee 01       		.uleb128 0x1
+ 833 00ef 12       		.uleb128 0x12
+ 834 00f0 06       		.uleb128 0x6
+ 835 00f1 40       		.uleb128 0x40
+ 836 00f2 18       		.uleb128 0x18
+ 837 00f3 9642     		.uleb128 0x2116
+ 838 00f5 19       		.uleb128 0x19
+ 839 00f6 00       		.byte	0
+ 840 00f7 00       		.byte	0
+ 841 00f8 11       		.uleb128 0x11
+ 842 00f9 34       		.uleb128 0x34
+ 843 00fa 00       		.byte	0
+ 844 00fb 03       		.uleb128 0x3
+ 845 00fc 0E       		.uleb128 0xe
+ 846 00fd 3A       		.uleb128 0x3a
+ 847 00fe 0B       		.uleb128 0xb
+ 848 00ff 3B       		.uleb128 0x3b
+ 849 0100 0B       		.uleb128 0xb
+ 850 0101 49       		.uleb128 0x49
+ 851 0102 13       		.uleb128 0x13
+ 852 0103 3F       		.uleb128 0x3f
+ 853 0104 19       		.uleb128 0x19
+ 854 0105 02       		.uleb128 0x2
+ 855 0106 18       		.uleb128 0x18
+ 856 0107 00       		.byte	0
+ 857 0108 00       		.byte	0
+ 858 0109 00       		.byte	0
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 23
+
+
+ 859              		.section	.debug_aranges,"",%progbits
+ 860 0000 5C000000 		.4byte	0x5c
+ 861 0004 0200     		.2byte	0x2
+ 862 0006 00000000 		.4byte	.Ldebug_info0
+ 863 000a 04       		.byte	0x4
+ 864 000b 00       		.byte	0
+ 865 000c 0000     		.2byte	0
+ 866 000e 0000     		.2byte	0
+ 867 0010 00000000 		.4byte	.LFB2
+ 868 0014 0C000000 		.4byte	.LFE2-.LFB2
+ 869 0018 00000000 		.4byte	.LFB3
+ 870 001c 20000000 		.4byte	.LFE3-.LFB3
+ 871 0020 00000000 		.4byte	.LFB4
+ 872 0024 24000000 		.4byte	.LFE4-.LFB4
+ 873 0028 00000000 		.4byte	.LFB5
+ 874 002c 28000000 		.4byte	.LFE5-.LFB5
+ 875 0030 00000000 		.4byte	.LFB6
+ 876 0034 34000000 		.4byte	.LFE6-.LFB6
+ 877 0038 00000000 		.4byte	.LFB7
+ 878 003c 34000000 		.4byte	.LFE7-.LFB7
+ 879 0040 00000000 		.4byte	.LFB8
+ 880 0044 18000000 		.4byte	.LFE8-.LFB8
+ 881 0048 00000000 		.4byte	.LFB9
+ 882 004c 0E000000 		.4byte	.LFE9-.LFB9
+ 883 0050 00000000 		.4byte	.LFB10
+ 884 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 885 0058 00000000 		.4byte	0
+ 886 005c 00000000 		.4byte	0
+ 887              		.section	.debug_ranges,"",%progbits
+ 888              	.Ldebug_ranges0:
+ 889 0000 00000000 		.4byte	.LFB2
+ 890 0004 0C000000 		.4byte	.LFE2
+ 891 0008 00000000 		.4byte	.LFB3
+ 892 000c 20000000 		.4byte	.LFE3
+ 893 0010 00000000 		.4byte	.LFB4
+ 894 0014 24000000 		.4byte	.LFE4
+ 895 0018 00000000 		.4byte	.LFB5
+ 896 001c 28000000 		.4byte	.LFE5
+ 897 0020 00000000 		.4byte	.LFB6
+ 898 0024 34000000 		.4byte	.LFE6
+ 899 0028 00000000 		.4byte	.LFB7
+ 900 002c 34000000 		.4byte	.LFE7
+ 901 0030 00000000 		.4byte	.LFB8
+ 902 0034 18000000 		.4byte	.LFE8
+ 903 0038 00000000 		.4byte	.LFB9
+ 904 003c 0E000000 		.4byte	.LFE9
+ 905 0040 00000000 		.4byte	.LFB10
+ 906 0044 0C000000 		.4byte	.LFE10
+ 907 0048 00000000 		.4byte	0
+ 908 004c 00000000 		.4byte	0
+ 909              		.section	.debug_line,"",%progbits
+ 910              	.Ldebug_line0:
+ 911 0000 22010000 		.section	.debug_str,"MS",%progbits,1
+ 911      02006100 
+ 911      00000201 
+ 911      FB0E0D00 
+ 911      01010101 
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 24
+
+
+ 912              	.LASF14:
+ 913 0000 72656733 		.ascii	"reg32\000"
+ 913      3200
+ 914              	.LASF25:
+ 915 0006 74784669 		.ascii	"txFifoCtrl\000"
+ 915      666F4374 
+ 915      726C00
+ 916              	.LASF30:
+ 917 0011 4932435F 		.ascii	"I2C_MPU6050_initVar\000"
+ 917      4D505536 
+ 917      3035305F 
+ 917      696E6974 
+ 917      56617200 
+ 918              	.LASF23:
+ 919 0025 6C657665 		.ascii	"level\000"
+ 919      6C00
+ 920              	.LASF3:
+ 921 002b 73686F72 		.ascii	"short unsigned int\000"
+ 921      7420756E 
+ 921      7369676E 
+ 921      65642069 
+ 921      6E7400
+ 922              	.LASF11:
+ 923 003e 666C6F61 		.ascii	"float\000"
+ 923      7400
+ 924              	.LASF17:
+ 925 0044 4932435F 		.ascii	"I2C_MPU6050_Init\000"
+ 925      4D505536 
+ 925      3035305F 
+ 925      496E6974 
+ 925      00
+ 926              	.LASF31:
+ 927 0055 4932435F 		.ascii	"I2C_MPU6050_customIntrHandler\000"
+ 927      4D505536 
+ 927      3035305F 
+ 927      63757374 
+ 927      6F6D496E 
+ 928              	.LASF1:
+ 929 0073 756E7369 		.ascii	"unsigned char\000"
+ 929      676E6564 
+ 929      20636861 
+ 929      7200
+ 930              	.LASF5:
+ 931 0081 6C6F6E67 		.ascii	"long unsigned int\000"
+ 931      20756E73 
+ 931      69676E65 
+ 931      6420696E 
+ 931      7400
+ 932              	.LASF22:
+ 933 0093 4932435F 		.ascii	"I2C_MPU6050_SetTxFifoLevel\000"
+ 933      4D505536 
+ 933      3035305F 
+ 933      53657454 
+ 933      78466966 
+ 934              	.LASF9:
+ 935 00ae 75696E74 		.ascii	"uint8\000"
+ 935      3800
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 25
+
+
+ 936              	.LASF12:
+ 937 00b4 646F7562 		.ascii	"double\000"
+ 937      6C6500
+ 938              	.LASF34:
+ 939 00bb 433A5C55 		.ascii	"C:\\Users\\Christina\\Documents\\For_fun\\GitHub\\D"
+ 939      73657273 
+ 939      5C436872 
+ 939      69737469 
+ 939      6E615C44 
+ 940 00e8 65707265 		.ascii	"eprecated\\Corner-Module\\CornerModule\\CornerModul"
+ 940      63617465 
+ 940      645C436F 
+ 940      726E6572 
+ 940      2D4D6F64 
+ 941 0118 652E6379 		.ascii	"e.cydsn\000"
+ 941      64736E00 
+ 942              	.LASF27:
+ 943 0120 66756E63 		.ascii	"func\000"
+ 943      00
+ 944              	.LASF32:
+ 945 0125 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 945      4320342E 
+ 945      392E3320 
+ 945      32303135 
+ 945      30333033 
+ 946 0158 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 946      20726576 
+ 946      6973696F 
+ 946      6E203232 
+ 946      31323230 
+ 947 018b 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 947      66756E63 
+ 947      74696F6E 
+ 947      2D736563 
+ 947      74696F6E 
+ 948              	.LASF26:
+ 949 01b3 4932435F 		.ascii	"I2C_MPU6050_SetCustomInterruptHandler\000"
+ 949      4D505536 
+ 949      3035305F 
+ 949      53657443 
+ 949      7573746F 
+ 950              	.LASF10:
+ 951 01d9 75696E74 		.ascii	"uint32\000"
+ 951      333200
+ 952              	.LASF8:
+ 953 01e0 756E7369 		.ascii	"unsigned int\000"
+ 953      676E6564 
+ 953      20696E74 
+ 953      00
+ 954              	.LASF7:
+ 955 01ed 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 955      206C6F6E 
+ 955      6720756E 
+ 955      7369676E 
+ 955      65642069 
+ 956              	.LASF20:
+ 957 0204 4932435F 		.ascii	"I2C_MPU6050_Stop\000"
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 26
+
+
+ 957      4D505536 
+ 957      3035305F 
+ 957      53746F70 
+ 957      00
+ 958              	.LASF15:
+ 959 0215 63796973 		.ascii	"cyisraddress\000"
+ 959      72616464 
+ 959      72657373 
+ 959      00
+ 960              	.LASF16:
+ 961 0222 73697A65 		.ascii	"sizetype\000"
+ 961      74797065 
+ 961      00
+ 962              	.LASF33:
+ 963 022b 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\I2C_MPU6050.c\000"
+ 963      6E657261 
+ 963      7465645F 
+ 963      536F7572 
+ 963      63655C50 
+ 964              	.LASF6:
+ 965 0252 6C6F6E67 		.ascii	"long long int\000"
+ 965      206C6F6E 
+ 965      6720696E 
+ 965      7400
+ 966              	.LASF18:
+ 967 0260 4932435F 		.ascii	"I2C_MPU6050_Enable\000"
+ 967      4D505536 
+ 967      3035305F 
+ 967      456E6162 
+ 967      6C6500
+ 968              	.LASF13:
+ 969 0273 63686172 		.ascii	"char\000"
+ 969      00
+ 970              	.LASF28:
+ 971 0278 4932435F 		.ascii	"I2C_MPU6050_ScbEnableIntr\000"
+ 971      4D505536 
+ 971      3035305F 
+ 971      53636245 
+ 971      6E61626C 
+ 972              	.LASF2:
+ 973 0292 73686F72 		.ascii	"short int\000"
+ 973      7420696E 
+ 973      7400
+ 974              	.LASF21:
+ 975 029c 4932435F 		.ascii	"I2C_MPU6050_SetRxFifoLevel\000"
+ 975      4D505536 
+ 975      3035305F 
+ 975      53657452 
+ 975      78466966 
+ 976              	.LASF29:
+ 977 02b7 4932435F 		.ascii	"I2C_MPU6050_ScbModeStop\000"
+ 977      4D505536 
+ 977      3035305F 
+ 977      5363624D 
+ 977      6F646553 
+ 978              	.LASF24:
+ 979 02cf 72784669 		.ascii	"rxFifoCtrl\000"
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccm8CNJM.s 			page 27
+
+
+ 979      666F4374 
+ 979      726C00
+ 980              	.LASF4:
+ 981 02da 6C6F6E67 		.ascii	"long int\000"
+ 981      20696E74 
+ 981      00
+ 982              	.LASF0:
+ 983 02e3 7369676E 		.ascii	"signed char\000"
+ 983      65642063 
+ 983      68617200 
+ 984              	.LASF19:
+ 985 02ef 4932435F 		.ascii	"I2C_MPU6050_Start\000"
+ 985      4D505536 
+ 985      3035305F 
+ 985      53746172 
+ 985      7400
+ 986              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

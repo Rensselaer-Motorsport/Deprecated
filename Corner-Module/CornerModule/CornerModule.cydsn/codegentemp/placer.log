@@ -4,9 +4,9 @@
 
 #Version:            1.1
 
-#Build Date:         Oct 23 2014 13:00:08
+#Build Date:         Aug 18 2015 10:30:14
 
-#File Generated:     Apr 12 2015 06:49:00
+#File Generated:     Nov 29 2015 23:21:56
 
 #Purpose:            
 
@@ -14,16 +14,16 @@
 
 #***************************************************************************
 
-Executing : E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\bin/sjplacer.exe --proj-name CornerModule --netlist-vh2 CornerModule_p.vh2 --arch-file E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/placer.ark --rrg-file E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/route_arch-rrg.cydata --irq-file E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/irqconn.cydata --dsi-conn-file E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/dsiconn.cydata --pins-file pins_44-TQFP.xml --lib-file CornerModule_p.lib --sdc-file CornerModule.sdc --io-pcf CornerModule.pci --outdir .
+Executing : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\bin/sjplacer.exe --proj-name CornerModule --netlist-vh2 CornerModule_p.vh2 --arch-file C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev/arch/p4_udb2x2.ark --rrg-file C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev/psoc4/3/route_arch-rrg.cydata --irq-file C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev/psoc4/3/irqconn.cydata --dsi-conn-file C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev/psoc4/3/dsiconn.cydata --pins-file pins_56-QFN.xml --lib-file CornerModule_p.lib --sdc-file CornerModule.sdc --io-pcf CornerModule.pci --outdir .
 
 		Softjin Techologies Placer, Version 1.1
 
-Build Date : Oct 23 2014	13:09:21
+Build Date : Aug 18 2015	10:29:37
 
 D2004: Option and Settings Summary
 =============================================================
 Netlist vh2 file          - CornerModule_p.vh2
-Architecture file         - E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/placer.ark
+Architecture file         - C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev/arch/p4_udb2x2.ark
 Package                   - 
 Defparam file             - 
 SDC file                  - CornerModule.sdc
@@ -34,7 +34,7 @@ IO Placement file         - CornerModule.pci
 D2050: Starting reading inputs for placer
 =============================================================
 D2065: Reading netlist file : "CornerModule_p.vh2"
-D2065: Reading arch file : "E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev/psoc4/psoc4a/placer.ark"
+D2065: Reading arch file : "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev/arch/p4_udb2x2.ark"
 D2051: Reading of inputs for placer completed successfully
 
 D2053: Starting placement of the design
@@ -55,7 +55,7 @@ Design Statistics after Packing
 Device Utilization Summary after Packing
     Macrocells                  :	24/32
     UDBS                        :	4/4
-    IOs                         :	4/36
+    IOs                         :	4/38
 
 
 D2088: Phase 3, elapsed time : 0.0 (sec)
@@ -76,16 +76,17 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 9
-Clock: CyHFCLK              | Frequency:  49.9 MHz | Target:  24.0 MHz
+Number of clocks: 10
+Clock: Clock_1              | Frequency:  43.8 MHz | Target:  12.0 MHz
+Clock: Clock_1(FFB)         | Frequency: N/A       | Target:  12.0 MHz
+Clock: CyECO                | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyHFCLK              | Frequency:  48.4 MHz | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  24.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  24.0 MHz
-Clock: I2C_MPU6050_SCBCLK   | Frequency: N/A       | Target:   1.6 MHz
-Clock: I2C_MPU6050_SCBCLK(FFB) | Frequency: N/A       | Target:   1.6 MHz
-Clock: UART_1_IntClock      | Frequency:  43.8 MHz | Target:   0.5 MHz
+Clock: CyWCO                | Frequency: N/A       | Target:   0.0 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -97,16 +98,17 @@ Phase 7
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 9
-Clock: CyHFCLK              | Frequency:   2.6 MHz | Target:  24.0 MHz
+Number of clocks: 10
+Clock: Clock_1              | Frequency:  43.8 MHz | Target:  12.0 MHz
+Clock: Clock_1(FFB)         | Frequency: N/A       | Target:  12.0 MHz
+Clock: CyECO                | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyHFCLK              | Frequency:  48.4 MHz | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  24.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  24.0 MHz
-Clock: I2C_MPU6050_SCBCLK   | Frequency: N/A       | Target:   1.6 MHz
-Clock: I2C_MPU6050_SCBCLK(FFB) | Frequency: N/A       | Target:   1.6 MHz
-Clock: UART_1_IntClock      | Frequency:   2.6 MHz | Target:   0.5 MHz
+Clock: CyWCO                | Frequency: N/A       | Target:   0.0 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -125,7 +127,7 @@ Final Design Statistics
 
 Device Utilization Summary
     Macrocells                  :	24/32
-    IOs                         :	4/36
+    IOs                         :	4/38
 
 
 
@@ -141,16 +143,17 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 9
-Clock: CyHFCLK              | Frequency:   2.6 MHz | Target:  24.0 MHz
+Number of clocks: 10
+Clock: Clock_1              | Frequency:  42.6 MHz | Target:  13.2 MHz
+Clock: Clock_1(FFB)         | Frequency: N/A       | Target:  12.0 MHz
+Clock: CyECO                | Frequency: N/A       | Target:  24.0 MHz
+Clock: CyHFCLK              | Frequency:  49.9 MHz | Target:  26.3 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyLFCLK              | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyRouted1            | Frequency: N/A       | Target:  24.0 MHz
 Clock: CySYSCLK             | Frequency: N/A       | Target:  24.0 MHz
-Clock: I2C_MPU6050_SCBCLK   | Frequency: N/A       | Target:   1.6 MHz
-Clock: I2C_MPU6050_SCBCLK(FFB) | Frequency: N/A       | Target:   1.6 MHz
-Clock: UART_1_IntClock      | Frequency:   2.6 MHz | Target:   0.5 MHz
+Clock: CyWCO                | Frequency: N/A       | Target:   0.0 MHz
 
 ======================================================================
                      End of Clock Summary
@@ -161,5 +164,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 0.4 sec.
+I2076: Total run-time: 0.3 sec.
 

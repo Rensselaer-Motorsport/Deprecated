@@ -2,7 +2,7 @@
 --	Conversion of CornerModule.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Apr 12 06:48:59 2015
+--	Sun Nov 29 23:21:55 2015
 --
 
 USE cypress.cypress.all;
@@ -12,7 +12,6 @@ ATTRIBUTE part_name of top_RTL:TYPE IS "cpsoc3";
 END top_RTL;
 --------------------------------------------------------
 ARCHITECTURE R_T_L OF top_RTL IS
-SIGNAL \I2C_MPU6050:Net_847\ : bit;
 SIGNAL \I2C_MPU6050:Net_459\ : bit;
 SIGNAL \I2C_MPU6050:Net_652\ : bit;
 SIGNAL \I2C_MPU6050:Net_452\ : bit;
@@ -23,6 +22,7 @@ SIGNAL \I2C_MPU6050:Net_654\ : bit;
 SIGNAL \I2C_MPU6050:Net_682\ : bit;
 SIGNAL \I2C_MPU6050:uncfg_rx_irq\ : bit;
 SIGNAL \I2C_MPU6050:SCBclock\ : bit;
+SIGNAL Net_18 : bit;
 SIGNAL \I2C_MPU6050:Net_653\ : bit;
 SIGNAL \I2C_MPU6050:Net_909\ : bit;
 SIGNAL \I2C_MPU6050:Net_663\ : bit;
@@ -40,6 +40,7 @@ TERMINAL \I2C_MPU6050:tmpSIOVREF__scl_net_0\ : bit;
 SIGNAL \I2C_MPU6050:tmpINTERRUPT_0__scl_net_0\ : bit;
 SIGNAL \I2C_MPU6050:Net_754\ : bit;
 SIGNAL \I2C_MPU6050:Net_767\ : bit;
+SIGNAL \I2C_MPU6050:Net_847\ : bit;
 SIGNAL Net_17 : bit;
 SIGNAL \I2C_MPU6050:Net_739\ : bit;
 SIGNAL \I2C_MPU6050:Net_747\ : bit;
@@ -55,15 +56,14 @@ SIGNAL \I2C_MPU6050:Net_703\ : bit;
 SIGNAL \I2C_MPU6050:Net_823\ : bit;
 SIGNAL \I2C_MPU6050:Net_824\ : bit;
 SIGNAL \I2C_MPU6050:Net_547\ : bit;
-SIGNAL \I2C_MPU6050:Net_896\ : bit;
+SIGNAL \I2C_MPU6050:Net_898\ : bit;
 SIGNAL \I2C_MPU6050:Net_891\ : bit;
-SIGNAL \I2C_MPU6050:Net_932\ : bit;
+SIGNAL \I2C_MPU6050:Net_933\ : bit;
 SIGNAL \I2C_MPU6050:Net_474\ : bit;
-SIGNAL \I2C_MPU6050:Net_903\ : bit;
+SIGNAL \I2C_MPU6050:Net_904\ : bit;
 SIGNAL \I2C_MPU6050:Net_899\ : bit;
-SIGNAL \I2C_MPU6050:Net_915\ : bit;
-SIGNAL \I2C_MPU6050:Net_927\ : bit;
-SIGNAL \UART_1:Net_9\ : bit;
+SIGNAL \I2C_MPU6050:Net_916\ : bit;
+SIGNAL \I2C_MPU6050:Net_928\ : bit;
 SIGNAL \UART_1:Net_61\ : bit;
 SIGNAL \UART_1:BUART:clock_op\ : bit;
 SIGNAL \UART_1:BUART:reset_reg\ : bit;
@@ -549,16 +549,6 @@ Net_38D <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_2\)
 
 \UART_1:BUART:rx_address_detected\\D\ <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:rx_address_detected\));
 
-\I2C_MPU6050:SCBCLK\:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"38321056-ba6d-401c-98e7-a21e84ee201e/81fcee8a-3b8b-4be1-9a5f-a5e2e619a938",
-		source_clock_id=>"",
-		divisor=>0,
-		period=>"645161290.322581",
-		is_direct=>'0',
-		is_digital=>'0')
-	PORT MAP(clock_out=>\I2C_MPU6050:Net_847\,
-		dig_domain_out=>open);
 \I2C_MPU6050:sda\:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"38321056-ba6d-401c-98e7-a21e84ee201e/5382e105-1382-4a2e-b9f4-3bb2feba71e0",
 		drive_mode=>"100",
@@ -596,6 +586,7 @@ Net_38D <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_2\)
 		sio_obuf=>"00000000",
 		sio_refsel=>"00000000",
 		sio_vtrip=>"00000000",
+		sio_vohsel=>"",
 		slew_rate=>"0",
 		spanning=>'0',
 		sw_only=>'0',
@@ -665,6 +656,7 @@ Net_38D <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_2\)
 		sio_obuf=>"00000000",
 		sio_refsel=>"00000000",
 		sio_vtrip=>"00000000",
+		sio_vohsel=>"",
 		slew_rate=>"0",
 		spanning=>'0',
 		sw_only=>'0',
@@ -703,7 +695,7 @@ Net_38D <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_2\)
 \I2C_MPU6050:SCB\:cy_m0s8_scb_v2_0
 	GENERIC MAP(cy_registers=>"",
 		scb_mode=>0)
-	PORT MAP(clock=>\I2C_MPU6050:Net_847\,
+	PORT MAP(clock=>Net_18,
 		interrupt=>Net_17,
 		rx=>zero,
 		tx=>\I2C_MPU6050:Net_656\,
@@ -721,19 +713,9 @@ Net_38D <= ((not \UART_1:BUART:reset_reg\ and \UART_1:BUART:tx_state_2\)
 		sda=>\I2C_MPU6050:Net_581\,
 		tx_req=>\I2C_MPU6050:Net_823\,
 		rx_req=>\I2C_MPU6050:Net_824\);
-\UART_1:IntClock\:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"b0162966-0060-4af5-82d1-fcb491ad7619/be0a0e37-ad17-42ca-b5a1-1a654d736358",
-		source_clock_id=>"",
-		divisor=>0,
-		period=>"2170138888.88889",
-		is_direct=>'0',
-		is_digital=>'1')
-	PORT MAP(clock_out=>\UART_1:Net_9\,
-		dig_domain_out=>open);
 \UART_1:BUART:ClkSync\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
-	PORT MAP(clock_in=>\UART_1:Net_9\,
+	PORT MAP(clock_in=>Net_18,
 		enable=>one,
 		clock_out=>\UART_1:BUART:clock_op\);
 \UART_1:BUART:sTX:TxShifter:u0\:cy_psoc3_dp
@@ -1063,6 +1045,7 @@ Rx_1:cy_psoc3_pins_v1_10
 		sio_obuf=>"00000000",
 		sio_refsel=>"00000000",
 		sio_vtrip=>"00000000",
+		sio_vohsel=>"",
 		slew_rate=>"0",
 		spanning=>'0',
 		sw_only=>'0',
@@ -1132,6 +1115,7 @@ Tx_1:cy_psoc3_pins_v1_10
 		sio_obuf=>"00000000",
 		sio_refsel=>"00000000",
 		sio_vtrip=>"00000000",
+		sio_vohsel=>"",
 		slew_rate=>"0",
 		spanning=>'0',
 		sw_only=>'0',
@@ -1164,6 +1148,16 @@ Tx_1:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Tx_1_net_0);
+Clock_1:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"25f90e3e-a79f-45eb-bcdd-fab7e1f2497c",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"83333333.3333333",
+		is_direct=>'0',
+		is_digital=>'0')
+	PORT MAP(clock_out=>Net_18,
+		dig_domain_out=>open);
 \UART_1:BUART:reset_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\UART_1:BUART:clock_op\,

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -28,7 +28,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
   25              		.thumb_func
   26              		.type	UART_1_SaveConfig, %function
   27              	UART_1_SaveConfig:
-  28              	.LFB0:
+  28              	.LFB2:
   29              		.file 1 ".\\Generated_Source\\PSoC4\\UART_1_PM.c"
    1:.\Generated_Source\PSoC4/UART_1_PM.c **** /*******************************************************************************
    2:.\Generated_Source\PSoC4/UART_1_PM.c **** * File Name: UART_1_PM.c
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
   26:.\Generated_Source\PSoC4/UART_1_PM.c ****     /* enableState - disabled */
   27:.\Generated_Source\PSoC4/UART_1_PM.c ****     0u,
   28:.\Generated_Source\PSoC4/UART_1_PM.c **** };
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 2
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 2
 
 
   29:.\Generated_Source\PSoC4/UART_1_PM.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
   75:.\Generated_Source\PSoC4/UART_1_PM.c ****             #endif /*End UART_1_TXCLKGEN_DP */
   76:.\Generated_Source\PSoC4/UART_1_PM.c ****             UART_1_backup.tx_mask = UART_1_TXSTATUS_MASK_REG;
   77:.\Generated_Source\PSoC4/UART_1_PM.c ****         #endif /*End UART_1_TX_ENABLED */
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 3
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 3
 
 
   78:.\Generated_Source\PSoC4/UART_1_PM.c **** 
@@ -136,7 +136,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
   40              		@ sp needed
   41 0006 80BD     		pop	{r7, pc}
   42              		.cfi_endproc
-  43              	.LFE0:
+  43              	.LFE2:
   44              		.size	UART_1_SaveConfig, .-UART_1_SaveConfig
   45              		.section	.text.UART_1_RestoreConfig,"ax",%progbits
   46              		.align	2
@@ -145,7 +145,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
   49              		.thumb_func
   50              		.type	UART_1_RestoreConfig, %function
   51              	UART_1_RestoreConfig:
-  52              	.LFB1:
+  52              	.LFB3:
   88:.\Generated_Source\PSoC4/UART_1_PM.c **** 
   89:.\Generated_Source\PSoC4/UART_1_PM.c **** 
   90:.\Generated_Source\PSoC4/UART_1_PM.c **** /*******************************************************************************
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
   58              		.cfi_offset 14, -4
   59 0002 00AF     		add	r7, sp, #0
   60              		.cfi_def_cfa_register 7
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 4
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 4
 
 
  112:.\Generated_Source\PSoC4/UART_1_PM.c **** 
@@ -220,7 +220,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
   63              		@ sp needed
   64 0006 80BD     		pop	{r7, pc}
   65              		.cfi_endproc
-  66              	.LFE1:
+  66              	.LFE3:
   67              		.size	UART_1_RestoreConfig, .-UART_1_RestoreConfig
   68              		.section	.text.UART_1_Sleep,"ax",%progbits
   69              		.align	2
@@ -229,7 +229,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
   72              		.thumb_func
   73              		.type	UART_1_Sleep, %function
   74              	UART_1_Sleep:
-  75              	.LFB2:
+  75              	.LFB4:
  146:.\Generated_Source\PSoC4/UART_1_PM.c **** 
  147:.\Generated_Source\PSoC4/UART_1_PM.c **** 
  148:.\Generated_Source\PSoC4/UART_1_PM.c **** /*******************************************************************************
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  151:.\Generated_Source\PSoC4/UART_1_PM.c **** *
  152:.\Generated_Source\PSoC4/UART_1_PM.c **** * Summary:
  153:.\Generated_Source\PSoC4/UART_1_PM.c **** *  Stops and saves the user configuration. Should be called
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 5
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 5
 
 
  154:.\Generated_Source\PSoC4/UART_1_PM.c **** *  just prior to entering sleep.
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  181:.\Generated_Source\PSoC4/UART_1_PM.c ****         }
  182:.\Generated_Source\PSoC4/UART_1_PM.c ****     #else
  183:.\Generated_Source\PSoC4/UART_1_PM.c ****         if((UART_1_TXSTATUS_ACTL_REG  & UART_1_INT_ENABLE) !=0u)
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 6
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 6
 
 
  184:.\Generated_Source\PSoC4/UART_1_PM.c ****         {
@@ -324,10 +324,10 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  111              	.L7:
  112              		.align	2
  113              	.L6:
- 114 002c 92000F40 		.word	1074725010
+ 114 002c 93000F40 		.word	1074725011
  115 0030 00000000 		.word	UART_1_backup
  116              		.cfi_endproc
- 117              	.LFE2:
+ 117              	.LFE4:
  118              		.size	UART_1_Sleep, .-UART_1_Sleep
  119              		.section	.text.UART_1_Wakeup,"ax",%progbits
  120              		.align	2
@@ -336,7 +336,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  123              		.thumb_func
  124              		.type	UART_1_Wakeup, %function
  125              	UART_1_Wakeup:
- 126              	.LFB3:
+ 126              	.LFB5:
  196:.\Generated_Source\PSoC4/UART_1_PM.c **** 
  197:.\Generated_Source\PSoC4/UART_1_PM.c **** 
  198:.\Generated_Source\PSoC4/UART_1_PM.c **** /*******************************************************************************
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  214:.\Generated_Source\PSoC4/UART_1_PM.c **** *
  215:.\Generated_Source\PSoC4/UART_1_PM.c **** * Reentrant:
  216:.\Generated_Source\PSoC4/UART_1_PM.c **** *  No.
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 7
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 7
 
 
  217:.\Generated_Source\PSoC4/UART_1_PM.c **** *
@@ -409,7 +409,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  155              	.L10:
  156 0020 00000000 		.word	UART_1_backup
  157              		.cfi_endproc
- 158              	.LFE3:
+ 158              	.LFE5:
  159              		.size	UART_1_Wakeup, .-UART_1_Wakeup
  160              		.text
  161              	.Letext0:
@@ -418,40 +418,40 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  164              		.section	.debug_info,"",%progbits
  165              	.Ldebug_info0:
  166 0000 31010000 		.4byte	0x131
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 8
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 8
 
 
  167 0004 0400     		.2byte	0x4
  168 0006 00000000 		.4byte	.Ldebug_abbrev0
  169 000a 04       		.byte	0x4
  170 000b 01       		.uleb128 0x1
- 171 000c C2000000 		.4byte	.LASF23
+ 171 000c 7B000000 		.4byte	.LASF23
  172 0010 01       		.byte	0x1
- 173 0011 57010000 		.4byte	.LASF24
- 174 0015 75000000 		.4byte	.LASF25
+ 173 0011 10010000 		.4byte	.LASF24
+ 174 0015 D1010000 		.4byte	.LASF25
  175 0019 00000000 		.4byte	.Ldebug_ranges0+0
  176 001d 00000000 		.4byte	0
  177 0021 00000000 		.4byte	.Ldebug_line0
  178 0025 02       		.uleb128 0x2
  179 0026 01       		.byte	0x1
  180 0027 06       		.byte	0x6
- 181 0028 C7010000 		.4byte	.LASF0
+ 181 0028 80010000 		.4byte	.LASF0
  182 002c 02       		.uleb128 0x2
  183 002d 01       		.byte	0x1
  184 002e 08       		.byte	0x8
- 185 002f 49010000 		.4byte	.LASF1
+ 185 002f 02010000 		.4byte	.LASF1
  186 0033 02       		.uleb128 0x2
  187 0034 02       		.byte	0x2
  188 0035 05       		.byte	0x5
- 189 0036 EE010000 		.4byte	.LASF2
+ 189 0036 AA010000 		.4byte	.LASF2
  190 003a 02       		.uleb128 0x2
  191 003b 02       		.byte	0x2
  192 003c 07       		.byte	0x7
- 193 003d B4010000 		.4byte	.LASF3
+ 193 003d 6D010000 		.4byte	.LASF3
  194 0041 02       		.uleb128 0x2
  195 0042 04       		.byte	0x4
  196 0043 05       		.byte	0x5
- 197 0044 81010000 		.4byte	.LASF4
+ 197 0044 3A010000 		.4byte	.LASF4
  198 0048 02       		.uleb128 0x2
  199 0049 04       		.byte	0x4
  200 004a 07       		.byte	0x7
@@ -478,22 +478,22 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  221 0071 A1       		.byte	0xa1
  222 0072 2C000000 		.4byte	0x2c
  223 0076 02       		.uleb128 0x2
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 9
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 9
 
 
  224 0077 04       		.byte	0x4
  225 0078 04       		.byte	0x4
- 226 0079 E8010000 		.4byte	.LASF9
+ 226 0079 75000000 		.4byte	.LASF9
  227 007d 02       		.uleb128 0x2
  228 007e 08       		.byte	0x8
  229 007f 04       		.byte	0x4
- 230 0080 8A010000 		.4byte	.LASF10
+ 230 0080 43010000 		.4byte	.LASF10
  231 0084 02       		.uleb128 0x2
  232 0085 01       		.byte	0x1
  233 0086 08       		.byte	0x8
- 234 0087 7C010000 		.4byte	.LASF11
+ 234 0087 35010000 		.4byte	.LASF11
  235 008b 05       		.uleb128 0x5
- 236 008c F8010000 		.4byte	.LASF13
+ 236 008c B4010000 		.4byte	.LASF13
  237 0090 02       		.byte	0x2
  238 0091 4B01     		.2byte	0x14b
  239 0093 97000000 		.4byte	0x97
@@ -502,9 +502,9 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  242 009c 02       		.uleb128 0x2
  243 009d 04       		.byte	0x4
  244 009e 07       		.byte	0x7
- 245 009f 15020000 		.4byte	.LASF14
+ 245 009f A1010000 		.4byte	.LASF14
  246 00a3 07       		.uleb128 0x7
- 247 00a4 9F010000 		.4byte	.LASF26
+ 247 00a4 58010000 		.4byte	.LASF26
  248 00a8 03       		.byte	0x3
  249 00a9 03       		.byte	0x3
  250 00aa 45       		.byte	0x45
@@ -516,20 +516,20 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  256 00b6 6B000000 		.4byte	0x6b
  257 00ba 00       		.byte	0
  258 00bb 08       		.uleb128 0x8
- 259 00bc 0B020000 		.4byte	.LASF16
+ 259 00bc C7010000 		.4byte	.LASF16
  260 00c0 03       		.byte	0x3
  261 00c1 4D       		.byte	0x4d
  262 00c2 6B000000 		.4byte	0x6b
  263 00c6 01       		.byte	0x1
  264 00c7 08       		.uleb128 0x8
- 265 00c8 3E010000 		.4byte	.LASF17
+ 265 00c8 F7000000 		.4byte	.LASF17
  266 00cc 03       		.byte	0x3
  267 00cd 59       		.byte	0x59
  268 00ce 6B000000 		.4byte	0x6b
  269 00d2 02       		.byte	0x2
  270 00d3 00       		.byte	0
  271 00d4 04       		.uleb128 0x4
- 272 00d5 1E020000 		.4byte	.LASF18
+ 272 00d5 36020000 		.4byte	.LASF18
  273 00d9 03       		.byte	0x3
  274 00da 64       		.byte	0x64
  275 00db A3000000 		.4byte	0xa3
@@ -537,39 +537,39 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  277 00e0 4C000000 		.4byte	.LASF19
  278 00e4 01       		.byte	0x1
  279 00e5 34       		.byte	0x34
- 280 00e6 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 10
+ 280 00e6 00000000 		.4byte	.LFB2
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 10
 
 
- 281 00ea 08000000 		.4byte	.LFE0-.LFB0
+ 281 00ea 08000000 		.4byte	.LFE2-.LFB2
  282 00ee 01       		.uleb128 0x1
  283 00ef 9C       		.byte	0x9c
  284 00f0 09       		.uleb128 0x9
- 285 00f1 D3010000 		.4byte	.LASF20
+ 285 00f1 8C010000 		.4byte	.LASF20
  286 00f5 01       		.byte	0x1
  287 00f6 6E       		.byte	0x6e
- 288 00f7 00000000 		.4byte	.LFB1
- 289 00fb 08000000 		.4byte	.LFE1-.LFB1
+ 288 00f7 00000000 		.4byte	.LFB3
+ 289 00fb 08000000 		.4byte	.LFE3-.LFB3
  290 00ff 01       		.uleb128 0x1
  291 0100 9C       		.byte	0x9c
  292 0101 0A       		.uleb128 0xa
  293 0102 27000000 		.4byte	.LASF21
  294 0106 01       		.byte	0x1
  295 0107 AA       		.byte	0xaa
- 296 0108 00000000 		.4byte	.LFB2
- 297 010c 34000000 		.4byte	.LFE2-.LFB2
+ 296 0108 00000000 		.4byte	.LFB4
+ 297 010c 34000000 		.4byte	.LFE4-.LFB4
  298 0110 01       		.uleb128 0x1
  299 0111 9C       		.byte	0x9c
  300 0112 0A       		.uleb128 0xa
- 301 0113 FD010000 		.4byte	.LASF22
+ 301 0113 B9010000 		.4byte	.LASF22
  302 0117 01       		.byte	0x1
  303 0118 DB       		.byte	0xdb
- 304 0119 00000000 		.4byte	.LFB3
- 305 011d 24000000 		.4byte	.LFE3-.LFB3
+ 304 0119 00000000 		.4byte	.LFB5
+ 305 011d 24000000 		.4byte	.LFE5-.LFB5
  306 0121 01       		.uleb128 0x1
  307 0122 9C       		.byte	0x9c
  308 0123 0B       		.uleb128 0xb
- 309 0124 91010000 		.4byte	.LASF27
+ 309 0124 4A010000 		.4byte	.LASF27
  310 0128 01       		.byte	0x1
  311 0129 18       		.byte	0x18
  312 012a D4000000 		.4byte	0xd4
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  335 0010 17       		.uleb128 0x17
  336 0011 00       		.byte	0
  337 0012 00       		.byte	0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 11
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 11
 
 
  338 0013 02       		.uleb128 0x2
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  392 0049 00       		.byte	0
  393 004a 07       		.uleb128 0x7
  394 004b 13       		.uleb128 0x13
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 12
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 12
 
 
  395 004c 01       		.byte	0x1
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  449 0083 3F       		.uleb128 0x3f
  450 0084 19       		.uleb128 0x19
  451 0085 03       		.uleb128 0x3
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 13
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 13
 
 
  452 0086 0E       		.uleb128 0xe
@@ -762,29 +762,29 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  490 000b 00       		.byte	0
  491 000c 0000     		.2byte	0
  492 000e 0000     		.2byte	0
- 493 0010 00000000 		.4byte	.LFB0
- 494 0014 08000000 		.4byte	.LFE0-.LFB0
- 495 0018 00000000 		.4byte	.LFB1
- 496 001c 08000000 		.4byte	.LFE1-.LFB1
- 497 0020 00000000 		.4byte	.LFB2
- 498 0024 34000000 		.4byte	.LFE2-.LFB2
- 499 0028 00000000 		.4byte	.LFB3
- 500 002c 24000000 		.4byte	.LFE3-.LFB3
+ 493 0010 00000000 		.4byte	.LFB2
+ 494 0014 08000000 		.4byte	.LFE2-.LFB2
+ 495 0018 00000000 		.4byte	.LFB3
+ 496 001c 08000000 		.4byte	.LFE3-.LFB3
+ 497 0020 00000000 		.4byte	.LFB4
+ 498 0024 34000000 		.4byte	.LFE4-.LFB4
+ 499 0028 00000000 		.4byte	.LFB5
+ 500 002c 24000000 		.4byte	.LFE5-.LFB5
  501 0030 00000000 		.4byte	0
  502 0034 00000000 		.4byte	0
  503              		.section	.debug_ranges,"",%progbits
  504              	.Ldebug_ranges0:
- 505 0000 00000000 		.4byte	.LFB0
- 506 0004 08000000 		.4byte	.LFE0
- 507 0008 00000000 		.4byte	.LFB1
- 508 000c 08000000 		.4byte	.LFE1
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 14
+ 505 0000 00000000 		.4byte	.LFB2
+ 506 0004 08000000 		.4byte	.LFE2
+ 507 0008 00000000 		.4byte	.LFB3
+ 508 000c 08000000 		.4byte	.LFE3
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 14
 
 
- 509 0010 00000000 		.4byte	.LFB2
- 510 0014 34000000 		.4byte	.LFE2
- 511 0018 00000000 		.4byte	.LFB3
- 512 001c 24000000 		.4byte	.LFE3
+ 509 0010 00000000 		.4byte	.LFB4
+ 510 0014 34000000 		.4byte	.LFE4
+ 511 0018 00000000 		.4byte	.LFB5
+ 512 001c 24000000 		.4byte	.LFE5
  513 0020 00000000 		.4byte	0
  514 0024 00000000 		.4byte	0
  515              		.section	.debug_line,"",%progbits
@@ -834,118 +834,120 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 1
  533      6720756E 
  533      7369676E 
  533      65642069 
- 534              	.LASF25:
- 535 0075 433A5C55 		.ascii	"C:\\Users\\Eric\\Documents\\GitHub\\Corner-Module\\"
- 535      73657273 
- 535      5C457269 
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 15
+ 534              	.LASF9:
+ 535 0075 666C6F61 		.ascii	"float\000"
+ 535      7400
+ 536              	.LASF23:
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 15
 
 
- 535      635C446F 
- 535      63756D65 
- 536 00a2 436F726E 		.ascii	"CornerModule\\CornerModule.cydsn\000"
- 536      65724D6F 
- 536      64756C65 
- 536      5C436F72 
- 536      6E65724D 
- 537              	.LASF23:
- 538 00c2 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
- 538      4320342E 
- 538      382E3420 
- 538      32303134 
- 538      30353236 
- 539 00f5 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
- 539      20726576 
- 539      6973696F 
- 539      6E203231 
- 539      31333538 
- 540 0128 30202D66 		.ascii	"0 -ffunction-sections\000"
- 540      66756E63 
- 540      74696F6E 
- 540      2D736563 
- 540      74696F6E 
- 541              	.LASF17:
- 542 013e 74785F63 		.ascii	"tx_clk_ctr\000"
- 542      6C6B5F63 
- 542      747200
- 543              	.LASF1:
- 544 0149 756E7369 		.ascii	"unsigned char\000"
- 544      676E6564 
- 544      20636861 
- 544      7200
- 545              	.LASF24:
- 546 0157 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_1_PM.c\000"
- 546      6E657261 
- 546      7465645F 
- 546      536F7572 
- 546      63655C50 
- 547              	.LASF11:
- 548 017c 63686172 		.ascii	"char\000"
- 548      00
- 549              	.LASF4:
- 550 0181 6C6F6E67 		.ascii	"long int\000"
- 550      20696E74 
- 550      00
- 551              	.LASF10:
- 552 018a 646F7562 		.ascii	"double\000"
- 552      6C6500
- 553              	.LASF27:
- 554 0191 55415254 		.ascii	"UART_1_backup\000"
- 554      5F315F62 
- 554      61636B75 
- 554      7000
- 555              	.LASF26:
- 556 019f 55415254 		.ascii	"UART_1_backupStruct_\000"
- 556      5F315F62 
- 556      61636B75 
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc3zjwsi.s 			page 16
+ 537 007b 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 537      4320342E 
+ 537      382E3420 
+ 537      32303134 
+ 537      30353236 
+ 538 00ae 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 538      20726576 
+ 538      6973696F 
+ 538      6E203231 
+ 538      31333538 
+ 539 00e1 30202D66 		.ascii	"0 -ffunction-sections\000"
+ 539      66756E63 
+ 539      74696F6E 
+ 539      2D736563 
+ 539      74696F6E 
+ 540              	.LASF17:
+ 541 00f7 74785F63 		.ascii	"tx_clk_ctr\000"
+ 541      6C6B5F63 
+ 541      747200
+ 542              	.LASF1:
+ 543 0102 756E7369 		.ascii	"unsigned char\000"
+ 543      676E6564 
+ 543      20636861 
+ 543      7200
+ 544              	.LASF24:
+ 545 0110 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\UART_1_PM.c\000"
+ 545      6E657261 
+ 545      7465645F 
+ 545      536F7572 
+ 545      63655C50 
+ 546              	.LASF11:
+ 547 0135 63686172 		.ascii	"char\000"
+ 547      00
+ 548              	.LASF4:
+ 549 013a 6C6F6E67 		.ascii	"long int\000"
+ 549      20696E74 
+ 549      00
+ 550              	.LASF10:
+ 551 0143 646F7562 		.ascii	"double\000"
+ 551      6C6500
+ 552              	.LASF27:
+ 553 014a 55415254 		.ascii	"UART_1_backup\000"
+ 553      5F315F62 
+ 553      61636B75 
+ 553      7000
+ 554              	.LASF26:
+ 555 0158 55415254 		.ascii	"UART_1_backupStruct_\000"
+ 555      5F315F62 
+ 555      61636B75 
+ 555      70537472 
+ 555      7563745F 
+ 556              	.LASF3:
+ 557 016d 73686F72 		.ascii	"short unsigned int\000"
+ 557      7420756E 
+ 557      7369676E 
+ 557      65642069 
+ 557      6E7400
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccB4CF5U.s 			page 16
 
 
- 556      70537472 
- 556      7563745F 
- 557              	.LASF3:
- 558 01b4 73686F72 		.ascii	"short unsigned int\000"
- 558      7420756E 
- 558      7369676E 
- 558      65642069 
- 558      6E7400
- 559              	.LASF0:
- 560 01c7 7369676E 		.ascii	"signed char\000"
- 560      65642063 
- 560      68617200 
- 561              	.LASF20:
- 562 01d3 55415254 		.ascii	"UART_1_RestoreConfig\000"
- 562      5F315F52 
- 562      6573746F 
- 562      7265436F 
- 562      6E666967 
- 563              	.LASF9:
- 564 01e8 666C6F61 		.ascii	"float\000"
- 564      7400
- 565              	.LASF2:
- 566 01ee 73686F72 		.ascii	"short int\000"
- 566      7420696E 
- 566      7400
- 567              	.LASF13:
- 568 01f8 72656738 		.ascii	"reg8\000"
- 568      00
- 569              	.LASF22:
- 570 01fd 55415254 		.ascii	"UART_1_Wakeup\000"
- 570      5F315F57 
- 570      616B6575 
- 570      7000
- 571              	.LASF16:
- 572 020b 72785F70 		.ascii	"rx_period\000"
- 572      6572696F 
- 572      6400
- 573              	.LASF14:
- 574 0215 73697A65 		.ascii	"sizetype\000"
- 574      74797065 
- 574      00
- 575              	.LASF18:
- 576 021e 55415254 		.ascii	"UART_1_BACKUP_STRUCT\000"
- 576      5F315F42 
- 576      41434B55 
- 576      505F5354 
- 576      52554354 
- 577              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br
+ 558              	.LASF0:
+ 559 0180 7369676E 		.ascii	"signed char\000"
+ 559      65642063 
+ 559      68617200 
+ 560              	.LASF20:
+ 561 018c 55415254 		.ascii	"UART_1_RestoreConfig\000"
+ 561      5F315F52 
+ 561      6573746F 
+ 561      7265436F 
+ 561      6E666967 
+ 562              	.LASF14:
+ 563 01a1 73697A65 		.ascii	"sizetype\000"
+ 563      74797065 
+ 563      00
+ 564              	.LASF2:
+ 565 01aa 73686F72 		.ascii	"short int\000"
+ 565      7420696E 
+ 565      7400
+ 566              	.LASF13:
+ 567 01b4 72656738 		.ascii	"reg8\000"
+ 567      00
+ 568              	.LASF22:
+ 569 01b9 55415254 		.ascii	"UART_1_Wakeup\000"
+ 569      5F315F57 
+ 569      616B6575 
+ 569      7000
+ 570              	.LASF16:
+ 571 01c7 72785F70 		.ascii	"rx_period\000"
+ 571      6572696F 
+ 571      6400
+ 572              	.LASF25:
+ 573 01d1 433A5C55 		.ascii	"C:\\Users\\Christina\\Documents\\For_fun\\GitHub\\D"
+ 573      73657273 
+ 573      5C436872 
+ 573      69737469 
+ 573      6E615C44 
+ 574 01fe 65707265 		.ascii	"eprecated\\Corner-Module\\CornerModule\\CornerModul"
+ 574      63617465 
+ 574      645C436F 
+ 574      726E6572 
+ 574      2D4D6F64 
+ 575 022e 652E6379 		.ascii	"e.cydsn\000"
+ 575      64736E00 
+ 576              	.LASF18:
+ 577 0236 55415254 		.ascii	"UART_1_BACKUP_STRUCT\000"
+ 577      5F315F42 
+ 577      41434B55 
+ 577      505F5354 
+ 577      52554354 
+ 578              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

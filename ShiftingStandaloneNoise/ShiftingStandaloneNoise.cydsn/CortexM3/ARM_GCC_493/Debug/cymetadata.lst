@@ -1,0 +1,520 @@
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccsIZa1E.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"cymetadata.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	cy_metadata
+  19              		.global	cy_meta_flashprotect
+  20              		.global	cy_meta_wonvl
+  21              		.global	cy_meta_custnvl
+  22              		.global	cy_meta_configecc
+  23              		.section	.cyconfigecc,"a",%progbits
+  24              		.align	2
+  25              		.type	cy_meta_configecc, %object
+  26              		.size	cy_meta_configecc, 28
+  27              	cy_meta_configecc:
+  28 0000 01       		.byte	1
+  29 0001 52       		.byte	82
+  30 0002 00       		.byte	0
+  31 0003 40       		.byte	64
+  32 0004 04       		.byte	4
+  33 0005 9C       		.byte	-100
+  34 0006 00       		.byte	0
+  35 0007 00       		.byte	0
+  36 0008 9C       		.byte	-100
+  37 0009 00       		.byte	0
+  38 000a 00       		.byte	0
+  39 000b 00       		.byte	0
+  40 000c 00       		.byte	0
+  41 000d 00       		.byte	0
+  42 000e 00       		.byte	0
+  43 000f 00       		.byte	0
+  44 0010 00       		.byte	0
+  45 0011 0B       		.byte	11
+  46 0012 0B       		.byte	11
+  47 0013 00       		.byte	0
+  48 0014 00       		.byte	0
+  49 0015 00       		.byte	0
+  50 0016 00       		.byte	0
+  51 0017 00       		.byte	0
+  52 0018 01       		.byte	1
+  53 0019 00       		.byte	0
+  54 001a 14       		.byte	20
+  55 001b 01       		.byte	1
+  56              		.section	.cywolatch,"a",%progbits
+  57              		.align	2
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccsIZa1E.s 			page 2
+
+
+  58              		.type	cy_meta_wonvl, %object
+  59              		.size	cy_meta_wonvl, 4
+  60              	cy_meta_wonvl:
+  61 0000 BC       		.byte	-68
+  62 0001 90       		.byte	-112
+  63 0002 AC       		.byte	-84
+  64 0003 AF       		.byte	-81
+  65              		.section	.cycustnvl,"a",%progbits
+  66              		.align	2
+  67              		.type	cy_meta_custnvl, %object
+  68              		.size	cy_meta_custnvl, 4
+  69              	cy_meta_custnvl:
+  70 0000 00       		.byte	0
+  71 0001 00       		.byte	0
+  72 0002 40       		.byte	64
+  73 0003 05       		.byte	5
+  74              		.section	.cymeta,"a",%progbits
+  75              		.align	2
+  76              		.type	cy_metadata, %object
+  77              		.size	cy_metadata, 12
+  78              	cy_metadata:
+  79 0000 00       		.byte	0
+  80 0001 01       		.byte	1
+  81 0002 2E       		.byte	46
+  82 0003 11       		.byte	17
+  83 0004 50       		.byte	80
+  84 0005 69       		.byte	105
+  85 0006 00       		.byte	0
+  86 0007 01       		.byte	1
+  87 0008 00       		.byte	0
+  88 0009 00       		.byte	0
+  89 000a 00       		.byte	0
+  90 000b 00       		.byte	0
+  91              		.section	.cyflashprotect,"a",%progbits
+  92              		.align	2
+  93              		.type	cy_meta_flashprotect, %object
+  94              		.size	cy_meta_flashprotect, 64
+  95              	cy_meta_flashprotect:
+  96 0000 00000000 		.space	64
+  96      00000000 
+  96      00000000 
+  96      00000000 
+  96      00000000 
+  97              		.text
+  98              	.Letext0:
+  99              		.file 1 ".\\Generated_Source\\PSoC5\\cymetadata.c"
+ 100              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 101              		.section	.debug_info,"",%progbits
+ 102              	.Ldebug_info0:
+ 103 0000 35010000 		.4byte	0x135
+ 104 0004 0400     		.2byte	0x4
+ 105 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 106 000a 04       		.byte	0x4
+ 107 000b 01       		.uleb128 0x1
+ 108 000c 01010000 		.4byte	.LASF18
+ 109 0010 01       		.byte	0x1
+ 110 0011 00000000 		.4byte	.LASF19
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccsIZa1E.s 			page 3
+
+
+ 111 0015 6B000000 		.4byte	.LASF20
+ 112 0019 00000000 		.4byte	.Ldebug_line0
+ 113 001d 02       		.uleb128 0x2
+ 114 001e 01       		.byte	0x1
+ 115 001f 06       		.byte	0x6
+ 116 0020 0B020000 		.4byte	.LASF0
+ 117 0024 02       		.uleb128 0x2
+ 118 0025 01       		.byte	0x1
+ 119 0026 08       		.byte	0x8
+ 120 0027 38000000 		.4byte	.LASF1
+ 121 002b 02       		.uleb128 0x2
+ 122 002c 02       		.byte	0x2
+ 123 002d 05       		.byte	0x5
+ 124 002e F2010000 		.4byte	.LASF2
+ 125 0032 02       		.uleb128 0x2
+ 126 0033 02       		.byte	0x2
+ 127 0034 07       		.byte	0x7
+ 128 0035 58000000 		.4byte	.LASF3
+ 129 0039 02       		.uleb128 0x2
+ 130 003a 04       		.byte	0x4
+ 131 003b 05       		.byte	0x5
+ 132 003c 02020000 		.4byte	.LASF4
+ 133 0040 02       		.uleb128 0x2
+ 134 0041 04       		.byte	0x4
+ 135 0042 07       		.byte	0x7
+ 136 0043 46000000 		.4byte	.LASF5
+ 137 0047 02       		.uleb128 0x2
+ 138 0048 08       		.byte	0x8
+ 139 0049 05       		.byte	0x5
+ 140 004a DF010000 		.4byte	.LASF6
+ 141 004e 02       		.uleb128 0x2
+ 142 004f 08       		.byte	0x8
+ 143 0050 07       		.byte	0x7
+ 144 0051 9C010000 		.4byte	.LASF7
+ 145 0055 03       		.uleb128 0x3
+ 146 0056 04       		.byte	0x4
+ 147 0057 05       		.byte	0x5
+ 148 0058 696E7400 		.ascii	"int\000"
+ 149 005c 02       		.uleb128 0x2
+ 150 005d 04       		.byte	0x4
+ 151 005e 07       		.byte	0x7
+ 152 005f 8F010000 		.4byte	.LASF8
+ 153 0063 04       		.uleb128 0x4
+ 154 0064 FC010000 		.4byte	.LASF21
+ 155 0068 02       		.byte	0x2
+ 156 0069 A1       		.byte	0xa1
+ 157 006a 24000000 		.4byte	0x24
+ 158 006e 02       		.uleb128 0x2
+ 159 006f 04       		.byte	0x4
+ 160 0070 04       		.byte	0x4
+ 161 0071 32000000 		.4byte	.LASF9
+ 162 0075 02       		.uleb128 0x2
+ 163 0076 08       		.byte	0x8
+ 164 0077 04       		.byte	0x4
+ 165 0078 D8000000 		.4byte	.LASF10
+ 166 007c 02       		.uleb128 0x2
+ 167 007d 01       		.byte	0x1
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccsIZa1E.s 			page 4
+
+
+ 168 007e 08       		.byte	0x8
+ 169 007f ED010000 		.4byte	.LASF11
+ 170 0083 05       		.uleb128 0x5
+ 171 0084 63000000 		.4byte	0x63
+ 172 0088 93000000 		.4byte	0x93
+ 173 008c 06       		.uleb128 0x6
+ 174 008d 93000000 		.4byte	0x93
+ 175 0091 1B       		.byte	0x1b
+ 176 0092 00       		.byte	0
+ 177 0093 02       		.uleb128 0x2
+ 178 0094 04       		.byte	0x4
+ 179 0095 07       		.byte	0x7
+ 180 0096 D6010000 		.4byte	.LASF12
+ 181 009a 07       		.uleb128 0x7
+ 182 009b EF000000 		.4byte	.LASF13
+ 183 009f 01       		.byte	0x1
+ 184 00a0 1C       		.byte	0x1c
+ 185 00a1 AB000000 		.4byte	0xab
+ 186 00a5 05       		.uleb128 0x5
+ 187 00a6 03       		.byte	0x3
+ 188 00a7 00000000 		.4byte	cy_meta_configecc
+ 189 00ab 08       		.uleb128 0x8
+ 190 00ac 83000000 		.4byte	0x83
+ 191 00b0 05       		.uleb128 0x5
+ 192 00b1 63000000 		.4byte	0x63
+ 193 00b5 C0000000 		.4byte	0xc0
+ 194 00b9 06       		.uleb128 0x6
+ 195 00ba 93000000 		.4byte	0x93
+ 196 00be 03       		.byte	0x3
+ 197 00bf 00       		.byte	0
+ 198 00c0 07       		.uleb128 0x7
+ 199 00c1 DF000000 		.4byte	.LASF14
+ 200 00c5 01       		.byte	0x1
+ 201 00c6 2A       		.byte	0x2a
+ 202 00c7 D1000000 		.4byte	0xd1
+ 203 00cb 05       		.uleb128 0x5
+ 204 00cc 03       		.byte	0x3
+ 205 00cd 00000000 		.4byte	cy_meta_custnvl
+ 206 00d1 08       		.uleb128 0x8
+ 207 00d2 B0000000 		.4byte	0xb0
+ 208 00d6 07       		.uleb128 0x7
+ 209 00d7 C8010000 		.4byte	.LASF15
+ 210 00db 01       		.byte	0x1
+ 211 00dc 35       		.byte	0x35
+ 212 00dd E7000000 		.4byte	0xe7
+ 213 00e1 05       		.uleb128 0x5
+ 214 00e2 03       		.byte	0x3
+ 215 00e3 00000000 		.4byte	cy_meta_wonvl
+ 216 00e7 08       		.uleb128 0x8
+ 217 00e8 B0000000 		.4byte	0xb0
+ 218 00ec 05       		.uleb128 0x5
+ 219 00ed 63000000 		.4byte	0x63
+ 220 00f1 FC000000 		.4byte	0xfc
+ 221 00f5 06       		.uleb128 0x6
+ 222 00f6 93000000 		.4byte	0x93
+ 223 00fa 3F       		.byte	0x3f
+ 224 00fb 00       		.byte	0
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccsIZa1E.s 			page 5
+
+
+ 225 00fc 07       		.uleb128 0x7
+ 226 00fd B3010000 		.4byte	.LASF16
+ 227 0101 01       		.byte	0x1
+ 228 0102 40       		.byte	0x40
+ 229 0103 0D010000 		.4byte	0x10d
+ 230 0107 05       		.uleb128 0x5
+ 231 0108 03       		.byte	0x3
+ 232 0109 00000000 		.4byte	cy_meta_flashprotect
+ 233 010d 08       		.uleb128 0x8
+ 234 010e EC000000 		.4byte	0xec
+ 235 0112 05       		.uleb128 0x5
+ 236 0113 63000000 		.4byte	0x63
+ 237 0117 22010000 		.4byte	0x122
+ 238 011b 06       		.uleb128 0x6
+ 239 011c 93000000 		.4byte	0x93
+ 240 0120 0B       		.byte	0xb
+ 241 0121 00       		.byte	0
+ 242 0122 07       		.uleb128 0x7
+ 243 0123 26000000 		.4byte	.LASF17
+ 244 0127 01       		.byte	0x1
+ 245 0128 52       		.byte	0x52
+ 246 0129 33010000 		.4byte	0x133
+ 247 012d 05       		.uleb128 0x5
+ 248 012e 03       		.byte	0x3
+ 249 012f 00000000 		.4byte	cy_metadata
+ 250 0133 08       		.uleb128 0x8
+ 251 0134 12010000 		.4byte	0x112
+ 252 0138 00       		.byte	0
+ 253              		.section	.debug_abbrev,"",%progbits
+ 254              	.Ldebug_abbrev0:
+ 255 0000 01       		.uleb128 0x1
+ 256 0001 11       		.uleb128 0x11
+ 257 0002 01       		.byte	0x1
+ 258 0003 25       		.uleb128 0x25
+ 259 0004 0E       		.uleb128 0xe
+ 260 0005 13       		.uleb128 0x13
+ 261 0006 0B       		.uleb128 0xb
+ 262 0007 03       		.uleb128 0x3
+ 263 0008 0E       		.uleb128 0xe
+ 264 0009 1B       		.uleb128 0x1b
+ 265 000a 0E       		.uleb128 0xe
+ 266 000b 10       		.uleb128 0x10
+ 267 000c 17       		.uleb128 0x17
+ 268 000d 00       		.byte	0
+ 269 000e 00       		.byte	0
+ 270 000f 02       		.uleb128 0x2
+ 271 0010 24       		.uleb128 0x24
+ 272 0011 00       		.byte	0
+ 273 0012 0B       		.uleb128 0xb
+ 274 0013 0B       		.uleb128 0xb
+ 275 0014 3E       		.uleb128 0x3e
+ 276 0015 0B       		.uleb128 0xb
+ 277 0016 03       		.uleb128 0x3
+ 278 0017 0E       		.uleb128 0xe
+ 279 0018 00       		.byte	0
+ 280 0019 00       		.byte	0
+ 281 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccsIZa1E.s 			page 6
+
+
+ 282 001b 24       		.uleb128 0x24
+ 283 001c 00       		.byte	0
+ 284 001d 0B       		.uleb128 0xb
+ 285 001e 0B       		.uleb128 0xb
+ 286 001f 3E       		.uleb128 0x3e
+ 287 0020 0B       		.uleb128 0xb
+ 288 0021 03       		.uleb128 0x3
+ 289 0022 08       		.uleb128 0x8
+ 290 0023 00       		.byte	0
+ 291 0024 00       		.byte	0
+ 292 0025 04       		.uleb128 0x4
+ 293 0026 16       		.uleb128 0x16
+ 294 0027 00       		.byte	0
+ 295 0028 03       		.uleb128 0x3
+ 296 0029 0E       		.uleb128 0xe
+ 297 002a 3A       		.uleb128 0x3a
+ 298 002b 0B       		.uleb128 0xb
+ 299 002c 3B       		.uleb128 0x3b
+ 300 002d 0B       		.uleb128 0xb
+ 301 002e 49       		.uleb128 0x49
+ 302 002f 13       		.uleb128 0x13
+ 303 0030 00       		.byte	0
+ 304 0031 00       		.byte	0
+ 305 0032 05       		.uleb128 0x5
+ 306 0033 01       		.uleb128 0x1
+ 307 0034 01       		.byte	0x1
+ 308 0035 49       		.uleb128 0x49
+ 309 0036 13       		.uleb128 0x13
+ 310 0037 01       		.uleb128 0x1
+ 311 0038 13       		.uleb128 0x13
+ 312 0039 00       		.byte	0
+ 313 003a 00       		.byte	0
+ 314 003b 06       		.uleb128 0x6
+ 315 003c 21       		.uleb128 0x21
+ 316 003d 00       		.byte	0
+ 317 003e 49       		.uleb128 0x49
+ 318 003f 13       		.uleb128 0x13
+ 319 0040 2F       		.uleb128 0x2f
+ 320 0041 0B       		.uleb128 0xb
+ 321 0042 00       		.byte	0
+ 322 0043 00       		.byte	0
+ 323 0044 07       		.uleb128 0x7
+ 324 0045 34       		.uleb128 0x34
+ 325 0046 00       		.byte	0
+ 326 0047 03       		.uleb128 0x3
+ 327 0048 0E       		.uleb128 0xe
+ 328 0049 3A       		.uleb128 0x3a
+ 329 004a 0B       		.uleb128 0xb
+ 330 004b 3B       		.uleb128 0x3b
+ 331 004c 0B       		.uleb128 0xb
+ 332 004d 49       		.uleb128 0x49
+ 333 004e 13       		.uleb128 0x13
+ 334 004f 3F       		.uleb128 0x3f
+ 335 0050 19       		.uleb128 0x19
+ 336 0051 02       		.uleb128 0x2
+ 337 0052 18       		.uleb128 0x18
+ 338 0053 00       		.byte	0
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccsIZa1E.s 			page 7
+
+
+ 339 0054 00       		.byte	0
+ 340 0055 08       		.uleb128 0x8
+ 341 0056 26       		.uleb128 0x26
+ 342 0057 00       		.byte	0
+ 343 0058 49       		.uleb128 0x49
+ 344 0059 13       		.uleb128 0x13
+ 345 005a 00       		.byte	0
+ 346 005b 00       		.byte	0
+ 347 005c 00       		.byte	0
+ 348              		.section	.debug_aranges,"",%progbits
+ 349 0000 14000000 		.4byte	0x14
+ 350 0004 0200     		.2byte	0x2
+ 351 0006 00000000 		.4byte	.Ldebug_info0
+ 352 000a 04       		.byte	0x4
+ 353 000b 00       		.byte	0
+ 354 000c 0000     		.2byte	0
+ 355 000e 0000     		.2byte	0
+ 356 0010 00000000 		.4byte	0
+ 357 0014 00000000 		.4byte	0
+ 358              		.section	.debug_line,"",%progbits
+ 359              	.Ldebug_line0:
+ 360 0000 4F000000 		.section	.debug_str,"MS",%progbits,1
+ 360      02004900 
+ 360      00000201 
+ 360      FB0E0D00 
+ 360      01010101 
+ 361              	.LASF19:
+ 362 0000 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\cymetadata.c\000"
+ 362      6E657261 
+ 362      7465645F 
+ 362      536F7572 
+ 362      63655C50 
+ 363              	.LASF17:
+ 364 0026 63795F6D 		.ascii	"cy_metadata\000"
+ 364      65746164 
+ 364      61746100 
+ 365              	.LASF9:
+ 366 0032 666C6F61 		.ascii	"float\000"
+ 366      7400
+ 367              	.LASF1:
+ 368 0038 756E7369 		.ascii	"unsigned char\000"
+ 368      676E6564 
+ 368      20636861 
+ 368      7200
+ 369              	.LASF5:
+ 370 0046 6C6F6E67 		.ascii	"long unsigned int\000"
+ 370      20756E73 
+ 370      69676E65 
+ 370      6420696E 
+ 370      7400
+ 371              	.LASF3:
+ 372 0058 73686F72 		.ascii	"short unsigned int\000"
+ 372      7420756E 
+ 372      7369676E 
+ 372      65642069 
+ 372      6E7400
+ 373              	.LASF20:
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccsIZa1E.s 			page 8
+
+
+ 374 006b 433A5C55 		.ascii	"C:\\Users\\Christina\\Documents\\For_fun\\GitHub\\D"
+ 374      73657273 
+ 374      5C436872 
+ 374      69737469 
+ 374      6E615C44 
+ 375 0098 65707265 		.ascii	"eprecated\\ShiftingStandaloneNoise\\ShiftingStandal"
+ 375      63617465 
+ 375      645C5368 
+ 375      69667469 
+ 375      6E675374 
+ 376 00c9 6F6E654E 		.ascii	"oneNoise.cydsn\000"
+ 376      6F697365 
+ 376      2E637964 
+ 376      736E00
+ 377              	.LASF10:
+ 378 00d8 646F7562 		.ascii	"double\000"
+ 378      6C6500
+ 379              	.LASF14:
+ 380 00df 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 380      6574615F 
+ 380      63757374 
+ 380      6E766C00 
+ 381              	.LASF13:
+ 382 00ef 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 382      6574615F 
+ 382      636F6E66 
+ 382      69676563 
+ 382      6300
+ 383              	.LASF18:
+ 384 0101 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 384      4320342E 
+ 384      392E3320 
+ 384      32303135 
+ 384      30333033 
+ 385 0134 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 385      20726576 
+ 385      6973696F 
+ 385      6E203232 
+ 385      31323230 
+ 386 0167 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 386      66756E63 
+ 386      74696F6E 
+ 386      2D736563 
+ 386      74696F6E 
+ 387              	.LASF8:
+ 388 018f 756E7369 		.ascii	"unsigned int\000"
+ 388      676E6564 
+ 388      20696E74 
+ 388      00
+ 389              	.LASF7:
+ 390 019c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 390      206C6F6E 
+ 390      6720756E 
+ 390      7369676E 
+ 390      65642069 
+ 391              	.LASF16:
+ 392 01b3 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccsIZa1E.s 			page 9
+
+
+ 392      6574615F 
+ 392      666C6173 
+ 392      6870726F 
+ 392      74656374 
+ 393              	.LASF15:
+ 394 01c8 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 394      6574615F 
+ 394      776F6E76 
+ 394      6C00
+ 395              	.LASF12:
+ 396 01d6 73697A65 		.ascii	"sizetype\000"
+ 396      74797065 
+ 396      00
+ 397              	.LASF6:
+ 398 01df 6C6F6E67 		.ascii	"long long int\000"
+ 398      206C6F6E 
+ 398      6720696E 
+ 398      7400
+ 399              	.LASF11:
+ 400 01ed 63686172 		.ascii	"char\000"
+ 400      00
+ 401              	.LASF2:
+ 402 01f2 73686F72 		.ascii	"short int\000"
+ 402      7420696E 
+ 402      7400
+ 403              	.LASF21:
+ 404 01fc 75696E74 		.ascii	"uint8\000"
+ 404      3800
+ 405              	.LASF4:
+ 406 0202 6C6F6E67 		.ascii	"long int\000"
+ 406      20696E74 
+ 406      00
+ 407              	.LASF0:
+ 408 020b 7369676E 		.ascii	"signed char\000"
+ 408      65642063 
+ 408      68617200 
+ 409              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

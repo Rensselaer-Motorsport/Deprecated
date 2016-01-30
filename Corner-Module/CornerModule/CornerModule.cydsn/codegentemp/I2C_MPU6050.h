@@ -66,7 +66,7 @@
 #define I2C_MPU6050_SCB_INTR_MODE_EXTERNAL (2u)
 
 /* Internal clock remove option */
-#define I2C_MPU6050_REMOVE_SCB_CLK     (0u)
+#define I2C_MPU6050_REMOVE_SCB_CLK     (1u)
 #define I2C_MPU6050_SCB_CLK_INTERNAL   (0u == I2C_MPU6050_REMOVE_SCB_CLK)
 
 

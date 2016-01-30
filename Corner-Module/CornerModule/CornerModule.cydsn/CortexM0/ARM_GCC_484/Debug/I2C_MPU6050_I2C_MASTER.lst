@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -33,7 +33,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
   30              		.thumb_func
   31              		.type	I2C_MPU6050_I2CMasterWriteBuf, %function
   32              	I2C_MPU6050_I2CMasterWriteBuf:
-  33              	.LFB0:
+  33              	.LFB2:
   34              		.file 1 ".\\Generated_Source\\PSoC4\\I2C_MPU6050_I2C_MASTER.c"
    1:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
    2:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** * File Name: I2C_MPU6050_I2C_MASTER.c
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
   21:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** #if(I2C_MPU6050_I2C_MASTER_CONST)
   22:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
   23:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /***************************************
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 2
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 2
 
 
   24:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *      I2C Master Private Vars
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
   78:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *
   79:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *******************************************************************************/
   80:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** uint32 I2C_MPU6050_I2CMasterWriteBuf(uint32 slaveAddress, uint8 * wrData, uint32 cnt, uint32 mode)
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 3
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 3
 
 
   81:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** {
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
   75              		.loc 1 94 0 discriminator 2
   76 0036 0023     		mov	r3, #0
   77              	.L5:
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 4
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 4
 
 
   78              		.loc 1 94 0 discriminator 1
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  118:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         I2C_MPU6050_mstrWrBufIndexTmp = 0u;
  109              		.loc 1 118 0
  110 0066 224B     		ldr	r3, .L10+12
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 5
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 5
 
 
  111 0068 0022     		mov	r2, #0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  131:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  132:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         /* Generate Start or ReStart */
  133:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         if(I2C_MPU6050_CHECK_I2C_MODE_RESTART(mode))
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 6
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 6
 
 
  153              		.loc 1 133 0
@@ -358,27 +358,27 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  189              		@ sp needed
  190 00e0 80BD     		pop	{r7, pc}
  191              	.L11:
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 7
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 7
 
 
  192 00e2 C046     		.align	2
  193              	.L10:
  194 00e4 00000000 		.word	I2C_MPU6050_state
- 195 00e8 64000640 		.word	1074135140
+ 195 00e8 64002540 		.word	1076166756
  196 00ec 00000000 		.word	I2C_MPU6050_mstrStatus
  197 00f0 00000000 		.word	I2C_MPU6050_mstrWrBufIndexTmp
  198 00f4 00000000 		.word	I2C_MPU6050_mstrWrBufIndex
  199 00f8 00000000 		.word	I2C_MPU6050_mstrWrBufSize
  200 00fc 00000000 		.word	I2C_MPU6050_mstrWrBufPtr
  201 0100 00000000 		.word	I2C_MPU6050_mstrControl
- 202 0104 000F0640 		.word	1074138880
+ 202 0104 000F2540 		.word	1076170496
  203 0108 17030000 		.word	791
- 204 010c 800F0640 		.word	1074139008
- 205 0110 40020640 		.word	1074135616
- 206 0114 68000640 		.word	1074135144
- 207 0118 880F0640 		.word	1074139016
+ 204 010c 800F2540 		.word	1076170624
+ 205 0110 40022540 		.word	1076167232
+ 206 0114 68002540 		.word	1076166760
+ 207 0118 880F2540 		.word	1076170632
  208              		.cfi_endproc
- 209              	.LFE0:
+ 209              	.LFE2:
  210              		.size	I2C_MPU6050_I2CMasterWriteBuf, .-I2C_MPU6050_I2CMasterWriteBuf
  211              		.section	.text.I2C_MPU6050_I2CMasterReadBuf,"ax",%progbits
  212              		.align	2
@@ -387,7 +387,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  215              		.thumb_func
  216              		.type	I2C_MPU6050_I2CMasterReadBuf, %function
  217              	I2C_MPU6050_I2CMasterReadBuf:
- 218              	.LFB1:
+ 218              	.LFB3:
  152:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  153:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  154:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  179:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *  or without the Stop generation.
  180:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *  I2C_MPU6050_mstrRdBufPtr - used to store pointer to master write buffer.
  181:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *  I2C_MPU6050_mstrRdBufIndex - used to current index within master write
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 8
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 8
 
 
  182:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *  buffer.
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  254 0030 01D0     		beq	.L15
  255              		.loc 1 200 0 is_stmt 0 discriminator 1
  256 0032 0823     		mov	r3, #8
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 9
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 9
 
 
  257 0034 00E0     		b	.L16
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  223:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         I2C_MPU6050_state = I2C_MPU6050_I2C_FSM_MSTR_RD_ADDR;
  289              		.loc 1 223 0
  290 0060 254B     		ldr	r3, .L22
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 10
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 10
 
 
  291 0062 2922     		mov	r2, #41
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  238:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         if(I2C_MPU6050_CHECK_I2C_MODE_RESTART(mode))
  331              		.loc 1 238 0
  332 00a4 3A68     		ldr	r2, [r7]
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 11
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 11
 
 
  333 00a6 0123     		mov	r3, #1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  369 00dc 4900     		lsl	r1, r1, #1
  370 00de 0A43     		orr	r2, r1
  371 00e0 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 12
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 12
 
 
  257:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****             I2C_MPU6050_SetRxInterruptMode(I2C_MPU6050_INTR_RX_FULL);
@@ -689,20 +689,20 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  389              		.align	2
  390              	.L22:
  391 00f8 00000000 		.word	I2C_MPU6050_state
- 392 00fc 64000640 		.word	1074135140
+ 392 00fc 64002540 		.word	1076166756
  393 0100 00000000 		.word	I2C_MPU6050_mstrStatus
  394 0104 00000000 		.word	I2C_MPU6050_mstrRdBufIndex
  395 0108 00000000 		.word	I2C_MPU6050_mstrRdBufSize
  396 010c 00000000 		.word	I2C_MPU6050_mstrRdBufPtr
  397 0110 00000000 		.word	I2C_MPU6050_mstrControl
- 398 0114 000F0640 		.word	1074138880
+ 398 0114 000F2540 		.word	1076170496
  399 0118 17030000 		.word	791
- 400 011c 40020640 		.word	1074135616
- 401 0120 68000640 		.word	1074135144
- 402 0124 C80F0640 		.word	1074139080
- 403 0128 60000640 		.word	1074135136
+ 400 011c 40022540 		.word	1076167232
+ 401 0120 68002540 		.word	1076166760
+ 402 0124 C80F2540 		.word	1076170696
+ 403 0128 60002540 		.word	1076166752
  404              		.cfi_endproc
- 405              	.LFE1:
+ 405              	.LFE3:
  406              		.size	I2C_MPU6050_I2CMasterReadBuf, .-I2C_MPU6050_I2CMasterReadBuf
  407              		.section	.text.I2C_MPU6050_I2CMasterSendStart,"ax",%progbits
  408              		.align	2
@@ -711,14 +711,14 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  411              		.thumb_func
  412              		.type	I2C_MPU6050_I2CMasterSendStart, %function
  413              	I2C_MPU6050_I2CMasterSendStart:
- 414              	.LFB2:
+ 414              	.LFB4:
  265:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  266:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  267:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
  268:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** * Function Name: I2C_MPU6050_I2CMasterSendStart
  269:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** ********************************************************************************
  270:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 13
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 13
 
 
  271:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** * Summary:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  301:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         if(I2C_MPU6050_CHECK_I2C_STATUS(I2C_MPU6050_I2C_STATUS_BUS_BUSY))
  439              		.loc 1 301 0
  440 001c 364B     		ldr	r3, .L35+4
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 14
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 14
 
 
  441 001e 1A68     		ldr	r2, [r3]
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  473              		.loc 1 323 0
  474 0050 7B68     		ldr	r3, [r7, #4]
  475 0052 0122     		mov	r2, #1
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 15
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 15
 
 
  476 0054 1343     		orr	r3, r2
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  347:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****             {
  348:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****                 errStatus = I2C_MPU6050_I2C_MSTR_NO_ERROR;
  507              		.loc 1 348 0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 16
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 16
 
 
  508 0082 0023     		mov	r3, #0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  547 00ba 5B00     		lsl	r3, r3, #1
  548 00bc BB60     		str	r3, [r7, #8]
  364:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****                              resetIp   = I2C_MPU6050_I2C_RESET_ERROR;
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 17
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 17
 
 
  549              		.loc 1 364 0
@@ -1018,17 +1018,17 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  586              		.align	2
  587              	.L35:
  588 00f4 00000000 		.word	I2C_MPU6050_state
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 18
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 18
 
 
- 589 00f8 64000640 		.word	1074135140
- 590 00fc 40020640 		.word	1074135616
- 591 0100 000F0640 		.word	1074138880
+ 589 00f8 64002540 		.word	1076166756
+ 590 00fc 40022540 		.word	1076167232
+ 591 0100 000F2540 		.word	1076170496
  592 0104 17030000 		.word	791
- 593 0108 68000640 		.word	1074135144
- 594 010c 00000640 		.word	1074135040
+ 593 0108 68002540 		.word	1076166760
+ 594 010c 00002540 		.word	1076166656
  595              		.cfi_endproc
- 596              	.LFE2:
+ 596              	.LFE4:
  597              		.size	I2C_MPU6050_I2CMasterSendStart, .-I2C_MPU6050_I2CMasterSendStart
  598              		.section	.text.I2C_MPU6050_I2CMasterSendRestart,"ax",%progbits
  599              		.align	2
@@ -1037,7 +1037,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  602              		.thumb_func
  603              		.type	I2C_MPU6050_I2CMasterSendRestart, %function
  604              	I2C_MPU6050_I2CMasterSendRestart:
- 605              	.LFB3:
+ 605              	.LFB5:
  382:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  383:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  384:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  617 0008 3960     		str	r1, [r7]
  408:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     uint32 resetIp;
  409:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     uint32 errStatus;
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 19
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 19
 
 
  410:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  655 0042 0122     		mov	r2, #1
  656 0044 1343     		orr	r3, r2
  657 0046 7B60     		str	r3, [r7, #4]
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 20
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 20
 
 
  658              	.L40:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  451:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****                                                   I2C_MPU6050_INTR_MASTER_I2C_ARB_LOST |
  452:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****                                                   I2C_MPU6050_INTR_MASTER_I2C_BUS_ERROR))
  453:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         {
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 21
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 21
 
 
  454:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****             /* Wait until address has been transferred */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  725 00a8 FB60     		str	r3, [r7, #12]
  726 00aa 07E0     		b	.L44
  727              	.L46:
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 22
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 22
 
 
  471:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         }
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  489:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     }
  490:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  491:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     return(errStatus);
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 23
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 23
 
 
  764              		.loc 1 491 0
@@ -1334,13 +1334,13 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  773 00ee C046     		.align	2
  774              	.L48:
  775 00f0 00000000 		.word	I2C_MPU6050_state
- 776 00f4 000F0640 		.word	1074138880
+ 776 00f4 000F2540 		.word	1076170496
  777 00f8 17030000 		.word	791
- 778 00fc 68000640 		.word	1074135144
- 779 0100 40020640 		.word	1074135616
- 780 0104 00000640 		.word	1074135040
+ 778 00fc 68002540 		.word	1076166760
+ 779 0100 40022540 		.word	1076167232
+ 780 0104 00002540 		.word	1076166656
  781              		.cfi_endproc
- 782              	.LFE3:
+ 782              	.LFE5:
  783              		.size	I2C_MPU6050_I2CMasterSendRestart, .-I2C_MPU6050_I2CMasterSendRestart
  784              		.section	.text.I2C_MPU6050_I2CMasterSendStop,"ax",%progbits
  785              		.align	2
@@ -1349,7 +1349,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  788              		.thumb_func
  789              		.type	I2C_MPU6050_I2CMasterSendStop, %function
  790              	I2C_MPU6050_I2CMasterSendStop:
- 791              	.LFB4:
+ 791              	.LFB6:
  493:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  494:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  495:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  518:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** * Global variables:
  519:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *  I2C_MPU6050_state - used to store current state of software FSM.
  520:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 24
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 24
 
 
  521:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *******************************************************************************/
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  829 002e 1022     		mov	r2, #16
  830              	.L53:
  831              		.loc 1 537 0 discriminator 3
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 25
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 25
 
 
  832 0030 1A60     		str	r2, [r3]
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  556:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         else /* I2C_MPU6050_INTR_MASTER_I2C_BUS_ERROR is set */
  557:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         {
  558:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****             errStatus = I2C_MPU6050_I2C_MSTR_ERR_BUS_ERR;
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 26
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 26
 
 
  868              		.loc 1 558 0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  905 009c 3B68     		ldr	r3, [r7]
  576:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** }
  906              		.loc 1 576 0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 27
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 27
 
 
  907 009e 181C     		mov	r0, r3
@@ -1570,12 +1570,12 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  913 00a6 C046     		.align	2
  914              	.L59:
  915 00a8 00000000 		.word	I2C_MPU6050_state
- 916 00ac 68000640 		.word	1074135144
- 917 00b0 64000640 		.word	1074135140
- 918 00b4 000F0640 		.word	1074138880
- 919 00b8 00000640 		.word	1074135040
+ 916 00ac 68002540 		.word	1076166760
+ 917 00b0 64002540 		.word	1076166756
+ 918 00b4 000F2540 		.word	1076170496
+ 919 00b8 00002540 		.word	1076166656
  920              		.cfi_endproc
- 921              	.LFE4:
+ 921              	.LFE6:
  922              		.size	I2C_MPU6050_I2CMasterSendStop, .-I2C_MPU6050_I2CMasterSendStop
  923              		.section	.text.I2C_MPU6050_I2CMasterWriteByte,"ax",%progbits
  924              		.align	2
@@ -1584,7 +1584,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  927              		.thumb_func
  928              		.type	I2C_MPU6050_I2CMasterWriteByte, %function
  929              	I2C_MPU6050_I2CMasterWriteByte:
- 930              	.LFB5:
+ 930              	.LFB7:
  577:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  578:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  579:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  933 0000 80B5     		push	{r7, lr}
  934              		.cfi_def_cfa_offset 8
  935              		.cfi_offset 7, -8
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 28
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 28
 
 
  936              		.cfi_offset 14, -4
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  624:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         /* Check results after byte was sent */
  625:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         if(I2C_MPU6050_CHECK_INTR_MASTER(I2C_MPU6050_INTR_MASTER_I2C_ACK))
  971              		.loc 1 625 0 is_stmt 1
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 29
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 29
 
 
  972 0034 234B     		ldr	r3, .L69+8
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1013 0072 BB60     		str	r3, [r7, #8]
  639:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****                          resetIp   = I2C_MPU6050_I2C_RESET_ERROR;
  1014              		.loc 1 639 0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 30
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 30
 
 
  1015 0074 0123     		mov	r3, #1
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1052 00ae 0A43     		orr	r2, r1
  1053 00b0 1A60     		str	r2, [r3]
  1054              	.L62:
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 31
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 31
 
 
  657:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         }
@@ -1818,11 +1818,11 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1064              		.align	2
  1065              	.L69:
  1066 00bc 00000000 		.word	I2C_MPU6050_state
- 1067 00c0 40020640 		.word	1074135616
- 1068 00c4 000F0640 		.word	1074138880
- 1069 00c8 00000640 		.word	1074135040
+ 1067 00c0 40022540 		.word	1076167232
+ 1068 00c4 000F2540 		.word	1076170496
+ 1069 00c8 00002540 		.word	1076166656
  1070              		.cfi_endproc
- 1071              	.LFE5:
+ 1071              	.LFE7:
  1072              		.size	I2C_MPU6050_I2CMasterWriteByte, .-I2C_MPU6050_I2CMasterWriteByte
  1073              		.section	.text.I2C_MPU6050_I2CMasterReadByte,"ax",%progbits
  1074              		.align	2
@@ -1831,7 +1831,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1077              		.thumb_func
  1078              		.type	I2C_MPU6050_I2CMasterReadByte, %function
  1079              	I2C_MPU6050_I2CMasterReadByte:
- 1080              	.LFB6:
+ 1080              	.LFB8:
  662:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  663:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  664:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  685:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *  function. This function does nothing and returns invalid byte value
  686:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *  if Start or ReStart conditions failed before this function was called.
  687:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 32
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 32
 
 
  688:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** * Global variables:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1119 0032 1340     		and	r3, r2
  702:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         while((!I2C_MPU6050_CHECK_INTR_RX(I2C_MPU6050_INTR_RX_NOT_EMPTY)) &&
  1120              		.loc 1 702 0 discriminator 2
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 33
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 33
 
 
  1121 0034 F4D0     		beq	.L74
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  726:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         else
  727:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         {
  728:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****             I2C_MPU6050_ClearMasterInterruptSource(I2C_MPU6050_INTR_MASTER_ALL);
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 34
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 34
 
 
  1153              		.loc 1 728 0
@@ -2020,14 +2020,14 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1181              		.align	2
  1182              	.L79:
  1183 008c 00000000 		.word	I2C_MPU6050_state
- 1184 0090 C00F0640 		.word	1074139072
- 1185 0094 000F0640 		.word	1074138880
- 1186 0098 40030640 		.word	1074135872
- 1187 009c 68000640 		.word	1074135144
+ 1184 0090 C00F2540 		.word	1076170688
+ 1185 0094 000F2540 		.word	1076170496
+ 1186 0098 40032540 		.word	1076167488
+ 1187 009c 68002540 		.word	1076166760
  1188 00a0 17030000 		.word	791
- 1189 00a4 00000640 		.word	1074135040
+ 1189 00a4 00002540 		.word	1076166656
  1190              		.cfi_endproc
- 1191              	.LFE6:
+ 1191              	.LFE8:
  1192              		.size	I2C_MPU6050_I2CMasterReadByte, .-I2C_MPU6050_I2CMasterReadByte
  1193              		.section	.text.I2C_MPU6050_I2CMasterGetReadBufSize,"ax",%progbits
  1194              		.align	2
@@ -2036,9 +2036,9 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1197              		.thumb_func
  1198              		.type	I2C_MPU6050_I2CMasterGetReadBufSize, %function
  1199              	I2C_MPU6050_I2CMasterGetReadBufSize:
- 1200              	.LFB7:
+ 1200              	.LFB9:
  737:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 35
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 35
 
 
  738:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
@@ -2091,19 +2091,19 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1219              	.L83:
  1220 0010 00000000 		.word	I2C_MPU6050_mstrRdBufIndex
  1221              		.cfi_endproc
- 1222              	.LFE7:
+ 1222              	.LFE9:
  1223              		.size	I2C_MPU6050_I2CMasterGetReadBufSize, .-I2C_MPU6050_I2CMasterGetReadBufSize
  1224              		.section	.text.I2C_MPU6050_I2CMasterGetWriteBufSize,"ax",%progbits
  1225              		.align	2
  1226              		.global	I2C_MPU6050_I2CMasterGetWriteBufSize
  1227              		.code	16
  1228              		.thumb_func
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 36
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 36
 
 
  1229              		.type	I2C_MPU6050_I2CMasterGetWriteBufSize, %function
  1230              	I2C_MPU6050_I2CMasterGetWriteBufSize:
- 1231              	.LFB8:
+ 1231              	.LFB10:
  767:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  768:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  769:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
@@ -2155,10 +2155,10 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1250              	.L87:
  1251 0010 00000000 		.word	I2C_MPU6050_mstrWrBufIndex
  1252              		.cfi_endproc
- 1253              	.LFE8:
+ 1253              	.LFE10:
  1254              		.size	I2C_MPU6050_I2CMasterGetWriteBufSize, .-I2C_MPU6050_I2CMasterGetWriteBufSize
  1255              		.section	.text.I2C_MPU6050_I2CMasterClearReadBuf,"ax",%progbits
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 37
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 37
 
 
  1256              		.align	2
@@ -2167,7 +2167,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1259              		.thumb_func
  1260              		.type	I2C_MPU6050_I2CMasterClearReadBuf, %function
  1261              	I2C_MPU6050_I2CMasterClearReadBuf:
- 1262              	.LFB9:
+ 1262              	.LFB11:
  797:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  798:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  799:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1283 0018 9343     		bic	r3, r2
  1284 001a 9AB2     		uxth	r2, r3
  1285 001c 044B     		ldr	r3, .L90+4
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 38
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 38
 
 
  1286 001e 1A80     		strh	r2, [r3]
@@ -2238,7 +2238,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1297 002c 00000000 		.word	I2C_MPU6050_mstrRdBufIndex
  1298 0030 00000000 		.word	I2C_MPU6050_mstrStatus
  1299              		.cfi_endproc
- 1300              	.LFE9:
+ 1300              	.LFE11:
  1301              		.size	I2C_MPU6050_I2CMasterClearReadBuf, .-I2C_MPU6050_I2CMasterClearReadBuf
  1302              		.section	.text.I2C_MPU6050_I2CMasterClearWriteBuf,"ax",%progbits
  1303              		.align	2
@@ -2247,7 +2247,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1306              		.thumb_func
  1307              		.type	I2C_MPU6050_I2CMasterClearWriteBuf, %function
  1308              	I2C_MPU6050_I2CMasterClearWriteBuf:
- 1309              	.LFB10:
+ 1309              	.LFB12:
  827:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  828:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  829:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1314              		.cfi_offset 7, -8
  1315              		.cfi_offset 14, -4
  1316 0002 00AF     		add	r7, sp, #0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 39
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 39
 
 
  1317              		.cfi_def_cfa_register 7
@@ -2318,7 +2318,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1344 002c 00000000 		.word	I2C_MPU6050_mstrWrBufIndex
  1345 0030 00000000 		.word	I2C_MPU6050_mstrStatus
  1346              		.cfi_endproc
- 1347              	.LFE10:
+ 1347              	.LFE12:
  1348              		.size	I2C_MPU6050_I2CMasterClearWriteBuf, .-I2C_MPU6050_I2CMasterClearWriteBuf
  1349              		.section	.text.I2C_MPU6050_I2CMasterStatus,"ax",%progbits
  1350              		.align	2
@@ -2327,7 +2327,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1353              		.thumb_func
  1354              		.type	I2C_MPU6050_I2CMasterStatus, %function
  1355              	I2C_MPU6050_I2CMasterStatus:
- 1356              	.LFB11:
+ 1356              	.LFB13:
  857:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  858:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  859:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  864:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *  Returns the master's communication status.
  865:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *
  866:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** * Parameters:
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 40
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 40
 
 
  867:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** *  None
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  888:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     }
  889:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  890:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     I2C_MPU6050_EnableInt();   /* Release lock */
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 41
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 41
 
 
  1390              		.loc 1 890 0
@@ -2421,7 +2421,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1404 003c 00000000 		.word	I2C_MPU6050_mstrStatus
  1405 0040 00000000 		.word	I2C_MPU6050_state
  1406              		.cfi_endproc
- 1407              	.LFE11:
+ 1407              	.LFE13:
  1408              		.size	I2C_MPU6050_I2CMasterStatus, .-I2C_MPU6050_I2CMasterStatus
  1409              		.section	.text.I2C_MPU6050_I2CMasterClearStatus,"ax",%progbits
  1410              		.align	2
@@ -2430,7 +2430,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1413              		.thumb_func
  1414              		.type	I2C_MPU6050_I2CMasterClearStatus, %function
  1415              	I2C_MPU6050_I2CMasterClearStatus:
- 1416              	.LFB12:
+ 1416              	.LFB14:
  894:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  895:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  896:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1420              		.cfi_def_cfa_offset 8
  1421              		.cfi_offset 7, -8
  1422              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 42
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 42
 
 
  1423 0002 82B0     		sub	sp, sp, #8
@@ -2505,7 +2505,7 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1452              	.L102:
  1453 002c 00000000 		.word	I2C_MPU6050_mstrStatus
  1454              		.cfi_endproc
- 1455              	.LFE12:
+ 1455              	.LFE14:
  1456              		.size	I2C_MPU6050_I2CMasterClearStatus, .-I2C_MPU6050_I2CMasterClearStatus
  1457              		.section	.text.I2C_MPU6050_I2CReStartGeneration,"ax",%progbits
  1458              		.align	2
@@ -2514,11 +2514,11 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  1461              		.thumb_func
  1462              		.type	I2C_MPU6050_I2CReStartGeneration, %function
  1463              	I2C_MPU6050_I2CReStartGeneration:
- 1464              	.LFB13:
+ 1464              	.LFB15:
  927:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  928:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  929:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** /*******************************************************************************
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 43
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 43
 
 
  930:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** * Function Name: I2C_MPU6050_I2CReStartGeneration
@@ -2571,1492 +2571,1445 @@ ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 1
  967:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     /* Generates Restart use GPIO and scb IP functionality. Ticket ID#143715,
  968:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     ID#145238 and ID#173656 */
  969:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     uint32 status = I2C_MPU6050_I2C_STATUS_REG;
- 1475              		.loc 1 969 0
- 1476 0006 264B     		ldr	r3, .L108
- 1477 0008 1B68     		ldr	r3, [r3]
- 1478 000a 7B60     		str	r3, [r7, #4]
  970:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  971:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     while(I2C_MPU6050_WAIT_SDA_SET_HIGH)
- 1479              		.loc 1 971 0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 44
-
-
- 1480 000c C046     		mov	r8, r8
- 1481              	.L105:
- 1482              		.loc 1 971 0 is_stmt 0 discriminator 1
- 1483 000e FFF7FEFF 		bl	I2C_MPU6050_sda_Read
- 1484 0012 031C     		mov	r3, r0
- 1485 0014 002B     		cmp	r3, #0
- 1486 0016 FAD0     		beq	.L105
  972:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     {
  973:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         /* Wait when slave release SDA line: SCL tHIGH is complete */
  974:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     }
  975:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  976:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     /* Prepare DR register to drive SCL line */
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 44
+
+
  977:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     I2C_MPU6050_SET_I2C_SCL_DR(I2C_MPU6050_I2C_SCL_LOW);
- 1487              		.loc 1 977 0 is_stmt 1
- 1488 0018 0020     		mov	r0, #0
- 1489 001a FFF7FEFF 		bl	I2C_MPU6050_scl_Write
  978:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  979:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     /* Switch HSIOM to GPIO: SCL goes low */
  980:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     I2C_MPU6050_SET_I2C_SCL_HSIOM_SEL(I2C_MPU6050_HSIOM_GPIO_SEL);
- 1490              		.loc 1 980 0
- 1491 001e 214B     		ldr	r3, .L108+4
- 1492 0020 204A     		ldr	r2, .L108+4
- 1493 0022 1268     		ldr	r2, [r2]
- 1494 0024 0F21     		mov	r1, #15
- 1495 0026 8A43     		bic	r2, r1
- 1496 0028 1A60     		str	r2, [r3]
  981:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  982:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     /* Disable SCB block */
  983:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     I2C_MPU6050_CTRL_REG &= (uint32) ~I2C_MPU6050_CTRL_ENABLED;
- 1497              		.loc 1 983 0
- 1498 002a 1F4B     		ldr	r3, .L108+8
- 1499 002c 1E4A     		ldr	r2, .L108+8
- 1500 002e 1268     		ldr	r2, [r2]
- 1501 0030 5200     		lsl	r2, r2, #1
- 1502 0032 5208     		lsr	r2, r2, #1
- 1503 0034 1A60     		str	r2, [r3]
  984:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  985:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     if(0u != (status & I2C_MPU6050_I2C_STATUS_M_READ))
- 1504              		.loc 1 985 0
- 1505 0036 7A68     		ldr	r2, [r7, #4]
- 1506 0038 2023     		mov	r3, #32
- 1507 003a 1340     		and	r3, r2
- 1508 003c 11D0     		beq	.L106
  986:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     {
  987:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         /* Generate NACK use GPIO functionality */
  988:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         I2C_MPU6050_SET_I2C_SCL_DR(I2C_MPU6050_I2C_SCL_LOW);
- 1509              		.loc 1 988 0
- 1510 003e 0020     		mov	r0, #0
- 1511 0040 FFF7FEFF 		bl	I2C_MPU6050_scl_Write
  989:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         CyDelayUs(I2C_MPU6050_I2C_TLOW_TIME); /* Count tLOW */
- 1512              		.loc 1 989 0
- 1513 0044 0A20     		mov	r0, #10
- 1514 0046 FFF7FEFF 		bl	CyDelayUs
  990:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  991:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         I2C_MPU6050_SET_I2C_SCL_DR(I2C_MPU6050_I2C_SCL_HIGH);
- 1515              		.loc 1 991 0
- 1516 004a 0120     		mov	r0, #1
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 45
-
-
- 1517 004c FFF7FEFF 		bl	I2C_MPU6050_scl_Write
  992:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         while(I2C_MPU6050_WAIT_SCL_SET_HIGH)
- 1518              		.loc 1 992 0
- 1519 0050 C046     		mov	r8, r8
- 1520              	.L107:
- 1521              		.loc 1 992 0 is_stmt 0 discriminator 1
- 1522 0052 FFF7FEFF 		bl	I2C_MPU6050_scl_Read
- 1523 0056 031C     		mov	r3, r0
- 1524 0058 002B     		cmp	r3, #0
- 1525 005a FAD0     		beq	.L107
  993:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         {
  994:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****             /* Wait until slave releases SCL in case if it stretches */
  995:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         }
  996:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****         CyDelayUs(I2C_MPU6050_I2C_THIGH_TIME); /* Count tHIGH */
- 1526              		.loc 1 996 0 is_stmt 1
- 1527 005c 0A20     		mov	r0, #10
- 1528 005e FFF7FEFF 		bl	CyDelayUs
- 1529              	.L106:
  997:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     }
  998:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
  999:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     /* Count tLOW as hold time for write and read */
 1000:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     I2C_MPU6050_SET_I2C_SCL_DR(I2C_MPU6050_I2C_SCL_LOW);
- 1530              		.loc 1 1000 0
- 1531 0062 0020     		mov	r0, #0
- 1532 0064 FFF7FEFF 		bl	I2C_MPU6050_scl_Write
 1001:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     CyDelayUs(I2C_MPU6050_I2C_TLOW_TIME); /* Count tLOW */
- 1533              		.loc 1 1001 0
- 1534 0068 0A20     		mov	r0, #10
- 1535 006a FFF7FEFF 		bl	CyDelayUs
 1002:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
 1003:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     /* Set command for Start generation: it will appear */
 1004:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     I2C_MPU6050_I2C_MASTER_CMD_REG = I2C_MPU6050_I2C_MASTER_CMD_M_START;
- 1536              		.loc 1 1004 0
- 1537 006e 0F4B     		ldr	r3, .L108+12
- 1538 0070 0122     		mov	r2, #1
- 1539 0072 1A60     		str	r2, [r3]
 1005:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
 1006:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     /* Enable SCB block */
 1007:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     I2C_MPU6050_CTRL_REG |= (uint32) I2C_MPU6050_CTRL_ENABLED;
- 1540              		.loc 1 1007 0
- 1541 0074 0C4B     		ldr	r3, .L108+8
- 1542 0076 0C4A     		ldr	r2, .L108+8
- 1543 0078 1268     		ldr	r2, [r2]
- 1544 007a 8021     		mov	r1, #128
- 1545 007c 0906     		lsl	r1, r1, #24
- 1546 007e 0A43     		orr	r2, r1
- 1547 0080 1A60     		str	r2, [r3]
 1008:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
 1009:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     /* Switch HSIOM to I2C: */
 1010:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     I2C_MPU6050_SET_I2C_SCL_HSIOM_SEL(I2C_MPU6050_HSIOM_I2C_SEL);
- 1548              		.loc 1 1010 0
- 1549 0082 084B     		ldr	r3, .L108+4
- 1550 0084 074A     		ldr	r2, .L108+4
- 1551 0086 1268     		ldr	r2, [r2]
- 1552 0088 0F21     		mov	r1, #15
- 1553 008a 8A43     		bic	r2, r1
- 1554 008c 0E21     		mov	r1, #14
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 46
-
-
- 1555 008e 0A43     		orr	r2, r1
- 1556 0090 1A60     		str	r2, [r3]
 1011:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
 1012:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     /* Revert SCL DR register */
 1013:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     I2C_MPU6050_SET_I2C_SCL_DR(I2C_MPU6050_I2C_SCL_HIGH);
- 1557              		.loc 1 1013 0
- 1558 0092 0120     		mov	r0, #1
- 1559 0094 FFF7FEFF 		bl	I2C_MPU6050_scl_Write
 1014:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** #else
 1015:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     uint32 cmd;
 1016:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
 1017:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     /* Generates ReStart use scb IP functionality */
 1018:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     cmd  = I2C_MPU6050_I2C_MASTER_CMD_M_START;
+ 1475              		.loc 1 1018 0
+ 1476 0006 0123     		mov	r3, #1
+ 1477 0008 7B60     		str	r3, [r7, #4]
 1019:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     cmd |= I2C_MPU6050_CHECK_I2C_STATUS(I2C_MPU6050_I2C_STATUS_M_READ) ?
+ 1478              		.loc 1 1019 0
+ 1479 000a 084B     		ldr	r3, .L107
+ 1480 000c 1A68     		ldr	r2, [r3]
+ 1481 000e 2023     		mov	r3, #32
+ 1482 0010 1340     		and	r3, r2
 1020:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****                 (I2C_MPU6050_I2C_MASTER_CMD_M_NACK) : (0u);
+ 1483              		.loc 1 1020 0
+ 1484 0012 01D0     		beq	.L105
+ 1485              		.loc 1 1020 0 is_stmt 0 discriminator 1
+ 1486 0014 0823     		mov	r3, #8
+ 1487 0016 00E0     		b	.L106
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 45
+
+
+ 1488              	.L105:
+ 1489              		.loc 1 1020 0 discriminator 2
+ 1490 0018 0023     		mov	r3, #0
+ 1491              	.L106:
+1019:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     cmd |= I2C_MPU6050_CHECK_I2C_STATUS(I2C_MPU6050_I2C_STATUS_M_READ) ?
+ 1492              		.loc 1 1019 0 is_stmt 1
+ 1493 001a 7A68     		ldr	r2, [r7, #4]
+ 1494 001c 1343     		orr	r3, r2
+ 1495 001e 7B60     		str	r3, [r7, #4]
 1021:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** 
 1022:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c ****     I2C_MPU6050_I2C_MASTER_CMD_REG = cmd;
+ 1496              		.loc 1 1022 0
+ 1497 0020 034B     		ldr	r3, .L107+4
+ 1498 0022 7A68     		ldr	r2, [r7, #4]
+ 1499 0024 1A60     		str	r2, [r3]
 1023:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** #endif /* (I2C_MPU6050_CY_SCBIP_V1) */
 1024:.\Generated_Source\PSoC4/I2C_MPU6050_I2C_MASTER.c **** }
- 1560              		.loc 1 1024 0
- 1561 0098 BD46     		mov	sp, r7
- 1562 009a 02B0     		add	sp, sp, #8
- 1563              		@ sp needed
- 1564 009c 80BD     		pop	{r7, pc}
- 1565              	.L109:
- 1566 009e C046     		.align	2
- 1567              	.L108:
- 1568 00a0 64000640 		.word	1074135140
- 1569 00a4 10000140 		.word	1073807376
- 1570 00a8 00000640 		.word	1074135040
- 1571 00ac 68000640 		.word	1074135144
- 1572              		.cfi_endproc
- 1573              	.LFE13:
- 1574              		.size	I2C_MPU6050_I2CReStartGeneration, .-I2C_MPU6050_I2CReStartGeneration
- 1575              		.text
- 1576              	.Letext0:
- 1577              		.file 2 ".\\Generated_Source\\PSoC4/cytypes.h"
- 1578              		.file 3 ".\\Generated_Source\\PSoC4\\I2C_MPU6050_I2C_PVT.h"
- 1579              		.section	.debug_info,"",%progbits
- 1580              	.Ldebug_info0:
- 1581 0000 62040000 		.4byte	0x462
- 1582 0004 0400     		.2byte	0x4
- 1583 0006 00000000 		.4byte	.Ldebug_abbrev0
- 1584 000a 04       		.byte	0x4
- 1585 000b 01       		.uleb128 0x1
- 1586 000c CC010000 		.4byte	.LASF50
- 1587 0010 01       		.byte	0x1
- 1588 0011 C8030000 		.4byte	.LASF51
- 1589 0015 25000000 		.4byte	.LASF52
- 1590 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 1591 001d 00000000 		.4byte	0
- 1592 0021 00000000 		.4byte	.Ldebug_line0
- 1593 0025 02       		.uleb128 0x2
- 1594 0026 01       		.byte	0x1
- 1595 0027 06       		.byte	0x6
- 1596 0028 97040000 		.4byte	.LASF0
- 1597 002c 02       		.uleb128 0x2
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 47
+ 1500              		.loc 1 1024 0
+ 1501 0026 BD46     		mov	sp, r7
+ 1502 0028 02B0     		add	sp, sp, #8
+ 1503              		@ sp needed
+ 1504 002a 80BD     		pop	{r7, pc}
+ 1505              	.L108:
+ 1506              		.align	2
+ 1507              	.L107:
+ 1508 002c 64002540 		.word	1076166756
+ 1509 0030 68002540 		.word	1076166760
+ 1510              		.cfi_endproc
+ 1511              	.LFE15:
+ 1512              		.size	I2C_MPU6050_I2CReStartGeneration, .-I2C_MPU6050_I2CReStartGeneration
+ 1513              		.text
+ 1514              	.Letext0:
+ 1515              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 1516              		.file 3 ".\\Generated_Source\\PSoC4\\I2C_MPU6050_I2C_PVT.h"
+ 1517              		.section	.debug_info,"",%progbits
+ 1518              	.Ldebug_info0:
+ 1519 0000 62040000 		.4byte	0x462
+ 1520 0004 0400     		.2byte	0x4
+ 1521 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1522 000a 04       		.byte	0x4
+ 1523 000b 01       		.uleb128 0x1
+ 1524 000c 7F010000 		.4byte	.LASF50
+ 1525 0010 01       		.byte	0x1
+ 1526 0011 E0030000 		.4byte	.LASF51
+ 1527 0015 CB020000 		.4byte	.LASF52
+ 1528 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1529 001d 00000000 		.4byte	0
+ 1530 0021 00000000 		.4byte	.Ldebug_line0
+ 1531 0025 02       		.uleb128 0x2
+ 1532 0026 01       		.byte	0x1
+ 1533 0027 06       		.byte	0x6
+ 1534 0028 AF040000 		.4byte	.LASF0
+ 1535 002c 02       		.uleb128 0x2
+ 1536 002d 01       		.byte	0x1
+ 1537 002e 08       		.byte	0x8
+ 1538 002f 9A020000 		.4byte	.LASF1
+ 1539 0033 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 46
 
 
- 1598 002d 01       		.byte	0x1
- 1599 002e 08       		.byte	0x8
- 1600 002f E7020000 		.4byte	.LASF1
- 1601 0033 02       		.uleb128 0x2
- 1602 0034 02       		.byte	0x2
- 1603 0035 05       		.byte	0x5
- 1604 0036 5E040000 		.4byte	.LASF2
- 1605 003a 02       		.uleb128 0x2
- 1606 003b 02       		.byte	0x2
- 1607 003c 07       		.byte	0x7
- 1608 003d 1A010000 		.4byte	.LASF3
- 1609 0041 02       		.uleb128 0x2
- 1610 0042 04       		.byte	0x4
- 1611 0043 05       		.byte	0x5
- 1612 0044 8E040000 		.4byte	.LASF4
- 1613 0048 02       		.uleb128 0x2
- 1614 0049 04       		.byte	0x4
- 1615 004a 07       		.byte	0x7
- 1616 004b A3020000 		.4byte	.LASF5
- 1617 004f 02       		.uleb128 0x2
- 1618 0050 08       		.byte	0x8
- 1619 0051 05       		.byte	0x5
- 1620 0052 1C040000 		.4byte	.LASF6
- 1621 0056 02       		.uleb128 0x2
- 1622 0057 08       		.byte	0x8
- 1623 0058 07       		.byte	0x7
- 1624 0059 65030000 		.4byte	.LASF7
- 1625 005d 03       		.uleb128 0x3
- 1626 005e 04       		.byte	0x4
- 1627 005f 05       		.byte	0x5
- 1628 0060 696E7400 		.ascii	"int\000"
- 1629 0064 02       		.uleb128 0x2
- 1630 0065 04       		.byte	0x4
- 1631 0066 07       		.byte	0x7
- 1632 0067 34030000 		.4byte	.LASF8
- 1633 006b 04       		.uleb128 0x4
- 1634 006c B5020000 		.4byte	.LASF9
- 1635 0070 02       		.byte	0x2
- 1636 0071 A1       		.byte	0xa1
- 1637 0072 2C000000 		.4byte	0x2c
- 1638 0076 04       		.uleb128 0x4
- 1639 0077 1F030000 		.4byte	.LASF10
- 1640 007b 02       		.byte	0x2
- 1641 007c A2       		.byte	0xa2
- 1642 007d 3A000000 		.4byte	0x3a
- 1643 0081 04       		.uleb128 0x4
- 1644 0082 2D030000 		.4byte	.LASF11
- 1645 0086 02       		.byte	0x2
- 1646 0087 A3       		.byte	0xa3
- 1647 0088 48000000 		.4byte	0x48
- 1648 008c 02       		.uleb128 0x2
- 1649 008d 04       		.byte	0x4
- 1650 008e 04       		.byte	0x4
- 1651 008f C6010000 		.4byte	.LASF12
- 1652 0093 02       		.uleb128 0x2
- 1653 0094 08       		.byte	0x8
- 1654 0095 04       		.byte	0x4
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 48
+ 1540 0034 02       		.byte	0x2
+ 1541 0035 05       		.byte	0x5
+ 1542 0036 76040000 		.4byte	.LASF2
+ 1543 003a 02       		.uleb128 0x2
+ 1544 003b 02       		.byte	0x2
+ 1545 003c 07       		.byte	0x7
+ 1546 003d CD000000 		.4byte	.LASF3
+ 1547 0041 02       		.uleb128 0x2
+ 1548 0042 04       		.byte	0x4
+ 1549 0043 05       		.byte	0x5
+ 1550 0044 A6040000 		.4byte	.LASF4
+ 1551 0048 02       		.uleb128 0x2
+ 1552 0049 04       		.byte	0x4
+ 1553 004a 07       		.byte	0x7
+ 1554 004b 56020000 		.4byte	.LASF5
+ 1555 004f 02       		.uleb128 0x2
+ 1556 0050 08       		.byte	0x8
+ 1557 0051 05       		.byte	0x5
+ 1558 0052 34040000 		.4byte	.LASF6
+ 1559 0056 02       		.uleb128 0x2
+ 1560 0057 08       		.byte	0x8
+ 1561 0058 07       		.byte	0x7
+ 1562 0059 7D030000 		.4byte	.LASF7
+ 1563 005d 03       		.uleb128 0x3
+ 1564 005e 04       		.byte	0x4
+ 1565 005f 05       		.byte	0x5
+ 1566 0060 696E7400 		.ascii	"int\000"
+ 1567 0064 02       		.uleb128 0x2
+ 1568 0065 04       		.byte	0x4
+ 1569 0066 07       		.byte	0x7
+ 1570 0067 4C030000 		.4byte	.LASF8
+ 1571 006b 04       		.uleb128 0x4
+ 1572 006c 68020000 		.4byte	.LASF9
+ 1573 0070 02       		.byte	0x2
+ 1574 0071 A1       		.byte	0xa1
+ 1575 0072 2C000000 		.4byte	0x2c
+ 1576 0076 04       		.uleb128 0x4
+ 1577 0077 37030000 		.4byte	.LASF10
+ 1578 007b 02       		.byte	0x2
+ 1579 007c A2       		.byte	0xa2
+ 1580 007d 3A000000 		.4byte	0x3a
+ 1581 0081 04       		.uleb128 0x4
+ 1582 0082 45030000 		.4byte	.LASF11
+ 1583 0086 02       		.byte	0x2
+ 1584 0087 A3       		.byte	0xa3
+ 1585 0088 48000000 		.4byte	0x48
+ 1586 008c 02       		.uleb128 0x2
+ 1587 008d 04       		.byte	0x4
+ 1588 008e 04       		.byte	0x4
+ 1589 008f 79010000 		.4byte	.LASF12
+ 1590 0093 02       		.uleb128 0x2
+ 1591 0094 08       		.byte	0x8
+ 1592 0095 04       		.byte	0x4
+ 1593 0096 25010000 		.4byte	.LASF13
+ 1594 009a 02       		.uleb128 0x2
+ 1595 009b 01       		.byte	0x1
+ 1596 009c 08       		.byte	0x8
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 47
 
 
- 1655 0096 72010000 		.4byte	.LASF13
- 1656 009a 02       		.uleb128 0x2
- 1657 009b 01       		.byte	0x1
- 1658 009c 08       		.byte	0x8
- 1659 009d 3C040000 		.4byte	.LASF14
- 1660 00a1 05       		.uleb128 0x5
- 1661 00a2 6B000000 		.4byte	0x6b
- 1662 00a6 05       		.uleb128 0x5
- 1663 00a7 76000000 		.4byte	0x76
- 1664 00ab 06       		.uleb128 0x6
- 1665 00ac 00000000 		.4byte	.LASF15
- 1666 00b0 02       		.byte	0x2
- 1667 00b1 4D01     		.2byte	0x14d
- 1668 00b3 B7000000 		.4byte	0xb7
- 1669 00b7 05       		.uleb128 0x5
- 1670 00b8 81000000 		.4byte	0x81
- 1671 00bc 02       		.uleb128 0x2
- 1672 00bd 04       		.byte	0x4
- 1673 00be 07       		.byte	0x7
- 1674 00bf FA030000 		.4byte	.LASF16
- 1675 00c3 07       		.uleb128 0x7
- 1676 00c4 9D030000 		.4byte	.LASF20
- 1677 00c8 01       		.byte	0x1
- 1678 00c9 50       		.byte	0x50
- 1679 00ca 81000000 		.4byte	0x81
- 1680 00ce 00000000 		.4byte	.LFB0
- 1681 00d2 1C010000 		.4byte	.LFE0-.LFB0
- 1682 00d6 01       		.uleb128 0x1
- 1683 00d7 9C       		.byte	0x9c
- 1684 00d8 23010000 		.4byte	0x123
- 1685 00dc 08       		.uleb128 0x8
- 1686 00dd BB030000 		.4byte	.LASF17
- 1687 00e1 01       		.byte	0x1
- 1688 00e2 50       		.byte	0x50
- 1689 00e3 81000000 		.4byte	0x81
- 1690 00e7 02       		.uleb128 0x2
- 1691 00e8 91       		.byte	0x91
- 1692 00e9 6C       		.sleb128 -20
- 1693 00ea 08       		.uleb128 0x8
- 1694 00eb 5E030000 		.4byte	.LASF18
- 1695 00ef 01       		.byte	0x1
- 1696 00f0 50       		.byte	0x50
- 1697 00f1 23010000 		.4byte	0x123
- 1698 00f5 02       		.uleb128 0x2
- 1699 00f6 91       		.byte	0x91
- 1700 00f7 68       		.sleb128 -24
- 1701 00f8 09       		.uleb128 0x9
- 1702 00f9 636E7400 		.ascii	"cnt\000"
- 1703 00fd 01       		.byte	0x1
- 1704 00fe 50       		.byte	0x50
- 1705 00ff 81000000 		.4byte	0x81
- 1706 0103 02       		.uleb128 0x2
- 1707 0104 91       		.byte	0x91
- 1708 0105 64       		.sleb128 -28
- 1709 0106 08       		.uleb128 0x8
- 1710 0107 59040000 		.4byte	.LASF19
- 1711 010b 01       		.byte	0x1
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 49
+ 1597 009d 54040000 		.4byte	.LASF14
+ 1598 00a1 05       		.uleb128 0x5
+ 1599 00a2 6B000000 		.4byte	0x6b
+ 1600 00a6 05       		.uleb128 0x5
+ 1601 00a7 76000000 		.4byte	0x76
+ 1602 00ab 06       		.uleb128 0x6
+ 1603 00ac 00000000 		.4byte	.LASF15
+ 1604 00b0 02       		.byte	0x2
+ 1605 00b1 4D01     		.2byte	0x14d
+ 1606 00b3 B7000000 		.4byte	0xb7
+ 1607 00b7 05       		.uleb128 0x5
+ 1608 00b8 81000000 		.4byte	0x81
+ 1609 00bc 02       		.uleb128 0x2
+ 1610 00bd 04       		.byte	0x4
+ 1611 00be 07       		.byte	0x7
+ 1612 00bf 12040000 		.4byte	.LASF16
+ 1613 00c3 07       		.uleb128 0x7
+ 1614 00c4 B5030000 		.4byte	.LASF20
+ 1615 00c8 01       		.byte	0x1
+ 1616 00c9 50       		.byte	0x50
+ 1617 00ca 81000000 		.4byte	0x81
+ 1618 00ce 00000000 		.4byte	.LFB2
+ 1619 00d2 1C010000 		.4byte	.LFE2-.LFB2
+ 1620 00d6 01       		.uleb128 0x1
+ 1621 00d7 9C       		.byte	0x9c
+ 1622 00d8 23010000 		.4byte	0x123
+ 1623 00dc 08       		.uleb128 0x8
+ 1624 00dd D3030000 		.4byte	.LASF17
+ 1625 00e1 01       		.byte	0x1
+ 1626 00e2 50       		.byte	0x50
+ 1627 00e3 81000000 		.4byte	0x81
+ 1628 00e7 02       		.uleb128 0x2
+ 1629 00e8 91       		.byte	0x91
+ 1630 00e9 6C       		.sleb128 -20
+ 1631 00ea 08       		.uleb128 0x8
+ 1632 00eb 76030000 		.4byte	.LASF18
+ 1633 00ef 01       		.byte	0x1
+ 1634 00f0 50       		.byte	0x50
+ 1635 00f1 23010000 		.4byte	0x123
+ 1636 00f5 02       		.uleb128 0x2
+ 1637 00f6 91       		.byte	0x91
+ 1638 00f7 68       		.sleb128 -24
+ 1639 00f8 09       		.uleb128 0x9
+ 1640 00f9 636E7400 		.ascii	"cnt\000"
+ 1641 00fd 01       		.byte	0x1
+ 1642 00fe 50       		.byte	0x50
+ 1643 00ff 81000000 		.4byte	0x81
+ 1644 0103 02       		.uleb128 0x2
+ 1645 0104 91       		.byte	0x91
+ 1646 0105 64       		.sleb128 -28
+ 1647 0106 08       		.uleb128 0x8
+ 1648 0107 71040000 		.4byte	.LASF19
+ 1649 010b 01       		.byte	0x1
+ 1650 010c 50       		.byte	0x50
+ 1651 010d 81000000 		.4byte	0x81
+ 1652 0111 02       		.uleb128 0x2
+ 1653 0112 91       		.byte	0x91
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 48
 
 
- 1712 010c 50       		.byte	0x50
- 1713 010d 81000000 		.4byte	0x81
- 1714 0111 02       		.uleb128 0x2
- 1715 0112 91       		.byte	0x91
- 1716 0113 60       		.sleb128 -32
- 1717 0114 0A       		.uleb128 0xa
- 1718 0115 DD020000 		.4byte	.LASF23
- 1719 0119 01       		.byte	0x1
- 1720 011a 52       		.byte	0x52
- 1721 011b 81000000 		.4byte	0x81
- 1722 011f 02       		.uleb128 0x2
- 1723 0120 91       		.byte	0x91
- 1724 0121 74       		.sleb128 -12
- 1725 0122 00       		.byte	0
- 1726 0123 0B       		.uleb128 0xb
- 1727 0124 04       		.byte	0x4
- 1728 0125 6B000000 		.4byte	0x6b
- 1729 0129 07       		.uleb128 0x7
- 1730 012a 41030000 		.4byte	.LASF21
- 1731 012e 01       		.byte	0x1
- 1732 012f BA       		.byte	0xba
- 1733 0130 81000000 		.4byte	0x81
- 1734 0134 00000000 		.4byte	.LFB1
- 1735 0138 2C010000 		.4byte	.LFE1-.LFB1
- 1736 013c 01       		.uleb128 0x1
- 1737 013d 9C       		.byte	0x9c
- 1738 013e 89010000 		.4byte	0x189
- 1739 0142 08       		.uleb128 0x8
- 1740 0143 BB030000 		.4byte	.LASF17
- 1741 0147 01       		.byte	0x1
- 1742 0148 BA       		.byte	0xba
- 1743 0149 81000000 		.4byte	0x81
- 1744 014d 02       		.uleb128 0x2
- 1745 014e 91       		.byte	0x91
- 1746 014f 6C       		.sleb128 -20
- 1747 0150 08       		.uleb128 0x8
- 1748 0151 26030000 		.4byte	.LASF22
- 1749 0155 01       		.byte	0x1
- 1750 0156 BA       		.byte	0xba
- 1751 0157 23010000 		.4byte	0x123
- 1752 015b 02       		.uleb128 0x2
- 1753 015c 91       		.byte	0x91
- 1754 015d 68       		.sleb128 -24
- 1755 015e 09       		.uleb128 0x9
- 1756 015f 636E7400 		.ascii	"cnt\000"
- 1757 0163 01       		.byte	0x1
- 1758 0164 BA       		.byte	0xba
- 1759 0165 81000000 		.4byte	0x81
- 1760 0169 02       		.uleb128 0x2
- 1761 016a 91       		.byte	0x91
- 1762 016b 64       		.sleb128 -28
- 1763 016c 08       		.uleb128 0x8
- 1764 016d 59040000 		.4byte	.LASF19
- 1765 0171 01       		.byte	0x1
- 1766 0172 BA       		.byte	0xba
- 1767 0173 81000000 		.4byte	0x81
- 1768 0177 02       		.uleb128 0x2
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 50
+ 1654 0113 60       		.sleb128 -32
+ 1655 0114 0A       		.uleb128 0xa
+ 1656 0115 90020000 		.4byte	.LASF23
+ 1657 0119 01       		.byte	0x1
+ 1658 011a 52       		.byte	0x52
+ 1659 011b 81000000 		.4byte	0x81
+ 1660 011f 02       		.uleb128 0x2
+ 1661 0120 91       		.byte	0x91
+ 1662 0121 74       		.sleb128 -12
+ 1663 0122 00       		.byte	0
+ 1664 0123 0B       		.uleb128 0xb
+ 1665 0124 04       		.byte	0x4
+ 1666 0125 6B000000 		.4byte	0x6b
+ 1667 0129 07       		.uleb128 0x7
+ 1668 012a 59030000 		.4byte	.LASF21
+ 1669 012e 01       		.byte	0x1
+ 1670 012f BA       		.byte	0xba
+ 1671 0130 81000000 		.4byte	0x81
+ 1672 0134 00000000 		.4byte	.LFB3
+ 1673 0138 2C010000 		.4byte	.LFE3-.LFB3
+ 1674 013c 01       		.uleb128 0x1
+ 1675 013d 9C       		.byte	0x9c
+ 1676 013e 89010000 		.4byte	0x189
+ 1677 0142 08       		.uleb128 0x8
+ 1678 0143 D3030000 		.4byte	.LASF17
+ 1679 0147 01       		.byte	0x1
+ 1680 0148 BA       		.byte	0xba
+ 1681 0149 81000000 		.4byte	0x81
+ 1682 014d 02       		.uleb128 0x2
+ 1683 014e 91       		.byte	0x91
+ 1684 014f 6C       		.sleb128 -20
+ 1685 0150 08       		.uleb128 0x8
+ 1686 0151 3E030000 		.4byte	.LASF22
+ 1687 0155 01       		.byte	0x1
+ 1688 0156 BA       		.byte	0xba
+ 1689 0157 23010000 		.4byte	0x123
+ 1690 015b 02       		.uleb128 0x2
+ 1691 015c 91       		.byte	0x91
+ 1692 015d 68       		.sleb128 -24
+ 1693 015e 09       		.uleb128 0x9
+ 1694 015f 636E7400 		.ascii	"cnt\000"
+ 1695 0163 01       		.byte	0x1
+ 1696 0164 BA       		.byte	0xba
+ 1697 0165 81000000 		.4byte	0x81
+ 1698 0169 02       		.uleb128 0x2
+ 1699 016a 91       		.byte	0x91
+ 1700 016b 64       		.sleb128 -28
+ 1701 016c 08       		.uleb128 0x8
+ 1702 016d 71040000 		.4byte	.LASF19
+ 1703 0171 01       		.byte	0x1
+ 1704 0172 BA       		.byte	0xba
+ 1705 0173 81000000 		.4byte	0x81
+ 1706 0177 02       		.uleb128 0x2
+ 1707 0178 91       		.byte	0x91
+ 1708 0179 60       		.sleb128 -32
+ 1709 017a 0A       		.uleb128 0xa
+ 1710 017b 90020000 		.4byte	.LASF23
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 49
 
 
- 1769 0178 91       		.byte	0x91
- 1770 0179 60       		.sleb128 -32
- 1771 017a 0A       		.uleb128 0xa
- 1772 017b DD020000 		.4byte	.LASF23
- 1773 017f 01       		.byte	0x1
- 1774 0180 BC       		.byte	0xbc
- 1775 0181 81000000 		.4byte	0x81
- 1776 0185 02       		.uleb128 0x2
- 1777 0186 91       		.byte	0x91
- 1778 0187 74       		.sleb128 -12
- 1779 0188 00       		.byte	0
- 1780 0189 0C       		.uleb128 0xc
- 1781 018a 48020000 		.4byte	.LASF24
- 1782 018e 01       		.byte	0x1
- 1783 018f 2101     		.2byte	0x121
- 1784 0191 81000000 		.4byte	0x81
- 1785 0195 00000000 		.4byte	.LFB2
- 1786 0199 10010000 		.4byte	.LFE2-.LFB2
- 1787 019d 01       		.uleb128 0x1
- 1788 019e 9C       		.byte	0x9c
- 1789 019f E0010000 		.4byte	0x1e0
- 1790 01a3 0D       		.uleb128 0xd
- 1791 01a4 BB030000 		.4byte	.LASF17
- 1792 01a8 01       		.byte	0x1
- 1793 01a9 2101     		.2byte	0x121
- 1794 01ab 81000000 		.4byte	0x81
- 1795 01af 02       		.uleb128 0x2
- 1796 01b0 91       		.byte	0x91
- 1797 01b1 6C       		.sleb128 -20
- 1798 01b2 0D       		.uleb128 0xd
- 1799 01b3 18030000 		.4byte	.LASF25
- 1800 01b7 01       		.byte	0x1
- 1801 01b8 2101     		.2byte	0x121
- 1802 01ba 81000000 		.4byte	0x81
- 1803 01be 02       		.uleb128 0x2
- 1804 01bf 91       		.byte	0x91
- 1805 01c0 68       		.sleb128 -24
- 1806 01c1 0E       		.uleb128 0xe
- 1807 01c2 80010000 		.4byte	.LASF26
- 1808 01c6 01       		.byte	0x1
- 1809 01c7 2301     		.2byte	0x123
- 1810 01c9 81000000 		.4byte	0x81
- 1811 01cd 02       		.uleb128 0x2
- 1812 01ce 91       		.byte	0x91
- 1813 01cf 74       		.sleb128 -12
- 1814 01d0 0E       		.uleb128 0xe
- 1815 01d1 DD020000 		.4byte	.LASF23
- 1816 01d5 01       		.byte	0x1
- 1817 01d6 2401     		.2byte	0x124
- 1818 01d8 81000000 		.4byte	0x81
- 1819 01dc 02       		.uleb128 0x2
- 1820 01dd 91       		.byte	0x91
- 1821 01de 70       		.sleb128 -16
- 1822 01df 00       		.byte	0
- 1823 01e0 0C       		.uleb128 0xc
- 1824 01e1 7C030000 		.4byte	.LASF27
- 1825 01e5 01       		.byte	0x1
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 51
+ 1711 017f 01       		.byte	0x1
+ 1712 0180 BC       		.byte	0xbc
+ 1713 0181 81000000 		.4byte	0x81
+ 1714 0185 02       		.uleb128 0x2
+ 1715 0186 91       		.byte	0x91
+ 1716 0187 74       		.sleb128 -12
+ 1717 0188 00       		.byte	0
+ 1718 0189 0C       		.uleb128 0xc
+ 1719 018a FB010000 		.4byte	.LASF24
+ 1720 018e 01       		.byte	0x1
+ 1721 018f 2101     		.2byte	0x121
+ 1722 0191 81000000 		.4byte	0x81
+ 1723 0195 00000000 		.4byte	.LFB4
+ 1724 0199 10010000 		.4byte	.LFE4-.LFB4
+ 1725 019d 01       		.uleb128 0x1
+ 1726 019e 9C       		.byte	0x9c
+ 1727 019f E0010000 		.4byte	0x1e0
+ 1728 01a3 0D       		.uleb128 0xd
+ 1729 01a4 D3030000 		.4byte	.LASF17
+ 1730 01a8 01       		.byte	0x1
+ 1731 01a9 2101     		.2byte	0x121
+ 1732 01ab 81000000 		.4byte	0x81
+ 1733 01af 02       		.uleb128 0x2
+ 1734 01b0 91       		.byte	0x91
+ 1735 01b1 6C       		.sleb128 -20
+ 1736 01b2 0D       		.uleb128 0xd
+ 1737 01b3 30030000 		.4byte	.LASF25
+ 1738 01b7 01       		.byte	0x1
+ 1739 01b8 2101     		.2byte	0x121
+ 1740 01ba 81000000 		.4byte	0x81
+ 1741 01be 02       		.uleb128 0x2
+ 1742 01bf 91       		.byte	0x91
+ 1743 01c0 68       		.sleb128 -24
+ 1744 01c1 0E       		.uleb128 0xe
+ 1745 01c2 33010000 		.4byte	.LASF26
+ 1746 01c6 01       		.byte	0x1
+ 1747 01c7 2301     		.2byte	0x123
+ 1748 01c9 81000000 		.4byte	0x81
+ 1749 01cd 02       		.uleb128 0x2
+ 1750 01ce 91       		.byte	0x91
+ 1751 01cf 74       		.sleb128 -12
+ 1752 01d0 0E       		.uleb128 0xe
+ 1753 01d1 90020000 		.4byte	.LASF23
+ 1754 01d5 01       		.byte	0x1
+ 1755 01d6 2401     		.2byte	0x124
+ 1756 01d8 81000000 		.4byte	0x81
+ 1757 01dc 02       		.uleb128 0x2
+ 1758 01dd 91       		.byte	0x91
+ 1759 01de 70       		.sleb128 -16
+ 1760 01df 00       		.byte	0
+ 1761 01e0 0C       		.uleb128 0xc
+ 1762 01e1 94030000 		.4byte	.LASF27
+ 1763 01e5 01       		.byte	0x1
+ 1764 01e6 9601     		.2byte	0x196
+ 1765 01e8 81000000 		.4byte	0x81
+ 1766 01ec 00000000 		.4byte	.LFB5
+ 1767 01f0 08010000 		.4byte	.LFE5-.LFB5
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 50
 
 
- 1826 01e6 9601     		.2byte	0x196
- 1827 01e8 81000000 		.4byte	0x81
- 1828 01ec 00000000 		.4byte	.LFB3
- 1829 01f0 08010000 		.4byte	.LFE3-.LFB3
- 1830 01f4 01       		.uleb128 0x1
- 1831 01f5 9C       		.byte	0x9c
- 1832 01f6 37020000 		.4byte	0x237
- 1833 01fa 0D       		.uleb128 0xd
- 1834 01fb BB030000 		.4byte	.LASF17
- 1835 01ff 01       		.byte	0x1
- 1836 0200 9601     		.2byte	0x196
- 1837 0202 81000000 		.4byte	0x81
- 1838 0206 02       		.uleb128 0x2
- 1839 0207 91       		.byte	0x91
- 1840 0208 6C       		.sleb128 -20
- 1841 0209 0D       		.uleb128 0xd
- 1842 020a 18030000 		.4byte	.LASF25
- 1843 020e 01       		.byte	0x1
- 1844 020f 9601     		.2byte	0x196
- 1845 0211 81000000 		.4byte	0x81
- 1846 0215 02       		.uleb128 0x2
- 1847 0216 91       		.byte	0x91
- 1848 0217 68       		.sleb128 -24
- 1849 0218 0E       		.uleb128 0xe
- 1850 0219 80010000 		.4byte	.LASF26
- 1851 021d 01       		.byte	0x1
- 1852 021e 9801     		.2byte	0x198
- 1853 0220 81000000 		.4byte	0x81
- 1854 0224 02       		.uleb128 0x2
- 1855 0225 91       		.byte	0x91
- 1856 0226 74       		.sleb128 -12
- 1857 0227 0E       		.uleb128 0xe
- 1858 0228 DD020000 		.4byte	.LASF23
- 1859 022c 01       		.byte	0x1
- 1860 022d 9901     		.2byte	0x199
- 1861 022f 81000000 		.4byte	0x81
- 1862 0233 02       		.uleb128 0x2
- 1863 0234 91       		.byte	0x91
- 1864 0235 70       		.sleb128 -16
- 1865 0236 00       		.byte	0
- 1866 0237 0F       		.uleb128 0xf
- 1867 0238 A9000000 		.4byte	.LASF28
- 1868 023c 01       		.byte	0x1
- 1869 023d 0A02     		.2byte	0x20a
- 1870 023f 81000000 		.4byte	0x81
- 1871 0243 00000000 		.4byte	.LFB4
- 1872 0247 BC000000 		.4byte	.LFE4-.LFB4
- 1873 024b 01       		.uleb128 0x1
- 1874 024c 9C       		.byte	0x9c
- 1875 024d 70020000 		.4byte	0x270
- 1876 0251 0E       		.uleb128 0xe
- 1877 0252 80010000 		.4byte	.LASF26
- 1878 0256 01       		.byte	0x1
- 1879 0257 0C02     		.2byte	0x20c
- 1880 0259 81000000 		.4byte	0x81
- 1881 025d 02       		.uleb128 0x2
- 1882 025e 91       		.byte	0x91
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 52
+ 1768 01f4 01       		.uleb128 0x1
+ 1769 01f5 9C       		.byte	0x9c
+ 1770 01f6 37020000 		.4byte	0x237
+ 1771 01fa 0D       		.uleb128 0xd
+ 1772 01fb D3030000 		.4byte	.LASF17
+ 1773 01ff 01       		.byte	0x1
+ 1774 0200 9601     		.2byte	0x196
+ 1775 0202 81000000 		.4byte	0x81
+ 1776 0206 02       		.uleb128 0x2
+ 1777 0207 91       		.byte	0x91
+ 1778 0208 6C       		.sleb128 -20
+ 1779 0209 0D       		.uleb128 0xd
+ 1780 020a 30030000 		.4byte	.LASF25
+ 1781 020e 01       		.byte	0x1
+ 1782 020f 9601     		.2byte	0x196
+ 1783 0211 81000000 		.4byte	0x81
+ 1784 0215 02       		.uleb128 0x2
+ 1785 0216 91       		.byte	0x91
+ 1786 0217 68       		.sleb128 -24
+ 1787 0218 0E       		.uleb128 0xe
+ 1788 0219 33010000 		.4byte	.LASF26
+ 1789 021d 01       		.byte	0x1
+ 1790 021e 9801     		.2byte	0x198
+ 1791 0220 81000000 		.4byte	0x81
+ 1792 0224 02       		.uleb128 0x2
+ 1793 0225 91       		.byte	0x91
+ 1794 0226 74       		.sleb128 -12
+ 1795 0227 0E       		.uleb128 0xe
+ 1796 0228 90020000 		.4byte	.LASF23
+ 1797 022c 01       		.byte	0x1
+ 1798 022d 9901     		.2byte	0x199
+ 1799 022f 81000000 		.4byte	0x81
+ 1800 0233 02       		.uleb128 0x2
+ 1801 0234 91       		.byte	0x91
+ 1802 0235 70       		.sleb128 -16
+ 1803 0236 00       		.byte	0
+ 1804 0237 0F       		.uleb128 0xf
+ 1805 0238 5C000000 		.4byte	.LASF28
+ 1806 023c 01       		.byte	0x1
+ 1807 023d 0A02     		.2byte	0x20a
+ 1808 023f 81000000 		.4byte	0x81
+ 1809 0243 00000000 		.4byte	.LFB6
+ 1810 0247 BC000000 		.4byte	.LFE6-.LFB6
+ 1811 024b 01       		.uleb128 0x1
+ 1812 024c 9C       		.byte	0x9c
+ 1813 024d 70020000 		.4byte	0x270
+ 1814 0251 0E       		.uleb128 0xe
+ 1815 0252 33010000 		.4byte	.LASF26
+ 1816 0256 01       		.byte	0x1
+ 1817 0257 0C02     		.2byte	0x20c
+ 1818 0259 81000000 		.4byte	0x81
+ 1819 025d 02       		.uleb128 0x2
+ 1820 025e 91       		.byte	0x91
+ 1821 025f 74       		.sleb128 -12
+ 1822 0260 0E       		.uleb128 0xe
+ 1823 0261 90020000 		.4byte	.LASF23
+ 1824 0265 01       		.byte	0x1
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 51
 
 
- 1883 025f 74       		.sleb128 -12
- 1884 0260 0E       		.uleb128 0xe
- 1885 0261 DD020000 		.4byte	.LASF23
- 1886 0265 01       		.byte	0x1
- 1887 0266 0D02     		.2byte	0x20d
- 1888 0268 81000000 		.4byte	0x81
- 1889 026c 02       		.uleb128 0x2
- 1890 026d 91       		.byte	0x91
- 1891 026e 70       		.sleb128 -16
- 1892 026f 00       		.byte	0
- 1893 0270 0F       		.uleb128 0xf
- 1894 0271 06000000 		.4byte	.LASF29
- 1895 0275 01       		.byte	0x1
- 1896 0276 5B02     		.2byte	0x25b
- 1897 0278 81000000 		.4byte	0x81
- 1898 027c 00000000 		.4byte	.LFB5
- 1899 0280 CC000000 		.4byte	.LFE5-.LFB5
- 1900 0284 01       		.uleb128 0x1
- 1901 0285 9C       		.byte	0x9c
- 1902 0286 B8020000 		.4byte	0x2b8
- 1903 028a 0D       		.uleb128 0xd
- 1904 028b 68040000 		.4byte	.LASF30
- 1905 028f 01       		.byte	0x1
- 1906 0290 5B02     		.2byte	0x25b
- 1907 0292 81000000 		.4byte	0x81
- 1908 0296 02       		.uleb128 0x2
- 1909 0297 91       		.byte	0x91
- 1910 0298 6C       		.sleb128 -20
- 1911 0299 0E       		.uleb128 0xe
- 1912 029a 80010000 		.4byte	.LASF26
- 1913 029e 01       		.byte	0x1
- 1914 029f 5D02     		.2byte	0x25d
- 1915 02a1 81000000 		.4byte	0x81
- 1916 02a5 02       		.uleb128 0x2
- 1917 02a6 91       		.byte	0x91
- 1918 02a7 74       		.sleb128 -12
- 1919 02a8 0E       		.uleb128 0xe
- 1920 02a9 DD020000 		.4byte	.LASF23
- 1921 02ad 01       		.byte	0x1
- 1922 02ae 5E02     		.2byte	0x25e
- 1923 02b0 81000000 		.4byte	0x81
- 1924 02b4 02       		.uleb128 0x2
- 1925 02b5 91       		.byte	0x91
- 1926 02b6 70       		.sleb128 -16
- 1927 02b7 00       		.byte	0
- 1928 02b8 0F       		.uleb128 0xf
- 1929 02b9 70040000 		.4byte	.LASF31
- 1930 02bd 01       		.byte	0x1
- 1931 02be B402     		.2byte	0x2b4
- 1932 02c0 81000000 		.4byte	0x81
- 1933 02c4 00000000 		.4byte	.LFB6
- 1934 02c8 A8000000 		.4byte	.LFE6-.LFB6
- 1935 02cc 01       		.uleb128 0x1
- 1936 02cd 9C       		.byte	0x9c
- 1937 02ce F1020000 		.4byte	0x2f1
- 1938 02d2 0D       		.uleb128 0xd
- 1939 02d3 D5020000 		.4byte	.LASF32
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 53
+ 1825 0266 0D02     		.2byte	0x20d
+ 1826 0268 81000000 		.4byte	0x81
+ 1827 026c 02       		.uleb128 0x2
+ 1828 026d 91       		.byte	0x91
+ 1829 026e 70       		.sleb128 -16
+ 1830 026f 00       		.byte	0
+ 1831 0270 0F       		.uleb128 0xf
+ 1832 0271 06000000 		.4byte	.LASF29
+ 1833 0275 01       		.byte	0x1
+ 1834 0276 5B02     		.2byte	0x25b
+ 1835 0278 81000000 		.4byte	0x81
+ 1836 027c 00000000 		.4byte	.LFB7
+ 1837 0280 CC000000 		.4byte	.LFE7-.LFB7
+ 1838 0284 01       		.uleb128 0x1
+ 1839 0285 9C       		.byte	0x9c
+ 1840 0286 B8020000 		.4byte	0x2b8
+ 1841 028a 0D       		.uleb128 0xd
+ 1842 028b 80040000 		.4byte	.LASF30
+ 1843 028f 01       		.byte	0x1
+ 1844 0290 5B02     		.2byte	0x25b
+ 1845 0292 81000000 		.4byte	0x81
+ 1846 0296 02       		.uleb128 0x2
+ 1847 0297 91       		.byte	0x91
+ 1848 0298 6C       		.sleb128 -20
+ 1849 0299 0E       		.uleb128 0xe
+ 1850 029a 33010000 		.4byte	.LASF26
+ 1851 029e 01       		.byte	0x1
+ 1852 029f 5D02     		.2byte	0x25d
+ 1853 02a1 81000000 		.4byte	0x81
+ 1854 02a5 02       		.uleb128 0x2
+ 1855 02a6 91       		.byte	0x91
+ 1856 02a7 74       		.sleb128 -12
+ 1857 02a8 0E       		.uleb128 0xe
+ 1858 02a9 90020000 		.4byte	.LASF23
+ 1859 02ad 01       		.byte	0x1
+ 1860 02ae 5E02     		.2byte	0x25e
+ 1861 02b0 81000000 		.4byte	0x81
+ 1862 02b4 02       		.uleb128 0x2
+ 1863 02b5 91       		.byte	0x91
+ 1864 02b6 70       		.sleb128 -16
+ 1865 02b7 00       		.byte	0
+ 1866 02b8 0F       		.uleb128 0xf
+ 1867 02b9 88040000 		.4byte	.LASF31
+ 1868 02bd 01       		.byte	0x1
+ 1869 02be B402     		.2byte	0x2b4
+ 1870 02c0 81000000 		.4byte	0x81
+ 1871 02c4 00000000 		.4byte	.LFB8
+ 1872 02c8 A8000000 		.4byte	.LFE8-.LFB8
+ 1873 02cc 01       		.uleb128 0x1
+ 1874 02cd 9C       		.byte	0x9c
+ 1875 02ce F1020000 		.4byte	0x2f1
+ 1876 02d2 0D       		.uleb128 0xd
+ 1877 02d3 88020000 		.4byte	.LASF32
+ 1878 02d7 01       		.byte	0x1
+ 1879 02d8 B402     		.2byte	0x2b4
+ 1880 02da 81000000 		.4byte	0x81
+ 1881 02de 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 52
 
 
- 1940 02d7 01       		.byte	0x1
- 1941 02d8 B402     		.2byte	0x2b4
- 1942 02da 81000000 		.4byte	0x81
- 1943 02de 02       		.uleb128 0x2
- 1944 02df 91       		.byte	0x91
- 1945 02e0 6C       		.sleb128 -20
- 1946 02e1 0E       		.uleb128 0xe
- 1947 02e2 68040000 		.4byte	.LASF30
- 1948 02e6 01       		.byte	0x1
- 1949 02e7 B602     		.2byte	0x2b6
- 1950 02e9 81000000 		.4byte	0x81
- 1951 02ed 02       		.uleb128 0x2
- 1952 02ee 91       		.byte	0x91
- 1953 02ef 74       		.sleb128 -12
- 1954 02f0 00       		.byte	0
- 1955 02f1 10       		.uleb128 0x10
- 1956 02f2 2D010000 		.4byte	.LASF33
- 1957 02f6 01       		.byte	0x1
- 1958 02f7 FB02     		.2byte	0x2fb
- 1959 02f9 81000000 		.4byte	0x81
- 1960 02fd 00000000 		.4byte	.LFB7
- 1961 0301 14000000 		.4byte	.LFE7-.LFB7
- 1962 0305 01       		.uleb128 0x1
- 1963 0306 9C       		.byte	0x9c
- 1964 0307 10       		.uleb128 0x10
- 1965 0308 A1010000 		.4byte	.LASF34
- 1966 030c 01       		.byte	0x1
- 1967 030d 1903     		.2byte	0x319
- 1968 030f 81000000 		.4byte	0x81
- 1969 0313 00000000 		.4byte	.LFB8
- 1970 0317 14000000 		.4byte	.LFE8-.LFB8
- 1971 031b 01       		.uleb128 0x1
- 1972 031c 9C       		.byte	0x9c
- 1973 031d 11       		.uleb128 0x11
- 1974 031e C7000000 		.4byte	.LASF35
- 1975 0322 01       		.byte	0x1
- 1976 0323 3203     		.2byte	0x332
- 1977 0325 00000000 		.4byte	.LFB9
- 1978 0329 34000000 		.4byte	.LFE9-.LFB9
- 1979 032d 01       		.uleb128 0x1
- 1980 032e 9C       		.byte	0x9c
- 1981 032f 11       		.uleb128 0x11
- 1982 0330 F5020000 		.4byte	.LASF36
- 1983 0334 01       		.byte	0x1
- 1984 0335 5003     		.2byte	0x350
- 1985 0337 00000000 		.4byte	.LFB10
- 1986 033b 34000000 		.4byte	.LFE10-.LFB10
- 1987 033f 01       		.uleb128 0x1
- 1988 0340 9C       		.byte	0x9c
- 1989 0341 0C       		.uleb128 0xc
- 1990 0342 72000000 		.4byte	.LASF37
- 1991 0346 01       		.byte	0x1
- 1992 0347 6C03     		.2byte	0x36c
- 1993 0349 81000000 		.4byte	0x81
- 1994 034d 00000000 		.4byte	.LFB11
- 1995 0351 44000000 		.4byte	.LFE11-.LFB11
- 1996 0355 01       		.uleb128 0x1
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 54
+ 1882 02df 91       		.byte	0x91
+ 1883 02e0 6C       		.sleb128 -20
+ 1884 02e1 0E       		.uleb128 0xe
+ 1885 02e2 80040000 		.4byte	.LASF30
+ 1886 02e6 01       		.byte	0x1
+ 1887 02e7 B602     		.2byte	0x2b6
+ 1888 02e9 81000000 		.4byte	0x81
+ 1889 02ed 02       		.uleb128 0x2
+ 1890 02ee 91       		.byte	0x91
+ 1891 02ef 74       		.sleb128 -12
+ 1892 02f0 00       		.byte	0
+ 1893 02f1 10       		.uleb128 0x10
+ 1894 02f2 E0000000 		.4byte	.LASF33
+ 1895 02f6 01       		.byte	0x1
+ 1896 02f7 FB02     		.2byte	0x2fb
+ 1897 02f9 81000000 		.4byte	0x81
+ 1898 02fd 00000000 		.4byte	.LFB9
+ 1899 0301 14000000 		.4byte	.LFE9-.LFB9
+ 1900 0305 01       		.uleb128 0x1
+ 1901 0306 9C       		.byte	0x9c
+ 1902 0307 10       		.uleb128 0x10
+ 1903 0308 54010000 		.4byte	.LASF34
+ 1904 030c 01       		.byte	0x1
+ 1905 030d 1903     		.2byte	0x319
+ 1906 030f 81000000 		.4byte	0x81
+ 1907 0313 00000000 		.4byte	.LFB10
+ 1908 0317 14000000 		.4byte	.LFE10-.LFB10
+ 1909 031b 01       		.uleb128 0x1
+ 1910 031c 9C       		.byte	0x9c
+ 1911 031d 11       		.uleb128 0x11
+ 1912 031e 7A000000 		.4byte	.LASF35
+ 1913 0322 01       		.byte	0x1
+ 1914 0323 3203     		.2byte	0x332
+ 1915 0325 00000000 		.4byte	.LFB11
+ 1916 0329 34000000 		.4byte	.LFE11-.LFB11
+ 1917 032d 01       		.uleb128 0x1
+ 1918 032e 9C       		.byte	0x9c
+ 1919 032f 11       		.uleb128 0x11
+ 1920 0330 A8020000 		.4byte	.LASF36
+ 1921 0334 01       		.byte	0x1
+ 1922 0335 5003     		.2byte	0x350
+ 1923 0337 00000000 		.4byte	.LFB12
+ 1924 033b 34000000 		.4byte	.LFE12-.LFB12
+ 1925 033f 01       		.uleb128 0x1
+ 1926 0340 9C       		.byte	0x9c
+ 1927 0341 0C       		.uleb128 0xc
+ 1928 0342 25000000 		.4byte	.LASF37
+ 1929 0346 01       		.byte	0x1
+ 1930 0347 6C03     		.2byte	0x36c
+ 1931 0349 81000000 		.4byte	0x81
+ 1932 034d 00000000 		.4byte	.LFB13
+ 1933 0351 44000000 		.4byte	.LFE13-.LFB13
+ 1934 0355 01       		.uleb128 0x1
+ 1935 0356 9C       		.byte	0x9c
+ 1936 0357 6B030000 		.4byte	0x36b
+ 1937 035b 0E       		.uleb128 0xe
+ 1938 035c 2C010000 		.4byte	.LASF38
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 53
 
 
- 1997 0356 9C       		.byte	0x9c
- 1998 0357 6B030000 		.4byte	0x36b
- 1999 035b 0E       		.uleb128 0xe
- 2000 035c 79010000 		.4byte	.LASF38
- 2001 0360 01       		.byte	0x1
- 2002 0361 6E03     		.2byte	0x36e
- 2003 0363 81000000 		.4byte	0x81
- 2004 0367 02       		.uleb128 0x2
- 2005 0368 91       		.byte	0x91
- 2006 0369 74       		.sleb128 -12
- 2007 036a 00       		.byte	0
- 2008 036b 0C       		.uleb128 0xc
- 2009 036c 51010000 		.4byte	.LASF39
- 2010 0370 01       		.byte	0x1
- 2011 0371 9103     		.2byte	0x391
- 2012 0373 81000000 		.4byte	0x81
- 2013 0377 00000000 		.4byte	.LFB12
- 2014 037b 30000000 		.4byte	.LFE12-.LFB12
- 2015 037f 01       		.uleb128 0x1
- 2016 0380 9C       		.byte	0x9c
- 2017 0381 95030000 		.4byte	0x395
- 2018 0385 0E       		.uleb128 0xe
- 2019 0386 79010000 		.4byte	.LASF38
- 2020 038a 01       		.byte	0x1
- 2021 038b 9303     		.2byte	0x393
- 2022 038d 81000000 		.4byte	0x81
- 2023 0391 02       		.uleb128 0x2
- 2024 0392 91       		.byte	0x91
- 2025 0393 74       		.sleb128 -12
- 2026 0394 00       		.byte	0
- 2027 0395 12       		.uleb128 0x12
- 2028 0396 67020000 		.4byte	.LASF53
- 2029 039a 01       		.byte	0x1
- 2030 039b C403     		.2byte	0x3c4
- 2031 039d 00000000 		.4byte	.LFB13
- 2032 03a1 B0000000 		.4byte	.LFE13-.LFB13
- 2033 03a5 01       		.uleb128 0x1
- 2034 03a6 9C       		.byte	0x9c
- 2035 03a7 BB030000 		.4byte	0x3bb
- 2036 03ab 0E       		.uleb128 0xe
- 2037 03ac 79010000 		.4byte	.LASF38
- 2038 03b0 01       		.byte	0x1
- 2039 03b1 C903     		.2byte	0x3c9
- 2040 03b3 81000000 		.4byte	0x81
- 2041 03b7 02       		.uleb128 0x2
- 2042 03b8 91       		.byte	0x91
- 2043 03b9 74       		.sleb128 -12
- 2044 03ba 00       		.byte	0
- 2045 03bb 13       		.uleb128 0x13
- 2046 03bc 2A040000 		.4byte	.LASF40
- 2047 03c0 03       		.byte	0x3
- 2048 03c1 1D       		.byte	0x1d
- 2049 03c2 A1000000 		.4byte	0xa1
- 2050 03c6 14       		.uleb128 0x14
- 2051 03c7 03010000 		.4byte	.LASF41
- 2052 03cb 01       		.byte	0x1
- 2053 03cc 1C       		.byte	0x1c
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 55
+ 1939 0360 01       		.byte	0x1
+ 1940 0361 6E03     		.2byte	0x36e
+ 1941 0363 81000000 		.4byte	0x81
+ 1942 0367 02       		.uleb128 0x2
+ 1943 0368 91       		.byte	0x91
+ 1944 0369 74       		.sleb128 -12
+ 1945 036a 00       		.byte	0
+ 1946 036b 0C       		.uleb128 0xc
+ 1947 036c 04010000 		.4byte	.LASF39
+ 1948 0370 01       		.byte	0x1
+ 1949 0371 9103     		.2byte	0x391
+ 1950 0373 81000000 		.4byte	0x81
+ 1951 0377 00000000 		.4byte	.LFB14
+ 1952 037b 30000000 		.4byte	.LFE14-.LFB14
+ 1953 037f 01       		.uleb128 0x1
+ 1954 0380 9C       		.byte	0x9c
+ 1955 0381 95030000 		.4byte	0x395
+ 1956 0385 0E       		.uleb128 0xe
+ 1957 0386 2C010000 		.4byte	.LASF38
+ 1958 038a 01       		.byte	0x1
+ 1959 038b 9303     		.2byte	0x393
+ 1960 038d 81000000 		.4byte	0x81
+ 1961 0391 02       		.uleb128 0x2
+ 1962 0392 91       		.byte	0x91
+ 1963 0393 74       		.sleb128 -12
+ 1964 0394 00       		.byte	0
+ 1965 0395 12       		.uleb128 0x12
+ 1966 0396 1A020000 		.4byte	.LASF53
+ 1967 039a 01       		.byte	0x1
+ 1968 039b C403     		.2byte	0x3c4
+ 1969 039d 00000000 		.4byte	.LFB15
+ 1970 03a1 34000000 		.4byte	.LFE15-.LFB15
+ 1971 03a5 01       		.uleb128 0x1
+ 1972 03a6 9C       		.byte	0x9c
+ 1973 03a7 BB030000 		.4byte	0x3bb
+ 1974 03ab 13       		.uleb128 0x13
+ 1975 03ac 636D6400 		.ascii	"cmd\000"
+ 1976 03b0 01       		.byte	0x1
+ 1977 03b1 F703     		.2byte	0x3f7
+ 1978 03b3 81000000 		.4byte	0x81
+ 1979 03b7 02       		.uleb128 0x2
+ 1980 03b8 91       		.byte	0x91
+ 1981 03b9 74       		.sleb128 -12
+ 1982 03ba 00       		.byte	0
+ 1983 03bb 14       		.uleb128 0x14
+ 1984 03bc 42040000 		.4byte	.LASF40
+ 1985 03c0 03       		.byte	0x3
+ 1986 03c1 1D       		.byte	0x1d
+ 1987 03c2 A1000000 		.4byte	0xa1
+ 1988 03c6 15       		.uleb128 0x15
+ 1989 03c7 B6000000 		.4byte	.LASF41
+ 1990 03cb 01       		.byte	0x1
+ 1991 03cc 1C       		.byte	0x1c
+ 1992 03cd A6000000 		.4byte	0xa6
+ 1993 03d1 05       		.uleb128 0x5
+ 1994 03d2 03       		.byte	0x3
+ 1995 03d3 00000000 		.4byte	I2C_MPU6050_mstrStatus
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 54
 
 
- 2054 03cd A6000000 		.4byte	0xa6
- 2055 03d1 05       		.uleb128 0x5
- 2056 03d2 03       		.byte	0x3
- 2057 03d3 00000000 		.4byte	I2C_MPU6050_mstrStatus
- 2058 03d7 14       		.uleb128 0x14
- 2059 03d8 41040000 		.4byte	.LASF42
- 2060 03dc 01       		.byte	0x1
- 2061 03dd 1D       		.byte	0x1d
- 2062 03de A1000000 		.4byte	0xa1
- 2063 03e2 05       		.uleb128 0x5
- 2064 03e3 03       		.byte	0x3
- 2065 03e4 00000000 		.4byte	I2C_MPU6050_mstrControl
- 2066 03e8 14       		.uleb128 0x14
- 2067 03e9 03040000 		.4byte	.LASF43
- 2068 03ed 01       		.byte	0x1
- 2069 03ee 20       		.byte	0x20
- 2070 03ef F9030000 		.4byte	0x3f9
- 2071 03f3 05       		.uleb128 0x5
- 2072 03f4 03       		.byte	0x3
- 2073 03f5 00000000 		.4byte	I2C_MPU6050_mstrRdBufPtr
- 2074 03f9 0B       		.uleb128 0xb
- 2075 03fa 04       		.byte	0x4
- 2076 03fb A1000000 		.4byte	0xa1
- 2077 03ff 14       		.uleb128 0x14
- 2078 0400 E9000000 		.4byte	.LASF44
- 2079 0404 01       		.byte	0x1
- 2080 0405 21       		.byte	0x21
- 2081 0406 B7000000 		.4byte	0xb7
- 2082 040a 05       		.uleb128 0x5
- 2083 040b 03       		.byte	0x3
- 2084 040c 00000000 		.4byte	I2C_MPU6050_mstrRdBufSize
- 2085 0410 14       		.uleb128 0x14
- 2086 0411 88020000 		.4byte	.LASF45
- 2087 0415 01       		.byte	0x1
- 2088 0416 22       		.byte	0x22
- 2089 0417 B7000000 		.4byte	0xb7
- 2090 041b 05       		.uleb128 0x5
- 2091 041c 03       		.byte	0x3
- 2092 041d 00000000 		.4byte	I2C_MPU6050_mstrRdBufIndex
- 2093 0421 14       		.uleb128 0x14
- 2094 0422 88010000 		.4byte	.LASF46
- 2095 0426 01       		.byte	0x1
- 2096 0427 25       		.byte	0x25
- 2097 0428 F9030000 		.4byte	0x3f9
- 2098 042c 05       		.uleb128 0x5
- 2099 042d 03       		.byte	0x3
- 2100 042e 00000000 		.4byte	I2C_MPU6050_mstrWrBufPtr
- 2101 0432 14       		.uleb128 0x14
- 2102 0433 BB020000 		.4byte	.LASF47
- 2103 0437 01       		.byte	0x1
- 2104 0438 26       		.byte	0x26
- 2105 0439 B7000000 		.4byte	0xb7
- 2106 043d 05       		.uleb128 0x5
- 2107 043e 03       		.byte	0x3
- 2108 043f 00000000 		.4byte	I2C_MPU6050_mstrWrBufSize
- 2109 0443 14       		.uleb128 0x14
- 2110 0444 8E000000 		.4byte	.LASF48
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 56
+ 1996 03d7 15       		.uleb128 0x15
+ 1997 03d8 59040000 		.4byte	.LASF42
+ 1998 03dc 01       		.byte	0x1
+ 1999 03dd 1D       		.byte	0x1d
+ 2000 03de A1000000 		.4byte	0xa1
+ 2001 03e2 05       		.uleb128 0x5
+ 2002 03e3 03       		.byte	0x3
+ 2003 03e4 00000000 		.4byte	I2C_MPU6050_mstrControl
+ 2004 03e8 15       		.uleb128 0x15
+ 2005 03e9 1B040000 		.4byte	.LASF43
+ 2006 03ed 01       		.byte	0x1
+ 2007 03ee 20       		.byte	0x20
+ 2008 03ef F9030000 		.4byte	0x3f9
+ 2009 03f3 05       		.uleb128 0x5
+ 2010 03f4 03       		.byte	0x3
+ 2011 03f5 00000000 		.4byte	I2C_MPU6050_mstrRdBufPtr
+ 2012 03f9 0B       		.uleb128 0xb
+ 2013 03fa 04       		.byte	0x4
+ 2014 03fb A1000000 		.4byte	0xa1
+ 2015 03ff 15       		.uleb128 0x15
+ 2016 0400 9C000000 		.4byte	.LASF44
+ 2017 0404 01       		.byte	0x1
+ 2018 0405 21       		.byte	0x21
+ 2019 0406 B7000000 		.4byte	0xb7
+ 2020 040a 05       		.uleb128 0x5
+ 2021 040b 03       		.byte	0x3
+ 2022 040c 00000000 		.4byte	I2C_MPU6050_mstrRdBufSize
+ 2023 0410 15       		.uleb128 0x15
+ 2024 0411 3B020000 		.4byte	.LASF45
+ 2025 0415 01       		.byte	0x1
+ 2026 0416 22       		.byte	0x22
+ 2027 0417 B7000000 		.4byte	0xb7
+ 2028 041b 05       		.uleb128 0x5
+ 2029 041c 03       		.byte	0x3
+ 2030 041d 00000000 		.4byte	I2C_MPU6050_mstrRdBufIndex
+ 2031 0421 15       		.uleb128 0x15
+ 2032 0422 3B010000 		.4byte	.LASF46
+ 2033 0426 01       		.byte	0x1
+ 2034 0427 25       		.byte	0x25
+ 2035 0428 F9030000 		.4byte	0x3f9
+ 2036 042c 05       		.uleb128 0x5
+ 2037 042d 03       		.byte	0x3
+ 2038 042e 00000000 		.4byte	I2C_MPU6050_mstrWrBufPtr
+ 2039 0432 15       		.uleb128 0x15
+ 2040 0433 6E020000 		.4byte	.LASF47
+ 2041 0437 01       		.byte	0x1
+ 2042 0438 26       		.byte	0x26
+ 2043 0439 B7000000 		.4byte	0xb7
+ 2044 043d 05       		.uleb128 0x5
+ 2045 043e 03       		.byte	0x3
+ 2046 043f 00000000 		.4byte	I2C_MPU6050_mstrWrBufSize
+ 2047 0443 15       		.uleb128 0x15
+ 2048 0444 41000000 		.4byte	.LASF48
+ 2049 0448 01       		.byte	0x1
+ 2050 0449 27       		.byte	0x27
+ 2051 044a B7000000 		.4byte	0xb7
+ 2052 044e 05       		.uleb128 0x5
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 55
 
 
- 2111 0448 01       		.byte	0x1
- 2112 0449 27       		.byte	0x27
- 2113 044a B7000000 		.4byte	0xb7
- 2114 044e 05       		.uleb128 0x5
- 2115 044f 03       		.byte	0x3
- 2116 0450 00000000 		.4byte	I2C_MPU6050_mstrWrBufIndex
- 2117 0454 14       		.uleb128 0x14
- 2118 0455 A3040000 		.4byte	.LASF49
- 2119 0459 01       		.byte	0x1
- 2120 045a 28       		.byte	0x28
- 2121 045b B7000000 		.4byte	0xb7
- 2122 045f 05       		.uleb128 0x5
- 2123 0460 03       		.byte	0x3
- 2124 0461 00000000 		.4byte	I2C_MPU6050_mstrWrBufIndexTmp
- 2125 0465 00       		.byte	0
- 2126              		.section	.debug_abbrev,"",%progbits
- 2127              	.Ldebug_abbrev0:
- 2128 0000 01       		.uleb128 0x1
- 2129 0001 11       		.uleb128 0x11
- 2130 0002 01       		.byte	0x1
- 2131 0003 25       		.uleb128 0x25
- 2132 0004 0E       		.uleb128 0xe
- 2133 0005 13       		.uleb128 0x13
- 2134 0006 0B       		.uleb128 0xb
- 2135 0007 03       		.uleb128 0x3
- 2136 0008 0E       		.uleb128 0xe
- 2137 0009 1B       		.uleb128 0x1b
- 2138 000a 0E       		.uleb128 0xe
- 2139 000b 55       		.uleb128 0x55
- 2140 000c 17       		.uleb128 0x17
- 2141 000d 11       		.uleb128 0x11
- 2142 000e 01       		.uleb128 0x1
- 2143 000f 10       		.uleb128 0x10
- 2144 0010 17       		.uleb128 0x17
- 2145 0011 00       		.byte	0
- 2146 0012 00       		.byte	0
- 2147 0013 02       		.uleb128 0x2
- 2148 0014 24       		.uleb128 0x24
- 2149 0015 00       		.byte	0
- 2150 0016 0B       		.uleb128 0xb
- 2151 0017 0B       		.uleb128 0xb
- 2152 0018 3E       		.uleb128 0x3e
- 2153 0019 0B       		.uleb128 0xb
- 2154 001a 03       		.uleb128 0x3
- 2155 001b 0E       		.uleb128 0xe
- 2156 001c 00       		.byte	0
- 2157 001d 00       		.byte	0
- 2158 001e 03       		.uleb128 0x3
- 2159 001f 24       		.uleb128 0x24
- 2160 0020 00       		.byte	0
- 2161 0021 0B       		.uleb128 0xb
- 2162 0022 0B       		.uleb128 0xb
- 2163 0023 3E       		.uleb128 0x3e
- 2164 0024 0B       		.uleb128 0xb
- 2165 0025 03       		.uleb128 0x3
- 2166 0026 08       		.uleb128 0x8
- 2167 0027 00       		.byte	0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 57
+ 2053 044f 03       		.byte	0x3
+ 2054 0450 00000000 		.4byte	I2C_MPU6050_mstrWrBufIndex
+ 2055 0454 15       		.uleb128 0x15
+ 2056 0455 BB040000 		.4byte	.LASF49
+ 2057 0459 01       		.byte	0x1
+ 2058 045a 28       		.byte	0x28
+ 2059 045b B7000000 		.4byte	0xb7
+ 2060 045f 05       		.uleb128 0x5
+ 2061 0460 03       		.byte	0x3
+ 2062 0461 00000000 		.4byte	I2C_MPU6050_mstrWrBufIndexTmp
+ 2063 0465 00       		.byte	0
+ 2064              		.section	.debug_abbrev,"",%progbits
+ 2065              	.Ldebug_abbrev0:
+ 2066 0000 01       		.uleb128 0x1
+ 2067 0001 11       		.uleb128 0x11
+ 2068 0002 01       		.byte	0x1
+ 2069 0003 25       		.uleb128 0x25
+ 2070 0004 0E       		.uleb128 0xe
+ 2071 0005 13       		.uleb128 0x13
+ 2072 0006 0B       		.uleb128 0xb
+ 2073 0007 03       		.uleb128 0x3
+ 2074 0008 0E       		.uleb128 0xe
+ 2075 0009 1B       		.uleb128 0x1b
+ 2076 000a 0E       		.uleb128 0xe
+ 2077 000b 55       		.uleb128 0x55
+ 2078 000c 17       		.uleb128 0x17
+ 2079 000d 11       		.uleb128 0x11
+ 2080 000e 01       		.uleb128 0x1
+ 2081 000f 10       		.uleb128 0x10
+ 2082 0010 17       		.uleb128 0x17
+ 2083 0011 00       		.byte	0
+ 2084 0012 00       		.byte	0
+ 2085 0013 02       		.uleb128 0x2
+ 2086 0014 24       		.uleb128 0x24
+ 2087 0015 00       		.byte	0
+ 2088 0016 0B       		.uleb128 0xb
+ 2089 0017 0B       		.uleb128 0xb
+ 2090 0018 3E       		.uleb128 0x3e
+ 2091 0019 0B       		.uleb128 0xb
+ 2092 001a 03       		.uleb128 0x3
+ 2093 001b 0E       		.uleb128 0xe
+ 2094 001c 00       		.byte	0
+ 2095 001d 00       		.byte	0
+ 2096 001e 03       		.uleb128 0x3
+ 2097 001f 24       		.uleb128 0x24
+ 2098 0020 00       		.byte	0
+ 2099 0021 0B       		.uleb128 0xb
+ 2100 0022 0B       		.uleb128 0xb
+ 2101 0023 3E       		.uleb128 0x3e
+ 2102 0024 0B       		.uleb128 0xb
+ 2103 0025 03       		.uleb128 0x3
+ 2104 0026 08       		.uleb128 0x8
+ 2105 0027 00       		.byte	0
+ 2106 0028 00       		.byte	0
+ 2107 0029 04       		.uleb128 0x4
+ 2108 002a 16       		.uleb128 0x16
+ 2109 002b 00       		.byte	0
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 56
 
 
- 2168 0028 00       		.byte	0
- 2169 0029 04       		.uleb128 0x4
- 2170 002a 16       		.uleb128 0x16
- 2171 002b 00       		.byte	0
- 2172 002c 03       		.uleb128 0x3
- 2173 002d 0E       		.uleb128 0xe
- 2174 002e 3A       		.uleb128 0x3a
- 2175 002f 0B       		.uleb128 0xb
- 2176 0030 3B       		.uleb128 0x3b
- 2177 0031 0B       		.uleb128 0xb
- 2178 0032 49       		.uleb128 0x49
- 2179 0033 13       		.uleb128 0x13
- 2180 0034 00       		.byte	0
- 2181 0035 00       		.byte	0
- 2182 0036 05       		.uleb128 0x5
- 2183 0037 35       		.uleb128 0x35
- 2184 0038 00       		.byte	0
- 2185 0039 49       		.uleb128 0x49
- 2186 003a 13       		.uleb128 0x13
- 2187 003b 00       		.byte	0
- 2188 003c 00       		.byte	0
- 2189 003d 06       		.uleb128 0x6
- 2190 003e 16       		.uleb128 0x16
- 2191 003f 00       		.byte	0
- 2192 0040 03       		.uleb128 0x3
- 2193 0041 0E       		.uleb128 0xe
- 2194 0042 3A       		.uleb128 0x3a
- 2195 0043 0B       		.uleb128 0xb
- 2196 0044 3B       		.uleb128 0x3b
- 2197 0045 05       		.uleb128 0x5
- 2198 0046 49       		.uleb128 0x49
- 2199 0047 13       		.uleb128 0x13
- 2200 0048 00       		.byte	0
- 2201 0049 00       		.byte	0
- 2202 004a 07       		.uleb128 0x7
- 2203 004b 2E       		.uleb128 0x2e
- 2204 004c 01       		.byte	0x1
- 2205 004d 3F       		.uleb128 0x3f
- 2206 004e 19       		.uleb128 0x19
- 2207 004f 03       		.uleb128 0x3
- 2208 0050 0E       		.uleb128 0xe
- 2209 0051 3A       		.uleb128 0x3a
- 2210 0052 0B       		.uleb128 0xb
- 2211 0053 3B       		.uleb128 0x3b
- 2212 0054 0B       		.uleb128 0xb
- 2213 0055 27       		.uleb128 0x27
- 2214 0056 19       		.uleb128 0x19
- 2215 0057 49       		.uleb128 0x49
- 2216 0058 13       		.uleb128 0x13
- 2217 0059 11       		.uleb128 0x11
- 2218 005a 01       		.uleb128 0x1
- 2219 005b 12       		.uleb128 0x12
- 2220 005c 06       		.uleb128 0x6
- 2221 005d 40       		.uleb128 0x40
- 2222 005e 18       		.uleb128 0x18
- 2223 005f 9642     		.uleb128 0x2116
- 2224 0061 19       		.uleb128 0x19
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 58
+ 2110 002c 03       		.uleb128 0x3
+ 2111 002d 0E       		.uleb128 0xe
+ 2112 002e 3A       		.uleb128 0x3a
+ 2113 002f 0B       		.uleb128 0xb
+ 2114 0030 3B       		.uleb128 0x3b
+ 2115 0031 0B       		.uleb128 0xb
+ 2116 0032 49       		.uleb128 0x49
+ 2117 0033 13       		.uleb128 0x13
+ 2118 0034 00       		.byte	0
+ 2119 0035 00       		.byte	0
+ 2120 0036 05       		.uleb128 0x5
+ 2121 0037 35       		.uleb128 0x35
+ 2122 0038 00       		.byte	0
+ 2123 0039 49       		.uleb128 0x49
+ 2124 003a 13       		.uleb128 0x13
+ 2125 003b 00       		.byte	0
+ 2126 003c 00       		.byte	0
+ 2127 003d 06       		.uleb128 0x6
+ 2128 003e 16       		.uleb128 0x16
+ 2129 003f 00       		.byte	0
+ 2130 0040 03       		.uleb128 0x3
+ 2131 0041 0E       		.uleb128 0xe
+ 2132 0042 3A       		.uleb128 0x3a
+ 2133 0043 0B       		.uleb128 0xb
+ 2134 0044 3B       		.uleb128 0x3b
+ 2135 0045 05       		.uleb128 0x5
+ 2136 0046 49       		.uleb128 0x49
+ 2137 0047 13       		.uleb128 0x13
+ 2138 0048 00       		.byte	0
+ 2139 0049 00       		.byte	0
+ 2140 004a 07       		.uleb128 0x7
+ 2141 004b 2E       		.uleb128 0x2e
+ 2142 004c 01       		.byte	0x1
+ 2143 004d 3F       		.uleb128 0x3f
+ 2144 004e 19       		.uleb128 0x19
+ 2145 004f 03       		.uleb128 0x3
+ 2146 0050 0E       		.uleb128 0xe
+ 2147 0051 3A       		.uleb128 0x3a
+ 2148 0052 0B       		.uleb128 0xb
+ 2149 0053 3B       		.uleb128 0x3b
+ 2150 0054 0B       		.uleb128 0xb
+ 2151 0055 27       		.uleb128 0x27
+ 2152 0056 19       		.uleb128 0x19
+ 2153 0057 49       		.uleb128 0x49
+ 2154 0058 13       		.uleb128 0x13
+ 2155 0059 11       		.uleb128 0x11
+ 2156 005a 01       		.uleb128 0x1
+ 2157 005b 12       		.uleb128 0x12
+ 2158 005c 06       		.uleb128 0x6
+ 2159 005d 40       		.uleb128 0x40
+ 2160 005e 18       		.uleb128 0x18
+ 2161 005f 9642     		.uleb128 0x2116
+ 2162 0061 19       		.uleb128 0x19
+ 2163 0062 01       		.uleb128 0x1
+ 2164 0063 13       		.uleb128 0x13
+ 2165 0064 00       		.byte	0
+ 2166 0065 00       		.byte	0
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 57
 
 
- 2225 0062 01       		.uleb128 0x1
- 2226 0063 13       		.uleb128 0x13
- 2227 0064 00       		.byte	0
- 2228 0065 00       		.byte	0
- 2229 0066 08       		.uleb128 0x8
- 2230 0067 05       		.uleb128 0x5
- 2231 0068 00       		.byte	0
- 2232 0069 03       		.uleb128 0x3
- 2233 006a 0E       		.uleb128 0xe
- 2234 006b 3A       		.uleb128 0x3a
- 2235 006c 0B       		.uleb128 0xb
- 2236 006d 3B       		.uleb128 0x3b
- 2237 006e 0B       		.uleb128 0xb
- 2238 006f 49       		.uleb128 0x49
- 2239 0070 13       		.uleb128 0x13
- 2240 0071 02       		.uleb128 0x2
- 2241 0072 18       		.uleb128 0x18
- 2242 0073 00       		.byte	0
- 2243 0074 00       		.byte	0
- 2244 0075 09       		.uleb128 0x9
- 2245 0076 05       		.uleb128 0x5
- 2246 0077 00       		.byte	0
- 2247 0078 03       		.uleb128 0x3
- 2248 0079 08       		.uleb128 0x8
- 2249 007a 3A       		.uleb128 0x3a
- 2250 007b 0B       		.uleb128 0xb
- 2251 007c 3B       		.uleb128 0x3b
- 2252 007d 0B       		.uleb128 0xb
- 2253 007e 49       		.uleb128 0x49
- 2254 007f 13       		.uleb128 0x13
- 2255 0080 02       		.uleb128 0x2
- 2256 0081 18       		.uleb128 0x18
- 2257 0082 00       		.byte	0
- 2258 0083 00       		.byte	0
- 2259 0084 0A       		.uleb128 0xa
- 2260 0085 34       		.uleb128 0x34
- 2261 0086 00       		.byte	0
- 2262 0087 03       		.uleb128 0x3
- 2263 0088 0E       		.uleb128 0xe
- 2264 0089 3A       		.uleb128 0x3a
- 2265 008a 0B       		.uleb128 0xb
- 2266 008b 3B       		.uleb128 0x3b
- 2267 008c 0B       		.uleb128 0xb
- 2268 008d 49       		.uleb128 0x49
- 2269 008e 13       		.uleb128 0x13
- 2270 008f 02       		.uleb128 0x2
- 2271 0090 18       		.uleb128 0x18
- 2272 0091 00       		.byte	0
- 2273 0092 00       		.byte	0
- 2274 0093 0B       		.uleb128 0xb
- 2275 0094 0F       		.uleb128 0xf
- 2276 0095 00       		.byte	0
- 2277 0096 0B       		.uleb128 0xb
- 2278 0097 0B       		.uleb128 0xb
- 2279 0098 49       		.uleb128 0x49
- 2280 0099 13       		.uleb128 0x13
- 2281 009a 00       		.byte	0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 59
+ 2167 0066 08       		.uleb128 0x8
+ 2168 0067 05       		.uleb128 0x5
+ 2169 0068 00       		.byte	0
+ 2170 0069 03       		.uleb128 0x3
+ 2171 006a 0E       		.uleb128 0xe
+ 2172 006b 3A       		.uleb128 0x3a
+ 2173 006c 0B       		.uleb128 0xb
+ 2174 006d 3B       		.uleb128 0x3b
+ 2175 006e 0B       		.uleb128 0xb
+ 2176 006f 49       		.uleb128 0x49
+ 2177 0070 13       		.uleb128 0x13
+ 2178 0071 02       		.uleb128 0x2
+ 2179 0072 18       		.uleb128 0x18
+ 2180 0073 00       		.byte	0
+ 2181 0074 00       		.byte	0
+ 2182 0075 09       		.uleb128 0x9
+ 2183 0076 05       		.uleb128 0x5
+ 2184 0077 00       		.byte	0
+ 2185 0078 03       		.uleb128 0x3
+ 2186 0079 08       		.uleb128 0x8
+ 2187 007a 3A       		.uleb128 0x3a
+ 2188 007b 0B       		.uleb128 0xb
+ 2189 007c 3B       		.uleb128 0x3b
+ 2190 007d 0B       		.uleb128 0xb
+ 2191 007e 49       		.uleb128 0x49
+ 2192 007f 13       		.uleb128 0x13
+ 2193 0080 02       		.uleb128 0x2
+ 2194 0081 18       		.uleb128 0x18
+ 2195 0082 00       		.byte	0
+ 2196 0083 00       		.byte	0
+ 2197 0084 0A       		.uleb128 0xa
+ 2198 0085 34       		.uleb128 0x34
+ 2199 0086 00       		.byte	0
+ 2200 0087 03       		.uleb128 0x3
+ 2201 0088 0E       		.uleb128 0xe
+ 2202 0089 3A       		.uleb128 0x3a
+ 2203 008a 0B       		.uleb128 0xb
+ 2204 008b 3B       		.uleb128 0x3b
+ 2205 008c 0B       		.uleb128 0xb
+ 2206 008d 49       		.uleb128 0x49
+ 2207 008e 13       		.uleb128 0x13
+ 2208 008f 02       		.uleb128 0x2
+ 2209 0090 18       		.uleb128 0x18
+ 2210 0091 00       		.byte	0
+ 2211 0092 00       		.byte	0
+ 2212 0093 0B       		.uleb128 0xb
+ 2213 0094 0F       		.uleb128 0xf
+ 2214 0095 00       		.byte	0
+ 2215 0096 0B       		.uleb128 0xb
+ 2216 0097 0B       		.uleb128 0xb
+ 2217 0098 49       		.uleb128 0x49
+ 2218 0099 13       		.uleb128 0x13
+ 2219 009a 00       		.byte	0
+ 2220 009b 00       		.byte	0
+ 2221 009c 0C       		.uleb128 0xc
+ 2222 009d 2E       		.uleb128 0x2e
+ 2223 009e 01       		.byte	0x1
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 58
 
 
- 2282 009b 00       		.byte	0
- 2283 009c 0C       		.uleb128 0xc
- 2284 009d 2E       		.uleb128 0x2e
- 2285 009e 01       		.byte	0x1
- 2286 009f 3F       		.uleb128 0x3f
- 2287 00a0 19       		.uleb128 0x19
- 2288 00a1 03       		.uleb128 0x3
- 2289 00a2 0E       		.uleb128 0xe
- 2290 00a3 3A       		.uleb128 0x3a
- 2291 00a4 0B       		.uleb128 0xb
- 2292 00a5 3B       		.uleb128 0x3b
- 2293 00a6 05       		.uleb128 0x5
- 2294 00a7 27       		.uleb128 0x27
- 2295 00a8 19       		.uleb128 0x19
- 2296 00a9 49       		.uleb128 0x49
- 2297 00aa 13       		.uleb128 0x13
- 2298 00ab 11       		.uleb128 0x11
- 2299 00ac 01       		.uleb128 0x1
- 2300 00ad 12       		.uleb128 0x12
- 2301 00ae 06       		.uleb128 0x6
- 2302 00af 40       		.uleb128 0x40
- 2303 00b0 18       		.uleb128 0x18
- 2304 00b1 9642     		.uleb128 0x2116
- 2305 00b3 19       		.uleb128 0x19
- 2306 00b4 01       		.uleb128 0x1
- 2307 00b5 13       		.uleb128 0x13
- 2308 00b6 00       		.byte	0
- 2309 00b7 00       		.byte	0
- 2310 00b8 0D       		.uleb128 0xd
- 2311 00b9 05       		.uleb128 0x5
- 2312 00ba 00       		.byte	0
- 2313 00bb 03       		.uleb128 0x3
- 2314 00bc 0E       		.uleb128 0xe
- 2315 00bd 3A       		.uleb128 0x3a
- 2316 00be 0B       		.uleb128 0xb
- 2317 00bf 3B       		.uleb128 0x3b
- 2318 00c0 05       		.uleb128 0x5
- 2319 00c1 49       		.uleb128 0x49
- 2320 00c2 13       		.uleb128 0x13
- 2321 00c3 02       		.uleb128 0x2
- 2322 00c4 18       		.uleb128 0x18
- 2323 00c5 00       		.byte	0
- 2324 00c6 00       		.byte	0
- 2325 00c7 0E       		.uleb128 0xe
- 2326 00c8 34       		.uleb128 0x34
- 2327 00c9 00       		.byte	0
- 2328 00ca 03       		.uleb128 0x3
- 2329 00cb 0E       		.uleb128 0xe
- 2330 00cc 3A       		.uleb128 0x3a
- 2331 00cd 0B       		.uleb128 0xb
- 2332 00ce 3B       		.uleb128 0x3b
- 2333 00cf 05       		.uleb128 0x5
- 2334 00d0 49       		.uleb128 0x49
- 2335 00d1 13       		.uleb128 0x13
- 2336 00d2 02       		.uleb128 0x2
- 2337 00d3 18       		.uleb128 0x18
- 2338 00d4 00       		.byte	0
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 60
+ 2224 009f 3F       		.uleb128 0x3f
+ 2225 00a0 19       		.uleb128 0x19
+ 2226 00a1 03       		.uleb128 0x3
+ 2227 00a2 0E       		.uleb128 0xe
+ 2228 00a3 3A       		.uleb128 0x3a
+ 2229 00a4 0B       		.uleb128 0xb
+ 2230 00a5 3B       		.uleb128 0x3b
+ 2231 00a6 05       		.uleb128 0x5
+ 2232 00a7 27       		.uleb128 0x27
+ 2233 00a8 19       		.uleb128 0x19
+ 2234 00a9 49       		.uleb128 0x49
+ 2235 00aa 13       		.uleb128 0x13
+ 2236 00ab 11       		.uleb128 0x11
+ 2237 00ac 01       		.uleb128 0x1
+ 2238 00ad 12       		.uleb128 0x12
+ 2239 00ae 06       		.uleb128 0x6
+ 2240 00af 40       		.uleb128 0x40
+ 2241 00b0 18       		.uleb128 0x18
+ 2242 00b1 9642     		.uleb128 0x2116
+ 2243 00b3 19       		.uleb128 0x19
+ 2244 00b4 01       		.uleb128 0x1
+ 2245 00b5 13       		.uleb128 0x13
+ 2246 00b6 00       		.byte	0
+ 2247 00b7 00       		.byte	0
+ 2248 00b8 0D       		.uleb128 0xd
+ 2249 00b9 05       		.uleb128 0x5
+ 2250 00ba 00       		.byte	0
+ 2251 00bb 03       		.uleb128 0x3
+ 2252 00bc 0E       		.uleb128 0xe
+ 2253 00bd 3A       		.uleb128 0x3a
+ 2254 00be 0B       		.uleb128 0xb
+ 2255 00bf 3B       		.uleb128 0x3b
+ 2256 00c0 05       		.uleb128 0x5
+ 2257 00c1 49       		.uleb128 0x49
+ 2258 00c2 13       		.uleb128 0x13
+ 2259 00c3 02       		.uleb128 0x2
+ 2260 00c4 18       		.uleb128 0x18
+ 2261 00c5 00       		.byte	0
+ 2262 00c6 00       		.byte	0
+ 2263 00c7 0E       		.uleb128 0xe
+ 2264 00c8 34       		.uleb128 0x34
+ 2265 00c9 00       		.byte	0
+ 2266 00ca 03       		.uleb128 0x3
+ 2267 00cb 0E       		.uleb128 0xe
+ 2268 00cc 3A       		.uleb128 0x3a
+ 2269 00cd 0B       		.uleb128 0xb
+ 2270 00ce 3B       		.uleb128 0x3b
+ 2271 00cf 05       		.uleb128 0x5
+ 2272 00d0 49       		.uleb128 0x49
+ 2273 00d1 13       		.uleb128 0x13
+ 2274 00d2 02       		.uleb128 0x2
+ 2275 00d3 18       		.uleb128 0x18
+ 2276 00d4 00       		.byte	0
+ 2277 00d5 00       		.byte	0
+ 2278 00d6 0F       		.uleb128 0xf
+ 2279 00d7 2E       		.uleb128 0x2e
+ 2280 00d8 01       		.byte	0x1
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 59
 
 
- 2339 00d5 00       		.byte	0
- 2340 00d6 0F       		.uleb128 0xf
- 2341 00d7 2E       		.uleb128 0x2e
- 2342 00d8 01       		.byte	0x1
- 2343 00d9 3F       		.uleb128 0x3f
- 2344 00da 19       		.uleb128 0x19
- 2345 00db 03       		.uleb128 0x3
- 2346 00dc 0E       		.uleb128 0xe
- 2347 00dd 3A       		.uleb128 0x3a
- 2348 00de 0B       		.uleb128 0xb
- 2349 00df 3B       		.uleb128 0x3b
- 2350 00e0 05       		.uleb128 0x5
- 2351 00e1 27       		.uleb128 0x27
- 2352 00e2 19       		.uleb128 0x19
- 2353 00e3 49       		.uleb128 0x49
- 2354 00e4 13       		.uleb128 0x13
- 2355 00e5 11       		.uleb128 0x11
- 2356 00e6 01       		.uleb128 0x1
- 2357 00e7 12       		.uleb128 0x12
- 2358 00e8 06       		.uleb128 0x6
- 2359 00e9 40       		.uleb128 0x40
- 2360 00ea 18       		.uleb128 0x18
- 2361 00eb 9742     		.uleb128 0x2117
- 2362 00ed 19       		.uleb128 0x19
- 2363 00ee 01       		.uleb128 0x1
- 2364 00ef 13       		.uleb128 0x13
- 2365 00f0 00       		.byte	0
- 2366 00f1 00       		.byte	0
- 2367 00f2 10       		.uleb128 0x10
- 2368 00f3 2E       		.uleb128 0x2e
- 2369 00f4 00       		.byte	0
- 2370 00f5 3F       		.uleb128 0x3f
- 2371 00f6 19       		.uleb128 0x19
- 2372 00f7 03       		.uleb128 0x3
- 2373 00f8 0E       		.uleb128 0xe
- 2374 00f9 3A       		.uleb128 0x3a
- 2375 00fa 0B       		.uleb128 0xb
- 2376 00fb 3B       		.uleb128 0x3b
- 2377 00fc 05       		.uleb128 0x5
- 2378 00fd 27       		.uleb128 0x27
- 2379 00fe 19       		.uleb128 0x19
- 2380 00ff 49       		.uleb128 0x49
- 2381 0100 13       		.uleb128 0x13
- 2382 0101 11       		.uleb128 0x11
- 2383 0102 01       		.uleb128 0x1
- 2384 0103 12       		.uleb128 0x12
- 2385 0104 06       		.uleb128 0x6
- 2386 0105 40       		.uleb128 0x40
- 2387 0106 18       		.uleb128 0x18
- 2388 0107 9742     		.uleb128 0x2117
- 2389 0109 19       		.uleb128 0x19
- 2390 010a 00       		.byte	0
- 2391 010b 00       		.byte	0
- 2392 010c 11       		.uleb128 0x11
- 2393 010d 2E       		.uleb128 0x2e
- 2394 010e 00       		.byte	0
- 2395 010f 3F       		.uleb128 0x3f
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 61
+ 2281 00d9 3F       		.uleb128 0x3f
+ 2282 00da 19       		.uleb128 0x19
+ 2283 00db 03       		.uleb128 0x3
+ 2284 00dc 0E       		.uleb128 0xe
+ 2285 00dd 3A       		.uleb128 0x3a
+ 2286 00de 0B       		.uleb128 0xb
+ 2287 00df 3B       		.uleb128 0x3b
+ 2288 00e0 05       		.uleb128 0x5
+ 2289 00e1 27       		.uleb128 0x27
+ 2290 00e2 19       		.uleb128 0x19
+ 2291 00e3 49       		.uleb128 0x49
+ 2292 00e4 13       		.uleb128 0x13
+ 2293 00e5 11       		.uleb128 0x11
+ 2294 00e6 01       		.uleb128 0x1
+ 2295 00e7 12       		.uleb128 0x12
+ 2296 00e8 06       		.uleb128 0x6
+ 2297 00e9 40       		.uleb128 0x40
+ 2298 00ea 18       		.uleb128 0x18
+ 2299 00eb 9742     		.uleb128 0x2117
+ 2300 00ed 19       		.uleb128 0x19
+ 2301 00ee 01       		.uleb128 0x1
+ 2302 00ef 13       		.uleb128 0x13
+ 2303 00f0 00       		.byte	0
+ 2304 00f1 00       		.byte	0
+ 2305 00f2 10       		.uleb128 0x10
+ 2306 00f3 2E       		.uleb128 0x2e
+ 2307 00f4 00       		.byte	0
+ 2308 00f5 3F       		.uleb128 0x3f
+ 2309 00f6 19       		.uleb128 0x19
+ 2310 00f7 03       		.uleb128 0x3
+ 2311 00f8 0E       		.uleb128 0xe
+ 2312 00f9 3A       		.uleb128 0x3a
+ 2313 00fa 0B       		.uleb128 0xb
+ 2314 00fb 3B       		.uleb128 0x3b
+ 2315 00fc 05       		.uleb128 0x5
+ 2316 00fd 27       		.uleb128 0x27
+ 2317 00fe 19       		.uleb128 0x19
+ 2318 00ff 49       		.uleb128 0x49
+ 2319 0100 13       		.uleb128 0x13
+ 2320 0101 11       		.uleb128 0x11
+ 2321 0102 01       		.uleb128 0x1
+ 2322 0103 12       		.uleb128 0x12
+ 2323 0104 06       		.uleb128 0x6
+ 2324 0105 40       		.uleb128 0x40
+ 2325 0106 18       		.uleb128 0x18
+ 2326 0107 9742     		.uleb128 0x2117
+ 2327 0109 19       		.uleb128 0x19
+ 2328 010a 00       		.byte	0
+ 2329 010b 00       		.byte	0
+ 2330 010c 11       		.uleb128 0x11
+ 2331 010d 2E       		.uleb128 0x2e
+ 2332 010e 00       		.byte	0
+ 2333 010f 3F       		.uleb128 0x3f
+ 2334 0110 19       		.uleb128 0x19
+ 2335 0111 03       		.uleb128 0x3
+ 2336 0112 0E       		.uleb128 0xe
+ 2337 0113 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 60
 
 
- 2396 0110 19       		.uleb128 0x19
- 2397 0111 03       		.uleb128 0x3
- 2398 0112 0E       		.uleb128 0xe
- 2399 0113 3A       		.uleb128 0x3a
- 2400 0114 0B       		.uleb128 0xb
- 2401 0115 3B       		.uleb128 0x3b
- 2402 0116 05       		.uleb128 0x5
- 2403 0117 27       		.uleb128 0x27
- 2404 0118 19       		.uleb128 0x19
- 2405 0119 11       		.uleb128 0x11
- 2406 011a 01       		.uleb128 0x1
- 2407 011b 12       		.uleb128 0x12
- 2408 011c 06       		.uleb128 0x6
- 2409 011d 40       		.uleb128 0x40
- 2410 011e 18       		.uleb128 0x18
- 2411 011f 9642     		.uleb128 0x2116
- 2412 0121 19       		.uleb128 0x19
- 2413 0122 00       		.byte	0
- 2414 0123 00       		.byte	0
- 2415 0124 12       		.uleb128 0x12
- 2416 0125 2E       		.uleb128 0x2e
- 2417 0126 01       		.byte	0x1
- 2418 0127 3F       		.uleb128 0x3f
- 2419 0128 19       		.uleb128 0x19
- 2420 0129 03       		.uleb128 0x3
- 2421 012a 0E       		.uleb128 0xe
- 2422 012b 3A       		.uleb128 0x3a
- 2423 012c 0B       		.uleb128 0xb
- 2424 012d 3B       		.uleb128 0x3b
- 2425 012e 05       		.uleb128 0x5
- 2426 012f 27       		.uleb128 0x27
- 2427 0130 19       		.uleb128 0x19
- 2428 0131 11       		.uleb128 0x11
- 2429 0132 01       		.uleb128 0x1
- 2430 0133 12       		.uleb128 0x12
- 2431 0134 06       		.uleb128 0x6
- 2432 0135 40       		.uleb128 0x40
- 2433 0136 18       		.uleb128 0x18
- 2434 0137 9642     		.uleb128 0x2116
- 2435 0139 19       		.uleb128 0x19
- 2436 013a 01       		.uleb128 0x1
- 2437 013b 13       		.uleb128 0x13
- 2438 013c 00       		.byte	0
- 2439 013d 00       		.byte	0
- 2440 013e 13       		.uleb128 0x13
- 2441 013f 34       		.uleb128 0x34
- 2442 0140 00       		.byte	0
- 2443 0141 03       		.uleb128 0x3
- 2444 0142 0E       		.uleb128 0xe
- 2445 0143 3A       		.uleb128 0x3a
- 2446 0144 0B       		.uleb128 0xb
- 2447 0145 3B       		.uleb128 0x3b
- 2448 0146 0B       		.uleb128 0xb
- 2449 0147 49       		.uleb128 0x49
- 2450 0148 13       		.uleb128 0x13
- 2451 0149 3F       		.uleb128 0x3f
- 2452 014a 19       		.uleb128 0x19
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 62
+ 2338 0114 0B       		.uleb128 0xb
+ 2339 0115 3B       		.uleb128 0x3b
+ 2340 0116 05       		.uleb128 0x5
+ 2341 0117 27       		.uleb128 0x27
+ 2342 0118 19       		.uleb128 0x19
+ 2343 0119 11       		.uleb128 0x11
+ 2344 011a 01       		.uleb128 0x1
+ 2345 011b 12       		.uleb128 0x12
+ 2346 011c 06       		.uleb128 0x6
+ 2347 011d 40       		.uleb128 0x40
+ 2348 011e 18       		.uleb128 0x18
+ 2349 011f 9642     		.uleb128 0x2116
+ 2350 0121 19       		.uleb128 0x19
+ 2351 0122 00       		.byte	0
+ 2352 0123 00       		.byte	0
+ 2353 0124 12       		.uleb128 0x12
+ 2354 0125 2E       		.uleb128 0x2e
+ 2355 0126 01       		.byte	0x1
+ 2356 0127 3F       		.uleb128 0x3f
+ 2357 0128 19       		.uleb128 0x19
+ 2358 0129 03       		.uleb128 0x3
+ 2359 012a 0E       		.uleb128 0xe
+ 2360 012b 3A       		.uleb128 0x3a
+ 2361 012c 0B       		.uleb128 0xb
+ 2362 012d 3B       		.uleb128 0x3b
+ 2363 012e 05       		.uleb128 0x5
+ 2364 012f 27       		.uleb128 0x27
+ 2365 0130 19       		.uleb128 0x19
+ 2366 0131 11       		.uleb128 0x11
+ 2367 0132 01       		.uleb128 0x1
+ 2368 0133 12       		.uleb128 0x12
+ 2369 0134 06       		.uleb128 0x6
+ 2370 0135 40       		.uleb128 0x40
+ 2371 0136 18       		.uleb128 0x18
+ 2372 0137 9742     		.uleb128 0x2117
+ 2373 0139 19       		.uleb128 0x19
+ 2374 013a 01       		.uleb128 0x1
+ 2375 013b 13       		.uleb128 0x13
+ 2376 013c 00       		.byte	0
+ 2377 013d 00       		.byte	0
+ 2378 013e 13       		.uleb128 0x13
+ 2379 013f 34       		.uleb128 0x34
+ 2380 0140 00       		.byte	0
+ 2381 0141 03       		.uleb128 0x3
+ 2382 0142 08       		.uleb128 0x8
+ 2383 0143 3A       		.uleb128 0x3a
+ 2384 0144 0B       		.uleb128 0xb
+ 2385 0145 3B       		.uleb128 0x3b
+ 2386 0146 05       		.uleb128 0x5
+ 2387 0147 49       		.uleb128 0x49
+ 2388 0148 13       		.uleb128 0x13
+ 2389 0149 02       		.uleb128 0x2
+ 2390 014a 18       		.uleb128 0x18
+ 2391 014b 00       		.byte	0
+ 2392 014c 00       		.byte	0
+ 2393 014d 14       		.uleb128 0x14
+ 2394 014e 34       		.uleb128 0x34
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 61
 
 
- 2453 014b 3C       		.uleb128 0x3c
- 2454 014c 19       		.uleb128 0x19
- 2455 014d 00       		.byte	0
- 2456 014e 00       		.byte	0
- 2457 014f 14       		.uleb128 0x14
- 2458 0150 34       		.uleb128 0x34
- 2459 0151 00       		.byte	0
- 2460 0152 03       		.uleb128 0x3
- 2461 0153 0E       		.uleb128 0xe
- 2462 0154 3A       		.uleb128 0x3a
- 2463 0155 0B       		.uleb128 0xb
- 2464 0156 3B       		.uleb128 0x3b
- 2465 0157 0B       		.uleb128 0xb
- 2466 0158 49       		.uleb128 0x49
- 2467 0159 13       		.uleb128 0x13
- 2468 015a 3F       		.uleb128 0x3f
- 2469 015b 19       		.uleb128 0x19
- 2470 015c 02       		.uleb128 0x2
- 2471 015d 18       		.uleb128 0x18
- 2472 015e 00       		.byte	0
- 2473 015f 00       		.byte	0
- 2474 0160 00       		.byte	0
- 2475              		.section	.debug_aranges,"",%progbits
- 2476 0000 84000000 		.4byte	0x84
- 2477 0004 0200     		.2byte	0x2
- 2478 0006 00000000 		.4byte	.Ldebug_info0
- 2479 000a 04       		.byte	0x4
- 2480 000b 00       		.byte	0
- 2481 000c 0000     		.2byte	0
- 2482 000e 0000     		.2byte	0
- 2483 0010 00000000 		.4byte	.LFB0
- 2484 0014 1C010000 		.4byte	.LFE0-.LFB0
- 2485 0018 00000000 		.4byte	.LFB1
- 2486 001c 2C010000 		.4byte	.LFE1-.LFB1
- 2487 0020 00000000 		.4byte	.LFB2
- 2488 0024 10010000 		.4byte	.LFE2-.LFB2
- 2489 0028 00000000 		.4byte	.LFB3
- 2490 002c 08010000 		.4byte	.LFE3-.LFB3
- 2491 0030 00000000 		.4byte	.LFB4
- 2492 0034 BC000000 		.4byte	.LFE4-.LFB4
- 2493 0038 00000000 		.4byte	.LFB5
- 2494 003c CC000000 		.4byte	.LFE5-.LFB5
- 2495 0040 00000000 		.4byte	.LFB6
- 2496 0044 A8000000 		.4byte	.LFE6-.LFB6
- 2497 0048 00000000 		.4byte	.LFB7
- 2498 004c 14000000 		.4byte	.LFE7-.LFB7
- 2499 0050 00000000 		.4byte	.LFB8
- 2500 0054 14000000 		.4byte	.LFE8-.LFB8
- 2501 0058 00000000 		.4byte	.LFB9
- 2502 005c 34000000 		.4byte	.LFE9-.LFB9
- 2503 0060 00000000 		.4byte	.LFB10
- 2504 0064 34000000 		.4byte	.LFE10-.LFB10
- 2505 0068 00000000 		.4byte	.LFB11
- 2506 006c 44000000 		.4byte	.LFE11-.LFB11
- 2507 0070 00000000 		.4byte	.LFB12
- 2508 0074 30000000 		.4byte	.LFE12-.LFB12
- 2509 0078 00000000 		.4byte	.LFB13
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 63
+ 2395 014f 00       		.byte	0
+ 2396 0150 03       		.uleb128 0x3
+ 2397 0151 0E       		.uleb128 0xe
+ 2398 0152 3A       		.uleb128 0x3a
+ 2399 0153 0B       		.uleb128 0xb
+ 2400 0154 3B       		.uleb128 0x3b
+ 2401 0155 0B       		.uleb128 0xb
+ 2402 0156 49       		.uleb128 0x49
+ 2403 0157 13       		.uleb128 0x13
+ 2404 0158 3F       		.uleb128 0x3f
+ 2405 0159 19       		.uleb128 0x19
+ 2406 015a 3C       		.uleb128 0x3c
+ 2407 015b 19       		.uleb128 0x19
+ 2408 015c 00       		.byte	0
+ 2409 015d 00       		.byte	0
+ 2410 015e 15       		.uleb128 0x15
+ 2411 015f 34       		.uleb128 0x34
+ 2412 0160 00       		.byte	0
+ 2413 0161 03       		.uleb128 0x3
+ 2414 0162 0E       		.uleb128 0xe
+ 2415 0163 3A       		.uleb128 0x3a
+ 2416 0164 0B       		.uleb128 0xb
+ 2417 0165 3B       		.uleb128 0x3b
+ 2418 0166 0B       		.uleb128 0xb
+ 2419 0167 49       		.uleb128 0x49
+ 2420 0168 13       		.uleb128 0x13
+ 2421 0169 3F       		.uleb128 0x3f
+ 2422 016a 19       		.uleb128 0x19
+ 2423 016b 02       		.uleb128 0x2
+ 2424 016c 18       		.uleb128 0x18
+ 2425 016d 00       		.byte	0
+ 2426 016e 00       		.byte	0
+ 2427 016f 00       		.byte	0
+ 2428              		.section	.debug_aranges,"",%progbits
+ 2429 0000 84000000 		.4byte	0x84
+ 2430 0004 0200     		.2byte	0x2
+ 2431 0006 00000000 		.4byte	.Ldebug_info0
+ 2432 000a 04       		.byte	0x4
+ 2433 000b 00       		.byte	0
+ 2434 000c 0000     		.2byte	0
+ 2435 000e 0000     		.2byte	0
+ 2436 0010 00000000 		.4byte	.LFB2
+ 2437 0014 1C010000 		.4byte	.LFE2-.LFB2
+ 2438 0018 00000000 		.4byte	.LFB3
+ 2439 001c 2C010000 		.4byte	.LFE3-.LFB3
+ 2440 0020 00000000 		.4byte	.LFB4
+ 2441 0024 10010000 		.4byte	.LFE4-.LFB4
+ 2442 0028 00000000 		.4byte	.LFB5
+ 2443 002c 08010000 		.4byte	.LFE5-.LFB5
+ 2444 0030 00000000 		.4byte	.LFB6
+ 2445 0034 BC000000 		.4byte	.LFE6-.LFB6
+ 2446 0038 00000000 		.4byte	.LFB7
+ 2447 003c CC000000 		.4byte	.LFE7-.LFB7
+ 2448 0040 00000000 		.4byte	.LFB8
+ 2449 0044 A8000000 		.4byte	.LFE8-.LFB8
+ 2450 0048 00000000 		.4byte	.LFB9
+ 2451 004c 14000000 		.4byte	.LFE9-.LFB9
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 62
 
 
- 2510 007c B0000000 		.4byte	.LFE13-.LFB13
- 2511 0080 00000000 		.4byte	0
- 2512 0084 00000000 		.4byte	0
- 2513              		.section	.debug_ranges,"",%progbits
- 2514              	.Ldebug_ranges0:
- 2515 0000 00000000 		.4byte	.LFB0
- 2516 0004 1C010000 		.4byte	.LFE0
- 2517 0008 00000000 		.4byte	.LFB1
- 2518 000c 2C010000 		.4byte	.LFE1
- 2519 0010 00000000 		.4byte	.LFB2
- 2520 0014 10010000 		.4byte	.LFE2
- 2521 0018 00000000 		.4byte	.LFB3
- 2522 001c 08010000 		.4byte	.LFE3
- 2523 0020 00000000 		.4byte	.LFB4
- 2524 0024 BC000000 		.4byte	.LFE4
- 2525 0028 00000000 		.4byte	.LFB5
- 2526 002c CC000000 		.4byte	.LFE5
- 2527 0030 00000000 		.4byte	.LFB6
- 2528 0034 A8000000 		.4byte	.LFE6
- 2529 0038 00000000 		.4byte	.LFB7
- 2530 003c 14000000 		.4byte	.LFE7
- 2531 0040 00000000 		.4byte	.LFB8
- 2532 0044 14000000 		.4byte	.LFE8
- 2533 0048 00000000 		.4byte	.LFB9
- 2534 004c 34000000 		.4byte	.LFE9
- 2535 0050 00000000 		.4byte	.LFB10
- 2536 0054 34000000 		.4byte	.LFE10
- 2537 0058 00000000 		.4byte	.LFB11
- 2538 005c 44000000 		.4byte	.LFE11
- 2539 0060 00000000 		.4byte	.LFB12
- 2540 0064 30000000 		.4byte	.LFE12
- 2541 0068 00000000 		.4byte	.LFB13
- 2542 006c B0000000 		.4byte	.LFE13
- 2543 0070 00000000 		.4byte	0
- 2544 0074 00000000 		.4byte	0
- 2545              		.section	.debug_line,"",%progbits
- 2546              	.Ldebug_line0:
- 2547 0000 B0020000 		.section	.debug_str,"MS",%progbits,1
- 2547      02006E00 
- 2547      00000201 
- 2547      FB0E0D00 
- 2547      01010101 
- 2548              	.LASF15:
- 2549 0000 72656733 		.ascii	"reg32\000"
- 2549      3200
- 2550              	.LASF29:
- 2551 0006 4932435F 		.ascii	"I2C_MPU6050_I2CMasterWriteByte\000"
- 2551      4D505536 
- 2551      3035305F 
- 2551      4932434D 
- 2551      61737465 
- 2552              	.LASF52:
- 2553 0025 433A5C55 		.ascii	"C:\\Users\\Eric\\Documents\\GitHub\\Corner-Module\\"
- 2553      73657273 
- 2553      5C457269 
- 2553      635C446F 
- 2553      63756D65 
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 64
+ 2452 0050 00000000 		.4byte	.LFB10
+ 2453 0054 14000000 		.4byte	.LFE10-.LFB10
+ 2454 0058 00000000 		.4byte	.LFB11
+ 2455 005c 34000000 		.4byte	.LFE11-.LFB11
+ 2456 0060 00000000 		.4byte	.LFB12
+ 2457 0064 34000000 		.4byte	.LFE12-.LFB12
+ 2458 0068 00000000 		.4byte	.LFB13
+ 2459 006c 44000000 		.4byte	.LFE13-.LFB13
+ 2460 0070 00000000 		.4byte	.LFB14
+ 2461 0074 30000000 		.4byte	.LFE14-.LFB14
+ 2462 0078 00000000 		.4byte	.LFB15
+ 2463 007c 34000000 		.4byte	.LFE15-.LFB15
+ 2464 0080 00000000 		.4byte	0
+ 2465 0084 00000000 		.4byte	0
+ 2466              		.section	.debug_ranges,"",%progbits
+ 2467              	.Ldebug_ranges0:
+ 2468 0000 00000000 		.4byte	.LFB2
+ 2469 0004 1C010000 		.4byte	.LFE2
+ 2470 0008 00000000 		.4byte	.LFB3
+ 2471 000c 2C010000 		.4byte	.LFE3
+ 2472 0010 00000000 		.4byte	.LFB4
+ 2473 0014 10010000 		.4byte	.LFE4
+ 2474 0018 00000000 		.4byte	.LFB5
+ 2475 001c 08010000 		.4byte	.LFE5
+ 2476 0020 00000000 		.4byte	.LFB6
+ 2477 0024 BC000000 		.4byte	.LFE6
+ 2478 0028 00000000 		.4byte	.LFB7
+ 2479 002c CC000000 		.4byte	.LFE7
+ 2480 0030 00000000 		.4byte	.LFB8
+ 2481 0034 A8000000 		.4byte	.LFE8
+ 2482 0038 00000000 		.4byte	.LFB9
+ 2483 003c 14000000 		.4byte	.LFE9
+ 2484 0040 00000000 		.4byte	.LFB10
+ 2485 0044 14000000 		.4byte	.LFE10
+ 2486 0048 00000000 		.4byte	.LFB11
+ 2487 004c 34000000 		.4byte	.LFE11
+ 2488 0050 00000000 		.4byte	.LFB12
+ 2489 0054 34000000 		.4byte	.LFE12
+ 2490 0058 00000000 		.4byte	.LFB13
+ 2491 005c 44000000 		.4byte	.LFE13
+ 2492 0060 00000000 		.4byte	.LFB14
+ 2493 0064 30000000 		.4byte	.LFE14
+ 2494 0068 00000000 		.4byte	.LFB15
+ 2495 006c 34000000 		.4byte	.LFE15
+ 2496 0070 00000000 		.4byte	0
+ 2497 0074 00000000 		.4byte	0
+ 2498              		.section	.debug_line,"",%progbits
+ 2499              	.Ldebug_line0:
+ 2500 0000 B9020000 		.section	.debug_str,"MS",%progbits,1
+ 2500      02008500 
+ 2500      00000201 
+ 2500      FB0E0D00 
+ 2500      01010101 
+ 2501              	.LASF15:
+ 2502 0000 72656733 		.ascii	"reg32\000"
+ 2502      3200
+ 2503              	.LASF29:
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 63
 
 
- 2554 0052 436F726E 		.ascii	"CornerModule\\CornerModule.cydsn\000"
- 2554      65724D6F 
- 2554      64756C65 
- 2554      5C436F72 
- 2554      6E65724D 
- 2555              	.LASF37:
- 2556 0072 4932435F 		.ascii	"I2C_MPU6050_I2CMasterStatus\000"
- 2556      4D505536 
- 2556      3035305F 
- 2556      4932434D 
- 2556      61737465 
- 2557              	.LASF48:
- 2558 008e 4932435F 		.ascii	"I2C_MPU6050_mstrWrBufIndex\000"
+ 2504 0006 4932435F 		.ascii	"I2C_MPU6050_I2CMasterWriteByte\000"
+ 2504      4D505536 
+ 2504      3035305F 
+ 2504      4932434D 
+ 2504      61737465 
+ 2505              	.LASF37:
+ 2506 0025 4932435F 		.ascii	"I2C_MPU6050_I2CMasterStatus\000"
+ 2506      4D505536 
+ 2506      3035305F 
+ 2506      4932434D 
+ 2506      61737465 
+ 2507              	.LASF48:
+ 2508 0041 4932435F 		.ascii	"I2C_MPU6050_mstrWrBufIndex\000"
+ 2508      4D505536 
+ 2508      3035305F 
+ 2508      6D737472 
+ 2508      57724275 
+ 2509              	.LASF28:
+ 2510 005c 4932435F 		.ascii	"I2C_MPU6050_I2CMasterSendStop\000"
+ 2510      4D505536 
+ 2510      3035305F 
+ 2510      4932434D 
+ 2510      61737465 
+ 2511              	.LASF35:
+ 2512 007a 4932435F 		.ascii	"I2C_MPU6050_I2CMasterClearReadBuf\000"
+ 2512      4D505536 
+ 2512      3035305F 
+ 2512      4932434D 
+ 2512      61737465 
+ 2513              	.LASF44:
+ 2514 009c 4932435F 		.ascii	"I2C_MPU6050_mstrRdBufSize\000"
+ 2514      4D505536 
+ 2514      3035305F 
+ 2514      6D737472 
+ 2514      52644275 
+ 2515              	.LASF41:
+ 2516 00b6 4932435F 		.ascii	"I2C_MPU6050_mstrStatus\000"
+ 2516      4D505536 
+ 2516      3035305F 
+ 2516      6D737472 
+ 2516      53746174 
+ 2517              	.LASF3:
+ 2518 00cd 73686F72 		.ascii	"short unsigned int\000"
+ 2518      7420756E 
+ 2518      7369676E 
+ 2518      65642069 
+ 2518      6E7400
+ 2519              	.LASF33:
+ 2520 00e0 4932435F 		.ascii	"I2C_MPU6050_I2CMasterGetReadBufSize\000"
+ 2520      4D505536 
+ 2520      3035305F 
+ 2520      4932434D 
+ 2520      61737465 
+ 2521              	.LASF39:
+ 2522 0104 4932435F 		.ascii	"I2C_MPU6050_I2CMasterClearStatus\000"
+ 2522      4D505536 
+ 2522      3035305F 
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 64
+
+
+ 2522      4932434D 
+ 2522      61737465 
+ 2523              	.LASF13:
+ 2524 0125 646F7562 		.ascii	"double\000"
+ 2524      6C6500
+ 2525              	.LASF38:
+ 2526 012c 73746174 		.ascii	"status\000"
+ 2526      757300
+ 2527              	.LASF26:
+ 2528 0133 72657365 		.ascii	"resetIp\000"
+ 2528      74497000 
+ 2529              	.LASF46:
+ 2530 013b 4932435F 		.ascii	"I2C_MPU6050_mstrWrBufPtr\000"
+ 2530      4D505536 
+ 2530      3035305F 
+ 2530      6D737472 
+ 2530      57724275 
+ 2531              	.LASF34:
+ 2532 0154 4932435F 		.ascii	"I2C_MPU6050_I2CMasterGetWriteBufSize\000"
+ 2532      4D505536 
+ 2532      3035305F 
+ 2532      4932434D 
+ 2532      61737465 
+ 2533              	.LASF12:
+ 2534 0179 666C6F61 		.ascii	"float\000"
+ 2534      7400
+ 2535              	.LASF50:
+ 2536 017f 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
+ 2536      4320342E 
+ 2536      382E3420 
+ 2536      32303134 
+ 2536      30353236 
+ 2537 01b2 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
+ 2537      20726576 
+ 2537      6973696F 
+ 2537      6E203231 
+ 2537      31333538 
+ 2538 01e5 30202D66 		.ascii	"0 -ffunction-sections\000"
+ 2538      66756E63 
+ 2538      74696F6E 
+ 2538      2D736563 
+ 2538      74696F6E 
+ 2539              	.LASF24:
+ 2540 01fb 4932435F 		.ascii	"I2C_MPU6050_I2CMasterSendStart\000"
+ 2540      4D505536 
+ 2540      3035305F 
+ 2540      4932434D 
+ 2540      61737465 
+ 2541              	.LASF53:
+ 2542 021a 4932435F 		.ascii	"I2C_MPU6050_I2CReStartGeneration\000"
+ 2542      4D505536 
+ 2542      3035305F 
+ 2542      49324352 
+ 2542      65537461 
+ 2543              	.LASF45:
+ 2544 023b 4932435F 		.ascii	"I2C_MPU6050_mstrRdBufIndex\000"
+ 2544      4D505536 
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 65
+
+
+ 2544      3035305F 
+ 2544      6D737472 
+ 2544      52644275 
+ 2545              	.LASF5:
+ 2546 0256 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2546      20756E73 
+ 2546      69676E65 
+ 2546      6420696E 
+ 2546      7400
+ 2547              	.LASF9:
+ 2548 0268 75696E74 		.ascii	"uint8\000"
+ 2548      3800
+ 2549              	.LASF47:
+ 2550 026e 4932435F 		.ascii	"I2C_MPU6050_mstrWrBufSize\000"
+ 2550      4D505536 
+ 2550      3035305F 
+ 2550      6D737472 
+ 2550      57724275 
+ 2551              	.LASF32:
+ 2552 0288 61636B4E 		.ascii	"ackNack\000"
+ 2552      61636B00 
+ 2553              	.LASF23:
+ 2554 0290 65727253 		.ascii	"errStatus\000"
+ 2554      74617475 
+ 2554      7300
+ 2555              	.LASF1:
+ 2556 029a 756E7369 		.ascii	"unsigned char\000"
+ 2556      676E6564 
+ 2556      20636861 
+ 2556      7200
+ 2557              	.LASF36:
+ 2558 02a8 4932435F 		.ascii	"I2C_MPU6050_I2CMasterClearWriteBuf\000"
  2558      4D505536 
  2558      3035305F 
- 2558      6D737472 
- 2558      57724275 
- 2559              	.LASF28:
- 2560 00a9 4932435F 		.ascii	"I2C_MPU6050_I2CMasterSendStop\000"
- 2560      4D505536 
- 2560      3035305F 
- 2560      4932434D 
- 2560      61737465 
- 2561              	.LASF35:
- 2562 00c7 4932435F 		.ascii	"I2C_MPU6050_I2CMasterClearReadBuf\000"
- 2562      4D505536 
- 2562      3035305F 
- 2562      4932434D 
- 2562      61737465 
- 2563              	.LASF44:
- 2564 00e9 4932435F 		.ascii	"I2C_MPU6050_mstrRdBufSize\000"
- 2564      4D505536 
- 2564      3035305F 
- 2564      6D737472 
- 2564      52644275 
- 2565              	.LASF41:
- 2566 0103 4932435F 		.ascii	"I2C_MPU6050_mstrStatus\000"
- 2566      4D505536 
- 2566      3035305F 
- 2566      6D737472 
- 2566      53746174 
- 2567              	.LASF3:
- 2568 011a 73686F72 		.ascii	"short unsigned int\000"
- 2568      7420756E 
- 2568      7369676E 
- 2568      65642069 
- 2568      6E7400
- 2569              	.LASF33:
- 2570 012d 4932435F 		.ascii	"I2C_MPU6050_I2CMasterGetReadBufSize\000"
- 2570      4D505536 
- 2570      3035305F 
- 2570      4932434D 
- 2570      61737465 
- 2571              	.LASF39:
- 2572 0151 4932435F 		.ascii	"I2C_MPU6050_I2CMasterClearStatus\000"
- 2572      4D505536 
- 2572      3035305F 
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 65
+ 2558      4932434D 
+ 2558      61737465 
+ 2559              	.LASF52:
+ 2560 02cb 433A5C55 		.ascii	"C:\\Users\\Christina\\Documents\\For_fun\\GitHub\\D"
+ 2560      73657273 
+ 2560      5C436872 
+ 2560      69737469 
+ 2560      6E615C44 
+ 2561 02f8 65707265 		.ascii	"eprecated\\Corner-Module\\CornerModule\\CornerModul"
+ 2561      63617465 
+ 2561      645C436F 
+ 2561      726E6572 
+ 2561      2D4D6F64 
+ 2562 0328 652E6379 		.ascii	"e.cydsn\000"
+ 2562      64736E00 
+ 2563              	.LASF25:
+ 2564 0330 62697452 		.ascii	"bitRnW\000"
+ 2564      6E5700
+ 2565              	.LASF10:
+ 2566 0337 75696E74 		.ascii	"uint16\000"
+ 2566      313600
+ 2567              	.LASF22:
+ 2568 033e 72644461 		.ascii	"rdData\000"
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 66
 
 
- 2572      4932434D 
- 2572      61737465 
- 2573              	.LASF13:
- 2574 0172 646F7562 		.ascii	"double\000"
- 2574      6C6500
- 2575              	.LASF38:
- 2576 0179 73746174 		.ascii	"status\000"
- 2576      757300
- 2577              	.LASF26:
- 2578 0180 72657365 		.ascii	"resetIp\000"
- 2578      74497000 
- 2579              	.LASF46:
- 2580 0188 4932435F 		.ascii	"I2C_MPU6050_mstrWrBufPtr\000"
+ 2568      746100
+ 2569              	.LASF11:
+ 2570 0345 75696E74 		.ascii	"uint32\000"
+ 2570      333200
+ 2571              	.LASF8:
+ 2572 034c 756E7369 		.ascii	"unsigned int\000"
+ 2572      676E6564 
+ 2572      20696E74 
+ 2572      00
+ 2573              	.LASF21:
+ 2574 0359 4932435F 		.ascii	"I2C_MPU6050_I2CMasterReadBuf\000"
+ 2574      4D505536 
+ 2574      3035305F 
+ 2574      4932434D 
+ 2574      61737465 
+ 2575              	.LASF18:
+ 2576 0376 77724461 		.ascii	"wrData\000"
+ 2576      746100
+ 2577              	.LASF7:
+ 2578 037d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2578      206C6F6E 
+ 2578      6720756E 
+ 2578      7369676E 
+ 2578      65642069 
+ 2579              	.LASF27:
+ 2580 0394 4932435F 		.ascii	"I2C_MPU6050_I2CMasterSendRestart\000"
  2580      4D505536 
  2580      3035305F 
- 2580      6D737472 
- 2580      57724275 
- 2581              	.LASF34:
- 2582 01a1 4932435F 		.ascii	"I2C_MPU6050_I2CMasterGetWriteBufSize\000"
+ 2580      4932434D 
+ 2580      61737465 
+ 2581              	.LASF20:
+ 2582 03b5 4932435F 		.ascii	"I2C_MPU6050_I2CMasterWriteBuf\000"
  2582      4D505536 
  2582      3035305F 
  2582      4932434D 
  2582      61737465 
- 2583              	.LASF12:
- 2584 01c6 666C6F61 		.ascii	"float\000"
- 2584      7400
- 2585              	.LASF50:
- 2586 01cc 474E5520 		.ascii	"GNU C 4.8.4 20140526 (release) [ARM/embedded-4_8-br"
- 2586      4320342E 
- 2586      382E3420 
- 2586      32303134 
- 2586      30353236 
- 2587 01ff 616E6368 		.ascii	"anch revision 211358] -mcpu=cortex-m0 -mthumb -g -O"
- 2587      20726576 
- 2587      6973696F 
- 2587      6E203231 
- 2587      31333538 
- 2588 0232 30202D66 		.ascii	"0 -ffunction-sections\000"
- 2588      66756E63 
- 2588      74696F6E 
- 2588      2D736563 
- 2588      74696F6E 
- 2589              	.LASF24:
- 2590 0248 4932435F 		.ascii	"I2C_MPU6050_I2CMasterSendStart\000"
- 2590      4D505536 
- 2590      3035305F 
- 2590      4932434D 
- 2590      61737465 
- 2591              	.LASF53:
- 2592 0267 4932435F 		.ascii	"I2C_MPU6050_I2CReStartGeneration\000"
- 2592      4D505536 
- 2592      3035305F 
- 2592      49324352 
- 2592      65537461 
- 2593              	.LASF45:
- 2594 0288 4932435F 		.ascii	"I2C_MPU6050_mstrRdBufIndex\000"
- 2594      4D505536 
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 66
+ 2583              	.LASF17:
+ 2584 03d3 736C6176 		.ascii	"slaveAddress\000"
+ 2584      65416464 
+ 2584      72657373 
+ 2584      00
+ 2585              	.LASF51:
+ 2586 03e0 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\I2C_MPU6050_I2C_MASTER."
+ 2586      6E657261 
+ 2586      7465645F 
+ 2586      536F7572 
+ 2586      63655C50 
+ 2587 0410 6300     		.ascii	"c\000"
+ 2588              	.LASF16:
+ 2589 0412 73697A65 		.ascii	"sizetype\000"
+ 2589      74797065 
+ 2589      00
+ 2590              	.LASF43:
+ 2591 041b 4932435F 		.ascii	"I2C_MPU6050_mstrRdBufPtr\000"
+ 2591      4D505536 
+ 2591      3035305F 
+ 2591      6D737472 
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccAc1Bi6.s 			page 67
 
 
- 2594      3035305F 
- 2594      6D737472 
- 2594      52644275 
- 2595              	.LASF5:
- 2596 02a3 6C6F6E67 		.ascii	"long unsigned int\000"
- 2596      20756E73 
- 2596      69676E65 
- 2596      6420696E 
- 2596      7400
- 2597              	.LASF9:
- 2598 02b5 75696E74 		.ascii	"uint8\000"
- 2598      3800
- 2599              	.LASF47:
- 2600 02bb 4932435F 		.ascii	"I2C_MPU6050_mstrWrBufSize\000"
- 2600      4D505536 
- 2600      3035305F 
- 2600      6D737472 
- 2600      57724275 
- 2601              	.LASF32:
- 2602 02d5 61636B4E 		.ascii	"ackNack\000"
- 2602      61636B00 
- 2603              	.LASF23:
- 2604 02dd 65727253 		.ascii	"errStatus\000"
- 2604      74617475 
- 2604      7300
- 2605              	.LASF1:
- 2606 02e7 756E7369 		.ascii	"unsigned char\000"
- 2606      676E6564 
- 2606      20636861 
- 2606      7200
- 2607              	.LASF36:
- 2608 02f5 4932435F 		.ascii	"I2C_MPU6050_I2CMasterClearWriteBuf\000"
- 2608      4D505536 
- 2608      3035305F 
- 2608      4932434D 
- 2608      61737465 
- 2609              	.LASF25:
- 2610 0318 62697452 		.ascii	"bitRnW\000"
- 2610      6E5700
- 2611              	.LASF10:
- 2612 031f 75696E74 		.ascii	"uint16\000"
- 2612      313600
- 2613              	.LASF22:
- 2614 0326 72644461 		.ascii	"rdData\000"
- 2614      746100
- 2615              	.LASF11:
- 2616 032d 75696E74 		.ascii	"uint32\000"
- 2616      333200
- 2617              	.LASF8:
- 2618 0334 756E7369 		.ascii	"unsigned int\000"
- 2618      676E6564 
- 2618      20696E74 
- 2618      00
- 2619              	.LASF21:
- 2620 0341 4932435F 		.ascii	"I2C_MPU6050_I2CMasterReadBuf\000"
- 2620      4D505536 
- 2620      3035305F 
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 67
-
-
- 2620      4932434D 
- 2620      61737465 
- 2621              	.LASF18:
- 2622 035e 77724461 		.ascii	"wrData\000"
- 2622      746100
- 2623              	.LASF7:
- 2624 0365 6C6F6E67 		.ascii	"long long unsigned int\000"
- 2624      206C6F6E 
- 2624      6720756E 
- 2624      7369676E 
- 2624      65642069 
- 2625              	.LASF27:
- 2626 037c 4932435F 		.ascii	"I2C_MPU6050_I2CMasterSendRestart\000"
- 2626      4D505536 
- 2626      3035305F 
- 2626      4932434D 
- 2626      61737465 
- 2627              	.LASF20:
- 2628 039d 4932435F 		.ascii	"I2C_MPU6050_I2CMasterWriteBuf\000"
- 2628      4D505536 
- 2628      3035305F 
- 2628      4932434D 
- 2628      61737465 
- 2629              	.LASF17:
- 2630 03bb 736C6176 		.ascii	"slaveAddress\000"
- 2630      65416464 
- 2630      72657373 
- 2630      00
- 2631              	.LASF51:
- 2632 03c8 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\I2C_MPU6050_I2C_MASTER."
- 2632      6E657261 
- 2632      7465645F 
- 2632      536F7572 
- 2632      63655C50 
- 2633 03f8 6300     		.ascii	"c\000"
- 2634              	.LASF16:
- 2635 03fa 73697A65 		.ascii	"sizetype\000"
- 2635      74797065 
- 2635      00
- 2636              	.LASF43:
- 2637 0403 4932435F 		.ascii	"I2C_MPU6050_mstrRdBufPtr\000"
- 2637      4D505536 
- 2637      3035305F 
- 2637      6D737472 
- 2637      52644275 
- 2638              	.LASF6:
- 2639 041c 6C6F6E67 		.ascii	"long long int\000"
- 2639      206C6F6E 
- 2639      6720696E 
- 2639      7400
- 2640              	.LASF40:
- 2641 042a 4932435F 		.ascii	"I2C_MPU6050_state\000"
- 2641      4D505536 
- 2641      3035305F 
- 2641      73746174 
- 2641      6500
- 2642              	.LASF14:
-ARM GAS  C:\Users\Eric\AppData\Local\Temp\cc7zioGn.s 			page 68
-
-
- 2643 043c 63686172 		.ascii	"char\000"
- 2643      00
- 2644              	.LASF42:
- 2645 0441 4932435F 		.ascii	"I2C_MPU6050_mstrControl\000"
- 2645      4D505536 
- 2645      3035305F 
- 2645      6D737472 
- 2645      436F6E74 
- 2646              	.LASF19:
- 2647 0459 6D6F6465 		.ascii	"mode\000"
- 2647      00
- 2648              	.LASF2:
- 2649 045e 73686F72 		.ascii	"short int\000"
- 2649      7420696E 
- 2649      7400
- 2650              	.LASF30:
- 2651 0468 74686542 		.ascii	"theByte\000"
- 2651      79746500 
- 2652              	.LASF31:
- 2653 0470 4932435F 		.ascii	"I2C_MPU6050_I2CMasterReadByte\000"
- 2653      4D505536 
- 2653      3035305F 
- 2653      4932434D 
- 2653      61737465 
- 2654              	.LASF4:
- 2655 048e 6C6F6E67 		.ascii	"long int\000"
- 2655      20696E74 
- 2655      00
- 2656              	.LASF0:
- 2657 0497 7369676E 		.ascii	"signed char\000"
- 2657      65642063 
- 2657      68617200 
- 2658              	.LASF49:
- 2659 04a3 4932435F 		.ascii	"I2C_MPU6050_mstrWrBufIndexTmp\000"
- 2659      4D505536 
- 2659      3035305F 
- 2659      6D737472 
- 2659      57724275 
- 2660              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br
+ 2591      52644275 
+ 2592              	.LASF6:
+ 2593 0434 6C6F6E67 		.ascii	"long long int\000"
+ 2593      206C6F6E 
+ 2593      6720696E 
+ 2593      7400
+ 2594              	.LASF40:
+ 2595 0442 4932435F 		.ascii	"I2C_MPU6050_state\000"
+ 2595      4D505536 
+ 2595      3035305F 
+ 2595      73746174 
+ 2595      6500
+ 2596              	.LASF14:
+ 2597 0454 63686172 		.ascii	"char\000"
+ 2597      00
+ 2598              	.LASF42:
+ 2599 0459 4932435F 		.ascii	"I2C_MPU6050_mstrControl\000"
+ 2599      4D505536 
+ 2599      3035305F 
+ 2599      6D737472 
+ 2599      436F6E74 
+ 2600              	.LASF19:
+ 2601 0471 6D6F6465 		.ascii	"mode\000"
+ 2601      00
+ 2602              	.LASF2:
+ 2603 0476 73686F72 		.ascii	"short int\000"
+ 2603      7420696E 
+ 2603      7400
+ 2604              	.LASF30:
+ 2605 0480 74686542 		.ascii	"theByte\000"
+ 2605      79746500 
+ 2606              	.LASF31:
+ 2607 0488 4932435F 		.ascii	"I2C_MPU6050_I2CMasterReadByte\000"
+ 2607      4D505536 
+ 2607      3035305F 
+ 2607      4932434D 
+ 2607      61737465 
+ 2608              	.LASF4:
+ 2609 04a6 6C6F6E67 		.ascii	"long int\000"
+ 2609      20696E74 
+ 2609      00
+ 2610              	.LASF0:
+ 2611 04af 7369676E 		.ascii	"signed char\000"
+ 2611      65642063 
+ 2611      68617200 
+ 2612              	.LASF49:
+ 2613 04bb 4932435F 		.ascii	"I2C_MPU6050_mstrWrBufIndexTmp\000"
+ 2613      4D505536 
+ 2613      3035305F 
+ 2613      6D737472 
+ 2613      57724275 
+ 2614              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.4 20140526 (release) [ARM/embedded-4_8-br

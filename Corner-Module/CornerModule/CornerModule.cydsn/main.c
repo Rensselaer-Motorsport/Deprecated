@@ -133,6 +133,7 @@ int main()
     {
 	  MPU6050_getMotion6(&sendData.sensorData.ax, &sendData.sensorData.ay, &sendData.sensorData.az, &sendData.sensorData.gx, &sendData.sensorData.gy, &sendData.sensorData.gz);
       UART_1_PutArray(sendData.buffer, sizeof(sendData.buffer));
+      //UART_1_PutString("/n/r");
 	}
 }
 

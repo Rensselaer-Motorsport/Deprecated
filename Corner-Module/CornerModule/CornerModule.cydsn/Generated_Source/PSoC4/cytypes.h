@@ -97,7 +97,7 @@
         #define CY_IP_CPUSSV2           (0u != 0u)
         #define CY_IP_CPUSS             (0u == 0u)
     #else
-        #define CY_IP_CPUSSV2           (0u != 0u)
+        #define CY_IP_CPUSSV2           (1u != 0u)
         #define CY_IP_CPUSS             (!CY_IP_CPUSSV2)
     #endif  /* (CY_PSOC4_4100 || CY_PSOC4_4200) */
 
@@ -106,7 +106,7 @@
         #define CY_IP_FMLT              (0u != 0u)          /* FLASH-Lite */
         #define CY_IP_FM                (!CY_IP_FMLT)       /* Regular FLASH */
     #else
-        #define CY_IP_FMLT              (-1u != 0u)
+        #define CY_IP_FMLT              (1u != 0u)
         #define CY_IP_FM                (!CY_IP_FMLT)
     #endif  /* (CY_PSOC4_4100 || CY_PSOC4_4200) */
 
@@ -114,14 +114,14 @@
     #if (CY_PSOC4_4100 || CY_PSOC4_4200)
         #define CY_IP_INT_NR            (32u)
     #else
-        #define CY_IP_INT_NR            (-1u)
+        #define CY_IP_INT_NR            (32u)
     #endif  /* (CY_PSOC4_4100 || CY_PSOC4_4200) */
 
     /* Number of Flash macros used in the device (0, 1 or 2) */
     #if (CY_PSOC4_4100 || CY_PSOC4_4200)
         #define CY_IP_FLASH_MACROS      (1u)
     #else
-        #define CY_IP_FLASH_MACROS      (-1u)
+        #define CY_IP_FLASH_MACROS      (2u)
     #endif  /* (CY_PSOC4_4100 || CY_PSOC4_4200) */
 
 
@@ -129,7 +129,7 @@
     #if (CY_PSOC4_4100 || CY_PSOC4_4200)
         #define CY_IP_BLESS             (0u != 0u)
     #else
-        #define CY_IP_BLESS             (0u != 0u)
+        #define CY_IP_BLESS             (1u != 0u)
     #endif  /* (CY_PSOC4_4100 || CY_PSOC4_4200) */
 
     /* Watch Crystal Oscillator (WCO) is present (32kHz) */
@@ -138,7 +138,7 @@
     #elif CY_IP_BLESS || defined (CYIPBLOCK_s8swco_VERSION)
         #define CY_IP_WCO               (0u == 0u)
     #elif (CY_IP_SRSSV2)
-        #define CY_IP_WCO               (-1u)
+        #define CY_IP_WCO               (0u)
     #else
         #define CY_IP_WCO               (0u != 0u)
     #endif  /* (CY_PSOC4_4000 || CY_PSOC4_4100 || CY_PSOC4_4200) */

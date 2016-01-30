@@ -23,8 +23,8 @@ GROUP(-lgcc -lc -lnosys)
 
 MEMORY
 {
-  rom (rx) : ORIGIN = 0x0, LENGTH = 32768
-  ram (rwx) : ORIGIN = 0x20000000, LENGTH = 4096
+  rom (rx) : ORIGIN = 0x0, LENGTH = 131072
+  ram (rwx) : ORIGIN = 0x20000000, LENGTH = 16384
 }
 
 

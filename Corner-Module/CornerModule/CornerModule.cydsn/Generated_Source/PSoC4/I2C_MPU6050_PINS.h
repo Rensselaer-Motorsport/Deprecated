@@ -83,23 +83,23 @@
 ****************************************/
 
 #if(I2C_MPU6050_MOSI_SCL_RX_WAKE_PIN)
-    #include "I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake.h"
+    #include "I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake.h"
 #endif /* (I2C_MPU6050_MOSI_SCL_RX_WAKE_PIN) */
 
 #if(I2C_MPU6050_MOSI_SCL_RX_PIN)
-    #include "I2C_MPU6050_spi_mosi_i2c_scl_uart_rx.h"
+    #include "I2C_MPU6050_spi_mosi_i2c_sda_uart_rx.h"
 #endif /* (I2C_MPU6050_MOSI_SCL_RX_PIN) */
 
 #if(I2C_MPU6050_MISO_SDA_TX_PIN)
-    #include "I2C_MPU6050_spi_miso_i2c_sda_uart_tx.h"
+    #include "I2C_MPU6050_spi_miso_i2c_scl_uart_tx.h"
 #endif /* (I2C_MPU6050_MISO_SDA_TX_PIN_PIN) */
 
 #if(I2C_MPU6050_SCLK_PIN)
-    #include "I2C_MPU6050_spi_sclk.h"
+    #include "I2C_MPU6050_spi_sclk_uart_cts.h"
 #endif /* (I2C_MPU6050_SCLK_PIN) */
 
 #if(I2C_MPU6050_SS0_PIN)
-    #include "I2C_MPU6050_spi_ss0.h"
+    #include "I2C_MPU6050_spi_ss0_uart_rts.h"
 #endif /* (I2C_MPU6050_SS1_PIN) */
 
 #if(I2C_MPU6050_SS1_PIN)
@@ -179,52 +179,52 @@
 
 #if(I2C_MPU6050_MOSI_SCL_RX_WAKE_PIN)
     #define I2C_MPU6050_MOSI_SCL_RX_WAKE_HSIOM_REG  \
-                                                (*(reg32 *) I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake__0__HSIOM)
+                                                (*(reg32 *) I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake__0__HSIOM)
     #define I2C_MPU6050_MOSI_SCL_RX_WAKE_HSIOM_PTR  \
-                                                ( (reg32 *) I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake__0__HSIOM)
+                                                ( (reg32 *) I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake__0__HSIOM)
     #define I2C_MPU6050_MOSI_SCL_RX_WAKE_HSIOM_MASK \
-                                                (I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake__0__HSIOM_MASK)
+                                                (I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake__0__HSIOM_MASK)
     #define I2C_MPU6050_MOSI_SCL_RX_WAKE_HSIOM_POS  \
-                                                (I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake__0__HSIOM_SHIFT)
+                                                (I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake__0__HSIOM_SHIFT)
 
     #define I2C_MPU6050_MOSI_SCL_RX_WAKE_INTCFG_REG    (*(reg32 *) \
-                                                              I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake__0__INTCFG)
+                                                              I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake__0__INTCFG)
     #define I2C_MPU6050_MOSI_SCL_RX_WAKE_INTCFG_PTR    ( (reg32 *) \
-                                                              I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake__0__INTCFG)
+                                                              I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake__0__INTCFG)
 
     #define I2C_MPU6050_INTCFG_TYPE_MASK                  (0x03u)
-    #define I2C_MPU6050_MOSI_SCL_RX_WAKE_INTCFG_TYPE_POS  (I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake__SHIFT)
+    #define I2C_MPU6050_MOSI_SCL_RX_WAKE_INTCFG_TYPE_POS  (I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake__SHIFT)
     #define I2C_MPU6050_MOSI_SCL_RX_WAKE_INTCFG_TYPE_MASK ((uint32)                                           \
                                                                     ((uint32) I2C_MPU6050_INTCFG_TYPE_MASK << \
                                                                     I2C_MPU6050_MOSI_SCL_RX_WAKE_INTCFG_TYPE_POS))
 #endif /* (I2C_MPU6050_MOSI_SCL_RX_WAKE_PIN) */
 
 #if(I2C_MPU6050_MOSI_SCL_RX_PIN)
-    #define I2C_MPU6050_MOSI_SCL_RX_HSIOM_REG      (*(reg32 *) I2C_MPU6050_spi_mosi_i2c_scl_uart_rx__0__HSIOM)
-    #define I2C_MPU6050_MOSI_SCL_RX_HSIOM_PTR      ( (reg32 *) I2C_MPU6050_spi_mosi_i2c_scl_uart_rx__0__HSIOM)
-    #define I2C_MPU6050_MOSI_SCL_RX_HSIOM_MASK     (I2C_MPU6050_spi_mosi_i2c_scl_uart_rx__0__HSIOM_MASK)
-    #define I2C_MPU6050_MOSI_SCL_RX_HSIOM_POS      (I2C_MPU6050_spi_mosi_i2c_scl_uart_rx__0__HSIOM_SHIFT)
+    #define I2C_MPU6050_MOSI_SCL_RX_HSIOM_REG      (*(reg32 *) I2C_MPU6050_spi_mosi_i2c_sda_uart_rx__0__HSIOM)
+    #define I2C_MPU6050_MOSI_SCL_RX_HSIOM_PTR      ( (reg32 *) I2C_MPU6050_spi_mosi_i2c_sda_uart_rx__0__HSIOM)
+    #define I2C_MPU6050_MOSI_SCL_RX_HSIOM_MASK     (I2C_MPU6050_spi_mosi_i2c_sda_uart_rx__0__HSIOM_MASK)
+    #define I2C_MPU6050_MOSI_SCL_RX_HSIOM_POS      (I2C_MPU6050_spi_mosi_i2c_sda_uart_rx__0__HSIOM_SHIFT)
 #endif /* (I2C_MPU6050_MOSI_SCL_RX_PIN) */
 
 #if(I2C_MPU6050_MISO_SDA_TX_PIN)
-    #define I2C_MPU6050_MISO_SDA_TX_HSIOM_REG      (*(reg32 *) I2C_MPU6050_spi_miso_i2c_sda_uart_tx__0__HSIOM)
-    #define I2C_MPU6050_MISO_SDA_TX_HSIOM_PTR      ( (reg32 *) I2C_MPU6050_spi_miso_i2c_sda_uart_tx__0__HSIOM)
-    #define I2C_MPU6050_MISO_SDA_TX_HSIOM_MASK     (I2C_MPU6050_spi_miso_i2c_sda_uart_tx__0__HSIOM_MASK)
-    #define I2C_MPU6050_MISO_SDA_TX_HSIOM_POS      (I2C_MPU6050_spi_miso_i2c_sda_uart_tx__0__HSIOM_SHIFT)
+    #define I2C_MPU6050_MISO_SDA_TX_HSIOM_REG      (*(reg32 *) I2C_MPU6050_spi_miso_i2c_scl_uart_tx__0__HSIOM)
+    #define I2C_MPU6050_MISO_SDA_TX_HSIOM_PTR      ( (reg32 *) I2C_MPU6050_spi_miso_i2c_scl_uart_tx__0__HSIOM)
+    #define I2C_MPU6050_MISO_SDA_TX_HSIOM_MASK     (I2C_MPU6050_spi_miso_i2c_scl_uart_tx__0__HSIOM_MASK)
+    #define I2C_MPU6050_MISO_SDA_TX_HSIOM_POS      (I2C_MPU6050_spi_miso_i2c_scl_uart_tx__0__HSIOM_SHIFT)
 #endif /* (I2C_MPU6050_MISO_SDA_TX_PIN_PIN) */
 
 #if(I2C_MPU6050_SCLK_PIN)
-    #define I2C_MPU6050_SCLK_HSIOM_REG     (*(reg32 *) I2C_MPU6050_spi_sclk__0__HSIOM)
-    #define I2C_MPU6050_SCLK_HSIOM_PTR     ( (reg32 *) I2C_MPU6050_spi_sclk__0__HSIOM)
-    #define I2C_MPU6050_SCLK_HSIOM_MASK    (I2C_MPU6050_spi_sclk__0__HSIOM_MASK)
-    #define I2C_MPU6050_SCLK_HSIOM_POS     (I2C_MPU6050_spi_sclk__0__HSIOM_SHIFT)
+    #define I2C_MPU6050_SCLK_HSIOM_REG     (*(reg32 *) I2C_MPU6050_spi_sclk_uart_cts__0__HSIOM)
+    #define I2C_MPU6050_SCLK_HSIOM_PTR     ( (reg32 *) I2C_MPU6050_spi_sclk_uart_cts__0__HSIOM)
+    #define I2C_MPU6050_SCLK_HSIOM_MASK    (I2C_MPU6050_spi_sclk_uart_cts__0__HSIOM_MASK)
+    #define I2C_MPU6050_SCLK_HSIOM_POS     (I2C_MPU6050_spi_sclk_uart_cts__0__HSIOM_SHIFT)
 #endif /* (I2C_MPU6050_SCLK_PIN) */
 
 #if(I2C_MPU6050_SS0_PIN)
-    #define I2C_MPU6050_SS0_HSIOM_REG      (*(reg32 *) I2C_MPU6050_spi_ss0__0__HSIOM)
-    #define I2C_MPU6050_SS0_HSIOM_PTR      ( (reg32 *) I2C_MPU6050_spi_ss0__0__HSIOM)
-    #define I2C_MPU6050_SS0_HSIOM_MASK     (I2C_MPU6050_spi_ss0__0__HSIOM_MASK)
-    #define I2C_MPU6050_SS0_HSIOM_POS      (I2C_MPU6050_spi_ss0__0__HSIOM_SHIFT)
+    #define I2C_MPU6050_SS0_HSIOM_REG      (*(reg32 *) I2C_MPU6050_spi_ss0_uart_rts__0__HSIOM)
+    #define I2C_MPU6050_SS0_HSIOM_PTR      ( (reg32 *) I2C_MPU6050_spi_ss0_uart_rts__0__HSIOM)
+    #define I2C_MPU6050_SS0_HSIOM_MASK     (I2C_MPU6050_spi_ss0_uart_rts__0__HSIOM_MASK)
+    #define I2C_MPU6050_SS0_HSIOM_POS      (I2C_MPU6050_spi_ss0_uart_rts__0__HSIOM_SHIFT)
 #endif /* (I2C_MPU6050_SS1_PIN) */
 
 #if(I2C_MPU6050_SS1_PIN)
@@ -348,7 +348,7 @@
 
 #elif(I2C_MPU6050_MOSI_SCL_RX_PIN)
     #define I2C_MPU6050_SET_I2C_SCL_DR(val) \
-                            I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_Write(val)
+                            I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_Write(val)
 
 
     #define I2C_MPU6050_SET_I2C_SCL_HSIOM_SEL(sel) \
@@ -357,7 +357,7 @@
                                                            I2C_MPU6050_MOSI_SCL_RX_HSIOM_POS,  \
                                                            (sel))
 
-    #define I2C_MPU6050_WAIT_SCL_SET_HIGH  (0u == I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_Read())
+    #define I2C_MPU6050_WAIT_SCL_SET_HIGH  (0u == I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_Read())
 
 #else
     #define I2C_MPU6050_SET_I2C_SCL_DR(val) \
@@ -374,7 +374,7 @@
 
 /* Unconfigured SCB: sda signal */
 #elif(I2C_MPU6050_MISO_SDA_TX_PIN)
-    #define I2C_MPU6050_WAIT_SDA_SET_HIGH  (0u == I2C_MPU6050_spi_miso_i2c_sda_uart_tx_Read())
+    #define I2C_MPU6050_WAIT_SDA_SET_HIGH  (0u == I2C_MPU6050_spi_miso_i2c_scl_uart_tx_Read())
 
 #else
     #define I2C_MPU6050_WAIT_SDA_SET_HIGH  (0u)

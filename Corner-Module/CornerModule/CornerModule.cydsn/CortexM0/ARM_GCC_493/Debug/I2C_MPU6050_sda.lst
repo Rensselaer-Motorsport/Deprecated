@@ -1,0 +1,969 @@
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"I2C_MPU6050_sda.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.I2C_MPU6050_sda_Write,"ax",%progbits
+  18              		.align	2
+  19              		.global	I2C_MPU6050_sda_Write
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	I2C_MPU6050_sda_Write, %function
+  23              	I2C_MPU6050_sda_Write:
+  24              	.LFB0:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\I2C_MPU6050_sda.c"
+   1:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * File Name: I2C_MPU6050_sda.c  
+   3:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Version 2.10
+   4:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+   5:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Description:
+   6:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  This file contains API to enable firmware control of a Pins component.
+   7:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+   8:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Note:
+   9:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  10:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** ********************************************************************************
+  11:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  12:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  13:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  14:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * the software package with which this file was provided.
+  15:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *******************************************************************************/
+  16:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+  17:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** #include "cytypes.h"
+  18:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** #include "I2C_MPU6050_sda.h"
+  19:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+  20:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** #define SetP4PinDriveMode(shift, mode)  \
+  21:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     do { \
+  22:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****         I2C_MPU6050_sda_PC =   (I2C_MPU6050_sda_PC & \
+  23:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****                                 (uint32)(~(uint32)(I2C_MPU6050_sda_DRIVE_MODE_IND_MASK << (I2C_MPU6
+  24:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****                                 (uint32)((uint32)(mode) << (I2C_MPU6050_sda_DRIVE_MODE_BITS * (shif
+  25:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     } while (0)
+  26:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+  27:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+  28:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** /*******************************************************************************
+  29:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Function Name: I2C_MPU6050_sda_Write
+  30:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** ********************************************************************************
+  31:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  32:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Summary:
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  Assign a new value to the digital port's data output register.  
+  34:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  35:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Parameters:  
+  36:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  prtValue:  The value to be assigned to the Digital Port. 
+  37:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  38:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Return: 
+  39:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  None 
+  40:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  
+  41:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *******************************************************************************/
+  42:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** void I2C_MPU6050_sda_Write(uint8 value) 
+  43:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** {
+  26              		.loc 1 43 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 84B0     		sub	sp, sp, #16
+  33              		.cfi_def_cfa_offset 24
+  34 0004 00AF     		add	r7, sp, #0
+  35              		.cfi_def_cfa_register 7
+  36 0006 021C     		mov	r2, r0
+  37 0008 FB1D     		add	r3, r7, #7
+  38 000a 1A70     		strb	r2, [r3]
+  44:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     uint8 drVal = (uint8)(I2C_MPU6050_sda_DR & (uint8)(~I2C_MPU6050_sda_MASK));
+  39              		.loc 1 44 0
+  40 000c 0D4B     		ldr	r3, .L2
+  41 000e 1B68     		ldr	r3, [r3]
+  42 0010 DAB2     		uxtb	r2, r3
+  43 0012 0F23     		mov	r3, #15
+  44 0014 FB18     		add	r3, r7, r3
+  45 0016 0121     		mov	r1, #1
+  46 0018 8A43     		bic	r2, r1
+  47 001a 1A70     		strb	r2, [r3]
+  45:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     drVal = (drVal | ((uint8)(value << I2C_MPU6050_sda_SHIFT) & I2C_MPU6050_sda_MASK));
+  48              		.loc 1 45 0
+  49 001c FB1D     		add	r3, r7, #7
+  50 001e 1B78     		ldrb	r3, [r3]
+  51 0020 0122     		mov	r2, #1
+  52 0022 1340     		and	r3, r2
+  53 0024 D9B2     		uxtb	r1, r3
+  54 0026 0F23     		mov	r3, #15
+  55 0028 FB18     		add	r3, r7, r3
+  56 002a 0F22     		mov	r2, #15
+  57 002c BA18     		add	r2, r7, r2
+  58 002e 1278     		ldrb	r2, [r2]
+  59 0030 0A43     		orr	r2, r1
+  60 0032 1A70     		strb	r2, [r3]
+  46:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     I2C_MPU6050_sda_DR = (uint32)drVal;
+  61              		.loc 1 46 0
+  62 0034 034B     		ldr	r3, .L2
+  63 0036 0F22     		mov	r2, #15
+  64 0038 BA18     		add	r2, r7, r2
+  65 003a 1278     		ldrb	r2, [r2]
+  66 003c 1A60     		str	r2, [r3]
+  47:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** }
+  67              		.loc 1 47 0
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 3
+
+
+  68 003e BD46     		mov	sp, r7
+  69 0040 04B0     		add	sp, sp, #16
+  70              		@ sp needed
+  71 0042 80BD     		pop	{r7, pc}
+  72              	.L3:
+  73              		.align	2
+  74              	.L2:
+  75 0044 00000440 		.word	1074003968
+  76              		.cfi_endproc
+  77              	.LFE0:
+  78              		.size	I2C_MPU6050_sda_Write, .-I2C_MPU6050_sda_Write
+  79              		.section	.text.I2C_MPU6050_sda_SetDriveMode,"ax",%progbits
+  80              		.align	2
+  81              		.global	I2C_MPU6050_sda_SetDriveMode
+  82              		.code	16
+  83              		.thumb_func
+  84              		.type	I2C_MPU6050_sda_SetDriveMode, %function
+  85              	I2C_MPU6050_sda_SetDriveMode:
+  86              	.LFB1:
+  48:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+  49:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+  50:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** /*******************************************************************************
+  51:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Function Name: I2C_MPU6050_sda_SetDriveMode
+  52:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** ********************************************************************************
+  53:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  54:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Summary:
+  55:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  Change the drive mode on the pins of the port.
+  56:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * 
+  57:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Parameters:  
+  58:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  mode:  Change the pins to one of the following drive modes.
+  59:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  60:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  I2C_MPU6050_sda_DM_STRONG     Strong Drive 
+  61:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  I2C_MPU6050_sda_DM_OD_HI      Open Drain, Drives High 
+  62:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  I2C_MPU6050_sda_DM_OD_LO      Open Drain, Drives Low 
+  63:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  I2C_MPU6050_sda_DM_RES_UP     Resistive Pull Up 
+  64:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  I2C_MPU6050_sda_DM_RES_DWN    Resistive Pull Down 
+  65:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  I2C_MPU6050_sda_DM_RES_UPDWN  Resistive Pull Up/Down 
+  66:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  I2C_MPU6050_sda_DM_DIG_HIZ    High Impedance Digital 
+  67:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  I2C_MPU6050_sda_DM_ALG_HIZ    High Impedance Analog 
+  68:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  69:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Return: 
+  70:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  None
+  71:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  72:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *******************************************************************************/
+  73:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** void I2C_MPU6050_sda_SetDriveMode(uint8 mode) 
+  74:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** {
+  87              		.loc 1 74 0
+  88              		.cfi_startproc
+  89 0000 80B5     		push	{r7, lr}
+  90              		.cfi_def_cfa_offset 8
+  91              		.cfi_offset 7, -8
+  92              		.cfi_offset 14, -4
+  93 0002 82B0     		sub	sp, sp, #8
+  94              		.cfi_def_cfa_offset 16
+  95 0004 00AF     		add	r7, sp, #0
+  96              		.cfi_def_cfa_register 7
+  97 0006 021C     		mov	r2, r0
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 4
+
+
+  98 0008 FB1D     		add	r3, r7, #7
+  99 000a 1A70     		strb	r2, [r3]
+  75:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 	SetP4PinDriveMode(I2C_MPU6050_sda__0__SHIFT, mode);
+ 100              		.loc 1 75 0
+ 101 000c 064B     		ldr	r3, .L5
+ 102 000e 064A     		ldr	r2, .L5
+ 103 0010 1268     		ldr	r2, [r2]
+ 104 0012 0721     		mov	r1, #7
+ 105 0014 8A43     		bic	r2, r1
+ 106 0016 111C     		mov	r1, r2
+ 107 0018 FA1D     		add	r2, r7, #7
+ 108 001a 1278     		ldrb	r2, [r2]
+ 109 001c 0A43     		orr	r2, r1
+ 110 001e 1A60     		str	r2, [r3]
+  76:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** }
+ 111              		.loc 1 76 0
+ 112 0020 BD46     		mov	sp, r7
+ 113 0022 02B0     		add	sp, sp, #8
+ 114              		@ sp needed
+ 115 0024 80BD     		pop	{r7, pc}
+ 116              	.L6:
+ 117 0026 C046     		.align	2
+ 118              	.L5:
+ 119 0028 08000440 		.word	1074003976
+ 120              		.cfi_endproc
+ 121              	.LFE1:
+ 122              		.size	I2C_MPU6050_sda_SetDriveMode, .-I2C_MPU6050_sda_SetDriveMode
+ 123              		.section	.text.I2C_MPU6050_sda_Read,"ax",%progbits
+ 124              		.align	2
+ 125              		.global	I2C_MPU6050_sda_Read
+ 126              		.code	16
+ 127              		.thumb_func
+ 128              		.type	I2C_MPU6050_sda_Read, %function
+ 129              	I2C_MPU6050_sda_Read:
+ 130              	.LFB2:
+  77:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+  78:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+  79:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** /*******************************************************************************
+  80:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Function Name: I2C_MPU6050_sda_Read
+  81:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** ********************************************************************************
+  82:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  83:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Summary:
+  84:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  Read the current value on the pins of the Digital Port in right justified 
+  85:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  form.
+  86:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  87:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Parameters:  
+  88:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  None 
+  89:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+  90:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Return: 
+  91:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  Returns the current value of the Digital Port as a right justified number
+  92:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  
+  93:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Note:
+  94:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  Macro I2C_MPU6050_sda_ReadPS calls this function. 
+  95:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  
+  96:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *******************************************************************************/
+  97:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** uint8 I2C_MPU6050_sda_Read(void) 
+  98:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** {
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 5
+
+
+ 131              		.loc 1 98 0
+ 132              		.cfi_startproc
+ 133 0000 80B5     		push	{r7, lr}
+ 134              		.cfi_def_cfa_offset 8
+ 135              		.cfi_offset 7, -8
+ 136              		.cfi_offset 14, -4
+ 137 0002 00AF     		add	r7, sp, #0
+ 138              		.cfi_def_cfa_register 7
+  99:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     return (uint8)((I2C_MPU6050_sda_PS & I2C_MPU6050_sda_MASK) >> I2C_MPU6050_sda_SHIFT);
+ 139              		.loc 1 99 0
+ 140 0004 044B     		ldr	r3, .L9
+ 141 0006 1B68     		ldr	r3, [r3]
+ 142 0008 DBB2     		uxtb	r3, r3
+ 143 000a 0122     		mov	r2, #1
+ 144 000c 1340     		and	r3, r2
+ 145 000e DBB2     		uxtb	r3, r3
+ 100:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** }
+ 146              		.loc 1 100 0
+ 147 0010 181C     		mov	r0, r3
+ 148 0012 BD46     		mov	sp, r7
+ 149              		@ sp needed
+ 150 0014 80BD     		pop	{r7, pc}
+ 151              	.L10:
+ 152 0016 C046     		.align	2
+ 153              	.L9:
+ 154 0018 04000440 		.word	1074003972
+ 155              		.cfi_endproc
+ 156              	.LFE2:
+ 157              		.size	I2C_MPU6050_sda_Read, .-I2C_MPU6050_sda_Read
+ 158              		.section	.text.I2C_MPU6050_sda_ReadDataReg,"ax",%progbits
+ 159              		.align	2
+ 160              		.global	I2C_MPU6050_sda_ReadDataReg
+ 161              		.code	16
+ 162              		.thumb_func
+ 163              		.type	I2C_MPU6050_sda_ReadDataReg, %function
+ 164              	I2C_MPU6050_sda_ReadDataReg:
+ 165              	.LFB3:
+ 101:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+ 102:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+ 103:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** /*******************************************************************************
+ 104:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Function Name: I2C_MPU6050_sda_ReadDataReg
+ 105:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** ********************************************************************************
+ 106:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+ 107:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Summary:
+ 108:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  Read the current value assigned to a Digital Port's data output register
+ 109:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+ 110:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Parameters:  
+ 111:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  None 
+ 112:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *
+ 113:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** * Return: 
+ 114:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  Returns the current value assigned to the Digital Port's data output register
+ 115:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *  
+ 116:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** *******************************************************************************/
+ 117:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** uint8 I2C_MPU6050_sda_ReadDataReg(void) 
+ 118:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** {
+ 166              		.loc 1 118 0
+ 167              		.cfi_startproc
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 6
+
+
+ 168 0000 80B5     		push	{r7, lr}
+ 169              		.cfi_def_cfa_offset 8
+ 170              		.cfi_offset 7, -8
+ 171              		.cfi_offset 14, -4
+ 172 0002 00AF     		add	r7, sp, #0
+ 173              		.cfi_def_cfa_register 7
+ 119:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     return (uint8)((I2C_MPU6050_sda_DR & I2C_MPU6050_sda_MASK) >> I2C_MPU6050_sda_SHIFT);
+ 174              		.loc 1 119 0
+ 175 0004 044B     		ldr	r3, .L13
+ 176 0006 1B68     		ldr	r3, [r3]
+ 177 0008 DBB2     		uxtb	r3, r3
+ 178 000a 0122     		mov	r2, #1
+ 179 000c 1340     		and	r3, r2
+ 180 000e DBB2     		uxtb	r3, r3
+ 120:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** }
+ 181              		.loc 1 120 0
+ 182 0010 181C     		mov	r0, r3
+ 183 0012 BD46     		mov	sp, r7
+ 184              		@ sp needed
+ 185 0014 80BD     		pop	{r7, pc}
+ 186              	.L14:
+ 187 0016 C046     		.align	2
+ 188              	.L13:
+ 189 0018 00000440 		.word	1074003968
+ 190              		.cfi_endproc
+ 191              	.LFE3:
+ 192              		.size	I2C_MPU6050_sda_ReadDataReg, .-I2C_MPU6050_sda_ReadDataReg
+ 193              		.section	.text.I2C_MPU6050_sda_ClearInterrupt,"ax",%progbits
+ 194              		.align	2
+ 195              		.global	I2C_MPU6050_sda_ClearInterrupt
+ 196              		.code	16
+ 197              		.thumb_func
+ 198              		.type	I2C_MPU6050_sda_ClearInterrupt, %function
+ 199              	I2C_MPU6050_sda_ClearInterrupt:
+ 200              	.LFB4:
+ 121:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+ 122:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+ 123:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** /* If Interrupts Are Enabled for this Pins component */ 
+ 124:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** #if defined(I2C_MPU6050_sda_INTSTAT) 
+ 125:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 
+ 126:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     /*******************************************************************************
+ 127:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     * Function Name: I2C_MPU6050_sda_ClearInterrupt
+ 128:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     ********************************************************************************
+ 129:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     *
+ 130:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     * Summary:
+ 131:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     *  Clears any active interrupts attached to port and returns the value of the 
+ 132:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     *  interrupt status register.
+ 133:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     *
+ 134:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     * Parameters:  
+ 135:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     *  None 
+ 136:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     *
+ 137:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     * Return: 
+ 138:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     *  Returns the value of the interrupt status register
+ 139:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     *  
+ 140:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     *******************************************************************************/
+ 141:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     uint8 I2C_MPU6050_sda_ClearInterrupt(void) 
+ 142:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     {
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 7
+
+
+ 201              		.loc 1 142 0
+ 202              		.cfi_startproc
+ 203 0000 80B5     		push	{r7, lr}
+ 204              		.cfi_def_cfa_offset 8
+ 205              		.cfi_offset 7, -8
+ 206              		.cfi_offset 14, -4
+ 207 0002 82B0     		sub	sp, sp, #8
+ 208              		.cfi_def_cfa_offset 16
+ 209 0004 00AF     		add	r7, sp, #0
+ 210              		.cfi_def_cfa_register 7
+ 143:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 		uint8 maskedStatus = (uint8)(I2C_MPU6050_sda_INTSTAT & I2C_MPU6050_sda_MASK);
+ 211              		.loc 1 143 0
+ 212 0006 084B     		ldr	r3, .L17
+ 213 0008 1B68     		ldr	r3, [r3]
+ 214 000a DAB2     		uxtb	r2, r3
+ 215 000c FB1D     		add	r3, r7, #7
+ 216 000e 0121     		mov	r1, #1
+ 217 0010 0A40     		and	r2, r1
+ 218 0012 1A70     		strb	r2, [r3]
+ 144:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c **** 		I2C_MPU6050_sda_INTSTAT = maskedStatus;
+ 219              		.loc 1 144 0
+ 220 0014 044B     		ldr	r3, .L17
+ 221 0016 FA1D     		add	r2, r7, #7
+ 222 0018 1278     		ldrb	r2, [r2]
+ 223 001a 1A60     		str	r2, [r3]
+ 145:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****         return maskedStatus >> I2C_MPU6050_sda_SHIFT;
+ 224              		.loc 1 145 0
+ 225 001c FB1D     		add	r3, r7, #7
+ 226 001e 1B78     		ldrb	r3, [r3]
+ 146:.\Generated_Source\PSoC4/I2C_MPU6050_sda.c ****     }
+ 227              		.loc 1 146 0
+ 228 0020 181C     		mov	r0, r3
+ 229 0022 BD46     		mov	sp, r7
+ 230 0024 02B0     		add	sp, sp, #8
+ 231              		@ sp needed
+ 232 0026 80BD     		pop	{r7, pc}
+ 233              	.L18:
+ 234              		.align	2
+ 235              	.L17:
+ 236 0028 10000440 		.word	1074003984
+ 237              		.cfi_endproc
+ 238              	.LFE4:
+ 239              		.size	I2C_MPU6050_sda_ClearInterrupt, .-I2C_MPU6050_sda_ClearInterrupt
+ 240              		.text
+ 241              	.Letext0:
+ 242              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 243              		.section	.debug_info,"",%progbits
+ 244              	.Ldebug_info0:
+ 245 0000 48010000 		.4byte	0x148
+ 246 0004 0400     		.2byte	0x4
+ 247 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 248 000a 04       		.byte	0x4
+ 249 000b 01       		.uleb128 0x1
+ 250 000c DC000000 		.4byte	.LASF24
+ 251 0010 01       		.byte	0x1
+ 252 0011 06020000 		.4byte	.LASF25
+ 253 0015 77000000 		.4byte	.LASF26
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 8
+
+
+ 254 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 255 001d 00000000 		.4byte	0
+ 256 0021 00000000 		.4byte	.Ldebug_line0
+ 257 0025 02       		.uleb128 0x2
+ 258 0026 01       		.byte	0x1
+ 259 0027 06       		.byte	0x6
+ 260 0028 3A020000 		.4byte	.LASF0
+ 261 002c 02       		.uleb128 0x2
+ 262 002d 01       		.byte	0x1
+ 263 002e 08       		.byte	0x8
+ 264 002f 27000000 		.4byte	.LASF1
+ 265 0033 02       		.uleb128 0x2
+ 266 0034 02       		.byte	0x2
+ 267 0035 05       		.byte	0x5
+ 268 0036 F6010000 		.4byte	.LASF2
+ 269 003a 02       		.uleb128 0x2
+ 270 003b 02       		.byte	0x2
+ 271 003c 07       		.byte	0x7
+ 272 003d 5D000000 		.4byte	.LASF3
+ 273 0041 02       		.uleb128 0x2
+ 274 0042 04       		.byte	0x4
+ 275 0043 05       		.byte	0x5
+ 276 0044 31020000 		.4byte	.LASF4
+ 277 0048 02       		.uleb128 0x2
+ 278 0049 04       		.byte	0x4
+ 279 004a 07       		.byte	0x7
+ 280 004b 4B000000 		.4byte	.LASF5
+ 281 004f 02       		.uleb128 0x2
+ 282 0050 08       		.byte	0x8
+ 283 0051 05       		.byte	0x5
+ 284 0052 D6010000 		.4byte	.LASF6
+ 285 0056 02       		.uleb128 0x2
+ 286 0057 08       		.byte	0x8
+ 287 0058 07       		.byte	0x7
+ 288 0059 9D010000 		.4byte	.LASF7
+ 289 005d 03       		.uleb128 0x3
+ 290 005e 04       		.byte	0x4
+ 291 005f 05       		.byte	0x5
+ 292 0060 696E7400 		.ascii	"int\000"
+ 293 0064 02       		.uleb128 0x2
+ 294 0065 04       		.byte	0x4
+ 295 0066 07       		.byte	0x7
+ 296 0067 71010000 		.4byte	.LASF8
+ 297 006b 04       		.uleb128 0x4
+ 298 006c 00020000 		.4byte	.LASF9
+ 299 0070 02       		.byte	0x2
+ 300 0071 A1       		.byte	0xa1
+ 301 0072 2C000000 		.4byte	0x2c
+ 302 0076 04       		.uleb128 0x4
+ 303 0077 6A010000 		.4byte	.LASF10
+ 304 007b 02       		.byte	0x2
+ 305 007c A3       		.byte	0xa3
+ 306 007d 48000000 		.4byte	0x48
+ 307 0081 02       		.uleb128 0x2
+ 308 0082 04       		.byte	0x4
+ 309 0083 04       		.byte	0x4
+ 310 0084 21000000 		.4byte	.LASF11
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 9
+
+
+ 311 0088 02       		.uleb128 0x2
+ 312 0089 08       		.byte	0x8
+ 313 008a 04       		.byte	0x4
+ 314 008b 70000000 		.4byte	.LASF12
+ 315 008f 02       		.uleb128 0x2
+ 316 0090 01       		.byte	0x1
+ 317 0091 08       		.byte	0x8
+ 318 0092 F1010000 		.4byte	.LASF13
+ 319 0096 05       		.uleb128 0x5
+ 320 0097 15000000 		.4byte	.LASF14
+ 321 009b 02       		.byte	0x2
+ 322 009c 4D01     		.2byte	0x14d
+ 323 009e A2000000 		.4byte	0xa2
+ 324 00a2 06       		.uleb128 0x6
+ 325 00a3 76000000 		.4byte	0x76
+ 326 00a7 07       		.uleb128 0x7
+ 327 00a8 35000000 		.4byte	.LASF15
+ 328 00ac 01       		.byte	0x1
+ 329 00ad 2A       		.byte	0x2a
+ 330 00ae 00000000 		.4byte	.LFB0
+ 331 00b2 48000000 		.4byte	.LFE0-.LFB0
+ 332 00b6 01       		.uleb128 0x1
+ 333 00b7 9C       		.byte	0x9c
+ 334 00b8 D9000000 		.4byte	0xd9
+ 335 00bc 08       		.uleb128 0x8
+ 336 00bd 1B000000 		.4byte	.LASF17
+ 337 00c1 01       		.byte	0x1
+ 338 00c2 2A       		.byte	0x2a
+ 339 00c3 6B000000 		.4byte	0x6b
+ 340 00c7 02       		.uleb128 0x2
+ 341 00c8 91       		.byte	0x91
+ 342 00c9 6F       		.sleb128 -17
+ 343 00ca 09       		.uleb128 0x9
+ 344 00cb 62020000 		.4byte	.LASF22
+ 345 00cf 01       		.byte	0x1
+ 346 00d0 2C       		.byte	0x2c
+ 347 00d1 6B000000 		.4byte	0x6b
+ 348 00d5 02       		.uleb128 0x2
+ 349 00d6 91       		.byte	0x91
+ 350 00d7 77       		.sleb128 -9
+ 351 00d8 00       		.byte	0
+ 352 00d9 07       		.uleb128 0x7
+ 353 00da B4010000 		.4byte	.LASF16
+ 354 00de 01       		.byte	0x1
+ 355 00df 49       		.byte	0x49
+ 356 00e0 00000000 		.4byte	.LFB1
+ 357 00e4 2C000000 		.4byte	.LFE1-.LFB1
+ 358 00e8 01       		.uleb128 0x1
+ 359 00e9 9C       		.byte	0x9c
+ 360 00ea FD000000 		.4byte	0xfd
+ 361 00ee 08       		.uleb128 0x8
+ 362 00ef D1010000 		.4byte	.LASF18
+ 363 00f3 01       		.byte	0x1
+ 364 00f4 49       		.byte	0x49
+ 365 00f5 6B000000 		.4byte	0x6b
+ 366 00f9 02       		.uleb128 0x2
+ 367 00fa 91       		.byte	0x91
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 10
+
+
+ 368 00fb 77       		.sleb128 -9
+ 369 00fc 00       		.byte	0
+ 370 00fd 0A       		.uleb128 0xa
+ 371 00fe 00000000 		.4byte	.LASF19
+ 372 0102 01       		.byte	0x1
+ 373 0103 61       		.byte	0x61
+ 374 0104 6B000000 		.4byte	0x6b
+ 375 0108 00000000 		.4byte	.LFB2
+ 376 010c 1C000000 		.4byte	.LFE2-.LFB2
+ 377 0110 01       		.uleb128 0x1
+ 378 0111 9C       		.byte	0x9c
+ 379 0112 0A       		.uleb128 0xa
+ 380 0113 46020000 		.4byte	.LASF20
+ 381 0117 01       		.byte	0x1
+ 382 0118 75       		.byte	0x75
+ 383 0119 6B000000 		.4byte	0x6b
+ 384 011d 00000000 		.4byte	.LFB3
+ 385 0121 1C000000 		.4byte	.LFE3-.LFB3
+ 386 0125 01       		.uleb128 0x1
+ 387 0126 9C       		.byte	0x9c
+ 388 0127 0B       		.uleb128 0xb
+ 389 0128 7E010000 		.4byte	.LASF21
+ 390 012c 01       		.byte	0x1
+ 391 012d 8D       		.byte	0x8d
+ 392 012e 6B000000 		.4byte	0x6b
+ 393 0132 00000000 		.4byte	.LFB4
+ 394 0136 2C000000 		.4byte	.LFE4-.LFB4
+ 395 013a 01       		.uleb128 0x1
+ 396 013b 9C       		.byte	0x9c
+ 397 013c 09       		.uleb128 0x9
+ 398 013d E4010000 		.4byte	.LASF23
+ 399 0141 01       		.byte	0x1
+ 400 0142 8F       		.byte	0x8f
+ 401 0143 6B000000 		.4byte	0x6b
+ 402 0147 02       		.uleb128 0x2
+ 403 0148 91       		.byte	0x91
+ 404 0149 77       		.sleb128 -9
+ 405 014a 00       		.byte	0
+ 406 014b 00       		.byte	0
+ 407              		.section	.debug_abbrev,"",%progbits
+ 408              	.Ldebug_abbrev0:
+ 409 0000 01       		.uleb128 0x1
+ 410 0001 11       		.uleb128 0x11
+ 411 0002 01       		.byte	0x1
+ 412 0003 25       		.uleb128 0x25
+ 413 0004 0E       		.uleb128 0xe
+ 414 0005 13       		.uleb128 0x13
+ 415 0006 0B       		.uleb128 0xb
+ 416 0007 03       		.uleb128 0x3
+ 417 0008 0E       		.uleb128 0xe
+ 418 0009 1B       		.uleb128 0x1b
+ 419 000a 0E       		.uleb128 0xe
+ 420 000b 55       		.uleb128 0x55
+ 421 000c 17       		.uleb128 0x17
+ 422 000d 11       		.uleb128 0x11
+ 423 000e 01       		.uleb128 0x1
+ 424 000f 10       		.uleb128 0x10
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 11
+
+
+ 425 0010 17       		.uleb128 0x17
+ 426 0011 00       		.byte	0
+ 427 0012 00       		.byte	0
+ 428 0013 02       		.uleb128 0x2
+ 429 0014 24       		.uleb128 0x24
+ 430 0015 00       		.byte	0
+ 431 0016 0B       		.uleb128 0xb
+ 432 0017 0B       		.uleb128 0xb
+ 433 0018 3E       		.uleb128 0x3e
+ 434 0019 0B       		.uleb128 0xb
+ 435 001a 03       		.uleb128 0x3
+ 436 001b 0E       		.uleb128 0xe
+ 437 001c 00       		.byte	0
+ 438 001d 00       		.byte	0
+ 439 001e 03       		.uleb128 0x3
+ 440 001f 24       		.uleb128 0x24
+ 441 0020 00       		.byte	0
+ 442 0021 0B       		.uleb128 0xb
+ 443 0022 0B       		.uleb128 0xb
+ 444 0023 3E       		.uleb128 0x3e
+ 445 0024 0B       		.uleb128 0xb
+ 446 0025 03       		.uleb128 0x3
+ 447 0026 08       		.uleb128 0x8
+ 448 0027 00       		.byte	0
+ 449 0028 00       		.byte	0
+ 450 0029 04       		.uleb128 0x4
+ 451 002a 16       		.uleb128 0x16
+ 452 002b 00       		.byte	0
+ 453 002c 03       		.uleb128 0x3
+ 454 002d 0E       		.uleb128 0xe
+ 455 002e 3A       		.uleb128 0x3a
+ 456 002f 0B       		.uleb128 0xb
+ 457 0030 3B       		.uleb128 0x3b
+ 458 0031 0B       		.uleb128 0xb
+ 459 0032 49       		.uleb128 0x49
+ 460 0033 13       		.uleb128 0x13
+ 461 0034 00       		.byte	0
+ 462 0035 00       		.byte	0
+ 463 0036 05       		.uleb128 0x5
+ 464 0037 16       		.uleb128 0x16
+ 465 0038 00       		.byte	0
+ 466 0039 03       		.uleb128 0x3
+ 467 003a 0E       		.uleb128 0xe
+ 468 003b 3A       		.uleb128 0x3a
+ 469 003c 0B       		.uleb128 0xb
+ 470 003d 3B       		.uleb128 0x3b
+ 471 003e 05       		.uleb128 0x5
+ 472 003f 49       		.uleb128 0x49
+ 473 0040 13       		.uleb128 0x13
+ 474 0041 00       		.byte	0
+ 475 0042 00       		.byte	0
+ 476 0043 06       		.uleb128 0x6
+ 477 0044 35       		.uleb128 0x35
+ 478 0045 00       		.byte	0
+ 479 0046 49       		.uleb128 0x49
+ 480 0047 13       		.uleb128 0x13
+ 481 0048 00       		.byte	0
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 12
+
+
+ 482 0049 00       		.byte	0
+ 483 004a 07       		.uleb128 0x7
+ 484 004b 2E       		.uleb128 0x2e
+ 485 004c 01       		.byte	0x1
+ 486 004d 3F       		.uleb128 0x3f
+ 487 004e 19       		.uleb128 0x19
+ 488 004f 03       		.uleb128 0x3
+ 489 0050 0E       		.uleb128 0xe
+ 490 0051 3A       		.uleb128 0x3a
+ 491 0052 0B       		.uleb128 0xb
+ 492 0053 3B       		.uleb128 0x3b
+ 493 0054 0B       		.uleb128 0xb
+ 494 0055 27       		.uleb128 0x27
+ 495 0056 19       		.uleb128 0x19
+ 496 0057 11       		.uleb128 0x11
+ 497 0058 01       		.uleb128 0x1
+ 498 0059 12       		.uleb128 0x12
+ 499 005a 06       		.uleb128 0x6
+ 500 005b 40       		.uleb128 0x40
+ 501 005c 18       		.uleb128 0x18
+ 502 005d 9742     		.uleb128 0x2117
+ 503 005f 19       		.uleb128 0x19
+ 504 0060 01       		.uleb128 0x1
+ 505 0061 13       		.uleb128 0x13
+ 506 0062 00       		.byte	0
+ 507 0063 00       		.byte	0
+ 508 0064 08       		.uleb128 0x8
+ 509 0065 05       		.uleb128 0x5
+ 510 0066 00       		.byte	0
+ 511 0067 03       		.uleb128 0x3
+ 512 0068 0E       		.uleb128 0xe
+ 513 0069 3A       		.uleb128 0x3a
+ 514 006a 0B       		.uleb128 0xb
+ 515 006b 3B       		.uleb128 0x3b
+ 516 006c 0B       		.uleb128 0xb
+ 517 006d 49       		.uleb128 0x49
+ 518 006e 13       		.uleb128 0x13
+ 519 006f 02       		.uleb128 0x2
+ 520 0070 18       		.uleb128 0x18
+ 521 0071 00       		.byte	0
+ 522 0072 00       		.byte	0
+ 523 0073 09       		.uleb128 0x9
+ 524 0074 34       		.uleb128 0x34
+ 525 0075 00       		.byte	0
+ 526 0076 03       		.uleb128 0x3
+ 527 0077 0E       		.uleb128 0xe
+ 528 0078 3A       		.uleb128 0x3a
+ 529 0079 0B       		.uleb128 0xb
+ 530 007a 3B       		.uleb128 0x3b
+ 531 007b 0B       		.uleb128 0xb
+ 532 007c 49       		.uleb128 0x49
+ 533 007d 13       		.uleb128 0x13
+ 534 007e 02       		.uleb128 0x2
+ 535 007f 18       		.uleb128 0x18
+ 536 0080 00       		.byte	0
+ 537 0081 00       		.byte	0
+ 538 0082 0A       		.uleb128 0xa
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 13
+
+
+ 539 0083 2E       		.uleb128 0x2e
+ 540 0084 00       		.byte	0
+ 541 0085 3F       		.uleb128 0x3f
+ 542 0086 19       		.uleb128 0x19
+ 543 0087 03       		.uleb128 0x3
+ 544 0088 0E       		.uleb128 0xe
+ 545 0089 3A       		.uleb128 0x3a
+ 546 008a 0B       		.uleb128 0xb
+ 547 008b 3B       		.uleb128 0x3b
+ 548 008c 0B       		.uleb128 0xb
+ 549 008d 27       		.uleb128 0x27
+ 550 008e 19       		.uleb128 0x19
+ 551 008f 49       		.uleb128 0x49
+ 552 0090 13       		.uleb128 0x13
+ 553 0091 11       		.uleb128 0x11
+ 554 0092 01       		.uleb128 0x1
+ 555 0093 12       		.uleb128 0x12
+ 556 0094 06       		.uleb128 0x6
+ 557 0095 40       		.uleb128 0x40
+ 558 0096 18       		.uleb128 0x18
+ 559 0097 9742     		.uleb128 0x2117
+ 560 0099 19       		.uleb128 0x19
+ 561 009a 00       		.byte	0
+ 562 009b 00       		.byte	0
+ 563 009c 0B       		.uleb128 0xb
+ 564 009d 2E       		.uleb128 0x2e
+ 565 009e 01       		.byte	0x1
+ 566 009f 3F       		.uleb128 0x3f
+ 567 00a0 19       		.uleb128 0x19
+ 568 00a1 03       		.uleb128 0x3
+ 569 00a2 0E       		.uleb128 0xe
+ 570 00a3 3A       		.uleb128 0x3a
+ 571 00a4 0B       		.uleb128 0xb
+ 572 00a5 3B       		.uleb128 0x3b
+ 573 00a6 0B       		.uleb128 0xb
+ 574 00a7 27       		.uleb128 0x27
+ 575 00a8 19       		.uleb128 0x19
+ 576 00a9 49       		.uleb128 0x49
+ 577 00aa 13       		.uleb128 0x13
+ 578 00ab 11       		.uleb128 0x11
+ 579 00ac 01       		.uleb128 0x1
+ 580 00ad 12       		.uleb128 0x12
+ 581 00ae 06       		.uleb128 0x6
+ 582 00af 40       		.uleb128 0x40
+ 583 00b0 18       		.uleb128 0x18
+ 584 00b1 9742     		.uleb128 0x2117
+ 585 00b3 19       		.uleb128 0x19
+ 586 00b4 00       		.byte	0
+ 587 00b5 00       		.byte	0
+ 588 00b6 00       		.byte	0
+ 589              		.section	.debug_aranges,"",%progbits
+ 590 0000 3C000000 		.4byte	0x3c
+ 591 0004 0200     		.2byte	0x2
+ 592 0006 00000000 		.4byte	.Ldebug_info0
+ 593 000a 04       		.byte	0x4
+ 594 000b 00       		.byte	0
+ 595 000c 0000     		.2byte	0
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 14
+
+
+ 596 000e 0000     		.2byte	0
+ 597 0010 00000000 		.4byte	.LFB0
+ 598 0014 48000000 		.4byte	.LFE0-.LFB0
+ 599 0018 00000000 		.4byte	.LFB1
+ 600 001c 2C000000 		.4byte	.LFE1-.LFB1
+ 601 0020 00000000 		.4byte	.LFB2
+ 602 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 603 0028 00000000 		.4byte	.LFB3
+ 604 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 605 0030 00000000 		.4byte	.LFB4
+ 606 0034 2C000000 		.4byte	.LFE4-.LFB4
+ 607 0038 00000000 		.4byte	0
+ 608 003c 00000000 		.4byte	0
+ 609              		.section	.debug_ranges,"",%progbits
+ 610              	.Ldebug_ranges0:
+ 611 0000 00000000 		.4byte	.LFB0
+ 612 0004 48000000 		.4byte	.LFE0
+ 613 0008 00000000 		.4byte	.LFB1
+ 614 000c 2C000000 		.4byte	.LFE1
+ 615 0010 00000000 		.4byte	.LFB2
+ 616 0014 1C000000 		.4byte	.LFE2
+ 617 0018 00000000 		.4byte	.LFB3
+ 618 001c 1C000000 		.4byte	.LFE3
+ 619 0020 00000000 		.4byte	.LFB4
+ 620 0024 2C000000 		.4byte	.LFE4
+ 621 0028 00000000 		.4byte	0
+ 622 002c 00000000 		.4byte	0
+ 623              		.section	.debug_line,"",%progbits
+ 624              	.Ldebug_line0:
+ 625 0000 B1000000 		.section	.debug_str,"MS",%progbits,1
+ 625      02004E00 
+ 625      00000201 
+ 625      FB0E0D00 
+ 625      01010101 
+ 626              	.LASF19:
+ 627 0000 4932435F 		.ascii	"I2C_MPU6050_sda_Read\000"
+ 627      4D505536 
+ 627      3035305F 
+ 627      7364615F 
+ 627      52656164 
+ 628              	.LASF14:
+ 629 0015 72656733 		.ascii	"reg32\000"
+ 629      3200
+ 630              	.LASF17:
+ 631 001b 76616C75 		.ascii	"value\000"
+ 631      6500
+ 632              	.LASF11:
+ 633 0021 666C6F61 		.ascii	"float\000"
+ 633      7400
+ 634              	.LASF1:
+ 635 0027 756E7369 		.ascii	"unsigned char\000"
+ 635      676E6564 
+ 635      20636861 
+ 635      7200
+ 636              	.LASF15:
+ 637 0035 4932435F 		.ascii	"I2C_MPU6050_sda_Write\000"
+ 637      4D505536 
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 15
+
+
+ 637      3035305F 
+ 637      7364615F 
+ 637      57726974 
+ 638              	.LASF5:
+ 639 004b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 639      20756E73 
+ 639      69676E65 
+ 639      6420696E 
+ 639      7400
+ 640              	.LASF3:
+ 641 005d 73686F72 		.ascii	"short unsigned int\000"
+ 641      7420756E 
+ 641      7369676E 
+ 641      65642069 
+ 641      6E7400
+ 642              	.LASF12:
+ 643 0070 646F7562 		.ascii	"double\000"
+ 643      6C6500
+ 644              	.LASF26:
+ 645 0077 433A5C55 		.ascii	"C:\\Users\\Christina\\Documents\\For_fun\\GitHub\\D"
+ 645      73657273 
+ 645      5C436872 
+ 645      69737469 
+ 645      6E615C44 
+ 646 00a4 65707265 		.ascii	"eprecated\\Corner-Module\\CornerModule\\CornerModul"
+ 646      63617465 
+ 646      645C436F 
+ 646      726E6572 
+ 646      2D4D6F64 
+ 647 00d4 652E6379 		.ascii	"e.cydsn\000"
+ 647      64736E00 
+ 648              	.LASF24:
+ 649 00dc 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 649      4320342E 
+ 649      392E3320 
+ 649      32303135 
+ 649      30333033 
+ 650 010f 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 650      20726576 
+ 650      6973696F 
+ 650      6E203232 
+ 650      31323230 
+ 651 0142 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 651      66756E63 
+ 651      74696F6E 
+ 651      2D736563 
+ 651      74696F6E 
+ 652              	.LASF10:
+ 653 016a 75696E74 		.ascii	"uint32\000"
+ 653      333200
+ 654              	.LASF8:
+ 655 0171 756E7369 		.ascii	"unsigned int\000"
+ 655      676E6564 
+ 655      20696E74 
+ 655      00
+ 656              	.LASF21:
+ 657 017e 4932435F 		.ascii	"I2C_MPU6050_sda_ClearInterrupt\000"
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 16
+
+
+ 657      4D505536 
+ 657      3035305F 
+ 657      7364615F 
+ 657      436C6561 
+ 658              	.LASF7:
+ 659 019d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 659      206C6F6E 
+ 659      6720756E 
+ 659      7369676E 
+ 659      65642069 
+ 660              	.LASF16:
+ 661 01b4 4932435F 		.ascii	"I2C_MPU6050_sda_SetDriveMode\000"
+ 661      4D505536 
+ 661      3035305F 
+ 661      7364615F 
+ 661      53657444 
+ 662              	.LASF18:
+ 663 01d1 6D6F6465 		.ascii	"mode\000"
+ 663      00
+ 664              	.LASF6:
+ 665 01d6 6C6F6E67 		.ascii	"long long int\000"
+ 665      206C6F6E 
+ 665      6720696E 
+ 665      7400
+ 666              	.LASF23:
+ 667 01e4 6D61736B 		.ascii	"maskedStatus\000"
+ 667      65645374 
+ 667      61747573 
+ 667      00
+ 668              	.LASF13:
+ 669 01f1 63686172 		.ascii	"char\000"
+ 669      00
+ 670              	.LASF2:
+ 671 01f6 73686F72 		.ascii	"short int\000"
+ 671      7420696E 
+ 671      7400
+ 672              	.LASF9:
+ 673 0200 75696E74 		.ascii	"uint8\000"
+ 673      3800
+ 674              	.LASF25:
+ 675 0206 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\I2C_MPU6050_sda.c\000"
+ 675      6E657261 
+ 675      7465645F 
+ 675      536F7572 
+ 675      63655C50 
+ 676              	.LASF4:
+ 677 0231 6C6F6E67 		.ascii	"long int\000"
+ 677      20696E74 
+ 677      00
+ 678              	.LASF0:
+ 679 023a 7369676E 		.ascii	"signed char\000"
+ 679      65642063 
+ 679      68617200 
+ 680              	.LASF20:
+ 681 0246 4932435F 		.ascii	"I2C_MPU6050_sda_ReadDataReg\000"
+ 681      4D505536 
+ 681      3035305F 
+ARM GAS  C:\Users\CHRIST~1\AppData\Local\Temp\ccp9ZpVC.s 			page 17
+
+
+ 681      7364615F 
+ 681      52656164 
+ 682              	.LASF22:
+ 683 0262 64725661 		.ascii	"drVal\000"
+ 683      6C00
+ 684              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

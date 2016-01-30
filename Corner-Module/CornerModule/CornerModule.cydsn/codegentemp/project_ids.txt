@@ -1,7 +1,5 @@
-C:\Users\Eric\Documents\GitHub\Corner-Module\CornerModule\CornerModule.cydsn\CornerModule.cyprj|cd3693c4-5c53-4f92-aea1-e5eec28ad78c
-E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|02d280d8-9a6f-4a16-b398-5f53848c5c47
-E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|d041be0c-da61-4087-908b-477675802425
-E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|da7ca79f-fdc4-40c6-ad86-f1cfb6bd4b00
-E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|04aaef07-f692-4e08-ab28-b9bd775b4b62
-E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\dev\psoc4\PSoC4AnalogDevice\psoc4arch.cydsn\psoc4arch.cyprj|5e473d9d-f930-4cd0-a978-c706030970d1
-E:\Program Files (x86)\Cypress\PSoC Creator\3.1\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|ed4274db-918d-4c81-b4a8-a98587086ba2
+C:\Users\Christina\Documents\For_fun\GitHub\Deprecated\Corner-Module\CornerModule\CornerModule.cydsn\CornerModule.cyprj|210dfcda-25ad-4916-a562-36122449c718
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|1181ec55-96ce-4e0a-935f-2f04c99fcff0
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|952e1c78-4277-4548-9dfb-73fad52b6296
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|8fd7358c-192b-467b-b831-47fc15d61582
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|fa1162b2-9557-4139-9853-0da52a11d068

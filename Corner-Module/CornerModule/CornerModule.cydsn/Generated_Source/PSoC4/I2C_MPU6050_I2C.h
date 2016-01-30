@@ -34,11 +34,11 @@
 #define I2C_MPU6050_I2C_ACCEPT_ADDRESS         (0u)
 #define I2C_MPU6050_I2C_WAKE_ENABLE            (0u)
 #define I2C_MPU6050_I2C_DATA_RATE              (100u)
-#define I2C_MPU6050_I2C_DATA_RATE_ACTUAL       (100u)
-#define I2C_MPU6050_I2C_CLOCK_FROM_TERM        (0u)
+#define I2C_MPU6050_I2C_DATA_RATE_ACTUAL       (750u)
+#define I2C_MPU6050_I2C_CLOCK_FROM_TERM        (1u)
 #define I2C_MPU6050_I2C_EXTERN_INTR_HANDLER    (0u)
 #define I2C_MPU6050_I2C_BYTE_MODE_ENABLE       (0u)
-#define I2C_MPU6050_I2C_MANUAL_OVS_CONTROL     (0u)
+#define I2C_MPU6050_I2C_MANUAL_OVS_CONTROL     (1u)
 
 
 /***************************************

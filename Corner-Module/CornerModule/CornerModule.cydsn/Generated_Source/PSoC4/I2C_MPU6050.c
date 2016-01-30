@@ -576,11 +576,11 @@ static void I2C_MPU6050_ScbModeStop(void)
                                        I2C_MPU6050_MOSI_SCL_RX_HSIOM_POS,
                                        hsiomSel[I2C_MPU6050_MOSI_SCL_RX_PIN_INDEX]);
 
-        I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_SetDriveMode((uint8) pinsDm[I2C_MPU6050_MOSI_SCL_RX_PIN_INDEX]);
+        I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_SetDriveMode((uint8) pinsDm[I2C_MPU6050_MOSI_SCL_RX_PIN_INDEX]);
 
     #if (!I2C_MPU6050_CY_SCBIP_V1)
-        I2C_MPU6050_SET_INP_DIS(I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_INP_DIS,
-                                     I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_MASK,
+        I2C_MPU6050_SET_INP_DIS(I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_INP_DIS,
+                                     I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_MASK,
                                      (0u != (pinsInBuf & I2C_MPU6050_MOSI_SCL_RX_PIN_MASK)));
     #endif /* (!I2C_MPU6050_CY_SCBIP_V1) */
     #endif /* (I2C_MPU6050_MOSI_SCL_RX_PIN) */
@@ -591,11 +591,11 @@ static void I2C_MPU6050_ScbModeStop(void)
                                        I2C_MPU6050_MOSI_SCL_RX_WAKE_HSIOM_POS,
                                        hsiomSel[I2C_MPU6050_MOSI_SCL_RX_WAKE_PIN_INDEX]);
 
-        I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake_SetDriveMode((uint8)
+        I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake_SetDriveMode((uint8)
                                                                pinsDm[I2C_MPU6050_MOSI_SCL_RX_WAKE_PIN_INDEX]);
 
-        I2C_MPU6050_SET_INP_DIS(I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake_INP_DIS,
-                                     I2C_MPU6050_spi_mosi_i2c_scl_uart_rx_wake_MASK,
+        I2C_MPU6050_SET_INP_DIS(I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake_INP_DIS,
+                                     I2C_MPU6050_spi_mosi_i2c_sda_uart_rx_wake_MASK,
                                      (0u != (pinsInBuf & I2C_MPU6050_MOSI_SCL_RX_WAKE_PIN_MASK)));
 
          /* Set interrupt on falling edge */
@@ -611,11 +611,11 @@ static void I2C_MPU6050_ScbModeStop(void)
                                        I2C_MPU6050_MISO_SDA_TX_HSIOM_POS,
                                        hsiomSel[I2C_MPU6050_MISO_SDA_TX_PIN_INDEX]);
 
-        I2C_MPU6050_spi_miso_i2c_sda_uart_tx_SetDriveMode((uint8) pinsDm[I2C_MPU6050_MISO_SDA_TX_PIN_INDEX]);
+        I2C_MPU6050_spi_miso_i2c_scl_uart_tx_SetDriveMode((uint8) pinsDm[I2C_MPU6050_MISO_SDA_TX_PIN_INDEX]);
 
     #if (!I2C_MPU6050_CY_SCBIP_V1)
-        I2C_MPU6050_SET_INP_DIS(I2C_MPU6050_spi_miso_i2c_sda_uart_tx_INP_DIS,
-                                     I2C_MPU6050_spi_miso_i2c_sda_uart_tx_MASK,
+        I2C_MPU6050_SET_INP_DIS(I2C_MPU6050_spi_miso_i2c_scl_uart_tx_INP_DIS,
+                                     I2C_MPU6050_spi_miso_i2c_scl_uart_tx_MASK,
                                     (0u != (pinsInBuf & I2C_MPU6050_MISO_SDA_TX_PIN_MASK)));
     #endif /* (!I2C_MPU6050_CY_SCBIP_V1) */
     #endif /* (I2C_MPU6050_MOSI_SCL_RX_PIN) */
@@ -624,10 +624,10 @@ static void I2C_MPU6050_ScbModeStop(void)
         I2C_MPU6050_SET_HSIOM_SEL(I2C_MPU6050_SCLK_HSIOM_REG, I2C_MPU6050_SCLK_HSIOM_MASK,
                                        I2C_MPU6050_SCLK_HSIOM_POS, hsiomSel[I2C_MPU6050_SCLK_PIN_INDEX]);
 
-        I2C_MPU6050_spi_sclk_SetDriveMode((uint8) pinsDm[I2C_MPU6050_SCLK_PIN_INDEX]);
+        I2C_MPU6050_spi_sclk_uart_cts_SetDriveMode((uint8) pinsDm[I2C_MPU6050_SCLK_PIN_INDEX]);
 
-        I2C_MPU6050_SET_INP_DIS(I2C_MPU6050_spi_sclk_INP_DIS,
-                                     I2C_MPU6050_spi_sclk_MASK,
+        I2C_MPU6050_SET_INP_DIS(I2C_MPU6050_spi_sclk_uart_cts_INP_DIS,
+                                     I2C_MPU6050_spi_sclk_uart_cts_MASK,
                                      (0u != (pinsInBuf & I2C_MPU6050_SCLK_PIN_MASK)));
     #endif /* (I2C_MPU6050_SCLK_PIN) */
 
@@ -635,10 +635,10 @@ static void I2C_MPU6050_ScbModeStop(void)
         I2C_MPU6050_SET_HSIOM_SEL(I2C_MPU6050_SS0_HSIOM_REG, I2C_MPU6050_SS0_HSIOM_MASK,
                                        I2C_MPU6050_SS0_HSIOM_POS, hsiomSel[I2C_MPU6050_SS0_PIN_INDEX]);
 
-        I2C_MPU6050_spi_ss0_SetDriveMode((uint8) pinsDm[I2C_MPU6050_SS0_PIN_INDEX]);
+        I2C_MPU6050_spi_ss0_uart_rts_SetDriveMode((uint8) pinsDm[I2C_MPU6050_SS0_PIN_INDEX]);
 
-        I2C_MPU6050_SET_INP_DIS(I2C_MPU6050_spi_ss0_INP_DIS,
-                                     I2C_MPU6050_spi_ss0_MASK,
+        I2C_MPU6050_SET_INP_DIS(I2C_MPU6050_spi_ss0_uart_rts_INP_DIS,
+                                     I2C_MPU6050_spi_ss0_uart_rts_MASK,
                                      (0u != (pinsInBuf & I2C_MPU6050_SS0_PIN_MASK)));
     #endif /* (I2C_MPU6050_SS1_PIN) */
 
